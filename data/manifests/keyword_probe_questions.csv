@@ -1,0 +1,7 @@
+question_id,question,candidate_document_numbers,coverage,verification_note
+KEY01,"1393/QĐ-ĐHCNTT Điều 1 học kỳ hè 12 tín chỉ",1393/QĐ-ĐHCNTT,direct,Identifier and article phrase lookup
+KEY02,"1393/QD-DHCNTT Dieu 1 hoc ky he 12 tin chi",1393/QĐ-ĐHCNTT,direct,Unaccented counterpart of KEY01
+KEY03,"159/QĐ-ĐHCNTT Điều 3 KLTN 15 tuần",159/QĐ-ĐHCNTT,direct,Document and article lookup with numeric fact
+KEY04,"quyet dinh so 159 Dieu 3 KLTN 15 tuan",159/QĐ-ĐHCNTT,direct,Unaccented document-name variant of KEY03
+KEY05,"Điều 14 đăng ký học phần học kỳ hè","790/QĐ-ĐHCNTT;1393/QĐ-ĐHCNTT",multi_source,Article phrase and base/amendment evidence
+KEY06,"quy dinh 956 PET01 PET02 tien quyet",956/QĐ-ĐHCNTT,direct,Document reference and course codes

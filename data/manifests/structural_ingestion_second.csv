@@ -1,0 +1,16 @@
+document_id,run_id,status,outcome,chunk_count,error_code,error_message
+uit_112_2024,7ec29ccb-ed65-4dec-a299-6385ffa3c8bb,failed,failed,0,quality_not_approved,Document is not in the approved retrieval allowlist
+uit_1393_2023,9214a8e3-9bc7-4cd9-9a36-29dfe2b7eea9,ready,unchanged,3,,
+uit_159_2024,bd3fb874-cbfa-447e-9c07-92d3be5df9da,ready,unchanged,24,,
+uit_277_2025,20c0c9d2-e85e-4e56-a452-74524073d21e,failed,failed,0,quality_not_approved,Document is not in the approved retrieval allowlist
+uit_308_2025,47541718-6000-4923-bf24-28b6ea19c236,failed,failed,0,quality_not_approved,Document is not in the approved retrieval allowlist
+uit_412_2025,36d57bd3-c732-4799-9866-23ffddf99081,failed,failed,0,quality_not_approved,Document is not in the approved retrieval allowlist
+uit_43_2020,204961d0-55c4-4b5c-a6f7-7206da075bed,failed,failed,0,quality_not_approved,Document is not in the approved retrieval allowlist
+uit_513_2026,01509f11-d836-4aac-be7d-0c64334bb55e,failed,failed,0,quality_not_approved,Document is not in the approved retrieval allowlist
+uit_697_2024,ac00b840-ff9b-4c23-bc94-10b147651fb6,failed,failed,0,quality_not_approved,Document is not in the approved retrieval allowlist
+uit_790_2022,c4c94200-7801-408f-9716-a072c20050b5,ready,unchanged,45,,
+uit_803_2025,1c4691d7-e234-4e2f-84b0-0cbd0e05b7f1,failed,failed,0,quality_not_approved,Document is not in the approved retrieval allowlist
+uit_832_2024,afcfb8e8-a7e3-4bcb-9c26-77d88c211988,failed,failed,0,quality_not_approved,Document is not in the approved retrieval allowlist
+uit_851_2024,35e9607d-3716-4486-8a69-39f86923303d,failed,failed,0,quality_not_approved,Document is not in the approved retrieval allowlist
+uit_894_2026,2f5c5bbb-6232-4d39-bb75-03f92006e6df,failed,failed,0,quality_not_approved,Document is not in the approved retrieval allowlist
+uit_956_2026,80c3ae31-bddb-4739-9028-a99587740680,ready,unchanged,25,,

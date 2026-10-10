@@ -1,0 +1,11 @@
+question_id,http_status,answer_status,failure_reason,latency_ms,input_tokens,source_count,top_source_document,top_source_pdf_pages,document_hit_in_context,generation_called
+Q01,200,insufficient_evidence,missing_amendment,42587,700,2,790/QĐ-ĐHCNTT,13-14,True,True
+Q02,200,insufficient_evidence,missing_amendment,22447,971,2,790/QĐ-ĐHCNTT,18-19,True,True
+Q03,200,insufficient_evidence,invalid_schema,9938,676,2,790/QĐ-ĐHCNTT,14-15,True,True
+Q04,200,insufficient_evidence,missing_amendment,12472,699,2,790/QĐ-ĐHCNTT,15-16,True,True
+Q05,200,insufficient_evidence,invalid_json,51027,961,2,790/QĐ-ĐHCNTT,24-25,True,True
+Q06,200,insufficient_evidence,missing_amendment,5339,809,2,790/QĐ-ĐHCNTT,24-25,True,True
+Q07,200,insufficient_evidence,missing_amendment,15479,787,2,790/QĐ-ĐHCNTT,15-16,True,True
+Q08,200,insufficient_evidence,missing_amendment,18867,677,2,790/QĐ-ĐHCNTT,15-16,True,True
+Q09,200,insufficient_evidence,missing_amendment,11432,685,2,790/QĐ-ĐHCNTT,11-12,True,True
+Q10,200,insufficient_evidence,missing_amendment,19180,781,2,790/QĐ-ĐHCNTT,16-17,True,True

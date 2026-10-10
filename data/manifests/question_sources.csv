@@ -1,0 +1,11 @@
+question_id,question,candidate_document_numbers,coverage,verification_note
+Q01,"Sinh viên được đăng ký học lại một học phần trong những trường hợp nào?","790/QĐ-ĐHCNTT;1393/QĐ-ĐHCNTT",direct,"Điều 14 của 790; phải áp dụng phần cập nhật 1393 nếu liên quan"
+Q02,"Nếu đã đạt một học phần, sinh viên có được học cải thiện điểm không và kết quả nào được dùng để tính điểm?","790/QĐ-ĐHCNTT;1393/QĐ-ĐHCNTT",direct,"Điều 14 và Điều 24 của 790; kiểm tra amendment trước khi trả lời"
+Q03,"Sinh viên bị cảnh báo học tập khi vi phạm những điều kiện nào?","790/QĐ-ĐHCNTT;832/QĐ-ĐHCNTT;803/QĐ-ĐHCNTT",direct,"Điều 16 của 790 chứa điều kiện; 832 và 803 bổ sung quy trình"
+Q04,"Sau bao nhiêu lần hoặc học kỳ bị cảnh báo thì sinh viên có thể bị buộc thôi học?","790/QĐ-ĐHCNTT;832/QĐ-ĐHCNTT;803/QĐ-ĐHCNTT",direct,"Điều 16 của 790; đối chiếu quy trình mới hơn trước khi kết luận"
+Q05,"Điều kiện về số tín chỉ, điểm trung bình và chứng chỉ để được xét tốt nghiệp là gì?","790/QĐ-ĐHCNTT;956/QĐ-ĐHCNTT;894/QĐ-ĐHCNTT",multi_source,"Điều 33 của 790 và chuẩn ngoại ngữ 956 chỉ áp dụng từ khóa 2026; cần hỏi khóa/chương trình"
+Q06,"Sinh viên còn nợ học phí có được xét tốt nghiệp không?","790/QĐ-ĐHCNTT",direct,"Điều 33 của 790 yêu cầu hoàn thành nghĩa vụ học phí"
+Q07,"Trường hợp nào sinh viên được xin nghỉ học tạm thời và thời gian nghỉ có tính vào thời gian đào tạo tối đa không?","790/QĐ-ĐHCNTT",direct,"Điều 17 của 790"
+Q08,"Sinh viên muốn quay lại học sau thời gian bảo lưu cần thực hiện thủ tục nào?","790/QĐ-ĐHCNTT;803/QĐ-ĐHCNTT",partial,"790 nêu nghĩa vụ hoàn tất thủ tục; chi tiết quy trình cần xác minh trong 803 hoặc nguồn thủ tục"
+Q09,"Quy định học vụ nào áp dụng cho sinh viên hệ chính quy thuộc khóa tuyển cụ thể của tôi?","790/QĐ-ĐHCNTT;1393/QĐ-ĐHCNTT;956/QĐ-ĐHCNTT;112/QĐ-ĐHCNTT",needs_clarification,"Bắt buộc hỏi khóa tuyển/chương trình; 956 chỉ từ khóa 2026"
+Q10,"Nếu hai văn bản quy định khác nhau về cùng một vấn đề, văn bản nào áp dụng cho sinh viên thuộc khóa và chương trình của tôi?","790/QĐ-ĐHCNTT;1393/QĐ-ĐHCNTT;956/QĐ-ĐHCNTT",needs_clarification,"Không tự suy luận thứ bậc/hiệu lực; dùng quan hệ base-amendment và yêu cầu đủ metadata phạm vi"

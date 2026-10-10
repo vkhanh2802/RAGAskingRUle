@@ -1,0 +1,4 @@
+question_id,http_status,answer_status,failure_reason,latency_ms,input_tokens,source_count,top_source_document,top_source_pdf_pages,document_hit_in_context,generation_called,passage_count,retrieval_ms,generation_ms,selection_attempts
+D22,200,answered,,82989,533,1,956/QĐ-ĐHCNTT,4-4,True,True,1,70093.306,12349.824,1
+D23,200,answered,,22565,530,1,956/QĐ-ĐHCNTT,4-4,True,True,1,13995.881,7966.574,1
+D26,200,answered,,19486,309,1,956/QĐ-ĐHCNTT,7-7,True,True,1,13438.491,5539.121,1

@@ -1,0 +1,3 @@
+document_id,pdf_page,source_sha256,expected_cleaned_text_sha256,decision,layout_checked,review_note
+uit_43_2020,1,053e42cb29807fad9292dbec16f533e7dc4f2169597c1a6eac1f9ed7904e9574,46b0dc5ea024a24f152eb3763a8fba3d5e83cbf2f79d66ea3cc92d3fe26d1db7,approved,true,Verified handwritten43/date23June2020; manually serialized every coefficient/cohort/design-duration/year cell including merged expired-study cells; preserve Covid one-semester delay
+uit_43_2020,2,053e42cb29807fad9292dbec16f533e7dc4f2169597c1a6eac1f9ed7904e9574,8e3390b137b27ec58bda9813e5e0876ab89ccb10a0971e18863f9a689bf3b1b8,approved,true,Verified continuation2015/2016 coefficient rows and2016to2019 cohort-specific graduation/start-fee schedule; repeat column labels rather than flattened OCR tokens

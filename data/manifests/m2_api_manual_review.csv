@@ -1,0 +1,9 @@
+question_id,condition,reviewer,api_status,verdict,review_note
+M201,keyword_unfiltered,assistant,insufficient_evidence,controlled_failure,Correct513 document context but invalid_json
+M204,keyword_unfiltered,assistant,insufficient_evidence,controlled_failure,Correct43 context but unverified_quote
+M211,keyword_unfiltered,assistant,insufficient_evidence,controlled_failure,Correct851 document but source body not exact quote
+M212,keyword_unfiltered,assistant,insufficient_evidence,controlled_failure,Correct894 document but invalid_schema and no verifiedanswer
+M201,hybrid_scoped,assistant,insufficient_evidence,controlled_failure,Model chose full online conditions but invalid_schema; does not count as answer success
+M204,hybrid_scoped,assistant,answered,wrong_cohort_quote,Question2018design4years but quote2012design4.5years; doc-level cohortfilter does not select table rows
+M211,hybrid_scoped,assistant,insufficient_evidence,controlled_failure,Model quoted ISO metadata2024-09-01 rather than literal sourcebody date; exactquote gate rejected
+M212,hybrid_scoped,assistant,insufficient_evidence,controlled_failure,Wrong section and truncatedJSON; requested30paperdegree/5digital not produced

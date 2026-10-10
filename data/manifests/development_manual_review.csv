@@ -1,0 +1,31 @@
+question_id,reviewer,answer_evidence_review,scoped_hybrid_gold_rank,retrieval_review,review_note
+D01,assistant,supported,1,gold_at_top1,1393 chunk1 contains cap12 and class-size condition; multiple amended clauses so quote selection still matters
+D02,assistant,supported,1,gold_at_top1,70 applies to general and shared fundamental courses; do not generalize to every course
+D03,assistant,supported,1,gold_at_top1,Definition distinguishes students within designed study duration; not a numeric fee for every cohort
+D04,assistant,supported,1,gold_at_top1,One-month limit is after semester start; article23 passage in1393
+D05,assistant,supported,1,gold_at_top1,Required confirmations and optional detailed syllabus are distinct; pointM is in same passage
+D06,assistant,supported,1,complete_at_top2,Header date and article2 from-signature statement both required by the reference
+D07,assistant,supported,2,gold_at_top2,Top chunk23 describes submission workflow; duration15weeks is chunk5; tracks C03
+D08,assistant,supported,1,gold_at_top1,Article3 extension needs PDT approval plus supervisor and faculty consent
+D09,assistant,supported,1,gold_at_top1,Team1to2 and individual responsibilities are in article5 clause3
+D10,assistant,supported,2,gold_at_top2,Top chunk23 is submission workflow; supervisor qualification and internal supervisor requirement are chunk8
+D11,assistant,supported,2,gold_at_top2,Top chunk7 concerns team assignment; supervisor cap10 is chunk8
+D12,assistant,supported,2,gold_at_top2,Top chunk7 lacks prohibited family relationship; article6 clause2 is chunk8
+D13,assistant,supported,2,gold_at_top2,Top chunk23 also mentions zero but for final submission failure; midterm suspension rule is chunk9
+D14,assistant,supported,1,gold_at_top1,One change follows midterm council proposal; do not remove timing condition
+D15,assistant,supported,5,outside_context2,Reviewer distinct from supervisor and prohibited family relationship are chunk12; chunk23 does not support this
+D16,assistant,supported,2,gold_at_top2,Committee membership rule is chunk14; top chunk23 is submission workflow
+D17,assistant,supported,1,gold_at_top1,15minutes concerns presentation and not total defense duration
+D18,assistant,supported,1,gold_at_top1,Supervisor/reviewer weight2 and others weight1 with rounding0.1 are in article13
+D19,assistant,supported,2,gold_at_top2,Archive5years is chunk18; top chunk23 only describes final submission process
+D20,assistant,supported,1,gold_at_top1,Question explicitly targets article15 twenty-day rule rather than excluded flowcharts
+D21,assistant,supported,1,gold_at_top1,Mandatory cohortsfrom2026 and trainingfrom2026to2027 are explicit in article1 clause3
+D22,assistant,supported,2,gold_at_top2,Top chunk14 is progress standard; PET02 prerequisite alternatives are chunk7 with unknown article metadata
+D23,assistant,supported,2,gold_at_top2,Top chunk14 is progress standard; IEL02 prerequisite is chunk7 with unknown article metadata
+D24,assistant,supported,1,gold_at_top1,Placement exemption specifically identifies CNTT Viet-Japan
+D25,assistant,supported,1,gold_at_top1,Two-year certificate interval is from examination to exemption registration
+D26,assistant,supported,1,gold_at_top1,Four annual review months2/5/8/11 are explicit in article9
+D27,assistant,supported,2,gold_at_top2,Top chunk14 is progress standard; M and credit accumulation rule is chunk13
+D28,assistant,supported,1,gold_at_top1,CTC/CTTN two-semester rule; cap16 excludes languages and includes retake/improvement
+D29,assistant,supported,1,gold_at_top1,CTA three-semester rule requires IEL05; do not substitute other program clauses in same chunk
+D30,assistant,supported,3,outside_context2,Viet-Japan JAN02 or N5 rule is separate chunk15; top chunk14 concerns other programs

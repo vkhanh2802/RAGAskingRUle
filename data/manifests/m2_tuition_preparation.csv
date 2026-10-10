@@ -1,0 +1,2 @@
+document_id,document_number,pdf_pages,pages_with_text,raw_text_chars,cleaned_text_chars,printed_pages_detected,chunks,minimum_chunk_tokens,maximum_chunk_tokens,average_chunk_tokens
+uit_43_2020,43/TB-ĐHCNTT,2,2,4846,4846,2,3,363,675,490.0

@@ -1,0 +1,18 @@
+{
+  "engine": "tesseract",
+  "version": "5.5.2",
+  "conda_build": "hbe4a4c1_1",
+  "conda_channel": "defaults/win-64",
+  "conda_package_sha256": "d11988b761c1a1b36b6be3cb7176bc3c4f8c836b1739b42b9ef9d9c0f34f39b0",
+  "language": "vie+eng",
+  "traineddata_sha256": {
+    "vie": "79df64caf7bcfb2a27df5042ecb6121e196eada34da774956995747636d5bfa1",
+    "eng": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
+  },
+  "dpi": 300,
+  "page_segmentation_mode": 3,
+  "ocr_engine_mode": 1,
+  "cpu_threads": 2,
+  "review_method": "assistant_visual_comparison",
+  "publication_policy": "confidence does not imply approval; exact source/text hash and layout review required"
+}

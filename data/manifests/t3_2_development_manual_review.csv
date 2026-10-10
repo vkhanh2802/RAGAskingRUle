@@ -1,0 +1,31 @@
+question_id,reviewed_run,primary_answer_supported,extra_material,verification_note
+D01,development-final,True,False,12summercap andnosmallclass intact
+D02,development-final,True,False,70student threshold andscope intact; wrappedsourcewords accepted
+D03,development-final,True,True,Formula/chênhlech definition present; otheramendedclauses alsoquoted andneedminimality refinement
+D04,development-final,True,True,1month andrecipient present; addedsourceheading unnecessary
+D05,development-final,True,False,Documents/possibleconfirmedoutline/gradeM present
+D06,development-final,True,True,Literalfromsignature plus29December2023 bound tosame source; signaturefooter extra
+D07,development-final,True,False,1mainsemester15weeks andexception kept
+D08,development-final,True,True,RequestPDTDH CBHD/Khoa approval present; unrelateddefense material extra
+D09,sv-regression,True,False,1to2SV andresponsibilitiesinstudyoutline; initialSVfalseabstention preserved inolderrun
+D10,development-final,True,True,Mastersminimum/internalco-supervisor present; additionalsupervisorrules extra
+D11,development-final,True,False,10topicspersemester
+D12,development-final,True,True,Supervisorbloodrelationban plusreviewerrelatedrule extra
+D13,support-regression,True,False,Correctmidtermdismissaldecision/grade0; earlierarchivegrade0wrongtopic keptasfailedcase
+D14,development-final,True,True,Onceaftermidterm/hộiđồngproposal present; unrelatedarchiveprocedures extra
+D15,development-final,True,False,Revieweridentity andbloodrelations literal
+D16,development-final,True,True,CBHDoutsidecouncil andcomposition present; unrelatedarchiveprocedures extra
+D17,development-final,True,True,15minutes present inwholedefenseprocess; adjacentconditions preserved
+D18,development-final,True,True,2weights forCBHD/CBPB1forothers rounded0.1 plusoutliercondition; previousidentityfacet error corrected
+D19,development-final,True,False,Minimum5yearsarchive
+D20,development-final,True,True,20days afterdefense andsystementry present; othercouncil/archive rules extra
+D21,development-final,True,True,Fromcohort2026/year2026-2027 present; scope/header extra
+D22,development-final,True,True,PET01orIEL01 prerequisite present; progressrules extra
+D23,development-final,True,True,IEL01 prerequisite present; progressrules extra
+D24,development-final,True,False,VietJapan placementtest exemption present
+D25,development-final,True,True,Certificate2years examtosubmission dates present; firstyearapplicationlimit extra
+D26,support-regression,True,True,4sessions FebruaryMayAugustNovember; adjacentcertificateage excerpt extra; earlierwrongcertificateage response keptasfailedcase
+D27,development-final,True,True,Mnextsemester excludedGPA creditscumulative; workflow extra
+D28,program-regression,True,True,OnlyCTC/CTTN block with2semester PET01/IEL01 cap16; sameprogram4semester neighbor remains literal
+D29,program-regression,True,True,OnlyCTA block with3semester IEL05 cap16; sameprogram2/4semester neighbors remain literal
+D30,development-final,True,False,VietJapan JAN02/N5 cap16 withfullconditions

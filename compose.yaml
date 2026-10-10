@@ -1,0 +1,24 @@
+name: regularag
+
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-regularag}
+      POSTGRES_USER: ${POSTGRES_USER:-regularag}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-regularag}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - regularag_postgres_data:/var/lib/postgresql/data
+      - ./scripts/db/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+    restart: unless-stopped
+
+volumes:
+  regularag_postgres_data:

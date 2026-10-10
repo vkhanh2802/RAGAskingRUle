@@ -1,0 +1,13 @@
+question_id,answer_status,failure_reason,latest_or_historical_anchor_correct,manual_answer_supported,verdict,verification_note
+F01,insufficient_evidence,unverified_quote,True,False,fail_generation,1393 is firstcontext; model merges noncontiguous unrelated updatedclauses12and23 instead of summercap12; rejected without relaxingquotecheck
+F02,insufficient_evidence,invalid_json,True,False,fail_generation,1393 updatedminimum70 is available; output truncated before validJSON; old790 minimum50 not used
+F03,insufficient_evidence,invalid_json,True,False,fail_generation,1393 amendedarticle23clause1 monthdeadline andgradeM are available; output malformed or truncated
+F04,insufficient_evidence,invalid_json,True,False,fail_generation,513 latestrecognition conditions are firstcontext; model copies longpassage beyond outputbudget and fails JSON
+F05,insufficient_evidence,latest_excluded_by_filters,True,False,pass_abstention,Explicit790-only filter excludesrequired1393; no generation; no stale50student answer;208ms
+F06,insufficient_evidence,invalid_json,True,False,pass_historical_scope_fail_generation,Allsources412 historicalcutoff01December2025; future513 not required; model output truncated; not a successfulanswer
+M201,insufficient_evidence,unverified_quote,True,False,fail_generation,Model citesS1 for effectivenesssentence that belongs toS4 and does not answer onlinecap/group; rejected
+M204,insufficient_evidence,unverified_quote,True,False,fail_source_id,Correct2018 four-year row is sourceS2; model copies that row but assignsS1; rejected; oldwrong2012row excluded
+M211,insufficient_evidence,unverified_quote,True,False,fail_metadata_quote,Model quotes normalizedmetadata2024-09-01 instead of literal sourcebody; rejected
+M212,answered,,True,True,pass_supported_answer,894 article9 PDF8 boundchunk0017; quote supports30days paperdegree15papercertificate5digital andmatchescontext; issued29July2026 verifiedlatestfamily
+D15,insufficient_evidence,unverified_quote,True,False,fail_generation,Boundgold159chunk0012 is firstcontext; model paraphrases bloodrelation wording and omits differentfromsupervisor condition; rejected
+D30,insufficient_evidence,unverified_quote,True,False,fail_generation,Boundgold956chunk0015 is firstcontext; model inserts an extra word afterJAN02; rejected even though principalterms resemble source

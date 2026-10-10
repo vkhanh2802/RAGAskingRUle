@@ -1,0 +1,26 @@
+{
+  "pipeline_version": "structured-ocr-v2",
+  "parser_mode": "structured",
+  "tokenizer_model": "BAAI/bge-m3",
+  "tokenizer_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+  "chunk_size_tokens": 700,
+  "minimum_chunk_tokens": 500,
+  "maximum_chunk_tokens": 800,
+  "chunk_overlap_tokens": 100,
+  "minimum_page_text_chars": 100,
+  "remove_repeated_margins": true,
+  "review_manifest": "data/manifests/page_reviews.csv",
+  "corrections_root": "data/processed/ocr-corrections",
+  "ocr": {
+    "enabled": true,
+    "language": "vie+eng",
+    "engine_version": "5.5.2",
+    "dpi": 300,
+    "page_segmentation_mode": 3,
+    "timeout_seconds": 120,
+    "cpu_threads": 2,
+    "force_document_ids": ["uit_43_2020"],
+    "minimum_mean_confidence": 70,
+    "maximum_low_confidence_ratio": 0.25
+  }
+}

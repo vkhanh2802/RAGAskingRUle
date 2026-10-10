@@ -1,0 +1,4 @@
+document_id,source_sha256,cohort_from,cohort_to,cohort_evidence
+uit_956_2026,12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e,2026,,PDF2 Điều1 khoản3: bắt buộc khóa tuyển sinh từ2026; đào tạo từ năm học2026-2027
+uit_277_2025,25b6c05d49beeeed18ba7287a2e7be05656c3a695a92fb43e9b88f0d75bd4f0f,2024,,PDF3 Điều1 khoản4: sinh viên chính quy các khóa tuyển từ2024 trở về sau
+uit_43_2020,053e42cb29807fad9292dbec16f533e7dc4f2169597c1a6eac1f9ed7904e9574,2012,2019,Supported table schedules PDF1-2 explicitly list intakes2012-2019; do not infer othercohorts or present legalstatus from generalformula

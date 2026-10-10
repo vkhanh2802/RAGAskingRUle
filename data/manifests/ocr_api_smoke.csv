@@ -1,0 +1,4 @@
+question_id,http_status,answer_status,failure_reason,latency_ms,input_tokens,source_count,top_source_document,top_source_pdf_pages,document_hit_in_context,generation_called
+OCR01,200,insufficient_evidence,amendment_not_in_context,48908,1705,2,790/QĐ-ĐHCNTT,12-13,False,True
+OCR02,200,insufficient_evidence,amendment_not_in_context,13939,1335,2,790/QĐ-ĐHCNTT,12-12,False,True
+OCR03,200,insufficient_evidence,invalid_json,53143,1537,2,790/QĐ-ĐHCNTT,12-13,False,True

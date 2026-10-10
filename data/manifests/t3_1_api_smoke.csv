@@ -1,0 +1,13 @@
+question_id,http_status,answer_status,failure_reason,latency_ms,input_tokens,source_count,top_source_document,top_source_pdf_pages,document_hit_in_context,generation_called
+F01,200,insufficient_evidence,unverified_quote,142223,3727,5,1393/QĐ-ĐHCNTT,1-2,True,True
+F02,200,insufficient_evidence,invalid_json,143894,3694,5,1393/QĐ-ĐHCNTT,1-2,True,True
+F03,200,insufficient_evidence,invalid_json,149835,3931,5,1393/QĐ-ĐHCNTT,1-2,True,True
+F04,200,insufficient_evidence,invalid_json,155985,3832,6,513/QĐ-ĐHCNTT,1-2,True,True
+F05,200,insufficient_evidence,latest_excluded_by_filters,208,0,6,790/QĐ-ĐHCNTT,12-12,True,False
+F06,200,insufficient_evidence,invalid_json,148639,3717,6,412/QĐ-ĐHCNTT,1-1,True,True
+M201,200,insufficient_evidence,unverified_quote,39564,2199,4,513/QĐ-ĐHCNTT,1-2,True,True
+M204,200,insufficient_evidence,unverified_quote,27690,1075,2,43/TB-ĐHCNTT,1-1,True,True
+M211,200,insufficient_evidence,unverified_quote,66586,3517,6,851/QĐ-ĐHCNTT,1-1,True,True
+M212,200,answered,,107368,3797,5,894/QĐ-ĐHCNTT,8-8,True,True
+D15,200,insufficient_evidence,unverified_quote,77117,3691,6,159/QĐ-ĐHCNTT,4-4,True,True
+D30,200,insufficient_evidence,unverified_quote,100448,3848,6,956/QĐ-ĐHCNTT,7-8,True,True

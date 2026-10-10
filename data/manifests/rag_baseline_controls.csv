@@ -1,0 +1,5 @@
+question_id,http_status,answer_status,failure_reason,latency_ms,input_tokens,source_count,top_source_document,top_source_pdf_pages,document_hit_in_context,generation_called
+C01,200,insufficient_evidence,missing_amendment,38222,827,2,790/QĐ-ĐHCNTT,23-25,False,True
+C02,200,insufficient_evidence,unverified_quote,8404,736,2,956/QĐ-ĐHCNTT,3-4,True,True
+C03,200,answered,,11618,589,2,159/QĐ-ĐHCNTT,1-2,True,True
+C04,200,insufficient_evidence,unverified_quote,13035,730,2,956/QĐ-ĐHCNTT,2-3,True,True

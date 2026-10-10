@@ -1,0 +1,13 @@
+question_id,question,candidate_document_numbers,coverage,verification_note
+M201,"513/QĐ-ĐHCNTT học phần trực tuyến chỉ được công nhận vào nhóm học phần nào và tối đa bao nhiêu tín chỉ?",513/QĐ-ĐHCNTT,direct,Amendedarticle3clause1e; freeelectivesonly andcap3; conditions not generalized
+M202,"513/QĐ-ĐHCNTT một tín chỉ học trực tuyến tương đương bao nhiêu giờ thực học?",513/QĐ-ĐHCNTT,direct,15actualhourspercredit; institutiontop100/rankingage conditions remain
+M203,"412/QĐ-ĐHCNTT quy trình công nhận tín chỉ trong nước tính t+14 t+15 theo ngày hay ngày làm việc?","412/QĐ-ĐHCNTT;513/QĐ-ĐHCNTT",multi_source,Article5 workingdays andsemesterstart; citedbase stillrequires amendmentcontext
+M204,"43/TB-ĐHCNTT khóa2018 chương trình4năm bắt đầu thu học phí gia hạn ở học kỳ và năm học nào?",43/TB-ĐHCNTT,direct,SerializedrowPDF2:HK1year2022-2023; historicalsource not currentfee policy
+M205,"43/TB-ĐHCNTT chương trình4.5năm khóa2015 có hệ số học phí gia hạn bao nhiêu từ năm học2023-2024?",43/TB-ĐHCNTT,direct,SerializedrowPDF2:30percent; distinguish4year expiredstudy row
+M206,"277/QĐ-ĐHCNTT đồ án tốt nghiệp bao nhiêu tín chỉ và áp dụng từ khóa nào?",277/QĐ-ĐHCNTT,direct,6credits andregularcohortsfrom2024; sourcehash-reviewed scope
+M207,"697/QĐ-ĐHCNTT đồ án tốt nghiệp doanh nghiệp bao nhiêu tín chỉ và giờ thực tập?",697/QĐ-ĐHCNTT,direct,10credits/500hours;1to2semesters; do not confuse ordinarycapstone6credits
+M208,"112/QĐ-ĐHCNTT chương trình ngành thứ hai tối thiểu bao nhiêu tín chỉ?",112/QĐ-ĐHCNTT,direct,Article4clause2:minimum30; jointprogramsexcluded
+M209,"803/QĐ-ĐHCNTT mốc xử lý học vụ được tính theo ngày làm việc hay ngày thông thường?",803/QĐ-ĐHCNTT,direct,Workingdays; not conflated with832calendar-days rule
+M210,"832/QĐ-ĐHCNTT các mốc cảnh báo sinh viên là ngày hay ngày làm việc?",832/QĐ-ĐHCNTT,direct,Explicit calendar days not working days;omitteddiagramregion warning
+M211,"851/QĐ-ĐHCNTT quy định liêm chính học thuật có hiệu lực từ ngày nào?",851/QĐ-ĐHCNTT,direct,01September2024 not issued14August2024; no retroactive consideration
+M212,"894/QĐ-ĐHCNTT thời hạn cấp văn bằng giấy và văn bằng số tối đa bao nhiêu ngày?",894/QĐ-ĐHCNTT,direct,30paperdegree/5digital;papercertificate15 differs; currentstatusunknown

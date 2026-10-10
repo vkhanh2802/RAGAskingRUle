@@ -1,0 +1,265 @@
+# Tiến độ RegulaRAG
+
+Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
+
+| Task | Trạng thái | Đầu ra/bằng chứng | Blocker | Bước tiếp theo |
+|---|---|---|---|---|
+| T1.1 | completed | `docs/project-brief.md`, `docs/architecture.md`; phạm vi UIT, 10 câu hỏi mẫu và nguồn lực đã ghi nhận | Không | Bắt đầu T1.2, kiểm kê nguồn chính thức UIT |
+| T1.2 | completed | 15 PDF/13 nhóm P0; `data/manifests/documents.csv`, `data/manifests/question_sources.csv`, `docs/data-sources.md` | 11 PDF scan cần OCR trước retrieval | T1.3 dựng repository; T1.4 parse 4 PDF text trước |
+| T1.3 | completed | Conda `ragschool` Python 3.12; FastAPI `/health`; PostgreSQL 17 + pgvector 0.8.7; 4 tests; Ruff sạch | Không | Bắt đầu T1.4 với 4 PDF text; lập kế hoạch OCR cho 11 PDF scan |
+| T1.4 | completed | Parse 4 PDF/55 trang thành 48 chunk; BGE-M3 tokenizer pin revision; validation và review 20 chunk | 11 PDF scan và PDF 43 lỗi encoding cần OCR/reparse trước retrieval | T1.5 index ba tài liệu đọc tốt; không dùng PDF 43 |
+| T1.5 | completed | 3 tài liệu/46 vector; E5-small + Qwen GGUF CPU; `/api/v1/ask`; 10 mẫu và 4 controls; 36 tests; HTTP smoke 200 | 1393 chưa OCR; chất lượng model/retrieval còn hạn chế, đã ghi cả lỗi | T2.1 ingestion lifecycle; ưu tiên OCR 1393 ở T2.2 |
+| T2.1 | completed | Migration 003, ingestion_runs, CLI file/thư mục/status/history/delete; 53 tests; corpus 15 document/46 chunk, re-ingest 3 unchanged | 11 scan ghi ocr_required; 43 chưa được duyệt; chưa OCR | T2.2 chunking cấu trúc và OCR có điều kiện, ưu tiên 1393 |
+| T2.2 | completed | Tesseract 5.5.2; OCR135/188; structural-ocr-v2; migration004; review32; 4 ready/97 chunk; 66 tests | 121 pages chờ review; bảng phức tạp/43 excluded; dense chưa kéo amendment vào context | T2.3 keyword search và RRF; tiếp tục review trước M2 |
+| T2.3 | completed | Migration005 FTS/simple/unaccent; keyword/RRF/dedup/provenance; 23 câu ×3 mode; 87 tests; `docs/hybrid-retrieval-review.md` | Hybrid regression C03; API quote relevance/JSON còn lỗi; chưa clause-level gold | T2.4 filters chung hai nhánh và development30; tiếp tục page/table review trước M2 |
+| T2.4 | completed | Migration006 typed metadata; filter chung/API provenance; 30 câu/19 bound chunks;180 results/manual review30;149 tests; `docs/metadata-development-review.md` | Scope document-level; chưa independent/held-out; M2 thiếu publication toàn corpus | Hoàn tất page/table review11 nguồn còn lại trước M2/T3.1 |
+| M2 | completed | 15/15 ready/307 unique chunks;188 pages/0 pending;133 page decisions;15 unchanged;156 tests; `docs/m2-corpus-review.md` | Supported scope có45 excluded pages/omitted regions; generation và clause relevance còn lỗi | T3.1 reranker trên corpus M2; tiếp tục layouts ngoài scope và citation/relevance tasks |
+| T3.1 | completed | Pinned CPU cross-encoder/window-max;20 candidates/top8/context6/budget4096; verified issue dates/relations/latest guards;432 completed evaluation rows;187 tests; `docs/reranker-freshness-review.md` | Generation p50~104s và1/12 supported smoke answer; conservative clause exclusion và excluded layouts | T3.2 source-bound span/source-ID selection, citation support và generation latency; T3.3 clarification |
+| T3.2 | completed | BoundpassageIDs/offsets/SHA/strictschema/enum/boundedretry;210tests;12acceptance+30development+targetedregressions;11supportedprimaryanswers/12 và1correctabstention;median13.57s; `docs/passage-citation-review.md` | Genericqueries cònextra material; coldloads35–39s; chưaheld-out/clarification | T3.3 scope/clarification vàprecision; T3.4 behaviorcases trướcM3 |
+| T3.3 | completed | `clarify-scope-v1`; structured scope/clarification/version notes; 20 cases: 8 clarify / 7 abstain / 5 supported answers; positive12; development30 và targeted fixes; 247 tests; `docs/clarification-abstention-review.md` | Lexical scope/facets chưa general entailment; extra material và variable CPU latency; chưa held-out | T3.4 adversarial/ngoài phạm vi/giả định sai, ít nhất20 cases trước M3; commit sau mỗi bước hoàn tất |
+
+## Nhật ký kiểm chứng
+
+### T1.1
+
+- Ngày: 2026-10-05.
+- Đã đọc toàn bộ `RegulaRAG-Project-Plan.md` và xác nhận workspace ban đầu chỉ có
+  file kế hoạch.
+- Đã lấy cấu hình máy bằng PowerShell/CIM: Windows 11, Intel Core i5-12450HX,
+  11,8 GB RAM, RTX 3050 6 GB.
+- Đã kiểm tra công cụ: Python 3.14.5, Docker 29.7.2, Git 2.53.0.
+- Đã chốt qua người dùng: trường UIT, ngân sách API 0 VND, 10 giờ/tuần, chưa có
+  deadline portfolio.
+- Đã đối chiếu checklist T1.1: mô tả bài toán, người dùng, năm nhóm câu hỏi, phần
+  ngoài MVP, 10 câu hỏi, nguồn lực và kiến trúc ban đầu đều có artifact.
+
+### T1.2
+
+- Ngày: 2026-10-05.
+- Đã kiểm tra danh mục chính thức `portal.uit.edu.vn` và tải 13 nhóm P0 vào
+  `data/raw/uit/p0/`; hai văn bản gốc bắt buộc được tải thêm cho hai amendment,
+  tổng cộng 15 PDF/188 trang/40.367.168 byte.
+- Kiểm tra bằng PyMuPDF: 15/15 mở được; 4 file có text layer, 11 file scan toàn phần.
+- Đã tính SHA-256 cho từng file và lưu vào `data/manifests/documents.csv`.
+- Đã ghi quan hệ `790 + 1393` và `412 + 513`; không loại văn bản gốc vì amendment
+  không chứa toàn văn quy định.
+- Đã gắn 10 câu hỏi mẫu với nguồn dự kiến trong
+  `data/manifests/question_sources.csv`.
+- Portal ghi bản quyền thuộc UIT nhưng không có giấy phép tái phân phối rõ ràng;
+  PDF thô được loại khỏi Git bằng `.gitignore`.
+- Tiêu chí T1.2/M0 đạt về số lượng nguồn, phạm vi và manifest. OCR/table review của
+  file scan là công việc bắt buộc trước khi các file đó được đưa vào retrieval.
+
+### T1.3
+
+- Ngày: 2026-10-05.
+- Đã khởi tạo Git repository, không commit.
+- Đã tạo Conda environment `ragschool` tại
+  `C:\Users\Khanh\miniconda3\envs\ragschool` với Python 3.12.15.
+- Đã cài project và dependency trong environment; `requirements.lock` có 36 package
+  và khớp 36/36 phiên bản đã cài.
+- Đã tạo package `src/regularag`, Pydantic settings, structured JSON logging,
+  FastAPI `/health` và database health query.
+- Đã tạo `compose.yaml`; PostgreSQL 17.11 và pgvector 0.8.7 khởi tạo thành công,
+  container `regularag-db-1` healthy.
+- Smoke test Uvicorn thực tế: `/health` trả HTTP 200 với database `regularag`.
+- Quality gate: Ruff check pass, Ruff format pass, pytest 4/4 pass.
+- PyMuPDF 1.28.2 đọc thử `790/QĐ-ĐHCNTT`: 27 trang, 64.127 ký tự text.
+- Cảnh báo không chặn: Starlette báo `TestClient` dùng `httpx` đã deprecated và đề
+  xuất `httpx2`; runtime API không phụ thuộc TestClient.
+
+### T1.4
+
+- Ngày: 2026-10-06.
+- Đã thêm parser PyMuPDF theo trang, cleaner bảo toàn nội dung, chunker theo đoạn và
+  tokenizer `BAAI/bge-m3` pin revision
+  `5617a9f61b028005a4858fdac845db406aefb181`.
+- Cấu hình baseline: target 700 token, ngưỡng mềm 500, hard ceiling 800, overlap 100.
+- Đã kiểm SHA-256 nguồn rồi parse 4 PDF text/55 trang thành 48 chunk; khoảng thực tế
+  478-705 token. Hai chunk dưới 500 giữ ranh giới đoạn dài; không có chunk vượt 800.
+- Artifact toàn văn nằm trong `data/processed/baseline/` và bị Git ignore; thống kê nằm
+  tại `data/manifests/baseline_parse_summary.csv`.
+- Validation kiểm lại token count, content hash, chunk index và page reference: pass.
+- Kiểm tra thủ công 20 chunk: page mapping đúng 20/20; 18/20 đọc được. Hai chunk của
+  `43/TB-ĐHCNTT` lỗi encoding font nhúng và bị loại khỏi retrieval cho đến khi OCR hoặc
+  reparse. Ba tài liệu còn lại đạt nghiệm thu T1.4.
+
+### T1.5
+
+- Ngày: 2026-10-08.
+- Đã bật Docker Desktop; PostgreSQL/pgvector healthy. Áp dụng hai migration cho
+  `documents`, `chunks`, HNSW và embedding fingerprint; chạy lại được skip.
+- Đã index hai lần corpus thật: 3 tài liệu `159`, `790`, `956`, luôn giữ 46 chunk.
+  Vector E5-small 384 chiều, batch 8, CPU; dùng cửa sổ/pooling cho chunk dài và pin
+  model revision. PDF 43 và 11 PDF scan không vào retrieval.
+- Đã thêm `POST /api/v1/ask`, generation GGUF Q4_K_M local, JSON grammar, context theo
+  cửa sổ đoạn liên tiếp, ChatML token budget và kiểm quote/source ID từ backend.
+- Mười câu gốc qua API thật ở tầng ASGI: 10/10 HTTP 200 có nguồn; 8 abstain do thiếu
+  amendment 1393, 1 lỗi JSON, 1 lỗi schema. Không coi document hit hay HTTP 200 là
+  answer accuracy.
+- Bốn controls bổ sung: C03 trả quote đúng 1 học kỳ chính (15 tuần) từ 159; ba câu
+  khác bị chặn vì nguồn/quote chưa đủ. Lỗi sinh tự do và quote không liên quan được
+  giữ lại trong báo cáo `docs/rag-baseline-review.md`.
+- Smoke Uvicorn/HTTP thật: `/health` 200, `/api/v1/ask` 200 và C03 `answered` với
+  citation `[S1]`, PDF 1–2. Server smoke tự dừng; database còn healthy.
+- Quality gate: Ruff check/format pass, 36 tests pass (32 unit + 4 integration
+  PostgreSQL), `pip check` pass, lock 70/70 khớp phiên bản đã cài.
+- T1.5/M1 đạt tiêu chí luồng kỹ thuật và truy vết; quality hạn chế đã được ghi rõ.
+
+### T2.1
+
+- Ngày: 2026-10-08.
+- Áp dụng migration `003_ingestion_lifecycle`, giữ index M1 và thêm lifecycle
+  pending/processing/ready/failed cùng run/config/hash/model/error/timestamp.
+- Ingest/delete theo từng document, advisory lock theo schema/document. Publication
+  là transaction thay chunk + ready; update lỗi giữ chunk để audit nhưng chặn search.
+- `scripts/ingest.py` hỗ trợ file/thư mục, metadata manifest, status/history/delete,
+  override document ID, force và CSV report được flush sau từng kết quả.
+- Indexer processed cũ cũng đi qua lifecycle; retrieval yêu cầu cả ingestion/publication ready.
+- Lần đầu corpus bị timeout ở 159. Retry đóng run cũ thành interrupted và khôi phục
+  ready; giảm runtime embedding xuống batch 1 / 2 threads, dùng cache offline.
+- Hai batch đầy đủ 15 PDF: ready 3, failed 12; batch thứ hai có 3 unchanged, 0 ingest
+  mới. Database có 46/46 chunk ID duy nhất, 46 chunk trỏ đến run, 0 run chưa hoàn tất.
+- 11 scan ghi ocr_required; 43 ghi quality_not_approved. Exit 1 là partial failure
+  đã dự kiến, không phải lỗi khiến batch dừng.
+- Quality gate: 53 tests pass (32 unit + 21 integration PostgreSQL), Ruff check/format
+  pass, pip check pass, lock 70/70. Test delete/update/corrupt/rollback dùng schema riêng.
+- Bằng chứng: `docs/ingestion-lifecycle-review.md` và ba CSV
+  `data/manifests/ingestion_lifecycle_{resume,first,second}.csv`.
+
+### T2.2
+
+- Ngày: 2026-10-08.
+- Cài native Tesseract5.5.2 trong ragschool, vie+eng; pin environment và ghi engine/
+  traineddata/config hash. Preparation188 trang: 135 OCR, 53 native text.
+- Thêm structural parser/chunker chương/điều/khoản, giữ clause vừa budget, title repeat,
+  geometric header/footer, hierarchy reset qua excluded pages và appendix boundary.
+- Giữ native/raw OCR/image/TSV/hash/confidence và post-edit provenance. OCR/page/table
+  review bind source/cleaned-text hash, không auto approve confidence.
+- 1393 so raster2 trang, post-edit giữ công thức, 70 SV, 12 tín chỉ, 1 tháng, điểm M
+  và hiệu lực từ ngày ký. Ready/full với 3 OCR chunk.
+- Duyệt glossary790/3 và JLPT/NAT956/7; merged tables/flowchart/TOC excluded. 43 đã
+  OCR nhưng chưa publication. Snapshot121 pending/23 excluded/4 approved/40 native pages.
+- Review32 chunk và validator97/97 token/hash/page-span pass. Migration004 lưu
+  structure/extraction/quality/coverage; 4 ready/97 chunk, 11 blocked, re-ingest4 unchanged.
+- API smoke3 câu OCR: HTTP200 nhưng2 thiếu amendment context,1 JSON lỗi. Đã giữ cổng
+  amendment-in-context, không coi source đã index là đủ để áp dụng base thiếu đối chiếu.
+- Quality gate66 tests (43 unit/23 integration) pass, Ruff/format, pip check, pip lock70/70
+  pass. Tesseract là native dependency riêng. Báo cáo: `docs/structure-ocr-review.md`.
+
+### T2.3
+
+- Ngày: 2026-10-08.
+- Migration005 thêm weighted FTS/simple/unaccent/GIN và triggers chunk/document metadata;
+  backfill97/97. Migration001–005 chạy lại skip; DB giữ4 ready/11 failed-blocked/97 unique chunks.
+- Keyword query tiếng Việt có dấu/không dấu, mã văn bản và phrase số điều; ranking
+  `ts_rank_cd`, không gọi BM25. Publication/model/quality gate dùng chung vector branch.
+- RRF k60/weights1:1, candidate20, top5; dedup theo chunk ID, giữ branch/rank/raw score.
+  Config default hybrid; API `retrieval_mode` override vector/keyword/hybrid, source provenance.
+- 23 câu ×3 mode =69 results. Document hit@1/@2/@5: vector15/16/23, keyword22/22/22,
+  hybrid22/22/23. Đây là development document-level smoke, không phải answer accuracy;
+  query cache khiến latency hai mode không dùng để so tốc độ.
+- OCR01–03 keyword/hybrid top1 đúng1393, API context3/3 có1393. C03 hybrid mất159
+  khỏi top2; query chung có thể đúng tài liệu nhưng sai điều khoản.
+- Hybrid API smoke: OCR01 answered nhưng quote không trả lời cap12; OCR02 invalid_json;
+  OCR03 unverified_quote bị chặn. Manual review CSV giữ cả lỗi; không coi answered là đúng.
+- Quality gate87 tests pass, Ruff/format95 files pass, pip check/lock70/70 pass. PDF và
+  full-text/results/model trace còn Git ignore. Báo cáo: `docs/hybrid-retrieval-review.md`.
+- T2.3 đạt ba chế độ/index/provenance; T2.4 tiếp theo. M2 còn toàn corpus review và
+  30 câu development/evidence, metadata filtering cùng hai nhánh.
+
+### T2.4
+
+- Ngày: 2026-10-08.
+- Migration006 typed domain/type/audience/date/cohort và metadata trigger. ISO dates/bounds
+  cần evidence;790 học kỳ2022-2023 để null, legal_status unknown không coi là current.
+- Review956 Điều1 khoản3 PDF2 bind sourceSHA trong `cohort_scopes.csv`; không dùng stale
+  review, không suy khóa/hiệu lực từ title/issued year.
+- `RetrievalFilters` chung SQL hai nhánh trước LIMIT/RRF; API filters/applied_filters và
+  source scope/unknown legal status. Empty/absent không thêm restriction.
+- Re-index4 ingested sau config version, vẫn97 unique chunks;001–006 chạy lại skip.
+- 30 reference questions do assistant đọc source rồi biên soạn,19 gold chunks bind hashes/
+  pages/article/clauses. Manual review30; chưa independent/held-out; public không toàn văn.
+- Evaluation180 results: scoped vector hit@1/@2/@5=27/30/30, keyword14/22/27,
+  hybrid18/28/30; complete evidence@2 vector29/hybrid28. Scope violations0.
+- D07/C03-related duration hồi phục vào hybridtop2; D15 CBPB/D30 Việt-Nhật ngoài context2.
+  Vector+filter top1 tốt hơn hybrid trên bộ này; hit không phải answer accuracy.
+- Quality gate149 tests (66 unit/83 integration), Ruff/format, pip check/lock70/70
+  pass. DB4 ready/11 failed-blocked/97 chunk; M2 blocked publication toàn corpus.
+
+### M2 — Review/publication backlog
+
+- Ngày hoàn tất:2026-10-09. Đối chiếu133 pages của11 nguồn với raster/text, post-edit
+  mã/ngày/điều kiện và serialize43/308 tables; không approve theo confidence.
+- Giữ412+513; verifier307 token/hash/span pass. Supported scope15 ready/307 IDs;
+  page status103 approved/40 native/45 excluded/0 pending;832 mixed layouts partial.
+- Source metadata review bind hashes;851 start01September2024;277 cohortfrom2024;
+ 308 cohort2025-only bỏ vì không có evidence;112/697 source inconsistencies giữ notes.
+- Publication hai lượt:15 ingested rồi15 unchanged,307 FTS/0 unfinished;19 development
+  goldchunks giữ nguyên. Docker dừng gâytimeout đã recovery và rerun sạch.
+- Expanded development30 scopedmetrics vector27/30/30,keyword14/22/27,hybrid18/28/30;
+  unfiltered hybrid11/16/23.12 newprobes documenttop1 vector9,keyword12,hybrid12.
+- API smoke giữ cả lỗi: M204 answered wrongcohort2012 thay2018; ba scopedcases còn
+  schema/quote/JSON failure. Không tính statusanswered hay document hit làm accuracy.
+-156 tests (67 unit/89 integration), Ruff/format/pip check/lock70/70 pass. M2 đạttechnical
+   supported scope, không phải answer quality. Báo cáo `docs/m2-corpus-review.md`.
+
+### T3.1 — Reranker và freshness
+
+- Ngày:2026-10-09. Pin mmarco-mMiniLMv2-L12-H384-v1 revision1427fd652930e4ba29e8149678df786c240d8825;
+  CPU/batch1/2threads; window512/32/max-pooling, raw logits riêng retrieval scores.
+- Verify15 source issue dates và1393→790/513→412 amendment maps theo source/content hashes;
+ 697→244/894→172 replacement witnesses. Freshness chọn theo verified family, không globalnewest.
+- Portal hai publicpages/15PDF re-fetch:15 unchanged/listed, sourcechecks UTC08:23 ngày09October2026.
+  Metadata refresh giữ15unchanged/307chunks/19goldbindings; không đổi schema/embedding fingerprint.
+- Catalog nhìn cả blocked/latest outsideallowlist; oldaffectedclause bị loại, companions được
+  reserve; filters/budget/missing/hash/revision/quality/latest-source drift dẫn abstention.
+  Historical as_of không buộc futureamendment. Shared querydocumentrefs trướcLIMIT cả hai nhánh.
+- Hai lượt216rows:30candidate→20candidate+sharedrefs. Final scoped goldtop1 vector27,
+  hybrid-off18,hybrid-on29/30; top2/top5 hybrid-on30/30. Unfiltered hybrid-on28/28/30.
+  Scope/missing-update violations0; identifiers12/12. Stagep50 scoped4.653s/unfiltered9.110s.
+- API12 realrequests HTTP200:1supported M212/894 (30paperdegree/5digital),1expected stalefilter
+  abstention F05 khônggeneration/208ms. Các case khác invalidJSON/unverifiedquote/sourceID;
+  M204 correctrow ởS2 nhưng modelciteS1, bị chặn. End-to-end CPU p50~104s/p95~153s còn blockerUX.
+- StoredAPI audit source hashes/excerpts/scopes/latestanchors/citations pass;187tests
+  (88unit/99integration), Ruff119files/pipcheck/lock70 pass. Tiếp theoT3.2, chưa M3complete.
+
+### T3.2 — Bound passages/citation support
+
+- Ngày2026-10-09. LLM chọnPIDs, backend resolve nguồn/offset/textSHA vàdựng answer;
+  no model-copy/URL/page. Llama grammar enum perrequest, strictparse/duplicatechecks,
+  tốiđa1structuralretry; rawattempts ignored. Legacyquotes giữ validator cũ.
+- Atomicconditionblocks/no midcondition truncation; supportfacets/queryprogram/date
+  vàsignaturedependencies. Lowmemoryrelease E5/CE trướcLLM vàGGUF finally.
+- Config`rag-bound-passages-v3`, output64/input2304/max8passages/context6;
+  archivequotes `configs/rag/quotes-v9.json`. Corpus15/307/gold19/FTS giữ nguyên.
+- Acceptance12 realAPI:11answered primarysource-supported,1expectedF05 no-gen;
+  p5013.572s/p9525.958s vsT3.1~104/~153s. Audits0binding/citation/filter/latestviolations.
+- Development30 finalrun29answered/1falseSVabstention; manualfindsD13wrongtopic,
+  D26wrongschedule vàD28/D29overinclusiveprogramme, đãsửa/reruntargeted; giữfailures.
+  Một sốcases cònextra material, khôngghép các reruns thànhheld-outaccuracy/latency.
+-210tests109unit/101integration, Ruff124files/lock70/pipcheck pass. T3.2complete;
+  nextT3.3 clarification/scope vàT3.4 behavioralacceptance. `docs/passage-citation-review.md`.
+
+### T3.3 — Clarification/abstention
+
+- Ngày 2026-10-10. Policy `clarify-scope-v1`, pipeline `rag-scoped-answers-v1`;
+  optional request `scope`, response clarification/resolved_scope/requested_filters/
+  applied_filters/version_notes. Missing/conflicting scope hỏi lại trước retrieval/model.
+- Explicit cohort/audience/date thêm filter còn trống, programme/design duration lọc
+  passage; không thay caller filters hoặc suy hiệu lực từ ngày ban hành. Nguồn cụ thể
+  tách khỏi áp dụng cá nhân; 43 historical/current fee và legal-status-unknown abstain.
+- Complete behaviour20: 8 clarification / 7 abstention / 5 supported answers, 20 HTTP200,
+  chỉ 5 generation; 0 binding/citation/filter/latest errors. Clarification 22–131 ms.
+- Positive12: 11 primary supported answers + 1 old-only-filter abstention; p50 20,279 ms,
+  p95 43,983 ms, mixed cold/warm. Không so tốc độ policy từ tải CPU/RAM khác nhau.
+- Frozen development30: 30 answered nhưng D23 wrong progress/prerequisite topic;
+  manual 29 primary supported. Guard prerequisite mới và annual-unit fix rerun D22/D23/D26
+  đúng; reaudit output cũ reject D23 và lưu failure. Không ghép thành single-run30/30.
+- Corpus 15 ready/307 chunks/307 FTS/15 unchanged, 19 gold bindings nguyên vẹn;
+  103 approved/40 native/45 excluded pages, 0 unfinished ingestion runs.
+- Docker dừng làm một pytest timeout; đã recovery. Final 247 tests (143 unit/104 DB)
+  pass; Ruff/format/pipcheck/lock70 sạch. Báo cáo `docs/clarification-abstention-review.md`.
+- Người dùng yêu cầu commit sau mỗi bước hoàn tất từ đây; ghi tại `AGENTS.md`.
+  Commit T3.3 là initial commit của trạng thái project đã kiểm chứng đến bước này.
+  Tiếp theo T3.4 ít nhất20 adversarial/ngoài phạm vi cases; M3 chưa nghiệm thu.

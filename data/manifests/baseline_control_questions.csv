@@ -1,0 +1,5 @@
+question_id,question,candidate_document_numbers,coverage,verification_note
+C01,"Theo Quy định 159/QĐ-ĐHCNTT, mỗi đề tài khóa luận tốt nghiệp được giao cho tối đa bao nhiêu sinh viên?",159/QĐ-ĐHCNTT,direct,"Điều 5 khoản 3: từ 1 đến 2 sinh viên; câu hỏi đọc văn bản cụ thể, không kết luận hiệu lực hiện hành"
+C02,"Theo Quy định 956/QĐ-ĐHCNTT, môn PET01 là môn tiên quyết của môn nào?",956/QĐ-ĐHCNTT,direct,"Điều 4 khoản 5 điểm a: PET01 hoặc IEL01 là môn tiên quyết của PET02; câu hỏi đọc văn bản cụ thể"
+C03,"Thời gian thực hiện KLTN thông thường là mấy học kỳ chính và bao nhiêu tuần?",159/QĐ-ĐHCNTT,direct,"Điều 3 khoản 2: 1 học kỳ chính, 15 tuần; kiểm tra trả lời trực tiếp không thêm diễn giải"
+C04,"Văn bằng cử nhân ngoại ngữ tiếng Pháp được tổ chức đào tạo tại Việt Nam có thuộc nhóm văn bằng được Trường công nhận trong Quy định 956 không?",956/QĐ-ĐHCNTT,direct,"Điều 3 khoản 4: văn bằng tốt nghiệp cử nhân ngoại ngữ tiếng Anh, tiếng Pháp, tiếng Nhật được tổ chức đào tạo tại Việt Nam"

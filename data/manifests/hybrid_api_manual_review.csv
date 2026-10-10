@@ -1,0 +1,4 @@
+question_id,retrieval_mode,api_status,manual_verdict,review_note
+OCR01,hybrid,answered,quote_true_but_not_answering_question,Correct1393 source reached but model selected credit-exemption passage instead of summer-credit cap
+OCR02,hybrid,insufficient_evidence,model_output_failure,Correct1393 context reached but model did not complete valid JSON
+OCR03,hybrid,insufficient_evidence,unverified_quote_rejected,Model combined noncontiguous unrelated fee/summer passages; exact quote gate rejected

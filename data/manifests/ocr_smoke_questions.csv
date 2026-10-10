@@ -1,0 +1,4 @@
+question_id,question,candidate_document_numbers,coverage,verification_note
+OCR01,"Theo Quyết định 1393/QĐ-ĐHCNTT, học kỳ hè được đăng ký tối đa bao nhiêu tín chỉ?",1393/QĐ-ĐHCNTT,direct,"Điều 1 mục 3: không vượt quá 12 tín chỉ; kiểm context và quote"
+OCR02,"Theo Quyết định 1393/QĐ-ĐHCNTT, lớp đại cương và cơ sở ngành chung toàn trường được mở với tối thiểu bao nhiêu sinh viên?",1393/QĐ-ĐHCNTT,direct,"Điều 1 mục 2: 70 sinh viên; không dùng ngưỡng 50 của văn bản gốc"
+OCR03,"Theo Quyết định 1393/QĐ-ĐHCNTT, hồ sơ xin miễn học phần ở cơ sở đào tạo khác phải gửi trong thời hạn nào và nhận điểm gì?",1393/QĐ-ĐHCNTT,direct,"Điều 1 mục 4: trong vòng 1 tháng sau khi bắt đầu học kỳ và điểm M"

@@ -1,0 +1,3 @@
+document_id,document_number,pdf_pages,pages_with_text,raw_text_chars,cleaned_text_chars,printed_pages_detected,chunks,minimum_chunk_tokens,maximum_chunk_tokens,average_chunk_tokens
+uit_112_2024,112/QĐ-ĐHCNTT,11,11,17964,17962,4,23,14,588,179.7
+uit_851_2024,851/QĐ-ĐHCNTT,13,13,27301,27296,8,28,1,691,239.54

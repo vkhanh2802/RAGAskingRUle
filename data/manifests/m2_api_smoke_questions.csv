@@ -1,0 +1,5 @@
+question_id,question,candidate_document_numbers,filters_json,verification_note
+M201,"Theo 513 học phần trực tuyến được công nhận tối đa bao nhiêu tín chỉ và chỉ áp dụng cho nhóm học phần nào?",513/QĐ-ĐHCNTT,"{""document_ids"":[""uit_513_2026""],""domains"":[""credit_recognition""],""applies_to"":[""undergraduate_regular""]}",Expected freeelectivesonly/cap3 with all qualifying conditions; quotelevance manuallyreviewed
+M204,"Theo thông báo43 khóa2018 chương trình4năm bắt đầu thu học phí gia hạn ở học kỳ và năm học nào?",43/TB-ĐHCNTT,"{""document_ids"":[""uit_43_2020""],""cohort_year"":2018}",Expected HK1year2022-2023 historicaltable; not a statement about presentfee
+M211,"Quyết định851 quy định liêm chính học thuật có hiệu lực từ ngày nào?",851/QĐ-ĐHCNTT,"{""document_ids"":[""uit_851_2024""],""as_of"":""2024-09-01""}",Expected01September2024 not signature14August2024
+M212,"Theo894 thời hạn cấp văn bằng giấy và văn bằng số tối đa bao nhiêu ngày?",894/QĐ-ĐHCNTT,"{""document_ids"":[""uit_894_2026""],""domains"":[""diplomas_certificates""]}",Expected30paperdegree/5digital; distinguish15papercertificate

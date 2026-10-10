@@ -1,0 +1,23 @@
+{
+  "audited_at": "2026-10-10T06:48:46.089767+00:00",
+  "requests": 30,
+  "answered": 30,
+  "needs_clarification": 0,
+  "insufficient_evidence": 0,
+  "p50_ms": 17739.5,
+  "p95_ms": 38863.64999999999,
+  "span_binding_errors": 0,
+  "citation_errors": 0,
+  "support_errors": 1,
+  "expected_behaviour_errors": 0,
+  "filter_preservation_errors": 0,
+  "failed_cases": [
+    {
+      "question_id": "D23",
+      "errors": [
+        "support_errors"
+      ]
+    }
+  ],
+  "conditions": "Recorded real API against current bound database text; automatic identity/support-facet audit, manual relevance review still required"
+}

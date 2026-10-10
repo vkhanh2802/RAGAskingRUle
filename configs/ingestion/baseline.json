@@ -1,0 +1,10 @@
+{
+  "pipeline_version": "baseline-v1",
+  "tokenizer_model": "BAAI/bge-m3",
+  "tokenizer_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+  "chunk_size_tokens": 700,
+  "minimum_chunk_tokens": 500,
+  "maximum_chunk_tokens": 800,
+  "chunk_overlap_tokens": 100,
+  "minimum_page_text_chars": 100
+}

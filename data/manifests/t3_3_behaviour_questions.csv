@@ -1,0 +1,21 @@
+question_id,question,candidate_document_numbers,filters_json,scope_json,expected_status,expected_reason,verification_note
+C01,"Em cần đạt chuẩn ngoại ngữ nào để tốt nghiệp?",,,,needs_clarification,missing_scope,Askcohortaudienceprogramme beforemodels
+C02,"Sau bốn học kỳ chưa đạt ngoại ngữ bị giới hạn đăng ký thế nào?",,"{""domains"":[""foreign_language""],""cohort_year"":2026}","{""applies_to"":[""undergraduate_regular""]}",needs_clarification,missing_scope,Askprogrammeonly
+C03,"Học phí gia hạn của em là bao nhiêu?",,,,needs_clarification,missing_scope,Askcohortdesigndurationanddate
+C04,"Theo Thông báo43 khóa2018 bắt đầu thu học phí gia hạn khi nào?",43/TB-ĐHCNTT,,,needs_clarification,missing_scope,Askdesignduration notpick4or3point5
+C05,"Đồ án tốt nghiệp bao nhiêu tín chỉ?",,,,needs_clarification,missing_scope,Askordinaryorenterprise notchoose6or10
+C06,"Em khóa2025 sau ba học kỳ chưa đạt ngoại ngữ bị giới hạn thế nào?",,"{""cohort_year"":2026}","{""programmes"":[""cta""],""applies_to"":[""undergraduate_regular""]}",needs_clarification,conflicting_scope,Do notoverridecallerfilter
+C07,"Theo Quyết định956 tại ngày31-02-2026 có hiệu lực thế nào?",956/QĐ-ĐHCNTT,,,needs_clarification,invalid_scope_date,Invalidliteraldate askcorrection
+C08,"Sau ba học kỳ chưa đạt ngoại ngữ bị giới hạn đăng ký thế nào?",956/QĐ-ĐHCNTT,,"{""cohort_year"":2026,""programmes"":[""CTA""],""applies_to"":[""undergraduate_regular""]}",answered,,Structuredreplyscope bindsCTAIEL05 cap16
+C09,"Em khóa2025 hệ chính quy chương trìnhCTC sau hai học kỳ chưa đạt ngoại ngữ bị giới hạn thế nào?",,,,insufficient_evidence,no_matching_evidence,No oldercohort policy available notapply956from2026
+C10,"Em khóa2026 hệ từ xa chương trìnhCTC sau hai học kỳ chưa đạt tiếng Anh bị giới hạn thế nào?",,,,insufficient_evidence,no_matching_evidence,No foreignlanguage-distance sourceincorpus
+C11,"Quyết định851 có hiệu lực từ ngày nào?",851/QĐ-ĐHCNTT,,,answered,,Literal01September2024 notissue14August
+C12,"Quyết định1393 còn hiệu lực hiện tại không?",1393/QĐ-ĐHCNTT,,,insufficient_evidence,legal_status_not_verified,Presentknown metadata notassertlegalactive
+C13,"So sánh khác biệt giữa Quyết định790 và Quyết định1393 và tình trạng hiệu lực của hai nguồn.",790/QĐ-ĐHCNTT;1393/QĐ-ĐHCNTT,,,insufficient_evidence,version_comparison_not_consolidated,Showoldnewdatesrolesrelatednumbers cannotlegalconsolidate
+C14,"Theo Quyết định790 lớp đại cương mở khi tối thiểu bao nhiêu sinh viên?",790/QĐ-ĐHCNTT,"{""document_ids"":[""uit_790_2022""]}",,insufficient_evidence,latest_excluded_by_filters,Do notfallback50when1393excluded
+C15,"Theo Thông báo43 khóa2018 chương trình4năm hiện nay thu học phí gia hạn bao nhiêu?",43/TB-ĐHCNTT,,,insufficient_evidence,current_fee_not_verified,Historicalschedule notcurrentfee verification
+C16,"Theo Thông báo43 bắt đầu thu học phí gia hạn ở học kỳ và năm học nào?",43/TB-ĐHCNTT,,"{""cohort_year"":2018,""design_years"":4}",answered,,Replyscope selectsreviewedrow2018fouryearHK1NH2022-2023
+C17,"Theo Quyết định277 đồ án tốt nghiệp bao nhiêu tín chỉ và áp dụng từ khóa nào?",277/QĐ-ĐHCNTT,,,answered,,Readsource6creditsandfrom2024 notaskusercohort
+C18,"Theo Quyết định697 đồ án tốt nghiệp doanh nghiệp bao nhiêu tín chỉ và giờ thực tập?",697/QĐ-ĐHCNTT,,,answered,,Readsource10credits500hours notordinary6
+C19,"Em khóa2026 hệ chính quy chương trìnhCTC sau ba học kỳ chưa đạt ngoại ngữ bị giới hạn thế nào?",,,"{""programmes"":[""CTA""]}",needs_clarification,conflicting_scope,Conflictingprogramme notswitchCTCtoCTA
+C20,"Theo Quyết định99999 hồ sơ được xét trong bao nhiêu ngày?",99999/QĐ-ĐHCNTT,,,insufficient_evidence,no_matching_evidence,No registeredreference andnogeneration

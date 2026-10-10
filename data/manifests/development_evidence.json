@@ -1,0 +1,411 @@
+{
+  "version": "development-evidence-v1",
+  "bound_at": "2026-10-08T14:15:09.780947+00:00",
+  "dataset_sha256": "7a2bb4801dac8c1d78e13aeac527dbc44b76583d0d5cb16cd40573445f1bfe0d",
+  "question_count": 30,
+  "review_method": "Technical hash binding of supplied answers/locators; semantic support review is recorded separately, not performed by this script",
+  "chunks": {
+    "uit_1393_2023:chunk:0000": {
+      "chunk_id": "uit_1393_2023:chunk:0000",
+      "document_id": "uit_1393_2023",
+      "document_number": "1393/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/31/file_id",
+      "source_sha256": "9531452a3ca520efdb59a7b0f8938b0807bfee8bb9657766ed928b317622a8d9",
+      "content_sha256": "535cd5a0ca098b6c80285ab87b8c593f910277f31cfc1606c49f8111f256ae1a",
+      "source_pdf_pages": [
+        1
+      ],
+      "article": null,
+      "clauses": [],
+      "extraction_methods": [
+        "tesseract_ocr"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_1393_2023:chunk:0001": {
+      "chunk_id": "uit_1393_2023:chunk:0001",
+      "document_id": "uit_1393_2023",
+      "document_number": "1393/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/31/file_id",
+      "source_sha256": "9531452a3ca520efdb59a7b0f8938b0807bfee8bb9657766ed928b317622a8d9",
+      "content_sha256": "65951cd859a72c81a3a074a9ea695589aaac14c6b6a5eb05f0ca14bb78a4f130",
+      "source_pdf_pages": [
+        1,
+        2
+      ],
+      "article": "1",
+      "clauses": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "extraction_methods": [
+        "tesseract_ocr"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_1393_2023:chunk:0002": {
+      "chunk_id": "uit_1393_2023:chunk:0002",
+      "document_id": "uit_1393_2023",
+      "document_number": "1393/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/31/file_id",
+      "source_sha256": "9531452a3ca520efdb59a7b0f8938b0807bfee8bb9657766ed928b317622a8d9",
+      "content_sha256": "a284d0911b68af1eb42ae455bdc0aeae439008869d6d7741de3ebd07215bcf70",
+      "source_pdf_pages": [
+        2
+      ],
+      "article": "2",
+      "clauses": [],
+      "extraction_methods": [
+        "tesseract_ocr"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_159_2024:chunk:0005": {
+      "chunk_id": "uit_159_2024:chunk:0005",
+      "document_id": "uit_159_2024",
+      "document_number": "159/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+      "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+      "content_sha256": "e8eee1727039539284a6f3122e5182b92749af3c208cc3cef9794651d497bc39",
+      "source_pdf_pages": [
+        2
+      ],
+      "article": "3",
+      "clauses": [
+        "1",
+        "2"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_159_2024:chunk:0007": {
+      "chunk_id": "uit_159_2024:chunk:0007",
+      "document_id": "uit_159_2024",
+      "document_number": "159/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+      "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+      "content_sha256": "5780bb0feef674479efbec5b14ee47b54a0455ea5785bc79fbd60ddff2c4cad6",
+      "source_pdf_pages": [
+        2
+      ],
+      "article": "5",
+      "clauses": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_159_2024:chunk:0008": {
+      "chunk_id": "uit_159_2024:chunk:0008",
+      "document_id": "uit_159_2024",
+      "document_number": "159/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+      "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+      "content_sha256": "32c7d8504a2200862d593b2a6f708ca841b4fcdd4e2f5880c8ef179af40127ef",
+      "source_pdf_pages": [
+        3
+      ],
+      "article": "6",
+      "clauses": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_159_2024:chunk:0009": {
+      "chunk_id": "uit_159_2024:chunk:0009",
+      "document_id": "uit_159_2024",
+      "document_number": "159/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+      "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+      "content_sha256": "f5dc05bf41578e41a2085d3276551663ee983d9561b7b733dae5d9c68aca1f91",
+      "source_pdf_pages": [
+        3
+      ],
+      "article": "7",
+      "clauses": [
+        "1",
+        "2"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_159_2024:chunk:0012": {
+      "chunk_id": "uit_159_2024:chunk:0012",
+      "document_id": "uit_159_2024",
+      "document_number": "159/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+      "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+      "content_sha256": "6f7895baa13457330776e69da66cdc31ed0e80892486612e97d51cdd37630f3e",
+      "source_pdf_pages": [
+        4
+      ],
+      "article": "9",
+      "clauses": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_159_2024:chunk:0014": {
+      "chunk_id": "uit_159_2024:chunk:0014",
+      "document_id": "uit_159_2024",
+      "document_number": "159/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+      "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+      "content_sha256": "93d4412864e9267762087c4a2d02fb589a49bda5e6ba4f940ee2c92e1e2a4451",
+      "source_pdf_pages": [
+        5
+      ],
+      "article": "11",
+      "clauses": [
+        "1",
+        "2"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_159_2024:chunk:0015": {
+      "chunk_id": "uit_159_2024:chunk:0015",
+      "document_id": "uit_159_2024",
+      "document_number": "159/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+      "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+      "content_sha256": "361a8e04cf598b46a1dc9c6a3969e2084cfcf491b9966e09ab9e45efd22b1f9a",
+      "source_pdf_pages": [
+        5,
+        6
+      ],
+      "article": "12",
+      "clauses": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_159_2024:chunk:0016": {
+      "chunk_id": "uit_159_2024:chunk:0016",
+      "document_id": "uit_159_2024",
+      "document_number": "159/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+      "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+      "content_sha256": "536af2ff859456d5ebbaf4b9d552e3e5ae5c3f7de73d3af238ea1008ecdd30cf",
+      "source_pdf_pages": [
+        6
+      ],
+      "article": "13",
+      "clauses": [
+        "1",
+        "2"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_159_2024:chunk:0018": {
+      "chunk_id": "uit_159_2024:chunk:0018",
+      "document_id": "uit_159_2024",
+      "document_number": "159/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+      "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+      "content_sha256": "673d90cec2d22fc18868353fc571367806d82470e09118bceabab5f0635fe6fb",
+      "source_pdf_pages": [
+        6,
+        7
+      ],
+      "article": "15",
+      "clauses": [
+        "1",
+        "2"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_956_2026:chunk:0005": {
+      "chunk_id": "uit_956_2026:chunk:0005",
+      "document_id": "uit_956_2026",
+      "document_number": "956/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+      "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+      "content_sha256": "c28f72ef413664554c3a9020db616c79bf42aa24b2bb03fc3c728e3785ff18d6",
+      "source_pdf_pages": [
+        2
+      ],
+      "article": "1",
+      "clauses": [
+        "1",
+        "2",
+        "3"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_956_2026:chunk:0007": {
+      "chunk_id": "uit_956_2026:chunk:0007",
+      "document_id": "uit_956_2026",
+      "document_number": "956/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+      "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+      "content_sha256": "951b88632df8169edbca835f4851aa92acff287a18c5e5ed729fb17e7d1fd027",
+      "source_pdf_pages": [
+        4
+      ],
+      "article": null,
+      "clauses": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_956_2026:chunk:0009": {
+      "chunk_id": "uit_956_2026:chunk:0009",
+      "document_id": "uit_956_2026",
+      "document_number": "956/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+      "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+      "content_sha256": "06acefa859d69bdf32de1a35d735d61a4f5a1f77eab0ca1b8a6a164cd6f67d97",
+      "source_pdf_pages": [
+        5
+      ],
+      "article": "6",
+      "clauses": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_956_2026:chunk:0012": {
+      "chunk_id": "uit_956_2026:chunk:0012",
+      "document_id": "uit_956_2026",
+      "document_number": "956/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+      "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+      "content_sha256": "261b7c56f0b33984a7bb0625c837d04880235366362563cb61d337d62e236770",
+      "source_pdf_pages": [
+        7
+      ],
+      "article": "9",
+      "clauses": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_956_2026:chunk:0013": {
+      "chunk_id": "uit_956_2026:chunk:0013",
+      "document_id": "uit_956_2026",
+      "document_number": "956/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+      "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+      "content_sha256": "e5eb0b771874f4456bdbb537bb62a9103469de460b9d9bb5eb650475a13fdc39",
+      "source_pdf_pages": [
+        7
+      ],
+      "article": "10",
+      "clauses": [
+        "1",
+        "2"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_956_2026:chunk:0014": {
+      "chunk_id": "uit_956_2026:chunk:0014",
+      "document_id": "uit_956_2026",
+      "document_number": "956/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+      "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+      "content_sha256": "92e3d8929d94b4b24f3db0b78a9d473887b0f6f0da0753762f9f9640136f14ca",
+      "source_pdf_pages": [
+        7,
+        8
+      ],
+      "article": "11",
+      "clauses": [
+        "1",
+        "2",
+        "3"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    },
+    "uit_956_2026:chunk:0015": {
+      "chunk_id": "uit_956_2026:chunk:0015",
+      "document_id": "uit_956_2026",
+      "document_number": "956/QĐ-ĐHCNTT",
+      "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+      "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+      "content_sha256": "07d3cd6f7ecf9d12dc802c63dfe95f4979650749835b126f9a99780845cd77d4",
+      "source_pdf_pages": [
+        7,
+        8
+      ],
+      "article": "11",
+      "clauses": [
+        "4"
+      ],
+      "extraction_methods": [
+        "pymupdf_text"
+      ],
+      "quality_status": "approved"
+    }
+  }
+}

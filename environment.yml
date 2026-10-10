@@ -1,0 +1,10 @@
+name: ragschool
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - tesseract=5.5.2
+  - pip
+  - pip:
+      - -r requirements.lock
+      - -e .

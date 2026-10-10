@@ -1,0 +1,13 @@
+question_id,run,answer_status,manual_answer_supported,verdict,verification_note
+F01,acceptance-api,answered,True,pass,1393 amendedarticle14clause1b cap12 andfullsummerconditions; nooldcap10
+F02,acceptance-api,answered,True,pass,1393 amendedarticle12clause1 minimum70 withgeneral/commonfoundation scope
+F03,deadline-regression,answered,True,pass,1393 amendedarticle23clause1 within1month aftersemesterstart andgradeM; unrelated gradeI excerpt removed after regression
+F04,acceptance-api,answered,True,pass,513 fullarticle1 amendedarticle3clause1 includingfreeelectives cap3 top100 rankingage3years15hours nonduplication andlearningoutcomes; no cutconditions
+F05,acceptance-api,insufficient_evidence,False,pass_abstention,790-only filter excludesmandatory1393; nogeneration andno stale50student answer
+F06,acceptance-api,answered,True,pass,Historical412 before513; completearticle3 retainsCgrade-or5 threshold5year completion andinstitutional requirements
+M201,acceptance-api,answered,True,pass,Exact513 boundclause includescap3/group/allqualifyingconditions without modelcopy orwrongsourceID
+M204,acceptance-api,answered,True,pass,Exact43 reviewedrow2018 fouryear HK1NH2022-2023 fromPDF2; citation boundtotheactualrow
+M211,acceptance-api,answered,True,pass,851 sourceexplicit01/9/2024 effective; preservednonretroactivity qualifier; not14Augustsignature orISOmetadataquote
+M212,acceptance-api,answered,True,pass,894 article9 PDF8 notarticle15;30paperdegree5digital exactspans;15papercertificate notconfused
+D15,acceptance-api,answered,True,pass,159article9clause3 fullCBPBdifferentCBHD andlistedbloodrelations; no paraphrase
+D30,acceptance-api,answered,True,pass,956article11clause4 JAN02/JLPTN5/NATN5 andcap16nonlanguagecredits untilmet withretake/improvement condition

@@ -1,0 +1,16 @@
+document_id,run_id,status,outcome,chunk_count,error_code,error_message
+uit_112_2024,45c92615-0d75-4528-8918-db7c3b2057c4,failed,failed,0,ocr_required,Source is a scanned PDF and requires verified OCR
+uit_1393_2023,26e433fd-e6ed-4519-86c5-44fa55f39b60,failed,failed,0,ocr_required,Source is a scanned PDF and requires verified OCR
+uit_159_2024,5f69706e-e0c3-40b2-a2b1-1a9e6627cce2,ready,unchanged,8,,
+uit_277_2025,24edf60c-be4b-4506-ad04-1ed3a3b105c2,failed,failed,0,ocr_required,Source is a scanned PDF and requires verified OCR
+uit_308_2025,c1fdd12f-a88c-48e9-b059-8e32c70661ec,failed,failed,0,ocr_required,Source is a scanned PDF and requires verified OCR
+uit_412_2025,bbb72e42-ef77-4e6d-aac1-2ea473239c35,failed,failed,0,ocr_required,Source is a scanned PDF and requires verified OCR
+uit_43_2020,37516661-2ffa-46ba-9b30-49d1fc7571e1,failed,failed,0,quality_not_approved,Document is not in the approved retrieval allowlist
+uit_513_2026,1c6147ad-3cd1-4071-9014-f12aa6693643,failed,failed,0,ocr_required,Source is a scanned PDF and requires verified OCR
+uit_697_2024,75c92584-f211-45f8-8d48-11fb70687356,failed,failed,0,ocr_required,Source is a scanned PDF and requires verified OCR
+uit_790_2022,69cfe0db-a71f-4503-99b5-54054f2d1a07,ready,ingested,27,,
+uit_803_2025,47c94663-aef9-4d95-a520-a40de7c40ab8,failed,failed,0,ocr_required,Source is a scanned PDF and requires verified OCR
+uit_832_2024,d6064603-57a0-444f-9a97-5ac2fba38849,failed,failed,0,ocr_required,Source is a scanned PDF and requires verified OCR
+uit_851_2024,3af4b556-c997-4be3-afc0-07db07ff82e4,failed,failed,0,ocr_required,Source is a scanned PDF and requires verified OCR
+uit_894_2026,616323f3-8f2d-4a5b-a03e-d4e27b7009cd,failed,failed,0,ocr_required,Source is a scanned PDF and requires verified OCR
+uit_956_2026,066f54c7-88e4-41d2-8340-3dd4375c1f31,ready,ingested,11,,

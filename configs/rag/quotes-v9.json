@@ -1,0 +1,57 @@
+{
+  "pipeline_version": "rag-reranked-freshness-v1",
+  "embedding": {
+    "model_name": "intfloat/multilingual-e5-small",
+    "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "dimension": 384,
+    "device": "cpu",
+    "batch_size": 1,
+    "cpu_threads": 2,
+    "pooling_version": "window-mean-v1",
+    "max_sequence_tokens": 512,
+    "window_overlap_tokens": 32,
+    "query_prefix": "query: ",
+    "document_prefix": "passage: "
+  },
+  "retrieval": {
+    "mode": "hybrid",
+    "top_k": 8,
+    "candidate_k": 20,
+    "rrf_k": 60,
+    "dense_weight": 1.0,
+    "keyword_weight": 1.0,
+    "keyword_query_version": "vi-simple-v1",
+    "metadata_filter_version": "evidence-metadata-v1",
+    "document_reference_policy": "shared-query-refs-v1",
+    "minimum_keyword_score": 0.0,
+    "minimum_score": 0.55,
+    "eligible_document_ids": [
+      "uit_159_2024", "uit_1393_2023", "uit_790_2022", "uit_956_2026",
+      "uit_112_2024", "uit_277_2025", "uit_308_2025", "uit_412_2025",
+      "uit_43_2020", "uit_513_2026", "uit_697_2024", "uit_803_2025",
+      "uit_832_2024", "uit_851_2024", "uit_894_2026"
+    ]
+  },
+  "generation": {
+    "backend": "llama_cpp",
+    "response_policy": "verified_quotes",
+    "model_name": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "model_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+    "gguf_filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+    "device": "cpu",
+    "max_new_tokens": 384,
+    "max_input_tokens": 4096,
+    "cpu_threads": 4,
+    "context_chunks": 6,
+    "prompt_version": "evidence-only-quotes-v9"
+  },
+  "reranker": {
+    "enabled": true,
+    "model_name": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+    "model_revision": "1427fd652930e4ba29e8149678df786c240d8825",
+    "device": "cpu", "batch_size": 1, "cpu_threads": 2, "candidate_k": 20,
+    "max_sequence_tokens": 512, "window_overlap_tokens": 32,
+    "pooling_version": "window-max-v1"
+  },
+  "freshness": {"enabled": true, "policy_version": "verified-relations-v1"}
+}

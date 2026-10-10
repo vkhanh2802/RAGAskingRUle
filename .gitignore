@@ -1,0 +1,15 @@
+# Official source documents are downloaded locally; redistribution is not licensed.
+data/raw/
+data/processed/
+
+# Local configuration and Python artifacts.
+.env
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
