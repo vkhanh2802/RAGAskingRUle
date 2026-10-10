@@ -476,16 +476,25 @@ chưa held-out accuracy; tiếp theoT4.1.
 | Giả định sai hoặc gây nhiễu | 10 |
 | **Tổng** | **100** |
 
-- [ ] Mỗi mẫu có question, category, expected_status.
-- [ ] Với câu có đáp án: reference_answer, required_facts và evidence.
-- [ ] Evidence gồm tài liệu, trang, đoạn trích; không chỉ chunk ID.
-- [ ] Ghi filters và split.
-- [ ] Chia khoảng 60 development / 40 held-out test.
-- [ ] Giữ paraphrase gần nhau trong cùng split.
-- [ ] Kiểm tra thủ công toàn bộ evidence.
-- [ ] Freeze test set trước vòng tuning cuối.
+- [x] Mỗi mẫu có question, category, expected_status.
+- [x] Với câu có đáp án: reference_answer, required_facts và evidence.
+- [x] Evidence gồm tài liệu, trang, đoạn trích; không chỉ chunk ID.
+- [x] Ghi filters và split.
+- [x] Chia khoảng 60 development / 40 held-out test.
+- [x] Giữ paraphrase gần nhau trong cùng split.
+- [x] Kiểm tra thủ công toàn bộ evidence.
+- [x] Freeze test set trước vòng tuning cuối.
 
 **Nghiệm thu:** mọi mẫu có đáp án hoặc hành vi kỳ vọng rõ. LLM có thể hỗ trợ viết mẫu nhưng không thay thế kiểm tra bằng chứng.
+
+**Hoàn tất2026-10-10:** `data/evaluation/v1/`,100cases đúng30/20/15/15/10/10,
+60development/40prospectiveheld-out;75answeredgold/15insufficient/10clarification.
+72curatedspans/49approvedchunks với source/pages/offsets/excerpts/hashes;
+manualassistantsource/behaviourreview100cases, khôngindependenthumanreview.
+98paraphrasegroups/68families khôngcrosssplit; frozenlegacy30/19giữnguyên.
+Freeze `d577dcde2469cdb1650b4e7b1164e520afc5037d6668fe1b5eb06c7f98946f0c`,
+0held-outRAGinference trongconstruction;300tests vàsource/filter/hashgates đạt.
+`docs/evaluation-dataset-review.md`; nextT4.2, M4benchmark cònpending.
 
 ### T4.2 — Evaluation runner
 

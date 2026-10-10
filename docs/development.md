@@ -516,6 +516,33 @@ không phải nguồn UIT. Full outputs/hash snapshots/model traces ở ignored 
 34 final pass/fail cases và276tests đạt M3 technical gate. Chi tiết failed pilots,
 positive controls, timings và limits: `docs/adversarial-behaviour-review.md`.
 
+## Frozen evaluation100 — T4.1
+
+Dataset ở `data/evaluation/v1/`:100cases,60development/40test, requiredfacts/support
+spans/contrasts/clarificationfields vàsourcehash/page/offset bindings. 30 câu development
+cũ giữ nguyên; status labels là mục tiêu đúng, không phải kết quả model đã đạt.
+
+```powershell
+python scripts/validate_evaluation_dataset.py --summary data/manifests/t4_1_dataset_recheck.json
+```
+
+Validator dùng SELECT gold/metadata vàsourcePDFhash, không tải model hoặc chạy heldout
+inference. `freeze.json` đã tồn tại nên builder/refreeze sẽ reject; giữ nguyên version
+đã freeze. Source/split/label drift cần reviewed version mới, không silent rebind.
+
+```python
+from pathlib import Path
+from regularag.evaluation.dataset import load_evaluation_cases
+
+development = load_evaluation_cases(Path("data/evaluation/v1"))  # 60
+# Test selection is explicit and reserved for the final chosen config.
+```
+
+`source_pdf_pages` là approved chunk ranges, có thể coarse; không invent page/article.
+Review doassistant đọc approved sources/inheritedM2quality evidence, chưaindependenthuman.
+Prospectiveheldout dùngcommoncorpus, không document-disjoint. Chi tiết review/exposure/
+freezehashes/tests: `docs/evaluation-dataset-review.md`. T4.2 runner tiếp theo.
+
 ## Dừng dịch vụ
 
 ```powershell

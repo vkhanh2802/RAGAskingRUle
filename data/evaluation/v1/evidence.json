@@ -1,0 +1,2068 @@
+[
+  {
+    "evidence_id": "admission_archive",
+    "chunk_id": "uit_308_2025:chunk:0041",
+    "document_id": "uit_308_2025",
+    "document_number": "308/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/79/file_id",
+    "source_sha256": "044116c9b6fc4bda02d57fb2d926314154a2ffe325a77ad0b3bdc27215335b2b",
+    "content_sha256": "e756183d4899557e77a2749cf9cbaf1f28babcd9dee32207a6155249d28e0d73",
+    "char_start": 219,
+    "char_end": 449,
+    "excerpt": "2. Các tài liệu khác liên quan đến tuyển sinh, Trường ĐHCNTT phải bảo quản và lưu\ntrữ trong suốt khóa đào tạo theo quy định của Luật Lưu trữ và các quy định về thời hạn\nbảo quản tài liệu chuyên môn nghiệp vụ của ngành giáo dục.\n19",
+    "excerpt_sha256": "90c4524c1269a52e25cac65249029b40d5066c1f26bf5d4e161edfb12bce3428",
+    "source_pdf_pages": [
+      19,
+      20
+    ],
+    "article": "31",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều31 khoản2; approved PDF19-20",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "admission_confirmation",
+    "chunk_id": "uit_308_2025:chunk:0025",
+    "document_id": "uit_308_2025",
+    "document_number": "308/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/79/file_id",
+    "source_sha256": "044116c9b6fc4bda02d57fb2d926314154a2ffe325a77ad0b3bdc27215335b2b",
+    "content_sha256": "ecabfa006bb56b47e99d871cc1372d4b8fdf5cded715ba6940568914ddee7a8c",
+    "char_start": 230,
+    "char_end": 1234,
+    "excerpt": "2. Thí sinh xác nhận nhập học bằng hình thức trực tuyến trên hệ thống, trước khi nhập\nhọc tại Trường ĐHCNTT.\n3. Đối với những thí sinh không xác nhận nhập học trong thời hạn quy định:\na) Nếu không có lý do chính đáng thì coi như thí sinh từ chối nhập học và Trường\nĐHCNTT có quyền không tiếp nhận;\nb) Nếu do ốm đau, tai nạn, có giấy xác nhận của bệnh viện quận, huyện trở lên hoặc do\nthiên tai có xác nhận của Ủy ban nhân dân quận, huyện trở lên, ĐHCNTT xem xét quyết\nđịnh tiếp nhận thí sinh vào học hoặc bảo lưu kết quả tuyển sinh để thí sinh vào học sau;\nc) Nếu do sai sót, nhằm lẫn của cán bộ thực hiện công tác tuyển sinh hoặc cá nhân thí\nsinh gây ra, Trường chủ động phối hợp với các cá nhân, tổ chức liên quan xem xét các\nminh chứng và quyết định việc tiếp nhận thí sinh vào học hoặc bảo lưu kết quả tuyển\nsinh để thí sinh vào học sau.\n4. Thí sinh đã xác nhận nhập học tại Trường ĐHCNTT không được tham gia xét\ntuyển ở nơi khác hoặc ở các đợt xét tuyển bổ sung, trừ trường hợp được Trường cho\nphép.",
+    "excerpt_sha256": "494c1172b8dcc359ffc99248c15576c4b849cbdd1a510ad9d5505333ae390bbb",
+    "source_pdf_pages": [
+      15
+    ],
+    "article": "18",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều18 khoản2-4; PDF15; giữ các ngoại lệ",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "admission_deferral_grounds",
+    "chunk_id": "uit_308_2025:chunk:0016",
+    "document_id": "uit_308_2025",
+    "document_number": "308/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/79/file_id",
+    "source_sha256": "044116c9b6fc4bda02d57fb2d926314154a2ffe325a77ad0b3bdc27215335b2b",
+    "content_sha256": "127ce97526a533621517ce6dd01d617a1548f9da99508eae61f0eb3b555432c3",
+    "char_start": 37,
+    "char_end": 413,
+    "excerpt": "1. Thí sinh đã có giấy báo trúng tuyển được bảo lưu kết quả trúng tuyển trong những\ntrường hợp sau: |\na) Đi nghĩa vụ quân sự hoặc di thanh niên xung phong tập trung ngay trong năm trúng\ntuyển theo quyết định hoặc lệnh của cơ quan có thẩm quyền;\nb) Bị bệnh nặng hoặc bị tai nạn nghiêm trọng không thể nhập học đúng hạn, có hồ sơ y\ntế và xác nhận của cơ quan y tế có thâm quyên.",
+    "excerpt_sha256": "a11b328e3f8117d4d3efa0e5acde8f44ea0c7e7e48356b5c6d952d9e3b3a4ea7",
+    "source_pdf_pages": [
+      10,
+      11
+    ],
+    "article": "10",
+    "clauses": [
+      "1",
+      "2",
+      "3"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều10 khoản1; approved PDF10-11",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "admission_deferral_time",
+    "chunk_id": "uit_308_2025:chunk:0016",
+    "document_id": "uit_308_2025",
+    "document_number": "308/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/79/file_id",
+    "source_sha256": "044116c9b6fc4bda02d57fb2d926314154a2ffe325a77ad0b3bdc27215335b2b",
+    "content_sha256": "127ce97526a533621517ce6dd01d617a1548f9da99508eae61f0eb3b555432c3",
+    "char_start": 414,
+    "char_end": 686,
+    "excerpt": "2. Thí sinh thuộc diện quy định tại khoản 1 phải gửi đơn xin bảo lưu kèm theo giấy tờ\nminh chứng tới Trường ĐHCNTT. Thời gian tối đa được bảo lưu kết quả là 3 năm đối\nvới người quy định tại điểm a khoản 1 Điều này, 1 năm đối với người quy định tại điểm b\nkhoản 1 Điều này.",
+    "excerpt_sha256": "d3685556dc7e853c1fdc8c786a517507a484a567a0326bba35e8e18c484d039b",
+    "source_pdf_pages": [
+      10,
+      11
+    ],
+    "article": "10",
+    "clauses": [
+      "1",
+      "2",
+      "3"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều10 khoản2,3năm/1năm theo grounds; approved PDF10-11",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "admission_eligibility",
+    "chunk_id": "uit_308_2025:chunk:0010",
+    "document_id": "uit_308_2025",
+    "document_number": "308/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/79/file_id",
+    "source_sha256": "044116c9b6fc4bda02d57fb2d926314154a2ffe325a77ad0b3bdc27215335b2b",
+    "content_sha256": "5d499c479e63f8607df2015af0c174aaee43148fcf137cd187617ea384927248",
+    "char_start": 38,
+    "char_end": 753,
+    "excerpt": "1. Đối tượng dự tuyển được xác định tại thời điểm xét tuyển (trước khi công bố kết\nquả xét tuyển chính thức), bao gồm:\na) Người đã được công nhận tốt nghiệp trung học phổ thông (THPT) của Việt Nam\nhoặc có bằng tốt nghiệp của nước ngoài được Bộ GD&ĐT công nhận trình độ tương\nđương;\nb) Người đã có bằng tốt nghiệp trung cấp ngành nghề thuộc cùng nhóm ngành dự\ntuyển và đã hoàn thành đủ yêu cầu khối lượng kiến thức văn hóa cấp THPT theo quy định\ncủa pháp luật.\n2. Đối tượng dự tuyển quy định tại khoản 1 Điều này phải đáp ứng các điều kiện sau:\na) Đạt ngưỡng đầu vào theo quy định tại Điều 9 Quy chế này;\nb) Có đủ sức khoẻ để học tập theo quy định hiện hành;\nc) Có đủ thông tin cá nhân, hồ sơ dự tuyển theo quy định.",
+    "excerpt_sha256": "7565bfe2d97c7b4b583513a9167304a2533a837861e1f9bfa2093f41991e095b",
+    "source_pdf_pages": [
+      7,
+      8
+    ],
+    "article": "5",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều5 khoản1-2; approved PDF7-8",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "admission_preferences",
+    "chunk_id": "uit_308_2025:chunk:0023",
+    "document_id": "uit_308_2025",
+    "document_number": "308/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/79/file_id",
+    "source_sha256": "044116c9b6fc4bda02d57fb2d926314154a2ffe325a77ad0b3bdc27215335b2b",
+    "content_sha256": "22d5393188c6caf79d394aafde82c2fc5913b115afef0a4de2ab66327c492fbd",
+    "char_start": 508,
+    "char_end": 826,
+    "excerpt": "3. Thí sinh được đăng ký nguyện vọng vào nhiều ngành, nhiều trường khác nhau\nkhông hạn chế số lượng, nhưng phải sắp xếp các nguyện vọng theo thứ tự ưu tiên từ cao\nxuống thấp. Trong trường hợp nhiều nguyện vọng đủ điều kiện trúng tuyển, thí sinh chỉ\nđược công nhận trúng tuyển và gọi nhập học theo nguyện vọng cao nhất.",
+    "excerpt_sha256": "6561951f3cb66e353ccd8e2c2c55f51a85416a034bada1c0a67d4f3c478cfa82",
+    "source_pdf_pages": [
+      14
+    ],
+    "article": "16",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều16 khoản3; PDF14; unlimited nhưng thứ tự từcao xuống thấp và nguyện vọng cao nhất",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "admission_weights",
+    "chunk_id": "uit_308_2025:chunk:0011",
+    "document_id": "uit_308_2025",
+    "document_number": "308/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/79/file_id",
+    "source_sha256": "044116c9b6fc4bda02d57fb2d926314154a2ffe325a77ad0b3bdc27215335b2b",
+    "content_sha256": "8a5963bfe2cf0aa4e70efe196054d189abc2bd606b690e769f92960071a25419",
+    "char_start": 717,
+    "char_end": 1101,
+    "excerpt": "2. Đối với phương thức tuyển sinh dựa trên điểm thi các môn tốt nghiệp THPT và các\nkết quả đánh giá khác, tổ hợp môn dùng để xét tuyển bao gồm ít nhất 3 môn phù hợp với\nđặc điểm, yêu cầu của chương trình đào tạo, trong đó phải có môn toán hoặc ngữ văn với\ntrọng số tính điểm xét Không dưới 25%; từ năm 2026 số môn chung của các tổ hợp phải\nđóng góp ít nhất 50% trọng số tính điểm xét;",
+    "excerpt_sha256": "6dda03a7e8793f6382c11208cf4f1ac8d1d716a2adbc8016e4849c5b8c796bdc",
+    "source_pdf_pages": [
+      8
+    ],
+    "article": "6",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều6 khoản2; PDF8; từ2026 trọng số môn chung50%, không dùng priorityformula mơ hồ",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "archive",
+    "chunk_id": "uit_159_2024:chunk:0018",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "673d90cec2d22fc18868353fc571367806d82470e09118bceabab5f0635fe6fb",
+    "char_start": 24,
+    "char_end": 154,
+    "excerpt": "1. Toàn bộ biên bản, hồ sơ bảo vệ KLTN được Thư ký Hội đồng bàn giao cho Khoa và\nđược các Khoa lưu trữ tối thiểu trong vòng 5 năm.",
+    "excerpt_sha256": "a915d938ccee0c36051565b6c145ae83657a4421ea5bce5b79d2474825dddd1e",
+    "source_pdf_pages": [
+      6,
+      7
+    ],
+    "article": "15",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều15 khoản1; approved PDF6-7",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "capstone_council",
+    "chunk_id": "uit_277_2025:chunk:0011",
+    "document_id": "uit_277_2025",
+    "document_number": "277/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/61/file_id",
+    "source_sha256": "25b6c05d49beeeed18ba7287a2e7be05656c3a695a92fb43e9b88f0d75bd4f0f",
+    "content_sha256": "d90f5a96b086eb84406fea6b008400923030cfbb5f3edf506f47df54ed79fdbc",
+    "char_start": 565,
+    "char_end": 646,
+    "excerpt": "3. Hội đồng đánh giá ĐATN gồm 03 thành viên: Chủ tịch, Ủy viên thư ký và Ủy viên.",
+    "excerpt_sha256": "59a623b671b15faf4c209b2d37ff1a4b8cb45cd334e75771733a745813292fbf",
+    "source_pdf_pages": [
+      4,
+      5
+    ],
+    "article": "8",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều8 khoản3, membership; PDF4-5",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "capstone_duration",
+    "chunk_id": "uit_277_2025:chunk:0007",
+    "document_id": "uit_277_2025",
+    "document_number": "277/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/61/file_id",
+    "source_sha256": "25b6c05d49beeeed18ba7287a2e7be05656c3a695a92fb43e9b88f0d75bd4f0f",
+    "content_sha256": "8c35a3c3684b0cb36aab4925762c82e8df057b72b7b10d56e42ed19d6f7b69a0",
+    "char_start": 28,
+    "char_end": 98,
+    "excerpt": "1. Thời gian thực hiện ĐATN là 01 học kỳ theo lịch đào tạo của Trường.",
+    "excerpt_sha256": "88009102642ef0b7811a2d5881b0d94a2d58c9e93b2796f314ee610a2dd51125",
+    "source_pdf_pages": [
+      4
+    ],
+    "article": "4",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều4 khoản1; PDF4",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "capstone_pages",
+    "chunk_id": "uit_277_2025:chunk:0011",
+    "document_id": "uit_277_2025",
+    "document_number": "277/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/61/file_id",
+    "source_sha256": "25b6c05d49beeeed18ba7287a2e7be05656c3a695a92fb43e9b88f0d75bd4f0f",
+    "content_sha256": "d90f5a96b086eb84406fea6b008400923030cfbb5f3edf506f47df54ed79fdbc",
+    "char_start": 1398,
+    "char_end": 1520,
+    "excerpt": "5. Số trang báo cáo ĐATN tối thiểu là 15 (chỉ tính nội dung, không tính mục lục; theo\nđịnh dạng được quy định của Trường).",
+    "excerpt_sha256": "84c08f876bb14a670088a3c70685e0e139ab9d7c80b7852e00ce5e5b160ad4f2",
+    "source_pdf_pages": [
+      4,
+      5
+    ],
+    "article": "8",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều8 khoản5,15trang chỉ nội dung/không mục lục; PDF4-5",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "certificate_age",
+    "chunk_id": "uit_956_2026:chunk:0012",
+    "document_id": "uit_956_2026",
+    "document_number": "956/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+    "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+    "content_sha256": "261b7c56f0b33984a7bb0625c837d04880235366362563cb61d337d62e236770",
+    "char_start": 312,
+    "char_end": 406,
+    "excerpt": "2. Chứng chỉ, chứng nhận phải còn thời hạn hai năm tính từ ngày thi đến ngày đăng ký xét\nmiễn.",
+    "excerpt_sha256": "169df3cf55fcb4752003bf87d9b80549272de5ca165ebfa29df31883a0049d17",
+    "source_pdf_pages": [
+      7
+    ],
+    "article": "9",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều9 khoản2; PDF7",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "class_size",
+    "chunk_id": "uit_1393_2023:chunk:0001",
+    "document_id": "uit_1393_2023",
+    "document_number": "1393/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/31/file_id",
+    "source_sha256": "9531452a3ca520efdb59a7b0f8938b0807bfee8bb9657766ed928b317622a8d9",
+    "content_sha256": "65951cd859a72c81a3a074a9ea695589aaac14c6b6a5eb05f0ca14bb78a4f130",
+    "char_start": 671,
+    "char_end": 848,
+    "excerpt": "2. Khoản 1 Điều 12: Lớp học phần được mở nếu số lượng sinh viên đăng ký tối\nthiểu là 70 sinh viên đối với các môn học đại cương và các môn học cơ sở\nngành học chung toàn Trường.",
+    "excerpt_sha256": "977e2f44a256049f1cc9677bdf81e8aa0e7c63633e43d8f1f35c8e9aee8bfb40",
+    "source_pdf_pages": [
+      1,
+      2
+    ],
+    "article": "1",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều1 mục2 sửa Điều12 khoản1; approved PDF1-2",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "committee",
+    "chunk_id": "uit_159_2024:chunk:0014",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "93d4412864e9267762087c4a2d02fb589a49bda5e6ba4f940ee2c92e1e2a4451",
+    "char_start": 274,
+    "char_end": 369,
+    "excerpt": "Thành phần Hội đồng bao gồm chủ tịch hội đồng, ủy viên thư ký, CBPB. CBHD\nkhông thuộc Hội đồng.",
+    "excerpt_sha256": "0a722775a08fd535e2f847487458e7993fcc5646e896faa3ab2b5ad5218b8ca0",
+    "source_pdf_pages": [
+      5
+    ],
+    "article": "11",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều11 khoản2; thành phần và CBHD; PDF5",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "correction_deadline",
+    "chunk_id": "uit_894_2026:chunk:0022",
+    "document_id": "uit_894_2026",
+    "document_number": "894/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/35/file_id",
+    "source_sha256": "205bc08641854810a471c602b6d4fa9322f35a81ff3e760bb909c4055a2ee283",
+    "content_sha256": "a36f523d92ce8b4ffef33c93ac0ed12d118d8de0d982b03942008475ff4a1b39",
+    "char_start": 1506,
+    "char_end": 1734,
+    "excerpt": "5. Trong thời hạn 03 ngày làm việc kể từ ngày nhận đủ hồ sơ hợp lệ, Hiệu trưởng hoặc thủ\ntrưởng đơn vị quản lý sổ gốc cấp VBCC phải ban hành quyết định chỉnh sửa; nếu không\nchấp thuận phải trả lời bằng văn bản và nêu rõ lý do.\n8",
+    "excerpt_sha256": "bbbea1f9ef844f34a722161dcbace23a4be80a326c15d97b18c10eee7a27ffdd",
+    "source_pdf_pages": [
+      11,
+      12
+    ],
+    "article": "13",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều13 khoản5; PDF11-12; chữ số8 là footer nguồn",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "correction_method",
+    "chunk_id": "uit_894_2026:chunk:0022",
+    "document_id": "uit_894_2026",
+    "document_number": "894/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/35/file_id",
+    "source_sha256": "205bc08641854810a471c602b6d4fa9322f35a81ff3e760bb909c4055a2ee283",
+    "content_sha256": "a36f523d92ce8b4ffef33c93ac0ed12d118d8de0d982b03942008475ff4a1b39",
+    "char_start": 952,
+    "char_end": 1049,
+    "excerpt": "3. Việc chỉnh sửa được thực hiện bằng quyết định chỉnh sửa, không sửa trực tiếp trên VBCC\nđã cấp.",
+    "excerpt_sha256": "1fcb06e4e441a439e73dbbee966979d9e52bf490b6bcc88f2c39bb8cf4b33cc3",
+    "source_pdf_pages": [
+      11,
+      12
+    ],
+    "article": "13",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều13 khoản3, không sửa trực tiếp; PDF11-12",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "correction_reasons",
+    "chunk_id": "uit_894_2026:chunk:0022",
+    "document_id": "uit_894_2026",
+    "document_number": "894/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/35/file_id",
+    "source_sha256": "205bc08641854810a471c602b6d4fa9322f35a81ff3e760bb909c4055a2ee283",
+    "content_sha256": "a36f523d92ce8b4ffef33c93ac0ed12d118d8de0d982b03942008475ff4a1b39",
+    "char_start": 39,
+    "char_end": 525,
+    "excerpt": "1. Các trường hợp chỉnh sửa VBCC\nNgười được cấp VBCC có quyền yêu cầu chỉnh sửa nội dung ghi trên VBCC trong các\ntrường hợp sau:\na) Được cơ quan có thẩm quyền quyết định thay đổi hoặc cải chính hộ tịch;\nb) Được xác định lại dân tộc, xác định lại giới tính;\nc) Được bé sung hộ tịch, điều chỉnh hộ tịch;\nd) Được đăng ký khai sinh quá hạn, đăng ký lại khai sinh;\nđ) Trường hợp thông tin ghi trên VBCC sai do người học cung cấp và không có lỗi của\nTrường hoặc don vi có thẩm quyền cấp VBCC.",
+    "excerpt_sha256": "cb6a791fb1483333c38b327b2fc9bd7e483bfaf1b9428c99a96317c9e3eb394c",
+    "source_pdf_pages": [
+      11,
+      12
+    ],
+    "article": "13",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều13 khoản1; approved PDF11-12",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "degree_database",
+    "chunk_id": "uit_894_2026:chunk:0026",
+    "document_id": "uit_894_2026",
+    "document_number": "894/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/35/file_id",
+    "source_sha256": "205bc08641854810a471c602b6d4fa9322f35a81ff3e760bb909c4055a2ee283",
+    "content_sha256": "22223c3974e8e8d1d0aa79563aa5a2758c9a1c429ee646a349c2c55bf1a0eaaf",
+    "char_start": 46,
+    "char_end": 335,
+    "excerpt": "1. Trường xây dựng cơ sở dữ liệu về VBCC để giải quyết các thủ tục hành chính cho người\nđược cấp VBCC và kết nối với cơ sở dữ liệu về VBCC của Bộ Giáo dục và Đào tạo. Cơ sở\ndữ liệu về VBCC có day đủ các trường thông tin như sổ gốc được quy định tại Phụ lục 5\nban hành kèm theo Quy chế này.",
+    "excerpt_sha256": "66c80a83214d599e1330c68efd6d0544ffdb8cb19ded193fd6590227b9454153",
+    "source_pdf_pages": [
+      14,
+      15
+    ],
+    "article": "17",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều17 khoản1; approved PDF14-15",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "degree_language",
+    "chunk_id": "uit_894_2026:chunk:0015",
+    "document_id": "uit_894_2026",
+    "document_number": "894/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/35/file_id",
+    "source_sha256": "205bc08641854810a471c602b6d4fa9322f35a81ff3e760bb909c4055a2ee283",
+    "content_sha256": "5c974b986eb9d4a3937389dd44e0d0222fa5974c8932be79b42330433fea9837",
+    "char_start": 66,
+    "char_end": 333,
+    "excerpt": "Ngôn ngữ ghi trên VBCC và phụ lục văn bằng là tiếng Việt. Đối với các VBCC và phụ lục\nvăn bằng có ghi thêm tiếng nước ngoài, thì tiếng nước ngoài được ghi chính xác và phù\nhợp với nội dung tiếng Việt; kích cỡ chữ tiếng nước ngoài không lớn hơn kích cỡ chữ tiếng\nViệt.",
+    "excerpt_sha256": "bee23ba5d277a0d710daaefcd706dfdbcb3526eb08d9c8938a6ce1ce31aa9f37",
+    "source_pdf_pages": [
+      8
+    ],
+    "article": "8",
+    "clauses": [],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều8; PDF8; tiếng Việt/ngoại ngữ/chữ",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "degree_once",
+    "chunk_id": "uit_894_2026:chunk:0008",
+    "document_id": "uit_894_2026",
+    "document_number": "894/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/35/file_id",
+    "source_sha256": "205bc08641854810a471c602b6d4fa9322f35a81ff3e760bb909c4055a2ee283",
+    "content_sha256": "8a47ceda6ddc027418a17b6c4a28091ab8340cb08e753b153f5df8029035f5b4",
+    "char_start": 271,
+    "char_end": 389,
+    "excerpt": "2. VBCC được cấp một lần, trừ trường hợp cấp lại do lỗi của Trường hoặc đơn vị cấp\nVBCC được quy định tại Quy chế này.",
+    "excerpt_sha256": "a07cd53c39f9d03f98fe7d778e62e87f4b0c6161478b9ad0361397680c7c4e75",
+    "source_pdf_pages": [
+      6
+    ],
+    "article": "3",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều3 khoản2, exception issuer error; PDF6",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "degree_online_procedure",
+    "chunk_id": "uit_894_2026:chunk:0027",
+    "document_id": "uit_894_2026",
+    "document_number": "894/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/35/file_id",
+    "source_sha256": "205bc08641854810a471c602b6d4fa9322f35a81ff3e760bb909c4055a2ee283",
+    "content_sha256": "4422d033422b064aa6dccca3e9a4e67cab575c54d3c9bf80b79a76199824737a",
+    "char_start": 107,
+    "char_end": 630,
+    "excerpt": "1. Việc cấp lại, chỉnh sửa, thu hồi, hủy bỏ VBCC trên cơ sở dữ liệu về VBCC được thực\nhiện trên cổng dịch vụ công trực tuyến. Người có nhu cầu cấp lại, chỉnh sửa VBCC cung\ncấp thông tin theo biểu mẫu tại cổng dịch vụ công trực tuyến gồm các thông tin (như mẫu\nPhiếu đề nghị tại Phụ lục 8 ban hành kèm theo Quy chế này).\n2. Quy trình cấp lại, chỉnh sửa, thu hồi hủy bỏ VBCC trên cơ sở dữ liệu về VBCC; việc\nban hành quyết định cấp lại, chỉnh sửa, thu hồi hủy bỏ; việc lập phụ lục sổ gốc được thực\nhiện như đối với VBCC giấy.",
+    "excerpt_sha256": "547bf58e1d931246b6df76f38fb13336dc2798651392a7c491427c8ff05007c4",
+    "source_pdf_pages": [
+      15
+    ],
+    "article": "18",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều18 khoản1-2; PDF15",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "degree_transition",
+    "chunk_id": "uit_894_2026:chunk:0030",
+    "document_id": "uit_894_2026",
+    "document_number": "894/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/35/file_id",
+    "source_sha256": "205bc08641854810a471c602b6d4fa9322f35a81ff3e760bb909c4055a2ee283",
+    "content_sha256": "f12c3e86b59fbc644475271c838aa86c2416b7bff9c706e14c2903c194000cc5",
+    "char_start": 32,
+    "char_end": 195,
+    "excerpt": "Các mẫu VBCC và bản sao VBCC từ sổ gốc được ban hành, phê duyệt trước ngày Quy\nchế này có hiệu lực thi hành được tiếp tục sử dụng đến hết ngày 31 thang 8 năm 2026.",
+    "excerpt_sha256": "973cf716631208e72d7490814e7a2db84ae1d8c1be42317f0b0da48b43798f3f",
+    "source_pdf_pages": [
+      15
+    ],
+    "article": "20",
+    "clauses": [],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều20; PDF15; giữ thang trong OCR",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "digital_degree",
+    "chunk_id": "uit_894_2026:chunk:0017",
+    "document_id": "uit_894_2026",
+    "document_number": "894/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/35/file_id",
+    "source_sha256": "205bc08641854810a471c602b6d4fa9322f35a81ff3e760bb909c4055a2ee283",
+    "content_sha256": "5b330ede07b88716742c0a196814cb465412b2f97cf25c8de987bb4873a15542",
+    "char_start": 281,
+    "char_end": 395,
+    "excerpt": "3. Đối với VBCC số: Tối đa 05 ngày ké từ ngày có quyết định công nhận tốt nghiệp hoặc\ncó quyết định cấp chứng chỉ.",
+    "excerpt_sha256": "ec73c6b6f359e230b3b7f30761b5e7ba17191f500b1ece23f9d9d1db977466df",
+    "source_pdf_pages": [
+      8
+    ],
+    "article": "9",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều9 khoản3; PDF8",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "dual_eligibility",
+    "chunk_id": "uit_112_2024:chunk:0011",
+    "document_id": "uit_112_2024",
+    "document_number": "112/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/53/file_id",
+    "source_sha256": "3ca3e8aff50699b776c9fc3411f87a7232dcebfe06774b89cdea03fa5479aba5",
+    "content_sha256": "3e06cbb474181489eb78a4cf053967f5aeef09e3fc90a194f0c237b70d8039dd",
+    "char_start": 309,
+    "char_end": 866,
+    "excerpt": "1. Ngành đào tạo ở chương trình thứ hai phải khác ngành đào tạo ở chương trình thứ\nnhất;\n2. SV đã hoàn thành năm học đầu tiên của ngành thứ nhất, trước học kỳ cuối của thời\ngian thiết kê chương trình đào tạo 01 học kỳ;\n3, Tại thời điểm đăng ký, SV phải đáp ứng một trong hai điều kiện sau:\n- Học lực tính theo ĐTBCTL xếp loại khá trở lên và đáp ứng ngưỡng bảo đảm chất lượng\ncủa chương trình thứ hai trong năm tuyên sinh (nêu có).\n- Học lực tính theo ĐTBCTL xếp loại trung bình và đáp ứng điều kiện trúng tuyển của\nchương trình thứ hai trong năm tuyên sinh.",
+    "excerpt_sha256": "b7b9f18727b753bce87ae3918b1754c5f69c16e48ad35561e56ed0e980b0a252",
+    "source_pdf_pages": [
+      4,
+      5
+    ],
+    "article": "5",
+    "clauses": [
+      "1",
+      "2",
+      "4",
+      "5"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều5 điều kiện tối thiểu; clause3 inbody dùng dấu phẩy, metadata không tự sửa; PDF4-5",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "dual_finance",
+    "chunk_id": "uit_112_2024:chunk:0014",
+    "document_id": "uit_112_2024",
+    "document_number": "112/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/53/file_id",
+    "source_sha256": "3ca3e8aff50699b776c9fc3411f87a7232dcebfe06774b89cdea03fa5479aba5",
+    "content_sha256": "92f83f9714e1eee2841f50099d6ddfddcaed8679f8e2435bdd4943524e7239eb",
+    "char_start": 496,
+    "char_end": 702,
+    "excerpt": "- Sinh viên đã tốt nghiệp ngành thứ nhất nhưng chưa hoàn thành ngành học thứ hai thì\nhọc phí được tính theo quy định đối với sinh viên quá thời hạn theo thiết kế chương trình đào\ntạo của ngành học thứ nhất.",
+    "excerpt_sha256": "97f8645698cfd50cb0f21f65211ff74469f2f5b5f9c97bb17a9089a8c5b6e93b",
+    "source_pdf_pages": [
+      6
+    ],
+    "article": "7",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều7 khoản1(a), SV UIT đã tốt nghiệp ngành1; PDF6",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "dual_graduation",
+    "chunk_id": "uit_112_2024:chunk:0016",
+    "document_id": "uit_112_2024",
+    "document_number": "112/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/53/file_id",
+    "source_sha256": "3ca3e8aff50699b776c9fc3411f87a7232dcebfe06774b89cdea03fa5479aba5",
+    "content_sha256": "3eb8071b2873d0334793ba01b0ca0a471670a8504a0b294b4a6e2382cf315d34",
+    "char_start": 41,
+    "char_end": 292,
+    "excerpt": "1. Trong thời gian tối đa hoàn thành CTĐT đã quy định tại Khoản 4 Điều 6 của Quy định\nnày, SV học song ngành có thể xin xét tốt nghiệp ngành thứ hai. Điều kiện tiên quyết để xét\ntốt nghiệp ngành thứ hai là SV đã đủ điều kiện tốt nghiệp ngành thứ nhất.",
+    "excerpt_sha256": "144b18550d8a2ec85aaeda8153d2b4482455d87719fa6b75f510b6923b5cad61",
+    "source_pdf_pages": [
+      6,
+      7
+    ],
+    "article": "9",
+    "clauses": [
+      "1",
+      "2",
+      "3"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều9 khoản1; approved PDF6-7",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "dual_limit",
+    "chunk_id": "uit_112_2024:chunk:0011",
+    "document_id": "uit_112_2024",
+    "document_number": "112/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/53/file_id",
+    "source_sha256": "3ca3e8aff50699b776c9fc3411f87a7232dcebfe06774b89cdea03fa5479aba5",
+    "content_sha256": "3e06cbb474181489eb78a4cf053967f5aeef09e3fc90a194f0c237b70d8039dd",
+    "char_start": 964,
+    "char_end": 1065,
+    "excerpt": "5. SV chỉ được học song ngành thêm 01 ngành tại Trường. SV được phép làm đơn xin\nthôi học song ngành.",
+    "excerpt_sha256": "3eb80dbad90c9b1d1f223e9d24bc6a9bf7cbe74b05c18bfc8c1551432ac8003d",
+    "source_pdf_pages": [
+      4,
+      5
+    ],
+    "article": "5",
+    "clauses": [
+      "1",
+      "2",
+      "4",
+      "5"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều5 khoản5; approved PDF4-5",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "dual_max_time",
+    "chunk_id": "uit_112_2024:chunk:0013",
+    "document_id": "uit_112_2024",
+    "document_number": "112/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/53/file_id",
+    "source_sha256": "3ca3e8aff50699b776c9fc3411f87a7232dcebfe06774b89cdea03fa5479aba5",
+    "content_sha256": "3f13792c296b494fe44b44ecc9fb604eb62f0a649b5f875618cd3717e385ccb4",
+    "char_start": 696,
+    "char_end": 812,
+    "excerpt": "4. Thời gian tối đa được phép học đối với SV học cùng lúc hai ngành là thời gian tối đa\nquy định cho ngành thứ nhất.",
+    "excerpt_sha256": "d17ddd2a7c8fcb9d19c471426daa23e214cabc2cc373517635e7463b9ca71166",
+    "source_pdf_pages": [
+      5
+    ],
+    "article": "6",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều6 khoản4; PDF5",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "dual_no_scholarship",
+    "chunk_id": "uit_112_2024:chunk:0014",
+    "document_id": "uit_112_2024",
+    "document_number": "112/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/53/file_id",
+    "source_sha256": "3ca3e8aff50699b776c9fc3411f87a7232dcebfe06774b89cdea03fa5479aba5",
+    "content_sha256": "92f83f9714e1eee2841f50099d6ddfddcaed8679f8e2435bdd4943524e7239eb",
+    "char_start": 1023,
+    "char_end": 1128,
+    "excerpt": "2. SV không được tham gia chính sách học bổng (các loại) và miễn giảm học phí đối với\nCTĐT ngành thứ hai.",
+    "excerpt_sha256": "d7b2cc33ee4b8dc659daf986e79b0c96bffaf3c559d21091889e28468a8771ec",
+    "source_pdf_pages": [
+      6
+    ],
+    "article": "7",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều7 khoản2; PDF6",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "effect1393",
+    "chunk_id": "uit_1393_2023:chunk:0002",
+    "document_id": "uit_1393_2023",
+    "document_number": "1393/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/31/file_id",
+    "source_sha256": "9531452a3ca520efdb59a7b0f8938b0807bfee8bb9657766ed928b317622a8d9",
+    "content_sha256": "a284d0911b68af1eb42ae455bdc0aeae439008869d6d7741de3ebd07215bcf70",
+    "char_start": 141,
+    "char_end": 184,
+    "excerpt": "Quyết định này có hiệu lực kể từ ngày ký./.",
+    "excerpt_sha256": "6b242630c3cf36c8bad1a7804d842f67a8751854dbf27bd11008bc1dd696d34b",
+    "source_pdf_pages": [
+      2
+    ],
+    "article": "2",
+    "clauses": [],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều2 quyết định1393; PDF2; kết hợp ngày ký cùng tài liệu",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "enterprise_extension",
+    "chunk_id": "uit_697_2024:chunk:0006",
+    "document_id": "uit_697_2024",
+    "document_number": "697/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/54/file_id",
+    "source_sha256": "e9be981619e3ff68f13a788acc937da83148f87e099ed2bc109e76f08870056c",
+    "content_sha256": "c54d3c2f44cd204828f573fe48c859bd717ac28fc12ff39ab0dc051dbe44c4dd",
+    "char_start": 258,
+    "char_end": 628,
+    "excerpt": "2. Nếu hết một học kỳ mà sinh viên không hoàn thành báo cao ĐATNDN thì SV có thể\nlàm đơn xin gia hạn thời gian thực hiện ĐATNDN tối đa thêm 01 học kỳ. Đơn xin gia hạn\nphải được sự đồng ý của GVHD, NĐHD và trưởng ĐVCM. Phòng ĐTĐH tiếp nhận đơn và\ntrình Hiệu trưởng ra quyết định cho phép gia hạn. Nếu không được duyệt, SV phải dừng\nĐATNDN và nhận điểm 0 cho học phần này.",
+    "excerpt_sha256": "958f7b67be9cd49551aab81b907682f2bd1ce5d9b09a8e56f9c77858cf0f525c",
+    "source_pdf_pages": [
+      4
+    ],
+    "article": "4",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều4 khoản2; PDF4; tối đa thêm1kỳ, đủ approvals, nếu không duyệt điểm0",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "enterprise_grading",
+    "chunk_id": "uit_697_2024:chunk:0010",
+    "document_id": "uit_697_2024",
+    "document_number": "697/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/54/file_id",
+    "source_sha256": "e9be981619e3ff68f13a788acc937da83148f87e099ed2bc109e76f08870056c",
+    "content_sha256": "0db4c211ca41421e7164228c683e06ccb2ef2fe0cc6b6bce9f1bf50993600ae4",
+    "char_start": 1105,
+    "char_end": 1411,
+    "excerpt": "Sau khi nghe SV trình bày báo cáo ĐATNDN, mỗi thành viên cho điểm theo\nthang điểm 10 (lẻ đến 0,5). Điểm tổng kết học phần của ĐATNDN được tính theo công thức\nsau (làm tròn đến 0,1):\nĐiểm tổng kết học phần ĐATNDN = Điểm trung bình cộng của các thành viên hội\ndéng*40% + Điểm của GVHD*10% + Điểm của NĐHD*50%",
+    "excerpt_sha256": "4bf57ffba6ad8888546f7259526e87d9478d91652332366d02718e97d3a2e739",
+    "source_pdf_pages": [
+      5,
+      6
+    ],
+    "article": "8",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều8 khoản3,40/10/50 và làm tròn; approved PDF5-6; giữ OCR déng trong excerpt",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "enterprise_pages",
+    "chunk_id": "uit_697_2024:chunk:0010",
+    "document_id": "uit_697_2024",
+    "document_number": "697/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/54/file_id",
+    "source_sha256": "e9be981619e3ff68f13a788acc937da83148f87e099ed2bc109e76f08870056c",
+    "content_sha256": "0db4c211ca41421e7164228c683e06ccb2ef2fe0cc6b6bce9f1bf50993600ae4",
+    "char_start": 1575,
+    "char_end": 1647,
+    "excerpt": "5. Số trang báo cáo ĐATNDN từ 20 đến 30 trang (theo định dạng quy định).",
+    "excerpt_sha256": "9a89308cc3b30c20a62cbccb60c16a8d94622dde243dd439aa6c9effc982e3f3",
+    "source_pdf_pages": [
+      5,
+      6
+    ],
+    "article": "8",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều8 khoản5; approved PDF5-6",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "exemption",
+    "chunk_id": "uit_1393_2023:chunk:0001",
+    "document_id": "uit_1393_2023",
+    "document_number": "1393/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/31/file_id",
+    "source_sha256": "9531452a3ca520efdb59a7b0f8938b0807bfee8bb9657766ed928b317622a8d9",
+    "content_sha256": "65951cd859a72c81a3a074a9ea695589aaac14c6b6a5eb05f0ca14bb78a4f130",
+    "char_start": 1100,
+    "char_end": 1528,
+    "excerpt": "4. Khoản 1 Điều 23: Sinh viên đã thi đạt yêu cầu một học phần thuộc trình độ đại\nhọc ở một CSĐT khác muốn xin miễn học phần đó thì cần phải làm đơn kèm\ntheo xác nhận (số tiết học, số tín chỉ và bảng điểm) gửi về P.ĐTĐH của\nTrường trong vòng 1 tháng sau khi bắt đầu học kỳ. Trường có thể yêu cầu sinh\nviên cung cấp đề cương chi tiết của học phần có xác nhận của nơi sinh viên đã\nhọc. Các học phần được công nhận được nhận điểm M.",
+    "excerpt_sha256": "d7e1253650d408a4f25e814f914986a00492f5a4ef37af8e67a59a8f93a4f60a",
+    "source_pdf_pages": [
+      1,
+      2
+    ],
+    "article": "1",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều1 mục4 sửa Điều23 khoản1; approved PDF1-2",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "exemption_credits",
+    "chunk_id": "uit_956_2026:chunk:0013",
+    "document_id": "uit_956_2026",
+    "document_number": "956/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+    "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+    "content_sha256": "e5eb0b771874f4456bdbb537bb62a9103469de460b9d9bb5eb650475a13fdc39",
+    "char_start": 209,
+    "char_end": 293,
+    "excerpt": "2. Số tín chỉ của môn học được miễn được tính cộng dồn vào tổng số tín chỉ tích lũy.",
+    "excerpt_sha256": "d179609ffb23c0374d65c67462cfdea9761e72d70f2ea3f7bc11e18826bf6ab7",
+    "source_pdf_pages": [
+      7
+    ],
+    "article": "10",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều10 khoản2; PDF7",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "exemption_grade",
+    "chunk_id": "uit_956_2026:chunk:0013",
+    "document_id": "uit_956_2026",
+    "document_number": "956/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+    "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+    "content_sha256": "e5eb0b771874f4456bdbb537bb62a9103469de460b9d9bb5eb650475a13fdc39",
+    "char_start": 81,
+    "char_end": 208,
+    "excerpt": "1. Điểm miễn (ký hiệu là M) được tính cho học kỳ kế tiếp trong lộ trình học và không tính\nvào các loại điểm trung bình học tập.",
+    "excerpt_sha256": "caad03c72b226afbf839b6bc9e14d32f6ac1420184a615e23e9738d79b380cd6",
+    "source_pdf_pages": [
+      7
+    ],
+    "article": "10",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều10 khoản1; PDF7",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "exemption_sessions",
+    "chunk_id": "uit_956_2026:chunk:0012",
+    "document_id": "uit_956_2026",
+    "document_number": "956/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+    "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+    "content_sha256": "261b7c56f0b33984a7bb0625c837d04880235366362563cb61d337d62e236770",
+    "char_start": 595,
+    "char_end": 658,
+    "excerpt": "4. Trường tổ chức xét miễn 4 đợt/năm vào các tháng 2, 5, 8, 11.",
+    "excerpt_sha256": "eb01f8adf5177962a8575df7de6282f12c15ac4e8df68fa5cb6e5096e55e0dff",
+    "source_pdf_pages": [
+      7
+    ],
+    "article": "9",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều9 khoản4; PDF7",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "grade_deadline",
+    "chunk_id": "uit_159_2024:chunk:0018",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "673d90cec2d22fc18868353fc571367806d82470e09118bceabab5f0635fe6fb",
+    "char_start": 155,
+    "char_end": 415,
+    "excerpt": "2. Khoa tổng hợp điểm vào danh sách các SV đã đăng ký làm KLTN (kể cả các SV không\nhoàn thành KLTN) do P.ĐTĐH/VPCCTĐB cung cấp. Khoa nhập danh sách điểm\nKLTN lên hệ thống, đồng thời gửi bảng điểm giấy cho P.ĐTĐH/VPCCTĐB trong thời\ngian 20 ngày sau ngày bảo vệ.",
+    "excerpt_sha256": "7cbc80be3d58943374802eaef6b732d0aa6a9894302a76b6a2d4f27d51105937",
+    "source_pdf_pages": [
+      6,
+      7
+    ],
+    "article": "15",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều15 khoản2; approved PDF6-7",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "grading",
+    "chunk_id": "uit_159_2024:chunk:0016",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "536af2ff859456d5ebbaf4b9d552e3e5ae5c3f7de73d3af238ea1008ecdd30cf",
+    "char_start": 388,
+    "char_end": 628,
+    "excerpt": "2. Điểm chấm KLTN cho theo thang điểm 10 (lẻ đến 0,5) của mỗi thành viên hội đồng\n(TV), CBHD và CBPB. Điểm tổng kết là trung bình cộng (làm tròn đến 0,1) của:\n\nCBHD và CBPB : Điểm hệ số 2\n\nCác thành viên còn lại của Hội đồng: Điểm hệ số 1",
+    "excerpt_sha256": "8d5de1f8aaf06f9854de9e9f684618486ae275e40b66d61700f6d312882dbece",
+    "source_pdf_pages": [
+      6
+    ],
+    "article": "13",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều13 khoản2, hệ số và làm tròn; PDF6",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "historic_age",
+    "chunk_id": "uit_412_2025:chunk:0007",
+    "document_id": "uit_412_2025",
+    "document_number": "412/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/83/file_id",
+    "source_sha256": "b76915ac5e345e32bacffd23a3391a5e3802c4fe20c5520cc2a1aba98ffac0bb",
+    "content_sha256": "48f20e517571b4b5bbb14e1243629ad6560c10d18c599acbce543609bf653f04",
+    "char_start": 856,
+    "char_end": 1020,
+    "excerpt": "3. Thời gian hoàn thành học phần\n- Học phần được xét công nhận tín chỉ phải được hoàn thành trong vòng không quá 5 năm tính đến thời điểm nộp đơn đề nghị công nhận.",
+    "excerpt_sha256": "c6b4a1ca5e771b051e763be565cf3932325d4b2808c8e89c7e2053af12579714",
+    "source_pdf_pages": [
+      4
+    ],
+    "article": "3",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều3 khoản3 bản412, historical trước513; PDF4",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "historic_grade",
+    "chunk_id": "uit_412_2025:chunk:0007",
+    "document_id": "uit_412_2025",
+    "document_number": "412/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/83/file_id",
+    "source_sha256": "b76915ac5e345e32bacffd23a3391a5e3802c4fe20c5520cc2a1aba98ffac0bb",
+    "content_sha256": "48f20e517571b4b5bbb14e1243629ad6560c10d18c599acbce543609bf653f04",
+    "char_start": 713,
+    "char_end": 855,
+    "excerpt": "2. Kết quả học tập\n- Điểm của học phần đề nghị công nhận phải đạt từ mức C trở lên theo thang điểm chữ (hoặc từ 5 trở lên theo thang điểm 10).",
+    "excerpt_sha256": "076316f76769fbca54ab9c237190ce707e520e9c9e822f7c494090433b39142b",
+    "source_pdf_pages": [
+      4
+    ],
+    "article": "3",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều3 khoản2 bản412, historical trước513; PDF4",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "integrity_confidential",
+    "chunk_id": "uit_851_2024:chunk:0012",
+    "document_id": "uit_851_2024",
+    "document_number": "851/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/64/file_id",
+    "source_sha256": "03e1a645184bb1def5c3cd0154188f2fc2c1567002a9eebd6230efe9d375d8ca",
+    "content_sha256": "2559bd646e43dbcaa607c61d6643ab892e6f5643114ba19f6ff8d54fe6d7b6be",
+    "char_start": 882,
+    "char_end": 942,
+    "excerpt": "Người báo cáo về vi phạm LCHT được bảo đảm bí mật danh tính.",
+    "excerpt_sha256": "ec462cfda5e5acc0c873edc8279ecca130dda6797f240452fe65a0962e653fec",
+    "source_pdf_pages": [
+      5,
+      6
+    ],
+    "article": "5",
+    "clauses": [],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều5 confidentiality, không suy cho phép anonymous; PDF5-6",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "integrity_council",
+    "chunk_id": "uit_851_2024:chunk:0014",
+    "document_id": "uit_851_2024",
+    "document_number": "851/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/64/file_id",
+    "source_sha256": "03e1a645184bb1def5c3cd0154188f2fc2c1567002a9eebd6230efe9d375d8ca",
+    "content_sha256": "a647b0087f1d72e408b600af9325397630d74292e9e122c9f406646d663383a0",
+    "char_start": 392,
+    "char_end": 766,
+    "excerpt": "3. HĐTVLCHT có ít nhất 05 thành viên và số thành viên là số lẻ, gồm chủ tịch, 01 phó\nchủ tịch, 01 thư ký và các ủy viên, trong đó, chủ tịch, phó chủ tịch HĐTVLCHT là thành\nviên Ban giám hiệu, thư ký HĐTVLCHT là lãnh đạo phòng Đào tạo Sau đại học và\nKhoa học công nghệ (ĐTSĐH&KHCN), các ủy viên là đại diện một số phòng chức năng,\nĐVCM hay chuyên gia, nhà khoa học có uy tín.",
+    "excerpt_sha256": "2c817c15b84d54477291c44e8acbc0092c92540640d0f3b00d04535c603237c6",
+    "source_pdf_pages": [
+      6
+    ],
+    "article": "6",
+    "clauses": [
+      "1",
+      "2",
+      "3"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều6 khoản3; approved PDF6",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "integrity_effect",
+    "chunk_id": "uit_851_2024:chunk:0025",
+    "document_id": "uit_851_2024",
+    "document_number": "851/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/64/file_id",
+    "source_sha256": "03e1a645184bb1def5c3cd0154188f2fc2c1567002a9eebd6230efe9d375d8ca",
+    "content_sha256": "4611cdf89a90cffacf26fae0002f2c21747f511f84f38ae0993ee61c99c1f817",
+    "char_start": 29,
+    "char_end": 161,
+    "excerpt": "1. Quy định có hiệu lực kể từ ngày 01/9/2024. Không xem xét vi phạm LCHT đối với\ncác sản phẩm có trước khi Quy định này có hiệu lực.",
+    "excerpt_sha256": "bfd6923e9f7c4589a2695f8beb25edeacc8b01ede240565092d8b37e2cc56886",
+    "source_pdf_pages": [
+      10
+    ],
+    "article": "14",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều14 khoản1; PDF10; gồm nonretroactivity",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "integrity_learner",
+    "chunk_id": "uit_851_2024:chunk:0020",
+    "document_id": "uit_851_2024",
+    "document_number": "851/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/64/file_id",
+    "source_sha256": "03e1a645184bb1def5c3cd0154188f2fc2c1567002a9eebd6230efe9d375d8ca",
+    "content_sha256": "4e35ca62355da334c21882e6a96d098366a2104bf76d4a27f34009c994b1366b",
+    "char_start": 422,
+    "char_end": 821,
+    "excerpt": "2. Các vi phạm LCHT liên quan đến khóa luận tốt nghiệp, luận văn/đề án thạc sĩ, luận\nán tiến sĩ thì tùy theo mức độ vi phạm có các hình thức kỷ luật: nhắc nhở, yêu cầu chỉnh\nsửa; trừ điểm; hủy kết quả. Trong trường hợp này, người hướng dẫn chịu trách nhiệm liên\nđới. Hình thức kỷ luật do Hội đồng đánh giá khóa luận tốt nghiệp, luận văn/đề án thạc sĩ,\nluận án tiến sĩ quyết định và ghi vào biên bản.",
+    "excerpt_sha256": "e4ff69e477fb891c867cd573c6cce703dea45ea2bb892e06dda26054bae534fd",
+    "source_pdf_pages": [
+      8
+    ],
+    "article": "10",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều10 khoản2, learner thesis scope; PDF8",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "integrity_quorum",
+    "chunk_id": "uit_851_2024:chunk:0015",
+    "document_id": "uit_851_2024",
+    "document_number": "851/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/64/file_id",
+    "source_sha256": "03e1a645184bb1def5c3cd0154188f2fc2c1567002a9eebd6230efe9d375d8ca",
+    "content_sha256": "ddec1409d45c842aece11385dddb35855863cd1f5b8124b25ba8797dbb4d1ede",
+    "char_start": 311,
+    "char_end": 507,
+    "excerpt": "2. Chủ tịch HĐTVLCHT triệu tập phiên họp toàn thể. HĐTVLCHT chỉ tiến hành hop\nkhi có mặt ít nhất 2/3 thành viên, trong đó có Chủ tịch (hoặc Phó chủ tịch được Chủ tịch\nủy quyền) và Thư ký Hội đồng.",
+    "excerpt_sha256": "ddedab46272ff4f35c9dcc84ec154c74b35119fdd066970ab331f1d3e14bbe47",
+    "source_pdf_pages": [
+      6
+    ],
+    "article": "7",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều7 khoản2; PDF6; quorum và Chair/Secretary",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "language_scope",
+    "chunk_id": "uit_956_2026:chunk:0005",
+    "document_id": "uit_956_2026",
+    "document_number": "956/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+    "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+    "content_sha256": "c28f72ef413664554c3a9020db616c79bf42aa24b2bb03fc3c728e3785ff18d6",
+    "char_start": 791,
+    "char_end": 959,
+    "excerpt": "3. Quy định này áp dụng bắt buộc cho sinh viên hình thức đào tạo đại học chính quy các khóa\ntuyển sinh từ năm 2026, bắt đầu tổ chức đào tạo từ năm học 2026-2027 trở đi.",
+    "excerpt_sha256": "6c292d3595494601ca3ed44848e768a2aa44d5c04986e44e62a6f8f61abab72d",
+    "source_pdf_pages": [
+      2
+    ],
+    "article": "1",
+    "clauses": [
+      "1",
+      "2",
+      "3"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều1 khoản3 Quy định956; PDF2",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "midterm_change",
+    "chunk_id": "uit_159_2024:chunk:0009",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "f5dc05bf41578e41a2085d3276551663ee983d9561b7b733dae5d9c68aca1f91",
+    "char_start": 636,
+    "char_end": 849,
+    "excerpt": "d. Tên đề tài KLTN, CBHD có thể thay đổi 01 lần theo đề xuất của hội đồng đánh giá\nngay sau khi SV báo cáo giữa kỳ. Khoa tổng hợp kết quả báo cáo giữa kỳ của các SV,\ncác đề nghị thay đổi và gửi cho P.ĐTĐH/VPCCTĐB.",
+    "excerpt_sha256": "77dede20747c14e06c4672ab77c937e33bc795776cf13e6ded7dc16c9389c7d7",
+    "source_pdf_pages": [
+      3
+    ],
+    "article": "7",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều7 khoản1(d); PDF3",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "midterm_context",
+    "chunk_id": "uit_159_2024:chunk:0009",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "f5dc05bf41578e41a2085d3276551663ee983d9561b7b733dae5d9c68aca1f91",
+    "char_start": 39,
+    "char_end": 90,
+    "excerpt": "1. Khoa lập hội đồng đánh giá báo cáo giữa kỳ KLTN.",
+    "excerpt_sha256": "ff3fbf872c3985018d0074994f0d63aefa26ab8114b1d76ef7eab78528aa39f8",
+    "source_pdf_pages": [
+      3
+    ],
+    "article": "7",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều7 khoản1; context đánh giá giữa kỳ; PDF3",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "midterm_stop",
+    "chunk_id": "uit_159_2024:chunk:0009",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "f5dc05bf41578e41a2085d3276551663ee983d9561b7b733dae5d9c68aca1f91",
+    "char_start": 474,
+    "char_end": 635,
+    "excerpt": "c. Các trường hợp SV bị hội đồng đề nghị đình chỉ thực hiện KLTN được trưởng ĐVCM\nxem xét và quyết định. SV bị đình chỉ nhận điểm không (0) đối với môn học KLTN.",
+    "excerpt_sha256": "8b4aa35f1e75a7e82508b7c3c93eeec12d61611d2b258ebb01ae7504eaf316a7",
+    "source_pdf_pages": [
+      3
+    ],
+    "article": "7",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều7 khoản1(c); PDF3",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "online_cap",
+    "chunk_id": "uit_513_2026:chunk:0001",
+    "document_id": "uit_513_2026",
+    "document_number": "513/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/84/file_id",
+    "source_sha256": "3c7f73489f1d2c51609f906ee853c64beccd5c493b2bb84d0745a18e4154bc9d",
+    "content_sha256": "7992fcea3274699dbbb663311f316b1e0b544cef89934bc81ca4f0ae335448c1",
+    "char_start": 2036,
+    "char_end": 2190,
+    "excerpt": "– Khối lượng học tập được công nhận được tính theo định mức 15 giờ thực học tương đương 01 tín chỉ; tổng khối lượng công nhận tối đa không quá 03 tín chỉ.",
+    "excerpt_sha256": "6109895f758d446cfd0e542ad1f5d7913c18b7f3c3e2fbedc2bde4fb642059c4",
+    "source_pdf_pages": [
+      1,
+      2
+    ],
+    "article": "1",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều1 mục2 sửa Điều3 khoản1(e), cap3/15giờ; approved PDF1-2",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "online_group",
+    "chunk_id": "uit_513_2026:chunk:0001",
+    "document_id": "uit_513_2026",
+    "document_number": "513/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/84/file_id",
+    "source_sha256": "3c7f73489f1d2c51609f906ee853c64beccd5c493b2bb84d0745a18e4154bc9d",
+    "content_sha256": "7992fcea3274699dbbb663311f316b1e0b544cef89934bc81ca4f0ae335448c1",
+    "char_start": 1114,
+    "char_end": 1309,
+    "excerpt": "e) Đối với học phần học tập trên nền tảng trực tuyến, việc công nhận chỉ áp dụng cho nhóm học phần tự chọn tự do trong chương trình đào tạo của Trường và phải đồng thời đáp ứng các điều kiện sau:",
+    "excerpt_sha256": "79f2bc04edec83599ef2fb92d02481896b9e03d2c33c38b06f02da5a00348136",
+    "source_pdf_pages": [
+      1,
+      2
+    ],
+    "article": "1",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều1 mục2 sửa Điều3 khoản1(e), scope và đồng thời đáp ứng; PDF1-2",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "paper_degree",
+    "chunk_id": "uit_894_2026:chunk:0017",
+    "document_id": "uit_894_2026",
+    "document_number": "894/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/35/file_id",
+    "source_sha256": "205bc08641854810a471c602b6d4fa9322f35a81ff3e760bb909c4055a2ee283",
+    "content_sha256": "5b330ede07b88716742c0a196814cb465412b2f97cf25c8de987bb4873a15542",
+    "char_start": 41,
+    "char_end": 128,
+    "excerpt": "1. Đối với văn bằng giấy: Tối đa 30 ngày kể từ ngày có quyết định công nhận tốt nghiệp.",
+    "excerpt_sha256": "5607a677bfa63c830005cae64bd7ce8052d65e97652c24a579f4db9ce5224ba6",
+    "source_pdf_pages": [
+      8
+    ],
+    "article": "9",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều9 khoản1; PDF8",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "placement_japan",
+    "chunk_id": "uit_956_2026:chunk:0009",
+    "document_id": "uit_956_2026",
+    "document_number": "956/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+    "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+    "content_sha256": "06acefa859d69bdf32de1a35d735d61a4f5a1f77eab0ca1b8a6a164cd6f67d97",
+    "char_start": 747,
+    "char_end": 875,
+    "excerpt": "3. Sinh viên thuộc ngành Công nghệ Thông tin chương trình Việt - Nhật không phải tham dự\nkiểm tra tiếng Anh để xếp lớp đầu khóa.",
+    "excerpt_sha256": "8f9c4e9182a9b39f3c4b73afdf495f8f992d0b38758597a91b2b6f7b208e58d5",
+    "source_pdf_pages": [
+      5
+    ],
+    "article": "6",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều6 khoản3; PDF5",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "prerequisite_iel",
+    "chunk_id": "uit_956_2026:chunk:0007",
+    "document_id": "uit_956_2026",
+    "document_number": "956/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+    "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+    "content_sha256": "951b88632df8169edbca835f4851aa92acff287a18c5e5ed729fb17e7d1fd027",
+    "char_start": 1168,
+    "char_end": 1296,
+    "excerpt": "b) Môn học IEL01 là môn tiên quyết của môn học IEL02 (nghĩa là sinh viên phải đạt môn\nhọc IEL01 thì mới được đăng ký học IEL02).",
+    "excerpt_sha256": "17e80fc6eb7c7c41cd93a092d85a614be787cd2f73e75329cde2949b2cfb46a1",
+    "source_pdf_pages": [
+      4
+    ],
+    "article": null,
+    "clauses": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Khoản5(b) body tại PDF4; article metadata null, không gán Điều4",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "prerequisite_pet",
+    "chunk_id": "uit_956_2026:chunk:0007",
+    "document_id": "uit_956_2026",
+    "document_number": "956/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+    "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+    "content_sha256": "951b88632df8169edbca835f4851aa92acff287a18c5e5ed729fb17e7d1fd027",
+    "char_start": 1017,
+    "char_end": 1167,
+    "excerpt": "a) Môn học PET01 hoặc IEL01 là môn tiên quyết của môn học PET02 (nghĩa là sinh viên\nphải đạt môn học PET01 hoặc IEL01 thì mới được đăng ký học PET02).",
+    "excerpt_sha256": "636cab159cb6b67f07495ca83b832c1cc0bd8842b480a4e32b586bba18a41f18",
+    "source_pdf_pages": [
+      4
+    ],
+    "article": null,
+    "clauses": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Khoản5(a) body tại PDF4; article metadata null sau exclusions, không gán Điều4",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "presentation",
+    "chunk_id": "uit_159_2024:chunk:0015",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "361a8e04cf598b46a1dc9c6a3969e2084cfcf491b9966e09ab9e45efd22b1f9a",
+    "char_start": 1083,
+    "char_end": 1121,
+    "excerpt": "SV trình bày đề tài không quá 15 phút.",
+    "excerpt_sha256": "3cd51173b22d0a6c8c3615ab114d6e326ccfd189640e80536ddf5ec18b9e7232",
+    "source_pdf_pages": [
+      5,
+      6
+    ],
+    "article": "12",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều12 khoản5, bullet thời lượng trình bày; approved PDF5-6",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "progress_cta",
+    "chunk_id": "uit_956_2026:chunk:0014",
+    "document_id": "uit_956_2026",
+    "document_number": "956/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+    "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+    "content_sha256": "92e3d8929d94b4b24f3db0b78a9d473887b0f6f0da0753762f9f9640136f14ca",
+    "char_start": 634,
+    "char_end": 1501,
+    "excerpt": "2. Đối với sinh viên chương trình CTA:\na) Sau 2 học kỳ chính kể từ thời điểm nhập học, sinh viên phải đạt môn học tiếng Anh trong\nCTĐT là môn học IEL04. Nếu chưa đạt thì sinh viên chỉ được đăng ký tối đa 16 tín chỉ\nngoài các môn học ngoại ngữ (bao gồm cả đăng ký học lại hoặc cải thiện) cho đến khi\nđạt chuẩn.\nb) Sau 3 học kỳ chính kể từ thời điểm nhập học, sinh viên phải đạt môn học tiếng Anh trong\nCTĐT là môn học IEL05. Nếu chưa đạt thì sinh viên chỉ được đăng ký tối đa 16 tín chỉ\nngoài các môn học ngoại ngữ (bao gồm cả đăng ký học lại hoặc cải thiện) cho đến khi\nđạt chuẩn.\nc) Sau 4 học kỳ chính kể từ thời điểm nhập học, sinh viên phải đạt chuẩn đầu ra để xét tốt\nnghiệp (theo Bảng 6 của Quy định này). Nếu chưa đạt thì sinh viên chỉ được đăng ký tối\nđa 16 tín chỉ ngoài các môn học ngoại ngữ (bao gồm cả đăng ký học lại hoặc cải thiện)\ncho đến khi đạt chuẩn.",
+    "excerpt_sha256": "e0277b3b1fc53c674f00277a9e0cb301d6691b4e2436769912bd1ebb854ed5d4",
+    "source_pdf_pages": [
+      7,
+      8
+    ],
+    "article": "11",
+    "clauses": [
+      "1",
+      "2",
+      "3"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều11 khoản2, giữ programme heading và các điều kiện; approved PDF7-8",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "progress_ctc",
+    "chunk_id": "uit_956_2026:chunk:0014",
+    "document_id": "uit_956_2026",
+    "document_number": "956/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+    "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+    "content_sha256": "92e3d8929d94b4b24f3db0b78a9d473887b0f6f0da0753762f9f9640136f14ca",
+    "char_start": 38,
+    "char_end": 351,
+    "excerpt": "1. Đối với sinh viên CTC, CTTN:\na) Sau 2 học kỳ chính kể từ thời điểm nhập học, sinh viên phải đạt môn học tiếng Anh trong\nCTĐT là môn học PET01 hoặc IEL01. Nếu chưa đạt thì sinh viên chỉ được đăng ký tối\nđa 16 tín chỉ ngoài các môn học ngoại ngữ (bao gồm cả đăng ký học lại hoặc cải thiện)\ncho đến khi đạt chuẩn.",
+    "excerpt_sha256": "7dc3f8cce5379c8f49d9916281714df82c1ee0223134c0ed971a71b178b9a614",
+    "source_pdf_pages": [
+      7,
+      8
+    ],
+    "article": "11",
+    "clauses": [
+      "1",
+      "2",
+      "3"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều11 khoản1(a) cùng programme heading; approved PDF7-8",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "progress_japan",
+    "chunk_id": "uit_956_2026:chunk:0015",
+    "document_id": "uit_956_2026",
+    "document_number": "956/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/2795/file_id",
+    "source_sha256": "12173fc9cdcd8a2b9e498a87c3927788f8359047cf05e801f284357c0b2e7d5e",
+    "content_sha256": "07d3cd6f7ecf9d12dc802c63dfe95f4979650749835b126f9a99780845cd77d4",
+    "char_start": 38,
+    "char_end": 423,
+    "excerpt": "4. Đối với sinh viên ngành Công nghệ Thông tin chương trình Việt - Nhật: Sau 4 học kỳ\nchính kể từ thời điểm nhập học, sinh viên phải đạt môn Tiếng Nhật 2 (mã môn học JAN02)\nhoặc có chứng chỉ tương đương JLPT N5 hoặc NAT-TEST N5. Nếu chưa đạt thì sinh viên\nchỉ được đăng ký tối đa 16 tín chỉ ngoài các môn học ngoại ngữ (bao gồm cả đăng ký học\nlại hoặc cải thiện) cho đến khi đạt chuẩn.",
+    "excerpt_sha256": "73d29abd6290cd2b47a14760d21add36ea88abf0106602a2357389c1dd5f101a",
+    "source_pdf_pages": [
+      7,
+      8
+    ],
+    "article": "11",
+    "clauses": [
+      "4"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều11 khoản4; approved PDF7-8",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "reissue_deadline",
+    "chunk_id": "uit_894_2026:chunk:0021",
+    "document_id": "uit_894_2026",
+    "document_number": "894/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/35/file_id",
+    "source_sha256": "205bc08641854810a471c602b6d4fa9322f35a81ff3e760bb909c4055a2ee283",
+    "content_sha256": "81d87a0d7330baad61944ec014ff6f511c22b31212352b2739166470ac7f6423",
+    "char_start": 727,
+    "char_end": 960,
+    "excerpt": "b) Trong thời hạn 03 ngày làm việc kể từ ngày nhận đủ hồ sơ hợp lệ, Trường (hoặc đơn vị\nquản lý sổ gốc) quy định tại khoản 1 Điều này xem xét quyết định việc cấp lại VBCC; nếu\nkhông cấp lại thì phải trả lời bằng văn bản nêu rõ lý do;",
+    "excerpt_sha256": "f7d65043cd3e1b26da302058ac9661612e00f9ff78ba480767baa2c6d5922ecf",
+    "source_pdf_pages": [
+      10,
+      11
+    ],
+    "article": "12",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều12 khoản2(b); đủ hồ sơ hợp lệ, trả lời bằng văn bản nếu từ chối; PDF10-11",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "reissue_reason",
+    "chunk_id": "uit_894_2026:chunk:0021",
+    "document_id": "uit_894_2026",
+    "document_number": "894/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/35/file_id",
+    "source_sha256": "205bc08641854810a471c602b6d4fa9322f35a81ff3e760bb909c4055a2ee283",
+    "content_sha256": "81d87a0d7330baad61944ec014ff6f511c22b31212352b2739166470ac7f6423",
+    "char_start": 37,
+    "char_end": 212,
+    "excerpt": "1. Trường hợp VBCC đã cấp nhưng phát hiện bi viết sai do lỗi của Trường hoặc don vi da\ncấp VBCC thì thủ trưởng don vị quan lý sổ gốc có thẩm quyền và trách nhiệm cấp lại\nVBCC.",
+    "excerpt_sha256": "2cd2ba03c5e32e4b8d9a6b5452c5f114f099a8c49791b12eedf8908c6fde3b94",
+    "source_pdf_pages": [
+      10,
+      11
+    ],
+    "article": "12",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều12 khoản1; approved PDF10-11",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "reviewer",
+    "chunk_id": "uit_159_2024:chunk:0012",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "6f7895baa13457330776e69da66cdc31ed0e80892486612e97d51cdd37630f3e",
+    "char_start": 287,
+    "char_end": 405,
+    "excerpt": "3. CBPB phải khác với CBHD và không được là người có quan hệ ruột thịt (cha, mẹ, vợ,\nchồng, anh, chị, em ruột) với SV.",
+    "excerpt_sha256": "cedc4f74299b823ee2ce695dbb4c9c91d8dd2b646eea683f38d3bf01564eaae4",
+    "source_pdf_pages": [
+      4
+    ],
+    "article": "9",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều9 khoản3; PDF4",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "signature",
+    "chunk_id": "uit_1393_2023:chunk:0000",
+    "document_id": "uit_1393_2023",
+    "document_number": "1393/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/31/file_id",
+    "source_sha256": "9531452a3ca520efdb59a7b0f8938b0807bfee8bb9657766ed928b317622a8d9",
+    "content_sha256": "535cd5a0ca098b6c80285ab87b8c593f910277f31cfc1606c49f8111f256ae1a",
+    "char_start": 158,
+    "char_end": 183,
+    "excerpt": "ngày 29 tháng 12 năm 2023",
+    "excerpt_sha256": "7583b46ae0b9b365a06d90ecdf80b258206d918286be4137744b37f6f2049636",
+    "source_pdf_pages": [
+      1
+    ],
+    "article": null,
+    "clauses": [],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Ngày ký trên header quyết định1393; PDF1",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "summer",
+    "chunk_id": "uit_1393_2023:chunk:0001",
+    "document_id": "uit_1393_2023",
+    "document_number": "1393/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/31/file_id",
+    "source_sha256": "9531452a3ca520efdb59a7b0f8938b0807bfee8bb9657766ed928b317622a8d9",
+    "content_sha256": "65951cd859a72c81a3a074a9ea695589aaac14c6b6a5eb05f0ca14bb78a4f130",
+    "char_start": 849,
+    "char_end": 1099,
+    "excerpt": "3. Mục b khoản 1 Điều 14: Trong học kỳ hè\n- Tổng số tín chỉ đăng ký không được vượt quá 12 tín chỉ.\n- Sinh viên được đăng ký học mới, học lại và cải thiện điểm nếu có nhu cầu.\nTrường thực hiện mở các lớp đủ sĩ số theo quy định, không mở lớp sĩ số ít.",
+    "excerpt_sha256": "acc452c7838bb56825caea062c8a39e2c91d4ed51b570a71933bda75db75e28a",
+    "source_pdf_pages": [
+      1,
+      2
+    ],
+    "article": "1",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều1 mục3 sửa Điều14 khoản1(b); approved PDF1-2",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "summer_fee",
+    "chunk_id": "uit_1393_2023:chunk:0001",
+    "document_id": "uit_1393_2023",
+    "document_number": "1393/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document.file/31/file_id",
+    "source_sha256": "9531452a3ca520efdb59a7b0f8938b0807bfee8bb9657766ed928b317622a8d9",
+    "content_sha256": "65951cd859a72c81a3a074a9ea695589aaac14c6b6a5eb05f0ca14bb78a4f130",
+    "char_start": 301,
+    "char_end": 542,
+    "excerpt": "- Với sinh viên còn trong thời gian học theo thiết kế chương trình đào\ntạo: HPTCHM HKHE là mức chênh lệch giữa HPTCHM học kỳ hè của\nkhóa tuyển sinh gần nhất và HPTCHM học kỳ chính của từng khóa được\nquy định trong quy định học phí hiện hành.",
+    "excerpt_sha256": "0a8e3df9f98e6c827dc4002bc553fc5a76395b98dfcce11ca07d34a08bb6d3e5",
+    "source_pdf_pages": [
+      1,
+      2
+    ],
+    "article": "1",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều1 mục1; định nghĩa HPTCHM HKHE cho SV còn thời gian thiết kế; PDF1-2",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "supervisor",
+    "chunk_id": "uit_159_2024:chunk:0008",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "32c7d8504a2200862d593b2a6f708ca841b4fcdd4e2f5880c8ef179af40127ef",
+    "char_start": 25,
+    "char_end": 269,
+    "excerpt": "1. Mỗi đề tài KLTN do tối thiểu 1 CBHD có học vị từ thạc sĩ trở lên hướng dẫn. Nếu KLTN\ngồm 2 CBHD thì phải phân rõ trách nhiệm hướng dẫn chính và hướng dẫn phụ. Trường\nhợp mời CBHD bên ngoài hướng dẫn thì phải có một CBHD là cán bộ của Trường.",
+    "excerpt_sha256": "7f511b08a6e164226825a11efba35da17f85219e195e46b11717fcc8f2ebcdf0",
+    "source_pdf_pages": [
+      3
+    ],
+    "article": "6",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều6 khoản1; PDF3",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "supervisor_family",
+    "chunk_id": "uit_159_2024:chunk:0008",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "32c7d8504a2200862d593b2a6f708ca841b4fcdd4e2f5880c8ef179af40127ef",
+    "char_start": 270,
+    "char_end": 395,
+    "excerpt": "2. CBHD đề tài không được là người có quan hệ ruột thịt (cha, mẹ, vợ, chồng, anh, chị, em\nruột) với SV thực hiện đề tài KLTN.",
+    "excerpt_sha256": "01926a1d99cd933770abd110d5cfa127f2ae2ce7df2aa3097e6fc2f4160d58a2",
+    "source_pdf_pages": [
+      3
+    ],
+    "article": "6",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều6 khoản2; PDF3",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "supervisor_limit",
+    "chunk_id": "uit_159_2024:chunk:0008",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "32c7d8504a2200862d593b2a6f708ca841b4fcdd4e2f5880c8ef179af40127ef",
+    "char_start": 396,
+    "char_end": 448,
+    "excerpt": "3. CBHD hướng dẫn tối đa 10 đề tài trong mỗi học kỳ.",
+    "excerpt_sha256": "740ff38cbca860ca916d4ddb2426dc65b409a18965fb64dee3ead7068921ade8",
+    "source_pdf_pages": [
+      3
+    ],
+    "article": "6",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều6 khoản3; PDF3",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "thesis_duration",
+    "chunk_id": "uit_159_2024:chunk:0005",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "e8eee1727039539284a6f3122e5182b92749af3c208cc3cef9794651d497bc39",
+    "char_start": 148,
+    "char_end": 334,
+    "excerpt": "2. Thời gian thực hiện KLTN là 1 học kỳ chính (15 tuần). Trường hợp đặc biệt SV có thể làm\nđơn đề nghị P.ĐTĐH cho phép gia hạn thời gian thực hiện KLTN nếu có sự đồng ý của\nCBHD và Khoa.",
+    "excerpt_sha256": "b4f45f9ad68c6eef113f7b90afec0c9809d6501729569169398b23ad7b043dba",
+    "source_pdf_pages": [
+      2
+    ],
+    "article": "3",
+    "clauses": [
+      "1",
+      "2"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều3 khoản2, thời gian và ngoại lệ gia hạn; PDF2",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "thesis_team",
+    "chunk_id": "uit_159_2024:chunk:0007",
+    "document_id": "uit_159_2024",
+    "document_number": "159/QĐ-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/32/file_id",
+    "source_sha256": "c92466f513fe7ed5f270e28b060f5415323918426e9af1ab56aad89601ad0119",
+    "content_sha256": "5780bb0feef674479efbec5b14ee47b54a0455ea5785bc79fbd60ddff2c4cad6",
+    "char_start": 169,
+    "char_end": 310,
+    "excerpt": "3. Mỗi đề tài KLTN được giao cho từ 1 đến 2 SV thực hiện với sự phân công trách nhiệm\ncụ thể cho từng SV có ghi rõ trong đề cương nghiên cứu.",
+    "excerpt_sha256": "5d17450dc800713ed6711e8f679f23d37b1651534fd258f0da91bf89cce2a0de",
+    "source_pdf_pages": [
+      2
+    ],
+    "article": "5",
+    "clauses": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "extraction_methods": [
+      "pymupdf_text"
+    ],
+    "quality_status": "approved",
+    "locator": "Điều5 khoản3; PDF2",
+    "page_granularity": "approved_chunk_page_range"
+  },
+  {
+    "evidence_id": "tuition_row",
+    "chunk_id": "uit_43_2020:chunk:0002",
+    "document_id": "uit_43_2020",
+    "document_number": "43/TB-ĐHCNTT",
+    "source_url": "https://portal.uit.edu.vn/media/ums.portal.document/41/file_id",
+    "source_sha256": "053e42cb29807fad9292dbec16f533e7dc4f2169597c1a6eac1f9ed7904e9574",
+    "content_sha256": "a03b50ed1e59f2aa71163f6dabefd2cc423c44083f1d660230a5de686845d93b",
+    "char_start": 701,
+    "char_end": 857,
+    "excerpt": "Khóa tuyển 2018 | Thời gian thiết kế chương trình đào tạo 4 năm | Đợt xét tốt nghiệp đúng hạn Tháng 08/2022 | Thời điểm bắt đầu thu HPGH HK 1, NH 2022-2023.",
+    "excerpt_sha256": "6a0746e7e4df86b08abd00b26da5967cca0661d80f688927af4361b11086815a",
+    "source_pdf_pages": [
+      2
+    ],
+    "article": null,
+    "clauses": [
+      "2.2"
+    ],
+    "extraction_methods": [
+      "tesseract_ocr"
+    ],
+    "quality_status": "approved",
+    "locator": "Reviewed row/column serialization khóa2018 thiết kế4năm; PDF2; lịch sử không xác nhận fee hiện nay",
+    "page_granularity": "approved_chunk_page_range"
+  }
+]

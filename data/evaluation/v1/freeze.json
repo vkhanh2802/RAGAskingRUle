@@ -1,0 +1,33 @@
+{
+  "version": "eval100-freeze-v1",
+  "frozen_at": "2026-10-10T10:45:33.610837+00:00",
+  "dataset_sha256": "d577dcde2469cdb1650b4e7b1164e520afc5037d6668fe1b5eb06c7f98946f0c",
+  "held_out_sha256": "d6a9f0c97925c5db41f0257ce83f5237f1a32d20569d043888a9fca5803fb457",
+  "evidence_sha256": "d34ca0a697b7eca1c45bacf0a1505d89860a4ad93e22a13a490e8449bebfc8ac",
+  "corpus_sha256": "b213a260c7b8be3bed5e534575002263d9d878b4c09e67c670c3246f6b5f9776",
+  "legacy_dataset_sha256": "7a2bb4801dac8c1d78e13aeac527dbc44b76583d0d5cb16cd40573445f1bfe0d",
+  "exposure_files": {
+    "data/manifests/development_questions.csv": "cf3a8b6b1c34a774b810c9ec8fd7914f893471ffe1fe133a79188b6d0930b780",
+    "data/manifests/question_sources.csv": "d3e9b5368a94d260dd4f6b4d3cbc2895751c47fafa6e9401e145212ed90697b8",
+    "data/manifests/baseline_control_questions.csv": "05ca2b6732caff0c8232f9f9dd12104fc72dae10bcc49d50e1de922216b5a4ea",
+    "data/manifests/keyword_probe_questions.csv": "e7b1af25da94d7a5081fc4139bc62ed631ecde6718c5e686ce6b6e8958515c55",
+    "data/manifests/ocr_smoke_questions.csv": "6949b97c911ae83b5e9ac591c0991df9c648b0e8713b79117274a78151acbdb1",
+    "data/manifests/m2_corpus_probe_questions.csv": "554d8f8c5b187f0d63680a2da870e7642757b3823f78b5bd8dad3b0472c7bf6d",
+    "data/manifests/m2_api_smoke_questions.csv": "5b755c293db114fb20926dff075061c042cb3698165ceee753282a77ea595406",
+    "data/manifests/t3_1_api_smoke_questions.csv": "a6fd6f80cb394f11ee196c66527b6dd8e48a9db48c6c0898ac67f0c2d1986e77",
+    "data/manifests/t3_3_behaviour_questions.csv": "f15b357bd764f1b33f75d11f0a1f4511cf5fae39c6e08611bd490424dfb1e4f3",
+    "data/manifests/t3_4_adversarial_questions.csv": "cba1156e31f68f827afcfb398d3345003d3171cb1a7667d16a9e5dcf4bb8dd5c",
+    "tests/fixtures/document_attacks.json": "fb3bbe24032986b3b9c8c131b0156c1458f571ab85185ff44a94739431a11fa8"
+  },
+  "files": {
+    "authoring.json": "815945a21998c78bd1d63c067055bdd0b6c484833edc0fe4f63c39da59ba9e13",
+    "manual_review.csv": "3b88612ce7c90679ac98aa620a15c61eabc1b9c232cb87d098aed9746c03983f"
+  },
+  "baseline_config_sha256": "99b14111b4782b1deed979605d5f2024dff4357d3746058105676f07582a86e9",
+  "baseline_commit": "040dd30d28267afc2709ce415ce23402f98128b3",
+  "held_out_question_count": 40,
+  "development_question_count": 60,
+  "held_out_inference_requests_before_freeze": 0,
+  "review_method": "Assistant source/behaviour review, inherited hash-bound M2 page review; not independent human review",
+  "held_out_conditions": "Prospective question/rule-family hold-out authored after M3; common source corpus, not document-disjoint; no runtime tuning from test labels"
+}

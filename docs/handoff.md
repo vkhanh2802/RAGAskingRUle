@@ -2,10 +2,10 @@
 
 ## Hiện trạng
 
-- Milestone: M2/T3.1–T3.4/M3 completed trong supported scope; T4 evaluation tiếp theo.
-- Task vừa hoàn thành: T3.4 — adversarial behaviour, context instruction/hash/scope guards.
-- Task tiếp theo: T4.1 — dataset100/required facts/evidence/filters/split và held-out freeze.
-- Git: T3.3 initial commit `3407c07`; commit T3.4 xem `git log -1`.
+- Milestone: M2/M3/T4.1 completed; M4 runner/benchmark/erroranalysis còn pending.
+- Task vừa hoàn thành: T4.1 — dataset100, curatedgold/source/split validation vàheld-outfreeze.
+- Task tiếp theo: T4.2 — evaluationrunner vớiretrieval/answer/runtime metrics từfrozen data.
+- Git: T3.3 `3407c07`, T3.4 `040dd30`; commit T4.1 xem `git log -1`.
   Theo yêu cầu người dùng, mỗi bước hoàn tất kiểm chứng phải commit rồi báo mã/kết quả;
   quy tắc lưu trong `AGENTS.md`.
 - Runtime: Docker Desktop đang chạy, `regularag-db-1` healthy. Server HTTP smoke đã
@@ -20,7 +20,7 @@
 - Tạo FastAPI app, structured JSON logging và `/health` kiểm tra cả PostgreSQL lẫn
   extension pgvector.
 - Tạo `compose.yaml` và `scripts/db/init.sql`.
-- Hiện có276 tests (169 unit/107 PostgreSQL integration với schema riêng).
+- Hiện có300 tests (188 unit/112 PostgreSQL integration với schema riêng).
 - Tạo `docs/development.md` với hướng dẫn tạo environment và chạy local.
 - Mở rộng `.gitignore` cho secrets, Python artifacts và PDF raw không được cấp phép
   tái phân phối.
@@ -161,12 +161,31 @@
 - M3 technical acceptance đạt34pass/failcases; nextT4.1. API vẫnstateless structuredscope,
   optionalrewriting không triển khai. Chưa independent/held-out answeraccuracy.
 
+## T4.1 — Hiện trạng mới nhất
+
+- `data/evaluation/v1/`:authoring/questions/evidence/manual_review/freeze.100cases đúng
+  category30/20/15/15/10/10,60dev/40test;gold statuses75answered/15insufficient/10clarify.
+- D01–30 vẫnoriginalqueries/answers/filters/paraphrasegroup/19goldchunksets;D31–60devexpansion;
+  T01–40prospectivequestion/familyholdout.98groups/68families và11priorinputregistries kiểm leakage.
+-72curatedsource spans/49chunks; source/pagerange/excerpt/Unicodeoffset/SHA bindings.
+  Source_pdf_pages làchunkrange cóthểcoarse;articlemetadataNone giữNone, khônginventĐiều4/PET.
+- Review100cases doassistant đốichiếuapprovedsource/conditions/roles/metadata; khôngindependenthuman.
+  Noheldout E5/CE/Qwen/APIinference trongconstruction, khôngruntime tuning từtestlabels.
+  Commoncorpus vàknownsourcechunks, không document-disjoint/blind test.
+- FreezeUTC2026-10-10T10:45:33.610837+00:00,datasetSHA d577dcde2469cdb1650b4e7b1164e520afc5037d6668fe1b5eb06c7f98946f0c;
+  baselineconfig/runtime040dd30. Builder/validator khôngoverwrite lock. Refreeze rejection lưu
+  `t4_1_refreeze_rejection.json`,valid rechecks giữlock. Loaderdefault chỉdev60; testexplicit.
+- 300tests/Ruff/lock70/pipcheck pass; Corpus15ready/307FTS/19legacygold unchanged.
+  `docs/evaluation-dataset-review.md`, `t4_1_*` validation/publicationsummaries.
+- NextT4.2:runmetrics trêndevelopment trước; T4.3 chọnconfigcuối rồi heldout/T4.4reportfailures.
+  Frozen labels làexpectedbehaviour, chưa modelaccuracy75/100 hoặcanswerbenchmark.
+
 ## Kiểm chứng
 
 - `conda run -n ragschool python --version`: Python 3.12.15.
 - `python -m ruff check .`: pass.
 - `python -m ruff format --check .`: pass.
-- `REGULARAG_RUN_DB_TESTS=1` và `python -m pytest`:276 passed.
+- `REGULARAG_RUN_DB_TESTS=1` và `python -m pytest`:300 passed.
 - Lock integrity: 70 dependency, không có version mismatch; `pip check` pass.
 - `docker compose config --quiet`: pass.
 - Runtime hiện tại: Docker đã recovery sau lúc bị dừng; `docker compose ps` healthy.
@@ -285,12 +304,12 @@
 
 ## Phiên tiếp theo
 
-1. T4.1: hoàn thiện dataset100 theo plan (60development/40held-out), mọi mẫu có category/
-   expectedstatus; answered có reference/requiredfacts/evidencepages/passages. Giữparaphrase
-   cùngsplit, freezeheldout trước tuning cuối; T3.4cases làdevelopment khôngrelabelheldout.
-2. Giữ acceptance12/frozen30/19gold vàT3.3/T3.4failures; scope/instruction guards còn hẹp,
-   cần thêm biến thể/falsepositivecontrols. Không nới citation/filter/source/latest guards
-   hoặc rebind gold để vượt evaluation. Chưa cógeneralentailment.
-3. PositiveCPU p50~22s/cold~57s ởlượtT3.4, tải máybiến thiên; đo riêngcold/warm trướcclaims.
-   Public sourcecheckpoint09October2026,45excludedpages vẫnngoàisupported scope.
-4. Chốt step sau kiểm chứng bằng progress/handoff vàcommit theo `AGENTS.md`, báomã.
+1. T4.2: runner đọc `load_evaluation_cases()` (defaultdev60), verify freeze/currentcorpus
+   trướcmetrics. Retrievalrecall/MRR chỉanswered support/contextgold, khôngcontrastevidence
+   củaabstentions. Answercorrectness/faithfulness/citationprecision/coverage/statuserrors táchriêng.
+2. Ghi config/commit/hardware/warmcold/concurrency/tokens/cost vàrawpredictions ignored.
+   Khôngrun/tuneheldout đểchọnheuristics. ChốtconfigởT4.3rồiđotestexplicit, giữnguyênfailures.
+3. Giữlegacy30/19,acceptance12 vàT3.3/3.4traces; freeze mismatch phải review/newversion,
+   khôngauto-rebind/nớivalidator/filter. Scope/facets còn hẹp; datasetreview chưaindependent.
+4. Chốtstep với docs/kiểmchứng/committheoAGENTS. Sourcecheckpoint09October2026,
+   45excludedpages khôngđược dùng làmgold; M4accuracy/latencybenchmark100 chưa có.

@@ -1,0 +1,101 @@
+question_id,split,reviewer,reviewed_at,verdict,review_note
+D01,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều1 mục3 sửa Điều14 khoản1(b); PDF2
+D02,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều1 mục2 sửa Điều12 khoản1; PDF1-2
+D03,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều1 mục1 sửa Điều4 khoản3; PDF1
+D04,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều1 mục4 sửa Điều23 khoản1; PDF2
+D05,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều1 mục4 sửa Điều23 khoản1; PDF2
+D06,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Ngày ký PDF1 và Điều2 PDF2
+D07,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều3 khoản2; PDF2
+D08,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều3 khoản2; PDF2
+D09,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều5 khoản3; PDF2
+D10,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều6 khoản1; PDF3
+D11,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều6 khoản3; PDF3
+D12,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều6 khoản2; PDF3
+D13,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều7 khoản1(c); PDF3
+D14,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều7 khoản1(d); PDF3
+D15,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều9 khoản3; PDF4
+D16,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều11 khoản2; PDF5
+D17,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều12 khoản5; PDF5-6
+D18,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều13 khoản2; PDF6
+D19,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều15 khoản1; PDF6-7
+D20,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều15 khoản2; PDF6-7
+D21,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều1 khoản3 của Quy định; PDF2
+D22,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Khoản5(a) tại PDF4; article metadata chưa xác định
+D23,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Khoản5(b) tại PDF4; article metadata chưa xác định
+D24,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều6 khoản3; PDF5
+D25,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều9 khoản2; PDF7
+D26,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều9 khoản4; PDF7
+D27,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều10 khoản1-2; PDF7
+D28,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều11 khoản1(a); PDF7-8
+D29,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều11 khoản2(b); PDF7-8
+D30,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Assistant đối chiếu nguồn/điều kiện và locator frozen legacy; Điều11 khoản4; PDF7-8
+D31,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Đối chiếu hai mục sửa đổi khác nhau, không dùng50SV/cap10cũ của790."
+D32,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Câu ghép đọc hai quy định riêng, không đồng nhất deadline với cap online."
+D33,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Kết hợp Điều6(3)/Điều9(3), giữ điều kiện quan hệ của phản biện."
+D34,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Hai khoản khác nhau củaĐiều15, không đổi20ngày thành ngày làm việc."
+D35,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Hai điều12(5)/13(2); tỷ lệ điểm không phải confidence.
+D36,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Chỉ đọc quy định được duyệt, không quyết định tư cách người cụ thể."
+D37,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều9(2)/(4), không coi mấy đợt/năm là câu hỏi số năm."
+D38,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Không dùng chuẩn quá trình thay cạnh tiên quyết; article củaPDF4 vẫnnull.
+D39,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"So sánh các programme đã dùng development, không chuyển thànhheld-out."
+D40,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Hai khoảnĐiều9, không lẫn15ngày chứng chỉ giấy."
+D41,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Đối chiếu serializedrow/column đúng2018/4năm, không suy ISOeffectivedate."
+D42,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Historicalcutoff trước513; không bắt amendment tương lai.
+D43,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Knownamendment bị callerfilter loại; contrast không làgold answer support.
+D44,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Không chuyển lịch bắt đầu thu thành mức tiền/currentlegalstatus.
+D45,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Nguồn đúnghash nhưng nằm ngoài callercohort; không relaxfilter.
+D46,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,"Đối chiếu15-source registry, không bịa văn bản hoặc gán S99."
+D47,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Cùng chủ đề tín chỉ không làm UITrule áp dụng trường khác.
+D48,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Legalstatusunknown toàncorpus; issued/effective không phải currentverification.
+D49,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,"Outside-task family đã dùng T3.4, giữdevelopment."
+D50,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,"Outside-task family đã dùng T3.4, giữdevelopment."
+D51,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Không tự chọn programme hoặc gán956cho mọi khóa.
+D52,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Không đoán hàng bảng43 và không coi lịch sử là mức thu hiện nay.
+D53,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Không tự chọn6credits của277hay10credits của697.
+D54,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Không suy ngày1/1 hoặc31/12 từ một năm đơn lẻ.
+D55,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Không ghi đè query/scope/filter để tránh xung đột.
+D56,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Falsepremise cùngknownrule, giữdevelopment; canonicalexpected answered cócorrectfact."
+D57,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Không dùng oldthreshold50hoặc citation thật cho giả định sai.
+D58,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Không đồng nhất issueddate với effectivedate; không xác nhận currentforce.
+D59,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Không lấy paperdegree30hoặcpapercertificate15cho digital.
+D60,development,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Userrolemarker là dữ liệu, không làm đổi nguồn/hash hoặc citationregistry."
+T01,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Newheld-outfamilyĐiều5(5); khác minimum30credits củaCTĐT đã probeM208.
+T02,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Một khoản Điều4(1); không hỏi cap6/from2024 đã tune và không ghép khoản điểm0.
+T03,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều8(5)body, không lẫn thời lượng500giờđãprobe."
+T04,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều3(2), khác deadlinecấp mới30/5đãuseddevelopment."
+T05,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Article8fullyreviewed, không suy nghĩa từ tiêu đề hoặcdeadline."
+T06,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"ĐọcĐiều5, phân biệtconfidentiality vớianonymousreporting."
+T07,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều16(3), không áp dụng công thức ưu tiên nội bộ đang có sourceinconsistency."
+T08,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều31(2), không lấy5nămarchiveKLTN sangtuyểnsinh."
+T09,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều6(3), phân biệtHĐLCHT vớiHĐbảo vệKLTN159."
+T10,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Kết hợpĐiều6(4)/9(1), không suy phảiđãnhận bằngngành1."
+T11,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều7(1a)/(2), scopeSVUIT; không áp công thứcSVngoàiTrường."
+T12,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Điều8(3)/(5); không đưa report20–30của697vào277.
+T13,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều8(3)/(5); %làcôngthứcđiểm nguồn, không confidence."
+T14,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều12(2b)/13(5), không dùngdeadlinecấp mới30/5; giữ workingdays."
+T15,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều17(1)/18(1-2), không truy xuấtCSDLcá nhân hoặcđoán thôngtin."
+T16,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều6(3)/7(2), không sửa ngưỡng2/3thành3/4 hoặcquênrolequorum."
+T17,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều18(2-4) giữngoại lệốm/thiêntai/saisót, khôngautodeny mọiquáhạn."
+T18,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,InclusivecutoffliteralĐiều20; không suy toàn bộVBCCđãcấp hếtgiátrị.
+T19,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,Điều6(2)explicitfrom2026; không suy documentcohortbounds/tínhpriorityformulamơhồ.
+T20,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều5(2), chỉnêumốcthờigian khôngkếtluậncánhânđủmọiđiềukiện."
+T21,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Scopelearner/thesisĐiều10(2), không dùngstaffsanctionsĐiều9."
+T22,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều13(1a)/(3), conditionalrights không xác nhận hồsơcánhân hợp lệ."
+T23,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều4(2), không áp cơchế0sau1kỳ của277sang697hoặctựgia hạn."
+T24,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,"Registry15nguồn làquyđịnh, không có thôngbáođơngiá2027-2028; absence không khẳngđịnh website khôngcó."
+T25,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Không lấy điều cấmhọcbổngngành2của112 ápcho mọisinhviên hoặc bịa tiền.
+T26,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Không bịa phí hoặc tài khoản từ quyđịnhhọcvụ/tuyểnsinh.
+T27,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Không dùngthángxétmiễnngoạingữ hoặc prerequisitecourse thay lịchthi.
+T28,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,"Identifier synthetic, khôngphải PII thực; sourcePDF không chứngminh studentdatabaseaccess."
+T29,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,"Đối chiếu snapshot832partial/omittedpages3,5; không biếnbodytextthànhfullgeometry."
+T30,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Không suycutofftừ ngưỡngđầuvào hoặc priorityweightsgeneric.
+T31,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,"Điều5đưađiềukiện, không xác nhận cánhânthiếu dữliệu; hỏi rõthayvì autoYes."
+T32,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,Không giảđịnh có quyếtđịnhhộtịch haylỗi củaTrường khi userchưa nêu.
+T33,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,"Điều5(1-2), không tự giảđịnhTHPThoặc trungcấpđủvănhoáTHPT."
+T34,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,"Sourcehìnhthức tùymứcđộ/authority, không có dữliệuchứngminh cánhân."
+T35,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,behaviour_reviewed,"Điều10, phânbiệt bảo lưutrúngtuyển với nghỉhọctạmthời790."
+T36,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Falsepremise củanewheldoutfamily, không đồngnhấtvới maximum30credits."
+T37,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều8(5), không sửa điều kiện đo trang để phùhợp giảđịnh."
+T38,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Kết hợp nguyên tắc3(2)/12(1), không suy cấp bản sao làcấplạibảnmới."
+T39,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Giữactor-weightassociation đúngsource, không chỉ khớp tập cáccon số."
+T40,test,assistant_source_review,2026-10-10T10:35:00.728177+00:00,source_reviewed,"Điều16(3), không biến unlimitedregistrationthànhmultipleadmissionoffers."

@@ -189,6 +189,13 @@ answer body làverbatimbackendtext, khôngmodelcopy/sourceid/pageguess.
 
 ### 7. Evaluation và observability
 
+T4.1 materialize dataset100 từ reviewer-authored cases vàcurated source markers:
+facts trỏ tới source spans cócharoffset/pages/hash, contrast tách khỏi answergold,
+60development/40prospective test. Split/family/exposure/currentSQLfilter guards và
+one-timefreeze bảo vệlabels/reviews/source bindings. Loader mặc địnhdevelopment,
+validation cảtest chỉđọcsource/metadata, khônginference. Legacy30/19gold giữnguyên;
+review doassistant/commoncorpus, khôngblindindependent hoặcdoc-disjoint evaluation.
+
 - Dataset tách development/held-out test và giữ paraphrase gần nhau cùng split.
 - So sánh vector-only, keyword-only, hybrid RRF và hybrid + reranker trong điều
   kiện cố định.

@@ -1,0 +1,32 @@
+{
+  "validated_at": "2026-10-10T10:45:33.325898+00:00",
+  "valid": true,
+  "held_out_inference_requests": 0,
+  "conditions": "Read-only schema/hash/filter/source review validation; no embedding/ranking/LLM",
+  "cases": 100,
+  "evidence_spans": 72,
+  "bound_chunks": 49,
+  "split_counts": {
+    "development": 60,
+    "test": 40
+  },
+  "category_counts": {
+    "single_clause": 30,
+    "multi_clause": 20,
+    "temporal_scope": 15,
+    "no_answer": 15,
+    "clarification": 10,
+    "adversarial": 10
+  },
+  "status_counts": {
+    "answered": 75,
+    "insufficient_evidence": 15,
+    "needs_clarification": 10
+  },
+  "legacy_questions_preserved": 30,
+  "legacy_gold_chunks_preserved": 19,
+  "paraphrase_groups": 98,
+  "rule_families": 68,
+  "dataset_sha256": "d577dcde2469cdb1650b4e7b1164e520afc5037d6668fe1b5eb06c7f98946f0c",
+  "frozen": true
+}

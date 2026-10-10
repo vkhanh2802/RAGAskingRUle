@@ -18,6 +18,7 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 | T3.2 | completed | BoundpassageIDs/offsets/SHA/strictschema/enum/boundedretry;210tests;12acceptance+30development+targetedregressions;11supportedprimaryanswers/12 và1correctabstention;median13.57s; `docs/passage-citation-review.md` | Genericqueries cònextra material; coldloads35–39s; chưaheld-out/clarification | T3.3 scope/clarification vàprecision; T3.4 behaviorcases trướcM3 |
 | T3.3 | completed | `clarify-scope-v1`; structured scope/clarification/version notes; 20 cases: 8 clarify / 7 abstain / 5 supported answers; positive12; development30 và targeted fixes; 247 tests; `docs/clarification-abstention-review.md` | Lexical scope/facets chưa general entailment; extra material và variable CPU latency; chưa held-out | T3.4 adversarial/ngoài phạm vi/giả định sai, ít nhất20 cases trước M3; commit sau mỗi bước hoàn tất |
 | T3.4 / M3 | completed | 24 API cases +10 injected-context cases:34/34 final pass; source-instruction/hash/scope guards; positive12:11 supported/1 correct abstention;276 tests; `docs/adversarial-behaviour-review.md` | Declared heuristics chưa general scope/entailment/injection defense; extra quotes, CPU latency và excluded layouts; chưa held-out | T4.1 dataset100, required facts/evidence/filter/split và held-out freeze; commit sau bước hoàn tất |
+| T4.1 | completed | Dataset100 đúng6category quotas;60development/40test;72curatedspans/49chunks;source/offset/hash/filter/split validators;freeze trước finaltuning;300tests; `docs/evaluation-dataset-review.md` | Assistant source review chưaindependent; commoncorpus/question-familyholdout; chưa accuracybenchmark100 | T4.2 runner/metrics trênfrozen data, defaultdevelopment; test sauconfigchốt; commitstep |
 
 ## Nhật ký kiểm chứng
 
@@ -282,3 +283,18 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
   source PDF/hash và19gold nguyên vẹn. Allraw/model traces ởignored processed.
 - MandatoryT3.4 vàM3 technical gate đạt; structuredscope/stateless không rewrite.
   Báo cáo `docs/adversarial-behaviour-review.md`; nextT4.1 dataset100 vàheld-outfreeze.
+
+### T4.1 — Dataset100 / held-out freeze
+
+- Ngày2026-10-10.100canonicalcases trong `data/evaluation/v1/`:30single/20multi/15scope/
+  15noanswer/10clarification/10adversarial;60dev/40test;expected75answered/15insufficient/10clarify.
+- 30queries/answers/filters/19gold giữ nguyên; mởrộng30development,40newprospective test.
+  98paraphrasegroups/68rulefamilies và11exposureregistries đượckiểm khôngcrosssplit/tunedtest.
+- 72curatedspans/49approvedchunks, SourceURL/source/content/excerptSHA,Unicodeoffsets,
+  PDFchunkranges/locator/article/clauses/quality;contrast khôngđượcpromotegoldanswer.
+- Assistantmanualsource/behaviourreview100cases, inheritedM2page/hashreview; chưaindependenthuman.
+  Không RAGinference trênheldout; metadata/gold SELECT only, commoncorpus khôngdoc-disjoint.
+- FreezeUTC10:45:33/datasetSHA `d577dcde2469cdb1650b4e7b1164e520afc5037d6668fe1b5eb06c7f98946f0c`,
+  baseline runtime040dd30. Refreeze attempt rejectexpectedexit1, resultlưu riêng; lockunchanged.
+- Full300tests188unit/112schema-isolatedDB,109.19s,Ruff/pipcheck/lock70 đạt; Corpus15/307/
+  19gold/0unfinished giữ nguyên. `docs/evaluation-dataset-review.md`,nextT4.2 chưaM4complete.
