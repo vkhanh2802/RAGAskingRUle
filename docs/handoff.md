@@ -2,11 +2,11 @@
 
 ## Hiện trạng
 
-- Milestone: M2/M3/T4.1/T4.2/T5.1earlyUI completed; M4 in_progress, ablation/erroranalysis pending.
-- Task vừa hoàn thành: frozen evaluationrunner +60development/manualreview/actualmetrics.
-- Task tiếp theo: T4.3 —4retrievalvariants cùngcorpus/LLM/prompt/budget; chốtconfig rồiheldout.
+- Milestone: M2/M3/T4.1/T4.2/T4.3/T5.1earlyUI completed; M4 in_progress, erroranalysis pending.
+- Task vừa hoàn thành: 4retrievalvariant ablation/top-k4/8/12 và360predictions/reviews/selection.
+- Task tiếp theo: T4.4 — erroranalysis/fixes/rerundev/finalconfigfreeze/heldouttest.
 - Git: T3.3 `3407c07`,T3.4 `040dd30`,T4.1 `e8cc367`,UI `61f437f`,GPA `01ecdbe`;
-  commitT4.2 xem `git log -1`.
+  T4.2 `9987bca`;commitT4.3 xem `git log -1`.
   Theo yêu cầu người dùng, mỗi bước hoàn tất kiểm chứng phải commit rồi báo mã/kết quả;
   quy tắc lưu trong `AGENTS.md`.
 - Runtime: Docker/db healthy; persistentlocalUI/API http://127.0.0.1:8000/ đãstarted,
@@ -22,7 +22,7 @@
 - Tạo FastAPI app, structured JSON logging và `/health` kiểm tra cả PostgreSQL lẫn
   extension pgvector.
 - Tạo `compose.yaml` và `scripts/db/init.sql`.
-- Hiện có339 tests (223 unit/116 PostgreSQL integration với schema riêng),12NodeUIcontracttests.
+- Hiện có354 tests (237 unit/117 PostgreSQL integration với schema riêng),12NodeUIcontracttests.
 - Tạo `docs/development.md` với hướng dẫn tạo environment và chạy local.
 - Mở rộng `.gitignore` cho secrets, Python artifacts và PDF raw không được cấp phép
   tái phân phối.
@@ -201,6 +201,27 @@
 
 ## Kiểm chứng
 
+### T4.3 hiện tại
+
+- Matrix `evals/results/t4-3-ablation/`,4modes60each +CEk4/k12sweeps=360predictions,
+  samefixedsource/model/prompt/candidate20/context6/input2304/output64/freshness/gold.
+  Onlydeclaredmode/CE/topkaxes; source/config/runtime/hardware/roster/predictionhash gates.
+-77uniqueactual question/quote/source/scopebundles readmanually andjudgedfullconditions;
+  newlocalPID/SID/responseSHA eachrun. Topk120all exactsamegroups; no newfactlabels fromproxy.
+- Correctness vector41/KW35/RRF36/CE41of47;taskcitations53/75,45/69,48/71,52/71;
+  noanswercorrect7/7/8/8of8. Vector/KW D43wrongtopicfalseanswer, notold50claim.
+- CEvsRRF paired5winsD16/27/40/58/59,no loss;MRR .75641→.96454,p5013s vs6.572s.
+  Samequalitytopk4/8/12,latencytie-breakselectCEk4p50/p9512441.294/17819.716ms;
+  onepassOS/hostnoise notcausal. Modeltoken25588/479 eachCE;API0/localcomputeunpriced.
+- Selectedreference **configs/rag/t4_3_selected.json**,SHA611919f4... beforeheldout;
+  T4.4 fixesfinalreleasefreeze later. selectedsmokeGPA8 6supported/2correctabstentions,
+  old790main30/summer1393cap12/affectedfilters unchanged; audits0errors.
+-354tests107.01s,Ruff171files/12Node/lock70/pipcheck;dataset100/72spans/49chunks/
+  legacy30/19/corpus15/307unchanged,0heldoutinference. SourceSHAa6d5fe1f...,
+  inferencebase9987bca+dirtycode captured inconfigs/protocol.
+- Publict4_3CSV/core+fullcomparison/reviews/protocol/selection/integrity/smokeaudit;
+  rawquotedreports/modeltraces ignored. `docs/benchmark-ablation-review.md` hasfulltables.
+
 ### T4.2 hiện tại
 
 - Onecommand `scripts/run_evaluation.py`, default60development; verify frozen100/source/
@@ -371,11 +392,11 @@
 
 ## Phiên tiếp theo
 
-1. T4.3: dùngrunner `--retrieval-mode vector|keyword|hybrid`/`--no-reranker` so4variants;
-   cùngcorpus/gold/LLM/prompt/contextbudget, record config/commit/hardware/coldwarm vàcost.
-   Defaultdev60; manualreviewbindnewresponses, không re-use previousprediction reviewSHA.
-2. T4.4 review completeness/precision/falseabstention/studyprogress issues; giữbaseline
-   vàfailedcases. Chốtconfig rồitestexplicit, không tuneheldout hoặc đổigold đểđạtmetric.
+1. T4.4: dùngselectedreference configs/rag/t4_3_selected.json, review khoảng20failurecases
+   từvariant/case differences vàprecisionextras. Ưu tiênmulti-fact coverage/prerequisite-vs-
+   progress, date-unit supportfalseabstentionD42, missingstudy_progressD51;giữfailuretraces.
+2. Sửa2–3nhóm lớn/rerundevelopment vớisamegold/scope/sourceguards. Ghi tácđộng rồifreeze
+   finalcode/config trướctestexplicit; không tuneheldout hoặc đổigold đểđạtmetric.
 3. Giữlegacy30/19,acceptance12 vàT3.3/3.4traces; freeze mismatch phải review/newversion,
    khôngauto-rebind/nớivalidator/filter. Scope/facets còn hẹp; datasetreview chưaindependent.
 4. Chốtstep với docs/kiểmchứng/committheoAGENTS. Sourcecheckpoint09October2026,

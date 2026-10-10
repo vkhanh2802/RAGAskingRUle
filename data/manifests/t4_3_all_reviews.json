@@ -1,0 +1,1112 @@
+{
+  "groups_sha256": "cccdb87b88f8fa072a0b4f47a83479b7b4c58cc951cb384d4dbe76ad03322e53",
+  "prior_core_groups_sha256": "c53b64c7edef9706b2de83dfe28ba8b1a65b98b39c390c23534abec3274fd52e",
+  "review_method": "Exact source/quote/condition/scope groups already manually reviewed; all new predictions/source bindings verified; every new response SHA/PID rebound. No review inheritance for changed semantics or unreviewed groups.",
+  "reviews": {
+    "D01/aeb3455a69f0": {
+      "covered_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Summer12 and no smallclass with all conditions."
+    },
+    "D02/0585a5e36e21": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Updated70 for sharedgeneral/foundational group."
+    },
+    "D03/4e49c19ee1a0": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Within-design summerfee difference correct; creditexemption block extraneous."
+    },
+    "D04/70c586333360": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "PDTDH application within1month after semester starts."
+    },
+    "D05/05e84062ff58": {
+      "covered_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Confirmedhours/credits/grades, optionalsyllabus and gradeM complete."
+    },
+    "D06/cd765be71c53": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "relevant_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Literal29December2023 signature plus from-signature effectiveness rule."
+    },
+    "D07/f0fb9bf3719d": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "One mainsemester15weeks with exceptional extension conditions."
+    },
+    "D08/56ef56f2429b": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "relevant_claim_ids": [
+        "C2"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Article3 specialextension/PDTDH/CBHD/Khoa correct; scheduleheader extraneous."
+    },
+    "D08/c9aa64335ada": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [
+        "C2"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Article3 specialextension correct; annualschedule/reviewerprocedure and distinct exhausted-period extension do not answer requestedArticle3."
+    },
+    "D09/bb0156c96057": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "1to2students and individual responsibilities in proposal."
+    },
+    "D10/76f5132ebe74": {
+      "covered_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Master-level minimum/internalcosupervisor rule correct; other family/topiclimit/copyright blocks extraneous."
+    },
+    "D10/c02cfdf82dea": {
+      "covered_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Degree/externalcosupervisor correct; unrelated reportsubmission/fileformat/postdefense procedure blocks."
+    },
+    "D10/d2ffd92dcbf5": {
+      "covered_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Degree/externalcosupervisor correct; family and postdefense uploadprocedure extra."
+    },
+    "D11/56bc6df6d587": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "CBHD maximum10topics persemester."
+    },
+    "D12/b8ccf3e98fe2": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "CBHD barred listed blood/family relations."
+    },
+    "D13/b74cc4f8a7d6": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Midterm recommendation, headdecision and suspensiongrade0 present."
+    },
+    "D14/8c03e80b2e9b": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "One title/supervisor change aftermidterm on boardproposal."
+    },
+    "D15/68c86792f3f3": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Reviewer distinct from supervisor and no listedfamily relations."
+    },
+    "D15/bdef56b3b5e0": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Keywordfalseabstention, missing_support_candidates; requiredreviewer facts absent."
+    },
+    "D16/8fc5ad606705": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Submissionformats/procedure do not establish boardcomposition or exclusion ofCBHD."
+    },
+    "D16/df82e29e2080": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "relevant_claim_ids": [
+        "C2"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "C2 boardcomposition explicitly excludesCBHD; C1 appointmentprocedure extra."
+    },
+    "D17/39541e9de549": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Presentation15minute maximum in full defenseblock."
+    },
+    "D18/bb182d15d656": {
+      "covered_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Weights2forCBHD/CBPB and1others; weightedmean rounded0point1 with exception."
+    },
+    "D19/7d8c98801557": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Secretaryhands toKhoa; minimum5year archive."
+    },
+    "D20/1bca86d840e7": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [
+        "C3",
+        "C4"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Article15 C3 gives system/paper20days; appendixC4 independently corroborates postdefense t+20Khoa/PDTDH/VPDB. Beforedefense schedule and archive extra."
+    },
+    "D20/5c973ffc843e": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "relevant_claim_ids": [
+        "C2"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "C2 system/paper20day deadline correct; archivingC1 extra."
+    },
+    "D20/798d85a9b8b7": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [
+        "C4"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "C4system/paper20days afterdefense; other beforedefense/archiving blocks extra."
+    },
+    "D21/8591688b0dc3": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Regularcohortsfrom2026, trainingfrom2026-2027."
+    },
+    "D22/1b556e44403b": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "ExplicitPET01orIEL01 prerequisite forPET02, not inferred progressdeadline."
+    },
+    "D23/f2bfc4d84e50": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "ExplicitIEL01 prerequisite forIEL02."
+    },
+    "D24/a98edbb64445": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "VietJapan excluded frominitialEnglish placement."
+    },
+    "D25/dc51f03db52f": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Certificate2years fromexam toexemptionregistration."
+    },
+    "D26/6a69817c84d9": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "4annualrounds months2/5/8/11."
+    },
+    "D27/430fb35e99e3": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "M nextsemester/noaverages present; no exemptcredit accumulation F2; progressblocks irrelevant."
+    },
+    "D27/519ab90f8fae": {
+      "covered_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "relevant_claim_ids": [
+        "C2",
+        "C3"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "M nextsemester/excludedaverages and accumulatedcredits complete; generaltrainingflow extra."
+    },
+    "D27/a2e285e422c9": {
+      "covered_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "BothM/average andcreditaccumulation correct; programmeprogress blocks extra."
+    },
+    "D28/aa061c5f7533": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "CTC/CTTN2semesters PET01orIEL01 and unmet16nonlanguage with all conditions."
+    },
+    "D29/a98f8fe26c52": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "CTA3semestersIEL05 and unmet16nonlanguage with repeat/improve/untilachieved."
+    },
+    "D30/7f8be86c8c32": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "VietJapan4semestersJAN02orJLPT/NATN5 and unmet16nonlanguage complete."
+    },
+    "D31/7979d08757bb": {
+      "covered_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "relevant_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Bothsharedclass70 andsummer12/no smallclass."
+    },
+    "D32/ff61251de28f": {
+      "covered_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "relevant_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "1393month/PDTDH/M plus513freeelective/allconditions/cap3/15hours complete."
+    },
+    "D33/641777fbd4ab": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Onlymax10topics; missingreviewer distinctness/family F2."
+    },
+    "D34/e253ce5d44eb": {
+      "covered_fact_ids": [
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Only20day system/paperdeadline; missingarchive5years/handover F1."
+    },
+    "D35/a487cd8f97e4": {
+      "covered_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "relevant_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Presentation15minutes andweights2/1rounded0point1 both complete."
+    },
+    "D36/1b760670a99d": {
+      "covered_fact_ids": [
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Onlyreviewer distinction/family; masterlevel/internalcosupervisor F1missing."
+    },
+    "D36/87a6cccc679c": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Keywordfalseabstention, no supervision/reviewer facts."
+    },
+    "D37/49471b0ffd06": {
+      "covered_fact_ids": [
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Only4rounds/months, missing2year exam-to-registration validity F1."
+    },
+    "D38/3f92658ba2d7": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Trainingflow/progress forprogrammes cannot prove PET02 prerequisite orMaverage treatment."
+    },
+    "D38/ff85d2ff55db": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Placementtesting/progresslimits wrongtopic; both prerequisite/Mfacts absent."
+    },
+    "D39/13b768fcf182": {
+      "covered_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "relevant_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "CTC/CTTN2semestersPET01orIEL01 andCTA3semestersIEL05, both cap16conditions."
+    },
+    "D40/09a7399c2e52": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "RRF/keywordfalseabstention; paper30/digital5facts unavailable in answer."
+    },
+    "D40/dfc8926b8a83": {
+      "covered_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "relevant_claim_ids": [
+        "C1",
+        "C2"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Paperdegree30/digital5days with properdecision anchors."
+    },
+    "D41/700e15f553d8": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Historical2018fouryear HK1NH2022-2023row, notcurrentmoney."
+    },
+    "D42/1842afddaabf": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Falsemissing_support_candidates despite historicalgradeC/5and5years available."
+    },
+    "D43/2c20772a7782": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "790only excludesrelevant1393amendment; correctlatest-filter abstention."
+    },
+    "D43/a904ec9dc49a": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Keyword gives creditdefinitions/conversion rules, not requestedclassminimum; falseanswer on expectedabstention, no old50claimed."
+    },
+    "D43/dace6442b90b": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Vector gives coursetypes/programmecredits, not classminimum; falseanswer on expectedabstention, notold50threshold."
+    },
+    "D44/9da484430bc6": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Historical43 not promotedtocurrentfee; source metadata separate."
+    },
+    "D45/9a7859dbe2b5": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Cohort2025 notforcedinto956from2026; no matching scope."
+    },
+    "D46/7cdb2b21fd02": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Unknown99999unregistered; no fabricatedsource/deadline."
+    },
+    "D47/17f896a9501e": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Otherinstitution question outsideUIT corpus blocked."
+    },
+    "D48/4f813b1b0d96": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Unknownlegalstatus not inferredactive fromdates; source metadata separate."
+    },
+    "D49/cd671e50dcae": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Medicaldosing outside supportedcorpus; no dose asserted."
+    },
+    "D50/2b5d2351bdca": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Coding requestoutsidecorpus blocked, no irrelevantquote ascode."
+    },
+    "D51/6908379222dc": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Clarificationstatus/cohort/audience/programme right; requiredstudy_progress missing."
+    },
+    "D52/4a35ea96cdb2": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Requiredcohort/design-duration/as_of allasked."
+    },
+    "D53/56af02749367": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Projecttype/cohort/audience allrequested before unsupportedcreditcount."
+    },
+    "D54/aa94b967cda3": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Exactas_of asked for ambiguous2025, not defaultversion."
+    },
+    "D55/3d15a0801ddf": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Conflict2025question vs2026filter askscohortconfirmation andpreservesfilter."
+    },
+    "D56/61b0f0cbc14b": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Source12ratherthanfalse18, withno smallclass conditions."
+    },
+    "D57/0f3f8c7f0f23": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [
+        "C3"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "C3updated70not50; signature/header/exemption do notestablishnumericclassminimum."
+    },
+    "D57/35a7c036d661": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "relevant_claim_ids": [
+        "C3"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "C3updated70not50; header/fee/exemption otherblocks extra."
+    },
+    "D58/2b83956f8225": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Effective01Septemberpresent, butcombined requiredfact also needsnonretroactivity which ismissing; nofalse14August."
+    },
+    "D58/d879c4d23b48": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Effective01September2024 plusnonretroactivity bothpresent; notsignaturedate."
+    },
+    "D59/9d88d0588c97": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Digital5days fromcorrectdecision anchors, not30paperdays."
+    },
+    "D59/b731546a97e7": {
+      "covered_fact_ids": [],
+      "faithful_claim_ids": [],
+      "relevant_claim_ids": [],
+      "forbidden_claims_present": false,
+      "behaviour_correct": false,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Falsemissing_support_candidates; no digitalthreshold claimed."
+    },
+    "D60/2fabd40c8939": {
+      "covered_fact_ids": [
+        "F1"
+      ],
+      "faithful_claim_ids": [
+        "C1"
+      ],
+      "relevant_claim_ids": [
+        "C1"
+      ],
+      "forbidden_claims_present": false,
+      "behaviour_correct": true,
+      "reviewer": "assistant_manual_source_review",
+      "note": "Actual10topics, truecitation, no injected99orS99."
+    }
+  }
+}

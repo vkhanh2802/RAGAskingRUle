@@ -22,6 +22,7 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 | T5.1 early demo | completed | UI/UXProMax/nativeweb trênFastAPI;scope/filter/devpresets/citation/excerpts/feedbackexport;303pytest+12Node;27fixture/18realbrowserassertions; `docs/demo-guide.md`, `docs/demo-ui-review.md` | Currentbaseline/localdemo; M4benchmarks còn pending; sessionfeedback chưaDBpersist | Người dùngmanualtestUI, sauđóT4.2; giữtest40freeze |
 | Demo feedback — GPA/freshness | completed | Clause-scopedv2/unchangedsourceviews;8cases6supported/2correctabstain;regression12 giữ11supported/1abstain;322pytest+12Node/22livebrowserassertions; `docs/gpa-credit-freshness-review.md` | Finer hierarchy/facets còn hẹp; M4benchmark pending | Người dùng thử bản sửa ở8000, rồiT4.2; giữfreeze40 |
 | T4.2 | completed | One-command frozen evaluator/realASGI/rank10/stageusage/manualhash-boundreview;60dev47answerable;Recall5=.98936/MRR10=.96454;41/47correct/52/71taskcitation;339tests; `docs/evaluation-runner-review.md` | Multi-clause7/12;extraquotes/D42falseabstain/D51missingprogress;heldout chưa chạy | T4.3 fixed-corpus/LLM/budget ablation4variants; giữfailures/gold vàcommitstep |
+| T4.3 | completed | 4variants×60+topk4/12×60=360newpredictions/77reviewgroups;vectors41/KW35/RRF36/CE41of47;selectedCEk4/52of71citations/p9517.820s;354tests; `docs/benchmark-ablation-review.md` | Completeness/precision/D42/D51;one-passlatencyvariation;0heldoutbenchmark | T4.4 erroranalysis/fixes trênselectedreference rồifreezefinal/test;commitstep |
 
 ## Nhật ký kiểm chứng
 
@@ -358,3 +359,23 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
   0heldoutinference. Publict4_2metrics/decisions/integrity/snapshot; rawevals/results ignored.
 - T4.2technicalacceptance đạt, M4 in_progress; nextT4.3 fourretrievalvariants rồiT4.4,
   citation90%/p95target10s chưađạt. `docs/evaluation-runner-review.md`.
+
+### T4.3 — Benchmark / ablation
+
+- Ngày2026-10-11local, inferenceUTC10October15:47–16:51;4freshprocessvariant runs
+  cùng60dev/models/prompt/budget/corpus/candidate20/evaluator;topk4/8/12samecontextceiling6.
+- Full360actualpredictions;77actualsemanticgroupsmanualreview, strictsource/quote/scope
+  equality/newPID/SID/responseSHA for everyrow. ExistingT4.2review không đượcghépreruns;
+  alltopkoutputs exactlymatchedalreadyreviewedgroups, newmemberbindingsverified.
+- Vector/KW/RRF/CE Recall5 .98936/.85106/.94681/.98936,MRR .89787/.65674/.75641/.96454;
+  fullcorrect41/35/36/41of47;taskcitation53/75,45/69,48/71,52/71. Reject7/7/8/8of8.
+- CE vsRRF paired5wins(D16/27/40/58/59),0loss;extraCEtime, e2ep50/p9513.000/20.997s
+  vsRRF6.572/14.032. VectorprimaryequalCE nhưngD43falseanswer+lowerprecision.
+- Topk4/8/12identicalclaims/tokens/41of47quality;predeclaredobservedlatencytie-break
+  selectsCEk4,p50/p9512.441/17.820s;notcausalspeedup. SelectedconfigSHA611919f4...,
+  configs/rag/t4_3_selected.json+selectionseal; Source/runtimeSHAa6d5fe1f... base9987bca dirty.
+-354tests237unit/117DB107.01s,Ruff171files/12Node/lock70/pipcheck. SelectedGPA8smoke
+  6supported/2correctabstain/audits0;rawtraceignored. Frozen100/30legacy19/corpus15/307
+  keepbinding,0heldoutinference. Allfailurecases/protocol/CSV/comparison/reviews retained.
+- T4.3 completed; nextT4.4 completeness/precision/falseabstention/clarificationfixes then
+  finalreleaseconfigfreeze andtest40. `docs/benchmark-ablation-review.md`.

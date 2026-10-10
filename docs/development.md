@@ -612,6 +612,34 @@ Rubric/rates/active-vs-alltiming/cost/14issuecases: `docs/evaluation-runner-revi
 details `evals/README.md`. Baseline41/47đủfacts và52/71task-supportcitations,
 không coi59/60status hoặc47/47goldtop10 làansweraccuracy.
 
+## Benchmark và ablation — T4.3
+
+```powershell
+python scripts/run_ablation.py run --variant all --root evals/results/<new-matrix>
+python scripts/run_ablation.py packet --root evals/results/<new-matrix>
+python scripts/run_ablation.py review --root evals/results/<new-matrix> --decisions <manual-groups.json>
+python scripts/run_ablation.py compare --root evals/results/<new-matrix> --output <comparison.json>
+```
+
+Tool chỉdevelopment;4variants thaymode/CEenabled,same20candidates/context6/input2304/
+output64/source/freshness/behaviour. Top-k4/8/12 đượckiểm trênselectedmode, observedrank10
+samepool.Corpus/config/runtime/hardware/package/roster drift hoặc chưacomplete review reject.
+Canonicalgrouping chỉactualquote/source/scopeidentical, rebindownPID/responseSHA;
+manualrequiredfacts không lấy automaticgoldcoverage proxy. `evals/README.md` cóschema/
+top-k/extendonly-identicalgroups/selectionsealcommands.
+
+Selecteddevelopmentreference `configs/rag/t4_3_selected.json` làhybrid+CE/top4. Dùng
+file explicit khi chạy erroranalysis/rerun:
+
+```powershell
+python scripts/run_evaluation.py --config configs/rag/t4_3_selected.json
+```
+
+Results/report `docs/benchmark-ablation-review.md`, publicCSV/t4_3comparison/selection
+manifests; full/modeloutputs ignored. 360predictions,41/47correct choCE, primaryvector
+tươngđươngnhưngextraD43falseanswer;RRF36/47. Latencytie-break khôngcausalclaim.
+T4.4 xửlýfailures/traces rồifreezefinalconfig trước40testexplicit.
+
 ## Dừng dịch vụ
 
 ```powershell

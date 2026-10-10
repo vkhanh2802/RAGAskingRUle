@@ -1,0 +1,5081 @@
+{
+  "matrix_root": "evals/results/t4-3-ablation",
+  "dataset_sha256": "d577dcde2469cdb1650b4e7b1164e520afc5037d6668fe1b5eb06c7f98946f0c",
+  "corpus_sha256": "b213a260c7b8be3bed5e534575002263d9d878b4c09e67c670c3246f6b5f9776",
+  "runtime_source_sha256": "a6d5fe1f955f659afa869473fe2010ac59bbecd76ac5894f0d613d98f7abc441",
+  "selection_rule": "Integrity gates, then complete answer correctness, required fact recall, task-support citation precision, lower end-to-end p95 then p50; development only",
+  "selected_label": "hybrid_reranked_k4",
+  "variants": [
+    {
+      "label": "vector_only",
+      "config_sha256": "c24821744479f670d3b11ea6b4fa5b2140687979044f2f2d2e1201c760b8b11a",
+      "predictions_sha256": "79209cfcbf629cb447b2a74f945f1fddcc506d59ce73b1a64f77361f5bd27936",
+      "review_sha256": "12325af15e276fead24f7f175ea68958ed9058c746469e0be036a26e8e0c2b98",
+      "config": {
+        "pipeline_version": "rag-clause-scoped-v2",
+        "embedding": {
+          "model_name": "intfloat/multilingual-e5-small",
+          "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+          "dimension": 384,
+          "device": "cpu",
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "pooling_version": "window-mean-v1",
+          "max_sequence_tokens": 512,
+          "window_overlap_tokens": 32,
+          "query_prefix": "query: ",
+          "document_prefix": "passage: "
+        },
+        "retrieval": {
+          "mode": "vector",
+          "top_k": 8,
+          "candidate_k": 20,
+          "minimum_score": 0.55,
+          "minimum_keyword_score": 0.0,
+          "rrf_k": 60,
+          "dense_weight": 1.0,
+          "keyword_weight": 1.0,
+          "keyword_query_version": "vi-simple-v1",
+          "metadata_filter_version": "evidence-metadata-v1",
+          "document_reference_policy": "shared-query-refs-v1",
+          "eligible_document_ids": [
+            "uit_159_2024",
+            "uit_1393_2023",
+            "uit_790_2022",
+            "uit_956_2026",
+            "uit_112_2024",
+            "uit_277_2025",
+            "uit_308_2025",
+            "uit_412_2025",
+            "uit_43_2020",
+            "uit_513_2026",
+            "uit_697_2024",
+            "uit_803_2025",
+            "uit_832_2024",
+            "uit_851_2024",
+            "uit_894_2026"
+          ]
+        },
+        "reranker": {
+          "enabled": false,
+          "model_name": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+          "model_revision": "1427fd652930e4ba29e8149678df786c240d8825",
+          "device": "cpu",
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "candidate_k": 20,
+          "max_sequence_tokens": 512,
+          "window_overlap_tokens": 32,
+          "pooling_version": "window-max-v1"
+        },
+        "freshness": {
+          "enabled": true,
+          "policy_version": "clause-scoped-v2"
+        },
+        "behaviour": {
+          "enabled": true,
+          "policy_version": "guarded-behaviour-v1",
+          "minimize_selected_passages": true
+        },
+        "generation": {
+          "backend": "llama_cpp",
+          "response_policy": "verified_passages",
+          "model_name": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+          "model_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+          "device": "cpu",
+          "dtype": "float32",
+          "gguf_filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+          "max_new_tokens": 64,
+          "max_input_tokens": 2304,
+          "cpu_threads": 4,
+          "context_chunks": 6,
+          "prompt_version": "bound-passage-selection-v3",
+          "max_passages": 8,
+          "max_selected_passages": 4,
+          "structured_retries": 1,
+          "low_memory_mode": true
+        }
+      },
+      "hardware": {
+        "os": "Windows-11-10.0.26200-SP0",
+        "machine": "AMD64",
+        "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+        "logical_cpu_count": 12,
+        "ram_total_bytes": null,
+        "python": "3.12.15"
+      },
+      "started_at": "2026-10-10T15:47:50.360583+00:00",
+      "finished_at": "2026-10-10T15:54:58.253219+00:00",
+      "retrieval": {
+        "eligible_questions": 47,
+        "recall_at_5": 0.9893617021276596,
+        "recall_at_10": 1.0,
+        "mrr_at_10": 0.897872340425532,
+        "micro_recall_at_5": {
+          "numerator": 52,
+          "denominator": 53,
+          "unknown": 0,
+          "value": 0.9811320754716981
+        },
+        "micro_recall_at_10": {
+          "numerator": 53,
+          "denominator": 53,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "complete_at_5": {
+          "numerator": 46,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.9787234042553191
+        },
+        "complete_at_10": {
+          "numerator": 47,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "ndcg_at_10": null,
+        "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+      },
+      "answer": {
+        "questions": 60,
+        "reviewed": 60,
+        "status_accuracy": {
+          "numerator": 58,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 0.9666666666666667
+        },
+        "correctness": {
+          "numerator": 41,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.8723404255319149
+        },
+        "required_fact_recall": {
+          "numerator": 57,
+          "denominator": 65,
+          "unknown": 0,
+          "value": 0.8769230769230769
+        },
+        "faithfulness": {
+          "numerator": 75,
+          "denominator": 75,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "citation_support_precision": {
+          "numerator": 53,
+          "denominator": 75,
+          "unknown": 0,
+          "value": 0.7066666666666667
+        },
+        "citation_coverage": {
+          "numerator": 53,
+          "denominator": 75,
+          "unknown": 0,
+          "value": 0.7066666666666667
+        },
+        "citation_fidelity": {
+          "numerator": 60,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "filter_preservation": {
+          "numerator": 60,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correct_rejection": {
+          "numerator": 7,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 0.875
+        },
+        "false_rejection": {
+          "numerator": 1,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.02127659574468085
+        },
+        "false_clarification": {
+          "numerator": 0,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "clarification_status": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "clarification_field_recall": {
+          "numerator": 11,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 0.9166666666666666
+        },
+        "status_confusion": {
+          "answered->answered": 46,
+          "answered->insufficient_evidence": 1,
+          "insufficient_evidence->answered": 1,
+          "insufficient_evidence->insufficient_evidence": 7,
+          "needs_clarification->needs_clarification": 5
+        },
+        "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+        "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+      },
+      "operations": {
+        "stages": {
+          "retrieval_ms": {
+            "samples": 60,
+            "p50": 932.483,
+            "p95": 1317.9639,
+            "active_samples": 52,
+            "active_p50": 943.0575,
+            "active_p95": 1327.5311
+          },
+          "reranker_ms": {
+            "samples": 60,
+            "p50": 0.0,
+            "p95": 0.0,
+            "active_samples": 0,
+            "active_p50": null,
+            "active_p95": null
+          },
+          "llm_ms": {
+            "samples": 60,
+            "p50": 4310.8605,
+            "p95": 11582.783899999997,
+            "active_samples": 47,
+            "active_p50": 4889.444,
+            "active_p95": 12604.829599999994
+          },
+          "generation_stage_ms": {
+            "samples": 60,
+            "p50": 5441.859,
+            "p95": 12635.455549999997,
+            "active_samples": 48,
+            "active_p50": 5884.704,
+            "active_p95": 13512.914149999997
+          },
+          "end_to_end_ms": {
+            "samples": 60,
+            "p50": 7050.102000000001,
+            "p95": 15671.51525,
+            "active_samples": 60,
+            "active_p50": 7050.102000000001,
+            "active_p95": 15671.51525
+          }
+        },
+        "tokens": {
+          "input_tokens": {
+            "known_requests": 60,
+            "unknown_requests": 0,
+            "sum_known": 28939,
+            "mean_per_request": 482.31666666666666
+          },
+          "output_tokens": {
+            "known_requests": 60,
+            "unknown_requests": 0,
+            "sum_known": 502,
+            "mean_per_request": 8.366666666666667
+          }
+        },
+        "api_cost": {
+          "currency": "VND",
+          "total": 0,
+          "mean_per_request": 0
+        },
+        "hosting_compute_cost": {
+          "value": null,
+          "note": "Local existing hardware; unpriced"
+        },
+        "generation_requests": 47,
+        "conditions": "Serialized local CPU; no paid API/LLM judge. Retrieval includes query encoding/loading/SQL/freshness, excludes reranker. LLM timer surrounds generate; generation stage also includes budgeting/loading/validation; timings are not additive."
+      },
+      "by_category": {
+        "adversarial": {
+          "questions": 5,
+          "reviewed": 5,
+          "status_accuracy": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "required_fact_recall": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "faithfulness": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 5,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 0.625
+          },
+          "citation_coverage": {
+            "numerator": 5,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 0.625
+          },
+          "citation_fidelity": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 5
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "clarification": {
+          "questions": 5,
+          "reviewed": 5,
+          "status_accuracy": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "required_fact_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "faithfulness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_support_precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_fidelity": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_status": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "clarification_field_recall": {
+            "numerator": 11,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.9166666666666666
+          },
+          "status_confusion": {
+            "needs_clarification->needs_clarification": 5
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "multi_clause": {
+          "questions": 12,
+          "reviewed": 12,
+          "status_accuracy": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 7,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.5833333333333334
+          },
+          "required_fact_recall": {
+            "numerator": 18,
+            "denominator": 24,
+            "unknown": 0,
+            "value": 0.75
+          },
+          "faithfulness": {
+            "numerator": 24,
+            "denominator": 24,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 18,
+            "denominator": 24,
+            "unknown": 0,
+            "value": 0.75
+          },
+          "citation_coverage": {
+            "numerator": 18,
+            "denominator": 24,
+            "unknown": 0,
+            "value": 0.75
+          },
+          "citation_fidelity": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 12
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "no_answer": {
+          "questions": 8,
+          "reviewed": 8,
+          "status_accuracy": {
+            "numerator": 7,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 0.875
+          },
+          "correctness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "required_fact_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "faithfulness": {
+            "numerator": 4,
+            "denominator": 4,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 0,
+            "denominator": 4,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "citation_coverage": {
+            "numerator": 0,
+            "denominator": 4,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "citation_fidelity": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 7,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 0.875
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "insufficient_evidence->answered": 1,
+            "insufficient_evidence->insufficient_evidence": 7
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "single_clause": {
+          "questions": 21,
+          "reviewed": 21,
+          "status_accuracy": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "required_fact_recall": {
+            "numerator": 26,
+            "denominator": 26,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "faithfulness": {
+            "numerator": 31,
+            "denominator": 31,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 22,
+            "denominator": 31,
+            "unknown": 0,
+            "value": 0.7096774193548387
+          },
+          "citation_coverage": {
+            "numerator": 22,
+            "denominator": 31,
+            "unknown": 0,
+            "value": 0.7096774193548387
+          },
+          "citation_fidelity": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 21
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "temporal_scope": {
+          "questions": 9,
+          "reviewed": 9,
+          "status_accuracy": {
+            "numerator": 8,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.8888888888888888
+          },
+          "correctness": {
+            "numerator": 8,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.8888888888888888
+          },
+          "required_fact_recall": {
+            "numerator": 8,
+            "denominator": 10,
+            "unknown": 0,
+            "value": 0.8
+          },
+          "faithfulness": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_coverage": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_fidelity": {
+            "numerator": 9,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 9,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 1,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.1111111111111111
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 8,
+            "answered->insufficient_evidence": 1
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        }
+      }
+    },
+    {
+      "label": "keyword_only",
+      "config_sha256": "6e611c5f077636ef384600e69af418ba0cc37b8bb00aed4d644fd686059ea948",
+      "predictions_sha256": "29fe69a5a42754a73113c5233f4b0077de13257e31e26ad90e9b3a8140723965",
+      "review_sha256": "42ca864b5236a214090d59532350a710b17f23a54e2f67da9689022cd3b556b5",
+      "config": {
+        "pipeline_version": "rag-clause-scoped-v2",
+        "embedding": {
+          "model_name": "intfloat/multilingual-e5-small",
+          "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+          "dimension": 384,
+          "device": "cpu",
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "pooling_version": "window-mean-v1",
+          "max_sequence_tokens": 512,
+          "window_overlap_tokens": 32,
+          "query_prefix": "query: ",
+          "document_prefix": "passage: "
+        },
+        "retrieval": {
+          "mode": "keyword",
+          "top_k": 8,
+          "candidate_k": 20,
+          "minimum_score": 0.55,
+          "minimum_keyword_score": 0.0,
+          "rrf_k": 60,
+          "dense_weight": 1.0,
+          "keyword_weight": 1.0,
+          "keyword_query_version": "vi-simple-v1",
+          "metadata_filter_version": "evidence-metadata-v1",
+          "document_reference_policy": "shared-query-refs-v1",
+          "eligible_document_ids": [
+            "uit_159_2024",
+            "uit_1393_2023",
+            "uit_790_2022",
+            "uit_956_2026",
+            "uit_112_2024",
+            "uit_277_2025",
+            "uit_308_2025",
+            "uit_412_2025",
+            "uit_43_2020",
+            "uit_513_2026",
+            "uit_697_2024",
+            "uit_803_2025",
+            "uit_832_2024",
+            "uit_851_2024",
+            "uit_894_2026"
+          ]
+        },
+        "reranker": {
+          "enabled": false,
+          "model_name": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+          "model_revision": "1427fd652930e4ba29e8149678df786c240d8825",
+          "device": "cpu",
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "candidate_k": 20,
+          "max_sequence_tokens": 512,
+          "window_overlap_tokens": 32,
+          "pooling_version": "window-max-v1"
+        },
+        "freshness": {
+          "enabled": true,
+          "policy_version": "clause-scoped-v2"
+        },
+        "behaviour": {
+          "enabled": true,
+          "policy_version": "guarded-behaviour-v1",
+          "minimize_selected_passages": true
+        },
+        "generation": {
+          "backend": "llama_cpp",
+          "response_policy": "verified_passages",
+          "model_name": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+          "model_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+          "device": "cpu",
+          "dtype": "float32",
+          "gguf_filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+          "max_new_tokens": 64,
+          "max_input_tokens": 2304,
+          "cpu_threads": 4,
+          "context_chunks": 6,
+          "prompt_version": "bound-passage-selection-v3",
+          "max_passages": 8,
+          "max_selected_passages": 4,
+          "structured_retries": 1,
+          "low_memory_mode": true
+        }
+      },
+      "hardware": {
+        "os": "Windows-11-10.0.26200-SP0",
+        "machine": "AMD64",
+        "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+        "logical_cpu_count": 12,
+        "ram_total_bytes": null,
+        "python": "3.12.15"
+      },
+      "started_at": "2026-10-10T15:55:56.144498+00:00",
+      "finished_at": "2026-10-10T16:00:41.550968+00:00",
+      "retrieval": {
+        "eligible_questions": 47,
+        "recall_at_5": 0.851063829787234,
+        "recall_at_10": 0.9468085106382979,
+        "mrr_at_10": 0.6567375886524823,
+        "micro_recall_at_5": {
+          "numerator": 45,
+          "denominator": 53,
+          "unknown": 0,
+          "value": 0.8490566037735849
+        },
+        "micro_recall_at_10": {
+          "numerator": 50,
+          "denominator": 53,
+          "unknown": 0,
+          "value": 0.9433962264150944
+        },
+        "complete_at_5": {
+          "numerator": 39,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.8297872340425532
+        },
+        "complete_at_10": {
+          "numerator": 44,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.9361702127659575
+        },
+        "ndcg_at_10": null,
+        "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+      },
+      "answer": {
+        "questions": 60,
+        "reviewed": 60,
+        "status_accuracy": {
+          "numerator": 54,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 0.9
+        },
+        "correctness": {
+          "numerator": 35,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.7446808510638298
+        },
+        "required_fact_recall": {
+          "numerator": 49,
+          "denominator": 65,
+          "unknown": 0,
+          "value": 0.7538461538461538
+        },
+        "faithfulness": {
+          "numerator": 69,
+          "denominator": 69,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "citation_support_precision": {
+          "numerator": 45,
+          "denominator": 69,
+          "unknown": 0,
+          "value": 0.6521739130434783
+        },
+        "citation_coverage": {
+          "numerator": 45,
+          "denominator": 69,
+          "unknown": 0,
+          "value": 0.6521739130434783
+        },
+        "citation_fidelity": {
+          "numerator": 60,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "filter_preservation": {
+          "numerator": 60,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correct_rejection": {
+          "numerator": 7,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 0.875
+        },
+        "false_rejection": {
+          "numerator": 5,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.10638297872340426
+        },
+        "false_clarification": {
+          "numerator": 0,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "clarification_status": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "clarification_field_recall": {
+          "numerator": 11,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 0.9166666666666666
+        },
+        "status_confusion": {
+          "answered->answered": 42,
+          "answered->insufficient_evidence": 5,
+          "insufficient_evidence->answered": 1,
+          "insufficient_evidence->insufficient_evidence": 7,
+          "needs_clarification->needs_clarification": 5
+        },
+        "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+        "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+      },
+      "operations": {
+        "stages": {
+          "retrieval_ms": {
+            "samples": 60,
+            "p50": 57.567499999999995,
+            "p95": 77.22155,
+            "active_samples": 52,
+            "active_p50": 58.494,
+            "active_p95": 77.98595
+          },
+          "reranker_ms": {
+            "samples": 60,
+            "p50": 0.0,
+            "p95": 0.0,
+            "active_samples": 0,
+            "active_p50": null,
+            "active_p95": null
+          },
+          "llm_ms": {
+            "samples": 60,
+            "p50": 3744.552,
+            "p95": 10318.714,
+            "active_samples": 43,
+            "active_p50": 4459.566,
+            "active_p95": 10331.09
+          },
+          "generation_stage_ms": {
+            "samples": 60,
+            "p50": 4699.6275000000005,
+            "p95": 11232.334,
+            "active_samples": 48,
+            "active_p50": 5268.885,
+            "active_p95": 11248.21
+          },
+          "end_to_end_ms": {
+            "samples": 60,
+            "p50": 5013.208500000001,
+            "p95": 11530.895149999998,
+            "active_samples": 60,
+            "active_p50": 5013.208500000001,
+            "active_p95": 11530.895149999998
+          }
+        },
+        "tokens": {
+          "input_tokens": {
+            "known_requests": 60,
+            "unknown_requests": 0,
+            "sum_known": 26104,
+            "mean_per_request": 435.06666666666666
+          },
+          "output_tokens": {
+            "known_requests": 60,
+            "unknown_requests": 0,
+            "sum_known": 449,
+            "mean_per_request": 7.483333333333333
+          }
+        },
+        "api_cost": {
+          "currency": "VND",
+          "total": 0,
+          "mean_per_request": 0
+        },
+        "hosting_compute_cost": {
+          "value": null,
+          "note": "Local existing hardware; unpriced"
+        },
+        "generation_requests": 43,
+        "conditions": "Serialized local CPU; no paid API/LLM judge. Retrieval includes query encoding/loading/SQL/freshness, excludes reranker. LLM timer surrounds generate; generation stage also includes budgeting/loading/validation; timings are not additive."
+      },
+      "by_category": {
+        "adversarial": {
+          "questions": 5,
+          "reviewed": 5,
+          "status_accuracy": {
+            "numerator": 4,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.8
+          },
+          "correctness": {
+            "numerator": 3,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.6
+          },
+          "required_fact_recall": {
+            "numerator": 3,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.6
+          },
+          "faithfulness": {
+            "numerator": 7,
+            "denominator": 7,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 4,
+            "denominator": 7,
+            "unknown": 0,
+            "value": 0.5714285714285714
+          },
+          "citation_coverage": {
+            "numerator": 4,
+            "denominator": 7,
+            "unknown": 0,
+            "value": 0.5714285714285714
+          },
+          "citation_fidelity": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 1,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.2
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 4,
+            "answered->insufficient_evidence": 1
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "clarification": {
+          "questions": 5,
+          "reviewed": 5,
+          "status_accuracy": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "required_fact_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "faithfulness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_support_precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_fidelity": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_status": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "clarification_field_recall": {
+            "numerator": 11,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.9166666666666666
+          },
+          "status_confusion": {
+            "needs_clarification->needs_clarification": 5
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "multi_clause": {
+          "questions": 12,
+          "reviewed": 12,
+          "status_accuracy": {
+            "numerator": 10,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.8333333333333334
+          },
+          "correctness": {
+            "numerator": 5,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.4166666666666667
+          },
+          "required_fact_recall": {
+            "numerator": 14,
+            "denominator": 24,
+            "unknown": 0,
+            "value": 0.5833333333333334
+          },
+          "faithfulness": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 14,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.6666666666666666
+          },
+          "citation_coverage": {
+            "numerator": 14,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.6666666666666666
+          },
+          "citation_fidelity": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 2,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.16666666666666666
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 10,
+            "answered->insufficient_evidence": 2
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "no_answer": {
+          "questions": 8,
+          "reviewed": 8,
+          "status_accuracy": {
+            "numerator": 7,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 0.875
+          },
+          "correctness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "required_fact_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "faithfulness": {
+            "numerator": 4,
+            "denominator": 4,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 0,
+            "denominator": 4,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "citation_coverage": {
+            "numerator": 0,
+            "denominator": 4,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "citation_fidelity": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 7,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 0.875
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "insufficient_evidence->answered": 1,
+            "insufficient_evidence->insufficient_evidence": 7
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "single_clause": {
+          "questions": 21,
+          "reviewed": 21,
+          "status_accuracy": {
+            "numerator": 20,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.9523809523809523
+          },
+          "correctness": {
+            "numerator": 19,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.9047619047619048
+          },
+          "required_fact_recall": {
+            "numerator": 24,
+            "denominator": 26,
+            "unknown": 0,
+            "value": 0.9230769230769231
+          },
+          "faithfulness": {
+            "numerator": 29,
+            "denominator": 29,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 19,
+            "denominator": 29,
+            "unknown": 0,
+            "value": 0.6551724137931034
+          },
+          "citation_coverage": {
+            "numerator": 19,
+            "denominator": 29,
+            "unknown": 0,
+            "value": 0.6551724137931034
+          },
+          "citation_fidelity": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 1,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.047619047619047616
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 20,
+            "answered->insufficient_evidence": 1
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "temporal_scope": {
+          "questions": 9,
+          "reviewed": 9,
+          "status_accuracy": {
+            "numerator": 8,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.8888888888888888
+          },
+          "correctness": {
+            "numerator": 8,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.8888888888888888
+          },
+          "required_fact_recall": {
+            "numerator": 8,
+            "denominator": 10,
+            "unknown": 0,
+            "value": 0.8
+          },
+          "faithfulness": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_coverage": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_fidelity": {
+            "numerator": 9,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 9,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 1,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.1111111111111111
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 8,
+            "answered->insufficient_evidence": 1
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        }
+      }
+    },
+    {
+      "label": "hybrid_rrf",
+      "config_sha256": "f71c2f33114632f898edcf3e64f98279aa2dece296f5f5aedabc3c631f29e134",
+      "predictions_sha256": "0ffdda3cf70ea6cc0442757723d9f80fa3cb5868dd9f170a8cdc99fe5beb52ca",
+      "review_sha256": "dedec7e3746dbdf110a688146d511fab698a0dc10630c200d0bc0bebc6b06860",
+      "config": {
+        "pipeline_version": "rag-clause-scoped-v2",
+        "embedding": {
+          "model_name": "intfloat/multilingual-e5-small",
+          "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+          "dimension": 384,
+          "device": "cpu",
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "pooling_version": "window-mean-v1",
+          "max_sequence_tokens": 512,
+          "window_overlap_tokens": 32,
+          "query_prefix": "query: ",
+          "document_prefix": "passage: "
+        },
+        "retrieval": {
+          "mode": "hybrid",
+          "top_k": 8,
+          "candidate_k": 20,
+          "minimum_score": 0.55,
+          "minimum_keyword_score": 0.0,
+          "rrf_k": 60,
+          "dense_weight": 1.0,
+          "keyword_weight": 1.0,
+          "keyword_query_version": "vi-simple-v1",
+          "metadata_filter_version": "evidence-metadata-v1",
+          "document_reference_policy": "shared-query-refs-v1",
+          "eligible_document_ids": [
+            "uit_159_2024",
+            "uit_1393_2023",
+            "uit_790_2022",
+            "uit_956_2026",
+            "uit_112_2024",
+            "uit_277_2025",
+            "uit_308_2025",
+            "uit_412_2025",
+            "uit_43_2020",
+            "uit_513_2026",
+            "uit_697_2024",
+            "uit_803_2025",
+            "uit_832_2024",
+            "uit_851_2024",
+            "uit_894_2026"
+          ]
+        },
+        "reranker": {
+          "enabled": false,
+          "model_name": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+          "model_revision": "1427fd652930e4ba29e8149678df786c240d8825",
+          "device": "cpu",
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "candidate_k": 20,
+          "max_sequence_tokens": 512,
+          "window_overlap_tokens": 32,
+          "pooling_version": "window-max-v1"
+        },
+        "freshness": {
+          "enabled": true,
+          "policy_version": "clause-scoped-v2"
+        },
+        "behaviour": {
+          "enabled": true,
+          "policy_version": "guarded-behaviour-v1",
+          "minimize_selected_passages": true
+        },
+        "generation": {
+          "backend": "llama_cpp",
+          "response_policy": "verified_passages",
+          "model_name": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+          "model_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+          "device": "cpu",
+          "dtype": "float32",
+          "gguf_filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+          "max_new_tokens": 64,
+          "max_input_tokens": 2304,
+          "cpu_threads": 4,
+          "context_chunks": 6,
+          "prompt_version": "bound-passage-selection-v3",
+          "max_passages": 8,
+          "max_selected_passages": 4,
+          "structured_retries": 1,
+          "low_memory_mode": true
+        }
+      },
+      "hardware": {
+        "os": "Windows-11-10.0.26200-SP0",
+        "machine": "AMD64",
+        "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+        "logical_cpu_count": 12,
+        "ram_total_bytes": null,
+        "python": "3.12.15"
+      },
+      "started_at": "2026-10-10T16:01:36.368796+00:00",
+      "finished_at": "2026-10-10T16:08:11.308806+00:00",
+      "retrieval": {
+        "eligible_questions": 47,
+        "recall_at_5": 0.9468085106382979,
+        "recall_at_10": 1.0,
+        "mrr_at_10": 0.7564083080040527,
+        "micro_recall_at_5": {
+          "numerator": 50,
+          "denominator": 53,
+          "unknown": 0,
+          "value": 0.9433962264150944
+        },
+        "micro_recall_at_10": {
+          "numerator": 53,
+          "denominator": 53,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "complete_at_5": {
+          "numerator": 44,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.9361702127659575
+        },
+        "complete_at_10": {
+          "numerator": 47,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "ndcg_at_10": null,
+        "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+      },
+      "answer": {
+        "questions": 60,
+        "reviewed": 60,
+        "status_accuracy": {
+          "numerator": 57,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 0.95
+        },
+        "correctness": {
+          "numerator": 36,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.7659574468085106
+        },
+        "required_fact_recall": {
+          "numerator": 51,
+          "denominator": 65,
+          "unknown": 0,
+          "value": 0.7846153846153846
+        },
+        "faithfulness": {
+          "numerator": 71,
+          "denominator": 71,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "citation_support_precision": {
+          "numerator": 48,
+          "denominator": 71,
+          "unknown": 0,
+          "value": 0.676056338028169
+        },
+        "citation_coverage": {
+          "numerator": 48,
+          "denominator": 71,
+          "unknown": 0,
+          "value": 0.676056338028169
+        },
+        "citation_fidelity": {
+          "numerator": 60,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "filter_preservation": {
+          "numerator": 60,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correct_rejection": {
+          "numerator": 8,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "false_rejection": {
+          "numerator": 3,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.06382978723404255
+        },
+        "false_clarification": {
+          "numerator": 0,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "clarification_status": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "clarification_field_recall": {
+          "numerator": 11,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 0.9166666666666666
+        },
+        "status_confusion": {
+          "answered->answered": 44,
+          "answered->insufficient_evidence": 3,
+          "insufficient_evidence->insufficient_evidence": 8,
+          "needs_clarification->needs_clarification": 5
+        },
+        "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+        "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+      },
+      "operations": {
+        "stages": {
+          "retrieval_ms": {
+            "samples": 60,
+            "p50": 939.548,
+            "p95": 1079.4764,
+            "active_samples": 52,
+            "active_p50": 951.972,
+            "active_p95": 1098.6075999999998
+          },
+          "reranker_ms": {
+            "samples": 60,
+            "p50": 0.0,
+            "p95": 0.0,
+            "active_samples": 0,
+            "active_p50": null,
+            "active_p95": null
+          },
+          "llm_ms": {
+            "samples": 60,
+            "p50": 4041.531,
+            "p95": 11172.241049999999,
+            "active_samples": 44,
+            "active_p50": 4551.3745,
+            "active_p95": 11244.41785
+          },
+          "generation_stage_ms": {
+            "samples": 60,
+            "p50": 4964.378000000001,
+            "p95": 12047.9803,
+            "active_samples": 47,
+            "active_p50": 5457.228,
+            "active_p95": 12219.4672
+          },
+          "end_to_end_ms": {
+            "samples": 60,
+            "p50": 6571.5405,
+            "p95": 14032.306999999999,
+            "active_samples": 60,
+            "active_p50": 6571.5405,
+            "active_p95": 14032.306999999999
+          }
+        },
+        "tokens": {
+          "input_tokens": {
+            "known_requests": 60,
+            "unknown_requests": 0,
+            "sum_known": 26364,
+            "mean_per_request": 439.4
+          },
+          "output_tokens": {
+            "known_requests": 60,
+            "unknown_requests": 0,
+            "sum_known": 466,
+            "mean_per_request": 7.766666666666667
+          }
+        },
+        "api_cost": {
+          "currency": "VND",
+          "total": 0,
+          "mean_per_request": 0
+        },
+        "hosting_compute_cost": {
+          "value": null,
+          "note": "Local existing hardware; unpriced"
+        },
+        "generation_requests": 44,
+        "conditions": "Serialized local CPU; no paid API/LLM judge. Retrieval includes query encoding/loading/SQL/freshness, excludes reranker. LLM timer surrounds generate; generation stage also includes budgeting/loading/validation; timings are not additive."
+      },
+      "by_category": {
+        "adversarial": {
+          "questions": 5,
+          "reviewed": 5,
+          "status_accuracy": {
+            "numerator": 4,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.8
+          },
+          "correctness": {
+            "numerator": 3,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.6
+          },
+          "required_fact_recall": {
+            "numerator": 3,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.6
+          },
+          "faithfulness": {
+            "numerator": 7,
+            "denominator": 7,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 4,
+            "denominator": 7,
+            "unknown": 0,
+            "value": 0.5714285714285714
+          },
+          "citation_coverage": {
+            "numerator": 4,
+            "denominator": 7,
+            "unknown": 0,
+            "value": 0.5714285714285714
+          },
+          "citation_fidelity": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 1,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.2
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 4,
+            "answered->insufficient_evidence": 1
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "clarification": {
+          "questions": 5,
+          "reviewed": 5,
+          "status_accuracy": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "required_fact_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "faithfulness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_support_precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_fidelity": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_status": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "clarification_field_recall": {
+            "numerator": 11,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.9166666666666666
+          },
+          "status_confusion": {
+            "needs_clarification->needs_clarification": 5
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "multi_clause": {
+          "questions": 12,
+          "reviewed": 12,
+          "status_accuracy": {
+            "numerator": 11,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.9166666666666666
+          },
+          "correctness": {
+            "numerator": 5,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.4166666666666667
+          },
+          "required_fact_recall": {
+            "numerator": 15,
+            "denominator": 24,
+            "unknown": 0,
+            "value": 0.625
+          },
+          "faithfulness": {
+            "numerator": 22,
+            "denominator": 22,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 15,
+            "denominator": 22,
+            "unknown": 0,
+            "value": 0.6818181818181818
+          },
+          "citation_coverage": {
+            "numerator": 15,
+            "denominator": 22,
+            "unknown": 0,
+            "value": 0.6818181818181818
+          },
+          "citation_fidelity": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 1,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.08333333333333333
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 11,
+            "answered->insufficient_evidence": 1
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "no_answer": {
+          "questions": 8,
+          "reviewed": 8,
+          "status_accuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "required_fact_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "faithfulness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_support_precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_fidelity": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "insufficient_evidence->insufficient_evidence": 8
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "single_clause": {
+          "questions": 21,
+          "reviewed": 21,
+          "status_accuracy": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 20,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.9523809523809523
+          },
+          "required_fact_recall": {
+            "numerator": 25,
+            "denominator": 26,
+            "unknown": 0,
+            "value": 0.9615384615384616
+          },
+          "faithfulness": {
+            "numerator": 34,
+            "denominator": 34,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 21,
+            "denominator": 34,
+            "unknown": 0,
+            "value": 0.6176470588235294
+          },
+          "citation_coverage": {
+            "numerator": 21,
+            "denominator": 34,
+            "unknown": 0,
+            "value": 0.6176470588235294
+          },
+          "citation_fidelity": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 21
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "temporal_scope": {
+          "questions": 9,
+          "reviewed": 9,
+          "status_accuracy": {
+            "numerator": 8,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.8888888888888888
+          },
+          "correctness": {
+            "numerator": 8,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.8888888888888888
+          },
+          "required_fact_recall": {
+            "numerator": 8,
+            "denominator": 10,
+            "unknown": 0,
+            "value": 0.8
+          },
+          "faithfulness": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_coverage": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_fidelity": {
+            "numerator": 9,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 9,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 1,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.1111111111111111
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 8,
+            "answered->insufficient_evidence": 1
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        }
+      }
+    },
+    {
+      "label": "hybrid_reranked",
+      "config_sha256": "f6e9a4aebb98a9a28ff25bbc2f646a52bcafe858c08fc90ada67fa688364efeb",
+      "predictions_sha256": "e71ca05b7e5c2f7191b1ee6aa22839687c57e90b242ec3d3129c3afb263e7ba8",
+      "review_sha256": "01c91c8d397b5feee1d10d0896653fef6d5e3d4f11c1eaa9e9c0538de6bde07f",
+      "config": {
+        "pipeline_version": "rag-clause-scoped-v2",
+        "embedding": {
+          "model_name": "intfloat/multilingual-e5-small",
+          "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+          "dimension": 384,
+          "device": "cpu",
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "pooling_version": "window-mean-v1",
+          "max_sequence_tokens": 512,
+          "window_overlap_tokens": 32,
+          "query_prefix": "query: ",
+          "document_prefix": "passage: "
+        },
+        "retrieval": {
+          "mode": "hybrid",
+          "top_k": 8,
+          "candidate_k": 20,
+          "minimum_score": 0.55,
+          "minimum_keyword_score": 0.0,
+          "rrf_k": 60,
+          "dense_weight": 1.0,
+          "keyword_weight": 1.0,
+          "keyword_query_version": "vi-simple-v1",
+          "metadata_filter_version": "evidence-metadata-v1",
+          "document_reference_policy": "shared-query-refs-v1",
+          "eligible_document_ids": [
+            "uit_159_2024",
+            "uit_1393_2023",
+            "uit_790_2022",
+            "uit_956_2026",
+            "uit_112_2024",
+            "uit_277_2025",
+            "uit_308_2025",
+            "uit_412_2025",
+            "uit_43_2020",
+            "uit_513_2026",
+            "uit_697_2024",
+            "uit_803_2025",
+            "uit_832_2024",
+            "uit_851_2024",
+            "uit_894_2026"
+          ]
+        },
+        "reranker": {
+          "enabled": true,
+          "model_name": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+          "model_revision": "1427fd652930e4ba29e8149678df786c240d8825",
+          "device": "cpu",
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "candidate_k": 20,
+          "max_sequence_tokens": 512,
+          "window_overlap_tokens": 32,
+          "pooling_version": "window-max-v1"
+        },
+        "freshness": {
+          "enabled": true,
+          "policy_version": "clause-scoped-v2"
+        },
+        "behaviour": {
+          "enabled": true,
+          "policy_version": "guarded-behaviour-v1",
+          "minimize_selected_passages": true
+        },
+        "generation": {
+          "backend": "llama_cpp",
+          "response_policy": "verified_passages",
+          "model_name": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+          "model_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+          "device": "cpu",
+          "dtype": "float32",
+          "gguf_filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+          "max_new_tokens": 64,
+          "max_input_tokens": 2304,
+          "cpu_threads": 4,
+          "context_chunks": 6,
+          "prompt_version": "bound-passage-selection-v3",
+          "max_passages": 8,
+          "max_selected_passages": 4,
+          "structured_retries": 1,
+          "low_memory_mode": true
+        }
+      },
+      "hardware": {
+        "os": "Windows-11-10.0.26200-SP0",
+        "machine": "AMD64",
+        "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+        "logical_cpu_count": 12,
+        "ram_total_bytes": null,
+        "python": "3.12.15"
+      },
+      "started_at": "2026-10-10T16:08:48.826298+00:00",
+      "finished_at": "2026-10-10T16:20:33.852144+00:00",
+      "retrieval": {
+        "eligible_questions": 47,
+        "recall_at_5": 0.9893617021276596,
+        "recall_at_10": 1.0,
+        "mrr_at_10": 0.9645390070921986,
+        "micro_recall_at_5": {
+          "numerator": 52,
+          "denominator": 53,
+          "unknown": 0,
+          "value": 0.9811320754716981
+        },
+        "micro_recall_at_10": {
+          "numerator": 53,
+          "denominator": 53,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "complete_at_5": {
+          "numerator": 46,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.9787234042553191
+        },
+        "complete_at_10": {
+          "numerator": 47,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "ndcg_at_10": null,
+        "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+      },
+      "answer": {
+        "questions": 60,
+        "reviewed": 60,
+        "status_accuracy": {
+          "numerator": 59,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 0.9833333333333333
+        },
+        "correctness": {
+          "numerator": 41,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.8723404255319149
+        },
+        "required_fact_recall": {
+          "numerator": 57,
+          "denominator": 65,
+          "unknown": 0,
+          "value": 0.8769230769230769
+        },
+        "faithfulness": {
+          "numerator": 71,
+          "denominator": 71,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "citation_support_precision": {
+          "numerator": 52,
+          "denominator": 71,
+          "unknown": 0,
+          "value": 0.7323943661971831
+        },
+        "citation_coverage": {
+          "numerator": 52,
+          "denominator": 71,
+          "unknown": 0,
+          "value": 0.7323943661971831
+        },
+        "citation_fidelity": {
+          "numerator": 60,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "filter_preservation": {
+          "numerator": 60,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correct_rejection": {
+          "numerator": 8,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "false_rejection": {
+          "numerator": 1,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.02127659574468085
+        },
+        "false_clarification": {
+          "numerator": 0,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "clarification_status": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "clarification_field_recall": {
+          "numerator": 11,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 0.9166666666666666
+        },
+        "status_confusion": {
+          "answered->answered": 46,
+          "answered->insufficient_evidence": 1,
+          "insufficient_evidence->insufficient_evidence": 8,
+          "needs_clarification->needs_clarification": 5
+        },
+        "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+        "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+      },
+      "operations": {
+        "stages": {
+          "retrieval_ms": {
+            "samples": 60,
+            "p50": 987.2860000000001,
+            "p95": 1337.46815,
+            "active_samples": 52,
+            "active_p50": 1006.9784999999999,
+            "active_p95": 1366.9973499999996
+          },
+          "reranker_ms": {
+            "samples": 60,
+            "p50": 5755.229,
+            "p95": 9193.181799999997,
+            "active_samples": 50,
+            "active_p50": 6166.7995,
+            "active_p95": 9754.439799999996
+          },
+          "llm_ms": {
+            "samples": 60,
+            "p50": 4062.1459999999997,
+            "p95": 9456.712399999999,
+            "active_samples": 46,
+            "active_p50": 5039.192,
+            "active_p95": 9895.436
+          },
+          "generation_stage_ms": {
+            "samples": 60,
+            "p50": 5115.0175,
+            "p95": 11160.218699999998,
+            "active_samples": 47,
+            "active_p50": 6171.214,
+            "active_p95": 11306.347799999998
+          },
+          "end_to_end_ms": {
+            "samples": 60,
+            "p50": 12999.732,
+            "p95": 20997.456849999995,
+            "active_samples": 60,
+            "active_p50": 12999.732,
+            "active_p95": 20997.456849999995
+          }
+        },
+        "tokens": {
+          "input_tokens": {
+            "known_requests": 60,
+            "unknown_requests": 0,
+            "sum_known": 25588,
+            "mean_per_request": 426.46666666666664
+          },
+          "output_tokens": {
+            "known_requests": 60,
+            "unknown_requests": 0,
+            "sum_known": 479,
+            "mean_per_request": 7.983333333333333
+          }
+        },
+        "api_cost": {
+          "currency": "VND",
+          "total": 0,
+          "mean_per_request": 0
+        },
+        "hosting_compute_cost": {
+          "value": null,
+          "note": "Local existing hardware; unpriced"
+        },
+        "generation_requests": 46,
+        "conditions": "Serialized local CPU; no paid API/LLM judge. Retrieval includes query encoding/loading/SQL/freshness, excludes reranker. LLM timer surrounds generate; generation stage also includes budgeting/loading/validation; timings are not additive."
+      },
+      "by_category": {
+        "adversarial": {
+          "questions": 5,
+          "reviewed": 5,
+          "status_accuracy": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "required_fact_recall": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "faithfulness": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 5,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 0.625
+          },
+          "citation_coverage": {
+            "numerator": 5,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 0.625
+          },
+          "citation_fidelity": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 5
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "clarification": {
+          "questions": 5,
+          "reviewed": 5,
+          "status_accuracy": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "required_fact_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "faithfulness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_support_precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_fidelity": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_status": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "clarification_field_recall": {
+            "numerator": 11,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.9166666666666666
+          },
+          "status_confusion": {
+            "needs_clarification->needs_clarification": 5
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "multi_clause": {
+          "questions": 12,
+          "reviewed": 12,
+          "status_accuracy": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 7,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.5833333333333334
+          },
+          "required_fact_recall": {
+            "numerator": 18,
+            "denominator": 24,
+            "unknown": 0,
+            "value": 0.75
+          },
+          "faithfulness": {
+            "numerator": 23,
+            "denominator": 23,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 18,
+            "denominator": 23,
+            "unknown": 0,
+            "value": 0.782608695652174
+          },
+          "citation_coverage": {
+            "numerator": 18,
+            "denominator": 23,
+            "unknown": 0,
+            "value": 0.782608695652174
+          },
+          "citation_fidelity": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 12
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "no_answer": {
+          "questions": 8,
+          "reviewed": 8,
+          "status_accuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "required_fact_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "faithfulness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_support_precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_fidelity": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "insufficient_evidence->insufficient_evidence": 8
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "single_clause": {
+          "questions": 21,
+          "reviewed": 21,
+          "status_accuracy": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "required_fact_recall": {
+            "numerator": 26,
+            "denominator": 26,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "faithfulness": {
+            "numerator": 32,
+            "denominator": 32,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 21,
+            "denominator": 32,
+            "unknown": 0,
+            "value": 0.65625
+          },
+          "citation_coverage": {
+            "numerator": 21,
+            "denominator": 32,
+            "unknown": 0,
+            "value": 0.65625
+          },
+          "citation_fidelity": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 21
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "temporal_scope": {
+          "questions": 9,
+          "reviewed": 9,
+          "status_accuracy": {
+            "numerator": 8,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.8888888888888888
+          },
+          "correctness": {
+            "numerator": 8,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.8888888888888888
+          },
+          "required_fact_recall": {
+            "numerator": 8,
+            "denominator": 10,
+            "unknown": 0,
+            "value": 0.8
+          },
+          "faithfulness": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_coverage": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_fidelity": {
+            "numerator": 9,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 9,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 1,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.1111111111111111
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 8,
+            "answered->insufficient_evidence": 1
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        }
+      }
+    },
+    {
+      "label": "hybrid_reranked_k4",
+      "config_sha256": "611919f4820fe719c0ae485662fc1b9ed614ef457f4818ef37e630e46fbd9216",
+      "predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0",
+      "review_sha256": "2d4acdadfee79d7571ef5b091d4b3667c2ded8d517e8e558c2f8b17db02167c6",
+      "config": {
+        "pipeline_version": "rag-clause-scoped-v2",
+        "embedding": {
+          "model_name": "intfloat/multilingual-e5-small",
+          "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+          "dimension": 384,
+          "device": "cpu",
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "pooling_version": "window-mean-v1",
+          "max_sequence_tokens": 512,
+          "window_overlap_tokens": 32,
+          "query_prefix": "query: ",
+          "document_prefix": "passage: "
+        },
+        "retrieval": {
+          "mode": "hybrid",
+          "top_k": 4,
+          "candidate_k": 20,
+          "minimum_score": 0.55,
+          "minimum_keyword_score": 0.0,
+          "rrf_k": 60,
+          "dense_weight": 1.0,
+          "keyword_weight": 1.0,
+          "keyword_query_version": "vi-simple-v1",
+          "metadata_filter_version": "evidence-metadata-v1",
+          "document_reference_policy": "shared-query-refs-v1",
+          "eligible_document_ids": [
+            "uit_159_2024",
+            "uit_1393_2023",
+            "uit_790_2022",
+            "uit_956_2026",
+            "uit_112_2024",
+            "uit_277_2025",
+            "uit_308_2025",
+            "uit_412_2025",
+            "uit_43_2020",
+            "uit_513_2026",
+            "uit_697_2024",
+            "uit_803_2025",
+            "uit_832_2024",
+            "uit_851_2024",
+            "uit_894_2026"
+          ]
+        },
+        "reranker": {
+          "enabled": true,
+          "model_name": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+          "model_revision": "1427fd652930e4ba29e8149678df786c240d8825",
+          "device": "cpu",
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "candidate_k": 20,
+          "max_sequence_tokens": 512,
+          "window_overlap_tokens": 32,
+          "pooling_version": "window-max-v1"
+        },
+        "freshness": {
+          "enabled": true,
+          "policy_version": "clause-scoped-v2"
+        },
+        "behaviour": {
+          "enabled": true,
+          "policy_version": "guarded-behaviour-v1",
+          "minimize_selected_passages": true
+        },
+        "generation": {
+          "backend": "llama_cpp",
+          "response_policy": "verified_passages",
+          "model_name": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+          "model_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+          "device": "cpu",
+          "dtype": "float32",
+          "gguf_filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+          "max_new_tokens": 64,
+          "max_input_tokens": 2304,
+          "cpu_threads": 4,
+          "context_chunks": 6,
+          "prompt_version": "bound-passage-selection-v3",
+          "max_passages": 8,
+          "max_selected_passages": 4,
+          "structured_retries": 1,
+          "low_memory_mode": true
+        }
+      },
+      "hardware": {
+        "os": "Windows-11-10.0.26200-SP0",
+        "machine": "AMD64",
+        "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+        "logical_cpu_count": 12,
+        "ram_total_bytes": null,
+        "python": "3.12.15"
+      },
+      "started_at": "2026-10-10T16:28:06.956455+00:00",
+      "finished_at": "2026-10-10T16:39:18.776595+00:00",
+      "retrieval": {
+        "eligible_questions": 47,
+        "recall_at_5": 0.9893617021276596,
+        "recall_at_10": 1.0,
+        "mrr_at_10": 0.9645390070921986,
+        "micro_recall_at_5": {
+          "numerator": 52,
+          "denominator": 53,
+          "unknown": 0,
+          "value": 0.9811320754716981
+        },
+        "micro_recall_at_10": {
+          "numerator": 53,
+          "denominator": 53,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "complete_at_5": {
+          "numerator": 46,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.9787234042553191
+        },
+        "complete_at_10": {
+          "numerator": 47,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "ndcg_at_10": null,
+        "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+      },
+      "answer": {
+        "questions": 60,
+        "reviewed": 60,
+        "status_accuracy": {
+          "numerator": 59,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 0.9833333333333333
+        },
+        "correctness": {
+          "numerator": 41,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.8723404255319149
+        },
+        "required_fact_recall": {
+          "numerator": 57,
+          "denominator": 65,
+          "unknown": 0,
+          "value": 0.8769230769230769
+        },
+        "faithfulness": {
+          "numerator": 71,
+          "denominator": 71,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "citation_support_precision": {
+          "numerator": 52,
+          "denominator": 71,
+          "unknown": 0,
+          "value": 0.7323943661971831
+        },
+        "citation_coverage": {
+          "numerator": 52,
+          "denominator": 71,
+          "unknown": 0,
+          "value": 0.7323943661971831
+        },
+        "citation_fidelity": {
+          "numerator": 60,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "filter_preservation": {
+          "numerator": 60,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correct_rejection": {
+          "numerator": 8,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "false_rejection": {
+          "numerator": 1,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.02127659574468085
+        },
+        "false_clarification": {
+          "numerator": 0,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "clarification_status": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "clarification_field_recall": {
+          "numerator": 11,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 0.9166666666666666
+        },
+        "status_confusion": {
+          "answered->answered": 46,
+          "answered->insufficient_evidence": 1,
+          "insufficient_evidence->insufficient_evidence": 8,
+          "needs_clarification->needs_clarification": 5
+        },
+        "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+        "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+      },
+      "operations": {
+        "stages": {
+          "retrieval_ms": {
+            "samples": 60,
+            "p50": 927.906,
+            "p95": 1058.3679499999998,
+            "active_samples": 52,
+            "active_p50": 941.5564999999999,
+            "active_p95": 1064.1995499999998
+          },
+          "reranker_ms": {
+            "samples": 60,
+            "p50": 6127.4755000000005,
+            "p95": 8903.769549999999,
+            "active_samples": 50,
+            "active_p50": 6267.155500000001,
+            "active_p95": 8941.72505
+          },
+          "llm_ms": {
+            "samples": 60,
+            "p50": 4015.3535,
+            "p95": 8410.0528,
+            "active_samples": 46,
+            "active_p50": 4429.51,
+            "active_p95": 8435.726
+          },
+          "generation_stage_ms": {
+            "samples": 60,
+            "p50": 5128.813,
+            "p95": 9403.815649999999,
+            "active_samples": 47,
+            "active_p50": 5376.793,
+            "active_p95": 9476.2081
+          },
+          "end_to_end_ms": {
+            "samples": 60,
+            "p50": 12441.2935,
+            "p95": 17819.715849999993,
+            "active_samples": 60,
+            "active_p50": 12441.2935,
+            "active_p95": 17819.715849999993
+          }
+        },
+        "tokens": {
+          "input_tokens": {
+            "known_requests": 60,
+            "unknown_requests": 0,
+            "sum_known": 25588,
+            "mean_per_request": 426.46666666666664
+          },
+          "output_tokens": {
+            "known_requests": 60,
+            "unknown_requests": 0,
+            "sum_known": 479,
+            "mean_per_request": 7.983333333333333
+          }
+        },
+        "api_cost": {
+          "currency": "VND",
+          "total": 0,
+          "mean_per_request": 0
+        },
+        "hosting_compute_cost": {
+          "value": null,
+          "note": "Local existing hardware; unpriced"
+        },
+        "generation_requests": 46,
+        "conditions": "Serialized local CPU; no paid API/LLM judge. Retrieval includes query encoding/loading/SQL/freshness, excludes reranker. LLM timer surrounds generate; generation stage also includes budgeting/loading/validation; timings are not additive."
+      },
+      "by_category": {
+        "adversarial": {
+          "questions": 5,
+          "reviewed": 5,
+          "status_accuracy": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "required_fact_recall": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "faithfulness": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 5,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 0.625
+          },
+          "citation_coverage": {
+            "numerator": 5,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 0.625
+          },
+          "citation_fidelity": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 5
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "clarification": {
+          "questions": 5,
+          "reviewed": 5,
+          "status_accuracy": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "required_fact_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "faithfulness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_support_precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_fidelity": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_status": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "clarification_field_recall": {
+            "numerator": 11,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.9166666666666666
+          },
+          "status_confusion": {
+            "needs_clarification->needs_clarification": 5
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "multi_clause": {
+          "questions": 12,
+          "reviewed": 12,
+          "status_accuracy": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 7,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.5833333333333334
+          },
+          "required_fact_recall": {
+            "numerator": 18,
+            "denominator": 24,
+            "unknown": 0,
+            "value": 0.75
+          },
+          "faithfulness": {
+            "numerator": 23,
+            "denominator": 23,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 18,
+            "denominator": 23,
+            "unknown": 0,
+            "value": 0.782608695652174
+          },
+          "citation_coverage": {
+            "numerator": 18,
+            "denominator": 23,
+            "unknown": 0,
+            "value": 0.782608695652174
+          },
+          "citation_fidelity": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 12
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "no_answer": {
+          "questions": 8,
+          "reviewed": 8,
+          "status_accuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "required_fact_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "faithfulness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_support_precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_fidelity": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "insufficient_evidence->insufficient_evidence": 8
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "single_clause": {
+          "questions": 21,
+          "reviewed": 21,
+          "status_accuracy": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "required_fact_recall": {
+            "numerator": 26,
+            "denominator": 26,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "faithfulness": {
+            "numerator": 32,
+            "denominator": 32,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 21,
+            "denominator": 32,
+            "unknown": 0,
+            "value": 0.65625
+          },
+          "citation_coverage": {
+            "numerator": 21,
+            "denominator": 32,
+            "unknown": 0,
+            "value": 0.65625
+          },
+          "citation_fidelity": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 21
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "temporal_scope": {
+          "questions": 9,
+          "reviewed": 9,
+          "status_accuracy": {
+            "numerator": 8,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.8888888888888888
+          },
+          "correctness": {
+            "numerator": 8,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.8888888888888888
+          },
+          "required_fact_recall": {
+            "numerator": 8,
+            "denominator": 10,
+            "unknown": 0,
+            "value": 0.8
+          },
+          "faithfulness": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_coverage": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_fidelity": {
+            "numerator": 9,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 9,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 1,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.1111111111111111
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 8,
+            "answered->insufficient_evidence": 1
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        }
+      }
+    },
+    {
+      "label": "hybrid_reranked_k12",
+      "config_sha256": "3dca7a0c241c649cd3598d4f308bb0d7b414b3d57a678545763964def2951c68",
+      "predictions_sha256": "8da7df0853c9370847923d6bf7ed0545b5a31e80c1923196777920ed4e7adab5",
+      "review_sha256": "ce9fa259f0b4ff7dcff1943cbe4541140c596f48b20c13cb9e3fb999cfc3b44d",
+      "config": {
+        "pipeline_version": "rag-clause-scoped-v2",
+        "embedding": {
+          "model_name": "intfloat/multilingual-e5-small",
+          "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+          "dimension": 384,
+          "device": "cpu",
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "pooling_version": "window-mean-v1",
+          "max_sequence_tokens": 512,
+          "window_overlap_tokens": 32,
+          "query_prefix": "query: ",
+          "document_prefix": "passage: "
+        },
+        "retrieval": {
+          "mode": "hybrid",
+          "top_k": 12,
+          "candidate_k": 20,
+          "minimum_score": 0.55,
+          "minimum_keyword_score": 0.0,
+          "rrf_k": 60,
+          "dense_weight": 1.0,
+          "keyword_weight": 1.0,
+          "keyword_query_version": "vi-simple-v1",
+          "metadata_filter_version": "evidence-metadata-v1",
+          "document_reference_policy": "shared-query-refs-v1",
+          "eligible_document_ids": [
+            "uit_159_2024",
+            "uit_1393_2023",
+            "uit_790_2022",
+            "uit_956_2026",
+            "uit_112_2024",
+            "uit_277_2025",
+            "uit_308_2025",
+            "uit_412_2025",
+            "uit_43_2020",
+            "uit_513_2026",
+            "uit_697_2024",
+            "uit_803_2025",
+            "uit_832_2024",
+            "uit_851_2024",
+            "uit_894_2026"
+          ]
+        },
+        "reranker": {
+          "enabled": true,
+          "model_name": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+          "model_revision": "1427fd652930e4ba29e8149678df786c240d8825",
+          "device": "cpu",
+          "batch_size": 1,
+          "cpu_threads": 2,
+          "candidate_k": 20,
+          "max_sequence_tokens": 512,
+          "window_overlap_tokens": 32,
+          "pooling_version": "window-max-v1"
+        },
+        "freshness": {
+          "enabled": true,
+          "policy_version": "clause-scoped-v2"
+        },
+        "behaviour": {
+          "enabled": true,
+          "policy_version": "guarded-behaviour-v1",
+          "minimize_selected_passages": true
+        },
+        "generation": {
+          "backend": "llama_cpp",
+          "response_policy": "verified_passages",
+          "model_name": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+          "model_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+          "device": "cpu",
+          "dtype": "float32",
+          "gguf_filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+          "max_new_tokens": 64,
+          "max_input_tokens": 2304,
+          "cpu_threads": 4,
+          "context_chunks": 6,
+          "prompt_version": "bound-passage-selection-v3",
+          "max_passages": 8,
+          "max_selected_passages": 4,
+          "structured_retries": 1,
+          "low_memory_mode": true
+        }
+      },
+      "hardware": {
+        "os": "Windows-11-10.0.26200-SP0",
+        "machine": "AMD64",
+        "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+        "logical_cpu_count": 12,
+        "ram_total_bytes": null,
+        "python": "3.12.15"
+      },
+      "started_at": "2026-10-10T16:40:17.001783+00:00",
+      "finished_at": "2026-10-10T16:51:42.600451+00:00",
+      "retrieval": {
+        "eligible_questions": 47,
+        "recall_at_5": 0.9893617021276596,
+        "recall_at_10": 1.0,
+        "mrr_at_10": 0.9645390070921986,
+        "micro_recall_at_5": {
+          "numerator": 52,
+          "denominator": 53,
+          "unknown": 0,
+          "value": 0.9811320754716981
+        },
+        "micro_recall_at_10": {
+          "numerator": 53,
+          "denominator": 53,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "complete_at_5": {
+          "numerator": 46,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.9787234042553191
+        },
+        "complete_at_10": {
+          "numerator": 47,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "ndcg_at_10": null,
+        "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+      },
+      "answer": {
+        "questions": 60,
+        "reviewed": 60,
+        "status_accuracy": {
+          "numerator": 59,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 0.9833333333333333
+        },
+        "correctness": {
+          "numerator": 41,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.8723404255319149
+        },
+        "required_fact_recall": {
+          "numerator": 57,
+          "denominator": 65,
+          "unknown": 0,
+          "value": 0.8769230769230769
+        },
+        "faithfulness": {
+          "numerator": 71,
+          "denominator": 71,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "citation_support_precision": {
+          "numerator": 52,
+          "denominator": 71,
+          "unknown": 0,
+          "value": 0.7323943661971831
+        },
+        "citation_coverage": {
+          "numerator": 52,
+          "denominator": 71,
+          "unknown": 0,
+          "value": 0.7323943661971831
+        },
+        "citation_fidelity": {
+          "numerator": 60,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "filter_preservation": {
+          "numerator": 60,
+          "denominator": 60,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correct_rejection": {
+          "numerator": 8,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "false_rejection": {
+          "numerator": 1,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.02127659574468085
+        },
+        "false_clarification": {
+          "numerator": 0,
+          "denominator": 47,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "clarification_status": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "clarification_field_recall": {
+          "numerator": 11,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 0.9166666666666666
+        },
+        "status_confusion": {
+          "answered->answered": 46,
+          "answered->insufficient_evidence": 1,
+          "insufficient_evidence->insufficient_evidence": 8,
+          "needs_clarification->needs_clarification": 5
+        },
+        "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+        "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+      },
+      "operations": {
+        "stages": {
+          "retrieval_ms": {
+            "samples": 60,
+            "p50": 899.579,
+            "p95": 1094.0002,
+            "active_samples": 52,
+            "active_p50": 902.012,
+            "active_p95": 1096.2498
+          },
+          "reranker_ms": {
+            "samples": 60,
+            "p50": 6203.031,
+            "p95": 8935.311899999997,
+            "active_samples": 50,
+            "active_p50": 6387.258,
+            "active_p95": 9554.430899999998
+          },
+          "llm_ms": {
+            "samples": 60,
+            "p50": 3988.251,
+            "p95": 8234.747099999997,
+            "active_samples": 46,
+            "active_p50": 4611.440500000001,
+            "active_p95": 8850.0485
+          },
+          "generation_stage_ms": {
+            "samples": 60,
+            "p50": 5123.355,
+            "p95": 9298.939249999998,
+            "active_samples": 47,
+            "active_p50": 5604.828,
+            "active_p95": 9787.872499999996
+          },
+          "end_to_end_ms": {
+            "samples": 60,
+            "p50": 12832.835500000001,
+            "p95": 18036.679599999996,
+            "active_samples": 60,
+            "active_p50": 12832.835500000001,
+            "active_p95": 18036.679599999996
+          }
+        },
+        "tokens": {
+          "input_tokens": {
+            "known_requests": 60,
+            "unknown_requests": 0,
+            "sum_known": 25588,
+            "mean_per_request": 426.46666666666664
+          },
+          "output_tokens": {
+            "known_requests": 60,
+            "unknown_requests": 0,
+            "sum_known": 479,
+            "mean_per_request": 7.983333333333333
+          }
+        },
+        "api_cost": {
+          "currency": "VND",
+          "total": 0,
+          "mean_per_request": 0
+        },
+        "hosting_compute_cost": {
+          "value": null,
+          "note": "Local existing hardware; unpriced"
+        },
+        "generation_requests": 46,
+        "conditions": "Serialized local CPU; no paid API/LLM judge. Retrieval includes query encoding/loading/SQL/freshness, excludes reranker. LLM timer surrounds generate; generation stage also includes budgeting/loading/validation; timings are not additive."
+      },
+      "by_category": {
+        "adversarial": {
+          "questions": 5,
+          "reviewed": 5,
+          "status_accuracy": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "required_fact_recall": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "faithfulness": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 5,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 0.625
+          },
+          "citation_coverage": {
+            "numerator": 5,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 0.625
+          },
+          "citation_fidelity": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 5
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "clarification": {
+          "questions": 5,
+          "reviewed": 5,
+          "status_accuracy": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "required_fact_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "faithfulness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_support_precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_fidelity": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_status": {
+            "numerator": 5,
+            "denominator": 5,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "clarification_field_recall": {
+            "numerator": 11,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.9166666666666666
+          },
+          "status_confusion": {
+            "needs_clarification->needs_clarification": 5
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "multi_clause": {
+          "questions": 12,
+          "reviewed": 12,
+          "status_accuracy": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 7,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.5833333333333334
+          },
+          "required_fact_recall": {
+            "numerator": 18,
+            "denominator": 24,
+            "unknown": 0,
+            "value": 0.75
+          },
+          "faithfulness": {
+            "numerator": 23,
+            "denominator": 23,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 18,
+            "denominator": 23,
+            "unknown": 0,
+            "value": 0.782608695652174
+          },
+          "citation_coverage": {
+            "numerator": 18,
+            "denominator": 23,
+            "unknown": 0,
+            "value": 0.782608695652174
+          },
+          "citation_fidelity": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 12,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 12,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 12
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "no_answer": {
+          "questions": 8,
+          "reviewed": 8,
+          "status_accuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "required_fact_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "faithfulness": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_support_precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "citation_fidelity": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "insufficient_evidence->insufficient_evidence": 8
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "single_clause": {
+          "questions": 21,
+          "reviewed": 21,
+          "status_accuracy": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correctness": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "required_fact_recall": {
+            "numerator": 26,
+            "denominator": 26,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "faithfulness": {
+            "numerator": 32,
+            "denominator": 32,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 21,
+            "denominator": 32,
+            "unknown": 0,
+            "value": 0.65625
+          },
+          "citation_coverage": {
+            "numerator": 21,
+            "denominator": 32,
+            "unknown": 0,
+            "value": 0.65625
+          },
+          "citation_fidelity": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 21,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 0,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 21,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 21
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        },
+        "temporal_scope": {
+          "questions": 9,
+          "reviewed": 9,
+          "status_accuracy": {
+            "numerator": 8,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.8888888888888888
+          },
+          "correctness": {
+            "numerator": 8,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.8888888888888888
+          },
+          "required_fact_recall": {
+            "numerator": 8,
+            "denominator": 10,
+            "unknown": 0,
+            "value": 0.8
+          },
+          "faithfulness": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_support_precision": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_coverage": {
+            "numerator": 8,
+            "denominator": 8,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "citation_fidelity": {
+            "numerator": 9,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "filter_preservation": {
+            "numerator": 9,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 1.0
+          },
+          "correct_rejection": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "false_rejection": {
+            "numerator": 1,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.1111111111111111
+          },
+          "false_clarification": {
+            "numerator": 0,
+            "denominator": 9,
+            "unknown": 0,
+            "value": 0.0
+          },
+          "clarification_status": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "clarification_field_recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "unknown": 0,
+            "value": null
+          },
+          "status_confusion": {
+            "answered->answered": 8,
+            "answered->insufficient_evidence": 1
+          },
+          "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+          "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+        }
+      }
+    }
+  ],
+  "paired_correctness": [
+    {
+      "left": "vector_only",
+      "right": "keyword_only",
+      "right_wins": [],
+      "right_losses": [
+        "D15",
+        "D16",
+        "D27",
+        "D40",
+        "D58",
+        "D59"
+      ]
+    },
+    {
+      "left": "vector_only",
+      "right": "hybrid_rrf",
+      "right_wins": [
+        "D43"
+      ],
+      "right_losses": [
+        "D16",
+        "D27",
+        "D40",
+        "D58",
+        "D59"
+      ]
+    },
+    {
+      "left": "vector_only",
+      "right": "hybrid_reranked",
+      "right_wins": [
+        "D43"
+      ],
+      "right_losses": []
+    },
+    {
+      "left": "vector_only",
+      "right": "hybrid_reranked_k4",
+      "right_wins": [
+        "D43"
+      ],
+      "right_losses": []
+    },
+    {
+      "left": "vector_only",
+      "right": "hybrid_reranked_k12",
+      "right_wins": [
+        "D43"
+      ],
+      "right_losses": []
+    },
+    {
+      "left": "keyword_only",
+      "right": "hybrid_rrf",
+      "right_wins": [
+        "D15",
+        "D43"
+      ],
+      "right_losses": []
+    },
+    {
+      "left": "keyword_only",
+      "right": "hybrid_reranked",
+      "right_wins": [
+        "D15",
+        "D16",
+        "D27",
+        "D40",
+        "D43",
+        "D58",
+        "D59"
+      ],
+      "right_losses": []
+    },
+    {
+      "left": "keyword_only",
+      "right": "hybrid_reranked_k4",
+      "right_wins": [
+        "D15",
+        "D16",
+        "D27",
+        "D40",
+        "D43",
+        "D58",
+        "D59"
+      ],
+      "right_losses": []
+    },
+    {
+      "left": "keyword_only",
+      "right": "hybrid_reranked_k12",
+      "right_wins": [
+        "D15",
+        "D16",
+        "D27",
+        "D40",
+        "D43",
+        "D58",
+        "D59"
+      ],
+      "right_losses": []
+    },
+    {
+      "left": "hybrid_rrf",
+      "right": "hybrid_reranked",
+      "right_wins": [
+        "D16",
+        "D27",
+        "D40",
+        "D58",
+        "D59"
+      ],
+      "right_losses": []
+    },
+    {
+      "left": "hybrid_rrf",
+      "right": "hybrid_reranked_k4",
+      "right_wins": [
+        "D16",
+        "D27",
+        "D40",
+        "D58",
+        "D59"
+      ],
+      "right_losses": []
+    },
+    {
+      "left": "hybrid_rrf",
+      "right": "hybrid_reranked_k12",
+      "right_wins": [
+        "D16",
+        "D27",
+        "D40",
+        "D58",
+        "D59"
+      ],
+      "right_losses": []
+    },
+    {
+      "left": "hybrid_reranked",
+      "right": "hybrid_reranked_k4",
+      "right_wins": [],
+      "right_losses": []
+    },
+    {
+      "left": "hybrid_reranked",
+      "right": "hybrid_reranked_k12",
+      "right_wins": [],
+      "right_losses": []
+    },
+    {
+      "left": "hybrid_reranked_k4",
+      "right": "hybrid_reranked_k12",
+      "right_wins": [],
+      "right_losses": []
+    }
+  ],
+  "held_out_inference_requests": 0,
+  "conditions": "Serial fresh Python process per variant; same case order; no warmup; per-request low-memory reload and OS/HF caches. Single pass, not causal latency attribution."
+}

@@ -45,3 +45,39 @@ citedquoteblock, không chấm câu tùy ý; relevance/coverage khác text/hash 
 budget comparisons. `--split test` là explicit vàchỉ dùng sau khi chốtconfigcuối;
 T4.2 chạydevelopment. `--limit` cho pilots, đượcghi rõ roster, không giả là fullrun.
 Không overwrite runpath; predictions flush từngrequest, failure.json giữ technicalfailures.
+
+## T4.3 — Retrieval ablation
+
+```powershell
+python scripts/run_ablation.py run --variant all --root evals/results/<new-matrix>
+python scripts/run_ablation.py packet --root evals/results/<new-matrix>
+python scripts/run_ablation.py review --root evals/results/<new-matrix> --decisions <group-review.json>
+python scripts/run_ablation.py compare --root evals/results/<new-matrix> --output <comparison.json>
+```
+
+All chạy4freshPythonprocesses nối tiếp. Hoặc `--variant vector_only|keyword_only|hybrid_rrf|
+hybrid_reranked` từnglượt. Samecase60,source/config/runtime/hardware/roster checks;
+registerrun trướcinference vàkhôngoverwrite failed/completedjobs. Top-k thí nghiệm:
+
+```powershell
+python scripts/run_ablation.py run --variant hybrid_reranked --top-k 4 --root evals/results/<new-matrix>
+python scripts/run_ablation.py run --variant hybrid_reranked --top-k 12 --root evals/results/<new-matrix>
+python scripts/run_ablation.py packet --include-top-k --root evals/results/<new-matrix>
+```
+
+`review_packet.md` ghi actualC#canonicalquote blocks. ReviewJSON gồm `groups_sha256`
+và `reviews` keyed questionID/semanticdigest; row cócoveredfactIDs/faithful_claim_ids/
+relevant_claim_ids/forbiddenclaims/behaviour/reviewer/note. Exactsource/quote/scopegroups
+cho một semanticreview, mapping riêngnewPIDs/SIDs/responseSHA từngprediction.
+Use `--include-top-k` choreview/comparealljobs, cóallowtop-kcontrolledaxis.
+`extend_ablation_review.py` chỉ mang review sangtop-k khi mọi fullsemantic groupđãreview,
+bindactualold/newsignature; output khác phảimanualreview.
+
+Selectionseal/table từactualcomparison:
+
+```powershell
+python scripts/select_ablation_config.py --comparison <comparison.json> --config-output <selected.json> --record-output <selection.json> --table-output <benchmark.csv>
+```
+
+T4.3 results360predictions/77semanticoutputs vàselectedreference ở
+`docs/benchmark-ablation-review.md`; finalrelease/testfreeze quaT4.4.

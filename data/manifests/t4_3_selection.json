@@ -1,0 +1,174 @@
+{
+  "selected_at": "2026-10-10T16:59:42.462150+00:00",
+  "stage": "T4.3 development retrieval selection; final release freeze after T4.4 fixes",
+  "selected_label": "hybrid_reranked_k4",
+  "config_path": "configs/rag/t4_3_selected.json",
+  "config_sha256": "611919f4820fe719c0ae485662fc1b9ed614ef457f4818ef37e630e46fbd9216",
+  "selection_rule": "Integrity gates, then complete answer correctness, required fact recall, task-support citation precision, lower end-to-end p95 then p50; development only",
+  "dataset_sha256": "d577dcde2469cdb1650b4e7b1164e520afc5037d6668fe1b5eb06c7f98946f0c",
+  "corpus_sha256": "b213a260c7b8be3bed5e534575002263d9d878b4c09e67c670c3246f6b5f9776",
+  "runtime_source_sha256": "a6d5fe1f955f659afa869473fe2010ac59bbecd76ac5894f0d613d98f7abc441",
+  "predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0",
+  "review_sha256": "2d4acdadfee79d7571ef5b091d4b3667c2ded8d517e8e558c2f8b17db02167c6",
+  "quality": {
+    "questions": 60,
+    "reviewed": 60,
+    "status_accuracy": {
+      "numerator": 59,
+      "denominator": 60,
+      "unknown": 0,
+      "value": 0.9833333333333333
+    },
+    "correctness": {
+      "numerator": 41,
+      "denominator": 47,
+      "unknown": 0,
+      "value": 0.8723404255319149
+    },
+    "required_fact_recall": {
+      "numerator": 57,
+      "denominator": 65,
+      "unknown": 0,
+      "value": 0.8769230769230769
+    },
+    "faithfulness": {
+      "numerator": 71,
+      "denominator": 71,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "citation_support_precision": {
+      "numerator": 52,
+      "denominator": 71,
+      "unknown": 0,
+      "value": 0.7323943661971831
+    },
+    "citation_coverage": {
+      "numerator": 52,
+      "denominator": 71,
+      "unknown": 0,
+      "value": 0.7323943661971831
+    },
+    "citation_fidelity": {
+      "numerator": 60,
+      "denominator": 60,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "filter_preservation": {
+      "numerator": 60,
+      "denominator": 60,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "correct_rejection": {
+      "numerator": 8,
+      "denominator": 8,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "false_rejection": {
+      "numerator": 1,
+      "denominator": 47,
+      "unknown": 0,
+      "value": 0.02127659574468085
+    },
+    "false_clarification": {
+      "numerator": 0,
+      "denominator": 47,
+      "unknown": 0,
+      "value": 0.0
+    },
+    "clarification_status": {
+      "numerator": 5,
+      "denominator": 5,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "clarification_field_recall": {
+      "numerator": 11,
+      "denominator": 12,
+      "unknown": 0,
+      "value": 0.9166666666666666
+    },
+    "status_confusion": {
+      "answered->answered": 46,
+      "answered->insufficient_evidence": 1,
+      "insufficient_evidence->insufficient_evidence": 8,
+      "needs_clarification->needs_clarification": 5
+    },
+    "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+    "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+  },
+  "operations": {
+    "stages": {
+      "retrieval_ms": {
+        "samples": 60,
+        "p50": 927.906,
+        "p95": 1058.3679499999998,
+        "active_samples": 52,
+        "active_p50": 941.5564999999999,
+        "active_p95": 1064.1995499999998
+      },
+      "reranker_ms": {
+        "samples": 60,
+        "p50": 6127.4755000000005,
+        "p95": 8903.769549999999,
+        "active_samples": 50,
+        "active_p50": 6267.155500000001,
+        "active_p95": 8941.72505
+      },
+      "llm_ms": {
+        "samples": 60,
+        "p50": 4015.3535,
+        "p95": 8410.0528,
+        "active_samples": 46,
+        "active_p50": 4429.51,
+        "active_p95": 8435.726
+      },
+      "generation_stage_ms": {
+        "samples": 60,
+        "p50": 5128.813,
+        "p95": 9403.815649999999,
+        "active_samples": 47,
+        "active_p50": 5376.793,
+        "active_p95": 9476.2081
+      },
+      "end_to_end_ms": {
+        "samples": 60,
+        "p50": 12441.2935,
+        "p95": 17819.715849999993,
+        "active_samples": 60,
+        "active_p50": 12441.2935,
+        "active_p95": 17819.715849999993
+      }
+    },
+    "tokens": {
+      "input_tokens": {
+        "known_requests": 60,
+        "unknown_requests": 0,
+        "sum_known": 25588,
+        "mean_per_request": 426.46666666666664
+      },
+      "output_tokens": {
+        "known_requests": 60,
+        "unknown_requests": 0,
+        "sum_known": 479,
+        "mean_per_request": 7.983333333333333
+      }
+    },
+    "api_cost": {
+      "currency": "VND",
+      "total": 0,
+      "mean_per_request": 0
+    },
+    "hosting_compute_cost": {
+      "value": null,
+      "note": "Local existing hardware; unpriced"
+    },
+    "generation_requests": 46,
+    "conditions": "Serialized local CPU; no paid API/LLM judge. Retrieval includes query encoding/loading/SQL/freshness, excludes reranker. LLM timer surrounds generate; generation stage also includes budgeting/loading/validation; timings are not additive."
+  },
+  "held_out_inference_requests": 0,
+  "conditions": "Top-k4/8/12 have identical reviewed claim bundles and token counts. Selected by the predeclared measured p95/p50 tie-break; single-pass latency variation does not establish a causal speedup. No held-out tuning or inference."
+}

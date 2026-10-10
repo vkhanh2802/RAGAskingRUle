@@ -548,14 +548,23 @@ citations;8/8correctreject,1/47false; p50/p95e2e13.270/18.282s,API0VND/computeun
 
 **Ước lượng:** 4–5 giờ. **Phụ thuộc:** T4.2.
 
-- [ ] So sánh vector-only, keyword-only, hybrid RRF, hybrid + reranker.
-- [ ] Giữ corpus, LLM, prompt và context budget cố định khi so retrieval.
-- [ ] Thử top-k/chunking trên development set.
-- [ ] Ghi config hash, commit và corpus version.
-- [ ] Ghi phần cứng, concurrency, warm/cold state.
-- [ ] Chọn cấu hình cuối trước khi chạy held-out test.
+- [x] So sánh vector-only, keyword-only, hybrid RRF, hybrid + reranker.
+- [x] Giữ corpus, LLM, prompt và context budget cố định khi so retrieval.
+- [x] Thử top-k/chunking trên development set.
+- [x] Ghi config hash, commit và corpus version.
+- [x] Ghi phần cứng, concurrency, warm/cold state.
+- [x] Chọn cấu hình cuối trước khi chạy held-out test.
 
 **Nghiệm thu:** có bảng kết quả thật về chất lượng, latency, chi phí; báo cáo trung thực cả khi reranker không cải thiện.
+
+**Hoàn tất T4.3 2026-10-11local:**4variants×60+topk4/12×60=360newdevelopmentpredictions,
+77exactsemantic question/output bundlesmanualreview vớinewresponse/PIDbindings. Samecorpus/
+LLM/prompt/budgets/20candidates;vector/KW/RRF/CEcorrect41/35/36/41of47,taskcitation
+53/75,45/69,48/71,52/71. CEvsRRF5pairedwins/0loss nhưngcaoCPUlatency. Topk4/8/12
+cùngquality/claims; chọnCEk4 theoobservedlatencytie-breakp50/p9512.441/17.820s,
+configs/rag/t4_3_selected.json/sealeddecision. Onepasslatency khôngcausalclaim;API0VND/
+localcomputeunpriced.354tests/12Node/Ruff/frozen guards đạt,0heldoutinference.
+`docs/benchmark-ablation-review.md`;T4.4 fixes+finalreleasefreeze còn pending.
 
 ### T4.4 — Error analysis và chốt cấu hình
 

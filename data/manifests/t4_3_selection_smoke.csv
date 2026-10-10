@@ -1,0 +1,9 @@
+question_id,http_status,answer_status,failure_reason,latency_ms,input_tokens,source_count,top_source_document,top_source_pdf_pages,document_hit_in_context,generation_called,passage_count,retrieval_ms,generation_ms,selection_attempts
+G01,200,answered,,34478,482,1,790/QĐ-ĐHCNTT,12-13,True,True,1,24929.266,8859.41,1
+G02,200,answered,,11171,482,1,790/QĐ-ĐHCNTT,12-13,True,True,1,4427.144,6331.863,1
+G03,200,answered,,10115,484,1,790/QĐ-ĐHCNTT,12-13,True,True,1,4098.321,5635.053,1
+G04,200,answered,,9189,478,1,790/QĐ-ĐHCNTT,12-13,True,True,1,3476.11,5358.433,1
+G05,200,answered,,17590,358,1,1393/QĐ-ĐHCNTT,1-2,True,True,1,12708.826,4489.208,1
+G06,200,insufficient_evidence,latest_excluded_by_filters,14002,0,4,790/QĐ-ĐHCNTT,12-13,True,False,0,13865.902,0.0,0
+G07,200,insufficient_evidence,latest_excluded_by_filters,14570,0,4,790/QĐ-ĐHCNTT,12-12,True,False,0,14417.276,0.0,0
+G08,200,answered,,23546,789,1,790/QĐ-ĐHCNTT,20-21,True,True,4,14317.306,8857.504,1
