@@ -17,6 +17,7 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 | T3.1 | completed | Pinned CPU cross-encoder/window-max;20 candidates/top8/context6/budget4096; verified issue dates/relations/latest guards;432 completed evaluation rows;187 tests; `docs/reranker-freshness-review.md` | Generation p50~104s và1/12 supported smoke answer; conservative clause exclusion và excluded layouts | T3.2 source-bound span/source-ID selection, citation support và generation latency; T3.3 clarification |
 | T3.2 | completed | BoundpassageIDs/offsets/SHA/strictschema/enum/boundedretry;210tests;12acceptance+30development+targetedregressions;11supportedprimaryanswers/12 và1correctabstention;median13.57s; `docs/passage-citation-review.md` | Genericqueries cònextra material; coldloads35–39s; chưaheld-out/clarification | T3.3 scope/clarification vàprecision; T3.4 behaviorcases trướcM3 |
 | T3.3 | completed | `clarify-scope-v1`; structured scope/clarification/version notes; 20 cases: 8 clarify / 7 abstain / 5 supported answers; positive12; development30 và targeted fixes; 247 tests; `docs/clarification-abstention-review.md` | Lexical scope/facets chưa general entailment; extra material và variable CPU latency; chưa held-out | T3.4 adversarial/ngoài phạm vi/giả định sai, ít nhất20 cases trước M3; commit sau mỗi bước hoàn tất |
+| T3.4 / M3 | completed | 24 API cases +10 injected-context cases:34/34 final pass; source-instruction/hash/scope guards; positive12:11 supported/1 correct abstention;276 tests; `docs/adversarial-behaviour-review.md` | Declared heuristics chưa general scope/entailment/injection defense; extra quotes, CPU latency và excluded layouts; chưa held-out | T4.1 dataset100, required facts/evidence/filter/split và held-out freeze; commit sau bước hoàn tất |
 
 ## Nhật ký kiểm chứng
 
@@ -263,3 +264,21 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 - Người dùng yêu cầu commit sau mỗi bước hoàn tất từ đây; ghi tại `AGENTS.md`.
   Commit T3.3 là initial commit của trạng thái project đã kiểm chứng đến bước này.
   Tiếp theo T3.4 ít nhất20 adversarial/ngoài phạm vi cases; M3 chưa nghiệm thu.
+
+### T3.4 — Adversarial behaviour / M3
+
+- Ngày2026-10-10. 24 câu khai báo expected status/facts trước pilot,10 synthetic context
+  fixtures. Pilot16/24 và3/10 pass; giữ8out-of-scope/fabrication và7injection/topic failures.
+- Scope task/institution rules trả insufficient trước retrieval/model; context hash đúng
+  vẫn không cho assistant-control instructions. Whole-context abstention giữ companions,
+  không strip/rebind text. Escape chat markers dùng chung llama/Transformers.
+- Config `rag-guarded-passages-v1` / `guarded-behaviour-v1`; model pins/embedding fingerprint
+  không đổi. Final24/24 (11supported/13abstain), injected10/10 (2controls/8abstain).
+- Positive12 giữ11supported/1old-filterabstention; p50/p95 21,987/38,628ms mixedcold/warm.
+  Source/citation/filter/latest audits0errors; không dùng medianadversarial làmLLMbenchmark.
+- 276tests169unit/107schema-isolatedDB, Ruff/format/pipcheck/lock70 đạt. FixtureSharedQuery
+  sửa contenthash phù hợp text, không thay runtimehashguard hoặc frozen19gold bindings.
+- Corpus15ready/307chunks/307FTS/15unchanged/0unfinished,307bodychunks không có detectorhit;
+  source PDF/hash và19gold nguyên vẹn. Allraw/model traces ởignored processed.
+- MandatoryT3.4 vàM3 technical gate đạt; structuredscope/stateless không rewrite.
+  Báo cáo `docs/adversarial-behaviour-review.md`; nextT4.1 dataset100 vàheld-outfreeze.

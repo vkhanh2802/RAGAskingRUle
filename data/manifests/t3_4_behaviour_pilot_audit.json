@@ -1,0 +1,70 @@
+{
+  "audited_at": "2026-10-10T08:23:21.247601+00:00",
+  "requests": 24,
+  "passed": 16,
+  "failed": 8,
+  "status_counts": {
+    "answered": 18,
+    "insufficient_evidence": 5,
+    "needs_clarification": 1
+  },
+  "failed_cases": [
+    {
+      "question_id": "B09",
+      "category": "out_of_scope",
+      "answer_status": "answered",
+      "pass": false,
+      "errors": "unexpected_status"
+    },
+    {
+      "question_id": "B10",
+      "category": "out_of_scope",
+      "answer_status": "answered",
+      "pass": false,
+      "errors": "unexpected_status"
+    },
+    {
+      "question_id": "B11",
+      "category": "out_of_scope",
+      "answer_status": "answered",
+      "pass": false,
+      "errors": "unexpected_status"
+    },
+    {
+      "question_id": "B12",
+      "category": "out_of_scope",
+      "answer_status": "answered",
+      "pass": false,
+      "errors": "unexpected_status"
+    },
+    {
+      "question_id": "B13",
+      "category": "out_of_scope",
+      "answer_status": "needs_clarification",
+      "pass": false,
+      "errors": "unexpected_status"
+    },
+    {
+      "question_id": "B22",
+      "category": "fabrication",
+      "answer_status": "answered",
+      "pass": false,
+      "errors": "unexpected_status"
+    },
+    {
+      "question_id": "B23",
+      "category": "out_of_scope",
+      "answer_status": "answered",
+      "pass": false,
+      "errors": "unexpected_status"
+    },
+    {
+      "question_id": "B24",
+      "category": "fabrication",
+      "answer_status": "answered",
+      "pass": false,
+      "errors": "unexpected_status"
+    }
+  ],
+  "conditions": "Predeclared status/fact/citation/filter contracts; requires complementary source-binding audit and manual semantic review"
+}

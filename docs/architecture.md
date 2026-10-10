@@ -129,6 +129,13 @@ filters giữ nguyên; không có query rewriting hoặc conversation memory. C�
 lực pháp lý chưa verified và comparison chưa consolidated trả insufficient cùng
 source-bound metadata notes, không tự chọn/hợp nhất phiên bản.
 
+T3.4 thêm declared task/institution boundaries và full-context hash/instruction gate
+trước budgeting/model. Context có assistant-control instructions bị abstain nguyên
+context, không strip/rebind text hoặc bỏ required update. Guard có trong prepare/resolve,
+chat-control escaping dùng chung adapters. Những heuristic này không phải general
+entailment/injection classification. 24 API +10 synthetic cases vàpositive12 xác nhận
+M3 technical acceptance; source binding vẫn phải đi cùng semantic support review.
+
 Context builder gán các ID cục bộ như `[S1]` cho các chunk đã chọn và giới hạn
 context theo token budget. Prompt coi tài liệu truy xuất là dữ liệu, không phải chỉ
 dẫn hệ thống. LLM phải trả response có cấu trúc với một trong ba trạng thái:

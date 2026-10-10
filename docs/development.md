@@ -493,6 +493,29 @@ binding/citation/filter fidelity khỏi support. Chi tiết complete runs/target
 known extra material và latency: `docs/clarification-abstention-review.md`.
 Quy tắc commit sau mỗi bước hoàn tất kiểm chứng lưu ở `AGENTS.md`.
 
+## Adversarial behaviour — T3.4 / M3
+
+Default pipeline `rag-guarded-passages-v1`, policy `guarded-behaviour-v1`. Explicit
+outside-scope tasks/another-institution requests trả insufficient trước retrieval.
+Context hash mismatch hoặc declared assistant-control instructions trả
+`passage_binding_mismatch`/`untrusted_document_instruction` trước budgeting/model.
+Whole context giữ nguyên để audit; không strip/rebind hoặc bỏ amendment cần thiết.
+Rule set hiện hẹp, không thay semantic review/general intent classification.
+
+```powershell
+python scripts/run_baseline_samples.py --questions data/manifests/t3_4_adversarial_questions.csv --output-dir data/processed/t3-4-adversarial-reproduce --summary data/manifests/t3_4_adversarial_reproduce.csv --limit 24
+python scripts/audit_behaviour_samples.py --input-dir data/processed/t3-4-adversarial-reproduce --summary data/manifests/t3_4_behaviour_reproduce_audit.json --cases data/manifests/t3_4_behaviour_reproduce_cases.csv
+python scripts/audit_passage_samples.py --input-dir data/processed/t3-4-adversarial-reproduce --summary data/manifests/t3_4_passage_reproduce_audit.json
+python scripts/run_document_attacks.py --output-dir data/processed/t3-4-document-reproduce --summary data/manifests/t3_4_document_reproduce.csv
+python scripts/audit_behaviour_samples.py --input-dir data/processed/t3-4-document-reproduce --summary data/manifests/t3_4_document_reproduce_audit.json --cases data/manifests/t3_4_document_reproduce_cases.csv
+```
+
+Document runner dùng synthetic **post-retrieval adapter** + Qwen thật, không ghi public
+DB hoặc đo upstream retrieval. SQL tests dùng schemas riêng. Fixtures là attack specs,
+không phải nguồn UIT. Full outputs/hash snapshots/model traces ở ignored processed.
+34 final pass/fail cases và276tests đạt M3 technical gate. Chi tiết failed pilots,
+positive controls, timings và limits: `docs/adversarial-behaviour-review.md`.
+
 ## Dừng dịch vụ
 
 ```powershell

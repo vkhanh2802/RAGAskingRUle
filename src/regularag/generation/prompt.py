@@ -38,6 +38,11 @@ def system_prompt(policy: str) -> str:
     return PASSAGE_SYSTEM_PROMPT if policy == "verified_passages" else SYSTEM_PROMPT
 
 
+def escape_prompt_data(prompt: str) -> str:
+    """Prevent data from introducing model chat-control delimiters, without rebinding evidence."""
+    return prompt.replace("<|", "< |")
+
+
 def build_prompt(question: str, chunks: list[RetrievedChunk]) -> str:
     context_sections: list[str] = []
     for index, chunk in enumerate(chunks, start=1):

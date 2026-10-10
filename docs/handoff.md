@@ -2,10 +2,10 @@
 
 ## Hiện trạng
 
-- Milestone: M2/T3.1/T3.2/T3.3 completed; M3 còn T3.4 behavioral acceptance.
-- Task vừa hoàn thành: scope clarification/abstention, version notes và support refinements.
-- Task tiếp theo: T3.4 — giả định sai, yêu cầu bịa, chỉ dẫn giả trong tài liệu, ngoài phạm vi.
-- Git: initial commit chốt trạng thái đến T3.3; xem `git log -1` để lấy mã commit.
+- Milestone: M2/T3.1–T3.4/M3 completed trong supported scope; T4 evaluation tiếp theo.
+- Task vừa hoàn thành: T3.4 — adversarial behaviour, context instruction/hash/scope guards.
+- Task tiếp theo: T4.1 — dataset100/required facts/evidence/filters/split và held-out freeze.
+- Git: T3.3 initial commit `3407c07`; commit T3.4 xem `git log -1`.
   Theo yêu cầu người dùng, mỗi bước hoàn tất kiểm chứng phải commit rồi báo mã/kết quả;
   quy tắc lưu trong `AGENTS.md`.
 - Runtime: Docker Desktop đang chạy, `regularag-db-1` healthy. Server HTTP smoke đã
@@ -20,7 +20,7 @@
 - Tạo FastAPI app, structured JSON logging và `/health` kiểm tra cả PostgreSQL lẫn
   extension pgvector.
 - Tạo `compose.yaml` và `scripts/db/init.sql`.
-- Hiện có247 tests (143 unit/104 PostgreSQL integration với schema riêng).
+- Hiện có276 tests (169 unit/107 PostgreSQL integration với schema riêng).
 - Tạo `docs/development.md` với hướng dẫn tạo environment và chạy local.
 - Mở rộng `.gitignore` cho secrets, Python artifacts và PDF raw không được cấp phép
   tái phân phối.
@@ -140,12 +140,33 @@
 - `docs/clarification-abstention-review.md`; manual/audit summaries `t3_3_*` manifests.
   247tests/Ruff/lock70/pipcheck pass. Snapshot15ready/307FTS/19goldbindings unchanged.
 
+## T3.4 / M3 — Hiện trạng mới nhất
+
+- Pipeline `rag-guarded-passages-v1`, behaviour `guarded-behaviour-v1`; same model pins,
+  input2304/output64/passages8/context6/reranker20/freshness. Restart API để load config.
+- `generation/guards.py`: explicit out-of-scope tasks/another-institution requests
+  abstain trước model; source hash hoặc assistant-control instruction trong context
+  abstain trước budgeting. Detector fold không sửa bound text/hashes; whole context
+  blocked, không bỏ required companion để dùng base. Prepare/resolve có cùng guard.
+- 24real API cases:pilot16pass/8fail, final24pass (11primarysupported/13abstain).
+  10post-retrieval fixtures:pilot3pass/7fail, final10pass (2controls/8abstain). RealQwen;
+  synthetic retriever không mutate/benchmark publicDB. SQLinjectiontests schemas riêng.
+- Positive12 final11supported/1correctabstention; historical412 fullconditions vàcaller
+  old-only/domain/cohort/date filters giữ đúng. Binding/citation/filter/latest audits0.
+- 276tests/Ruff/lock70/pipcheck pass; snapshot15ready/307FTS/19goldbindings unchanged,
+  307chunks0instructiondetectorhits,0unfinished. Scope/instruction patterns còn declared
+  lexicalheuristics, không general entailment/complete injection protection.
+- `docs/adversarial-behaviour-review.md`, `t3_4_*` manifests; pilot failures vàraw traces
+  giữignoredprocessed. Regexfixture serialization sửa sangarrays không đổi query/status/body.
+- M3 technical acceptance đạt34pass/failcases; nextT4.1. API vẫnstateless structuredscope,
+  optionalrewriting không triển khai. Chưa independent/held-out answeraccuracy.
+
 ## Kiểm chứng
 
 - `conda run -n ragschool python --version`: Python 3.12.15.
 - `python -m ruff check .`: pass.
 - `python -m ruff format --check .`: pass.
-- `REGULARAG_RUN_DB_TESTS=1` và `python -m pytest`:247 passed.
+- `REGULARAG_RUN_DB_TESTS=1` và `python -m pytest`:276 passed.
 - Lock integrity: 70 dependency, không có version mismatch; `pip check` pass.
 - `docker compose config --quiet`: pass.
 - Runtime hiện tại: Docker đã recovery sau lúc bị dừng; `docker compose ps` healthy.
@@ -201,7 +222,7 @@
 - API vẫn khởi động khi database lỗi nhưng `/health` trả 503 `degraded`; Compose và
   deploy có thể dùng trạng thái này để quyết định readiness.
 - Config cuối: `configs/rag/baseline.json`, prompt `bound-passage-selection-v3`,
-  pipeline `rag-scoped-answers-v1`; reranker/freshness/behaviour enabled, low-memory generation.
+  pipeline `rag-guarded-passages-v1`; reranker/freshness/behaviour enabled, low-memory generation.
 - RAM trống thấp khi Docker bật nên E5-small thay BGE-M3 ở embedding; tokenizer chunk
   vẫn BGE-M3. E5 prefix query/passage, window 512/32 và pooling được fingerprint.
 - Qwen GGUF chọn quote; backend bỏ diễn giải tự do, kiểm quote có thật và dựng citation.
@@ -264,14 +285,12 @@
 
 ## Phiên tiếp theo
 
-1. T3.4: ít nhất20 pass/fail cases về giả định sai, yêu cầu bịa khi không biết,
-   chỉ dẫn giả trong tài liệu và ngoài phạm vi; sửa lỗi nghiêm trọng trước M3.
-   20 scope cases T3.3 chưa thay thế gate này. Query rewriting chỉ nếu cần và phải lưu
-   query gốc/mới, không thêm điều kiện ngoài người dùng.
-2. Giữ acceptance12/frozen30/19 gold bindings và T3.3 cases/failed traces; audit support
-   ngoài ID/hash. Không nới caller filters/source-quality/latest guards để làm evaluation đạt.
-3. Latency CPU biến thiên: mixed batches p50~17–20 s, cold có thể70–83 s. Đo cold/warm
-   riêng trước khi claim speedup. Public source checkpoint vẫn09October2026; không livefetch.
-4. Sau khi step kiểm chứng xong, cập nhật progress/handoff rồi commit và báo mã theo
-   `AGENTS.md`. Finer-grained amendment views/45excludedpages vẫn cần source-bound review;
-   chưa independent/held-out accuracy.
+1. T4.1: hoàn thiện dataset100 theo plan (60development/40held-out), mọi mẫu có category/
+   expectedstatus; answered có reference/requiredfacts/evidencepages/passages. Giữparaphrase
+   cùngsplit, freezeheldout trước tuning cuối; T3.4cases làdevelopment khôngrelabelheldout.
+2. Giữ acceptance12/frozen30/19gold vàT3.3/T3.4failures; scope/instruction guards còn hẹp,
+   cần thêm biến thể/falsepositivecontrols. Không nới citation/filter/source/latest guards
+   hoặc rebind gold để vượt evaluation. Chưa cógeneralentailment.
+3. PositiveCPU p50~22s/cold~57s ởlượtT3.4, tải máybiến thiên; đo riêngcold/warm trướcclaims.
+   Public sourcecheckpoint09October2026,45excludedpages vẫnngoàisupported scope.
+4. Chốt step sau kiểm chứng bằng progress/handoff vàcommit theo `AGENTS.md`, báomã.

@@ -66,7 +66,7 @@ def main() -> None:
             errors["filter_preservation_errors"] += 1
         expected_status = record["question"].get("expected_status")
         expected_reason = record["question"].get("expected_reason")
-        if expected_status and response.get("status") != expected_status:
+        if expected_status and response.get("status") not in expected_status.split("|"):
             errors["expected_behaviour_errors"] += 1
         if expected_reason and response.get("failure_reason") != expected_reason:
             errors["expected_behaviour_errors"] += 1
@@ -76,7 +76,13 @@ def main() -> None:
             row = stored[source["chunk_id"]]
             if row["content_sha256"] != sha256(row["text"].encode()).hexdigest():
                 errors["span_binding_errors"] += 1
-            chunks.append(SimpleNamespace(chunk_id=source["chunk_id"], text=row["text"]))
+            chunks.append(
+                SimpleNamespace(
+                    chunk_id=source["chunk_id"],
+                    text=row["text"],
+                    content_sha256=row["content_sha256"],
+                )
+            )
         passages = tuple(
             EvidencePassage(**{**p, "required_passage_ids": tuple(p["required_passage_ids"])})
             for p in response.get("evidence_passages", [])

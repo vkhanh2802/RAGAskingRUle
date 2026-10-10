@@ -9,6 +9,7 @@ from hashlib import sha256
 from itertools import combinations
 
 from regularag.generation.clarification import QuestionScope, needs_programme
+from regularag.generation.guards import evidence_failure
 from regularag.retrieval.keyword import normalize_vietnamese
 from regularag.retrieval.repository import RetrievedChunk
 
@@ -292,6 +293,8 @@ def prepare_passages(
     max_passages: int,
     scope: QuestionScope | None = None,
 ) -> PreparedPassages:
+    if reason := evidence_failure(chunks):
+        return PreparedPassages("", tuple(chunks), (), 0, reason)
     candidates = []
     for chunk_index, chunk in enumerate(chunks):
         digest = sha256(chunk.text.encode("utf-8")).hexdigest()
@@ -445,6 +448,8 @@ def resolve_passages(
     scope: QuestionScope | None = None,
     minimize: bool = False,
 ) -> tuple[list[EvidencePassage], str | None]:
+    if reason := evidence_failure(list(prepared.chunks)):
+        return [], reason
     lookup = {p.passage_id: p for p in prepared.passages}
     if len(set(selected_ids)) != len(selected_ids) or any(
         pid not in lookup for pid in selected_ids

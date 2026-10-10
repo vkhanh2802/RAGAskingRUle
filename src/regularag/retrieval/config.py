@@ -77,7 +77,7 @@ class FreshnessConfig(BaseModel):
 
 class BehaviourConfig(BaseModel):
     enabled: bool = False
-    policy_version: Literal["clarify-scope-v1"] = "clarify-scope-v1"
+    policy_version: Literal["clarify-scope-v1", "guarded-behaviour-v1"] = "clarify-scope-v1"
     minimize_selected_passages: bool = True
 
 

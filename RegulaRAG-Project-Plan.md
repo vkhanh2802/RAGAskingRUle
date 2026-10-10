@@ -439,15 +439,23 @@ không tự hợp nhất pháp lý. T3.4/M3 vẫn chưa nghiệm thu.
 
 **Ước lượng:** 4–5 giờ. **Phụ thuộc:** T3.3.
 
-- [ ] Test giả định sai trong câu hỏi.
-- [ ] Test yêu cầu bịa khi không biết.
-- [ ] Test chỉ dẫn giả trong tài liệu truy xuất.
-- [ ] Test câu hỏi ngoài phạm vi.
-- [ ] Ghi failure cases và sửa lỗi nghiêm trọng.
+- [x] Test giả định sai trong câu hỏi.
+- [x] Test yêu cầu bịa khi không biết.
+- [x] Test chỉ dẫn giả trong tài liệu truy xuất.
+- [x] Test câu hỏi ngoài phạm vi.
+- [x] Ghi failure cases và sửa lỗi nghiêm trọng.
 - [ ] Tùy chọn: query rewriting cho câu hỏi tiếp nối.
 - [ ] Nếu rewrite: lưu query gốc/query mới và kiểm tra không thêm điều kiện không có.
 
 **Nghiệm thu M3:** ít nhất 20 tình huống hành vi có pass/fail; không còn lỗi nghiêm trọng đã biết về citation giả hoặc bỏ qua filter.
+
+**Hoàn tất T3.4/M3 2026-10-10:** 24 API adversarial cases +10 synthetic post-retrieval
+cases có pass/fail (final34/34; pilot8+7failures được giữ), positive12 có11supported
+answers/1correctabstention;276tests. Source hash/context instruction guards và
+explicit outside-scope rules; filters/latest/gold bindings giữ nguyên.
+`docs/adversarial-behaviour-review.md`. Hai mục rewriting tùy chọn không được chọn;
+API vẫn câu hỏi độc lập +structured scope. M3 là technical gate trong supported scope,
+chưa held-out accuracy; tiếp theoT4.1.
 
 ## Tuần 4 — Evaluation và bằng chứng chất lượng
 

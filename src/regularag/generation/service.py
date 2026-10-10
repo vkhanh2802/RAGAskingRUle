@@ -13,6 +13,7 @@ from regularag.generation.clarification import (
     applicability_failure,
     version_notes,
 )
+from regularag.generation.guards import evidence_failure, unsupported_question
 from regularag.generation.local import AnswerStatus, Generator
 from regularag.generation.passages import EvidencePassage, prepare_passages, resolve_passages
 from regularag.generation.prompt import prepare_context
@@ -139,12 +140,26 @@ class AnswerService:
     ) -> AnswerResult:
         # FastAPI executes sync endpoints in threads; serialize model work on this small host.
         with self._inference_lock:
+            question_reason = (
+                unsupported_question(question) if self.config.behaviour.enabled else None
+            )
             plan = (
-                analyse_scope(question, filters, scope) if self.config.behaviour.enabled else None
+                analyse_scope(question, filters, scope)
+                if self.config.behaviour.enabled and not question_reason
+                else None
             )
             effective_filters = plan.filters if plan else filters
             try:
-                if plan and plan.clarification:
+                if question_reason:
+                    result = self._result(
+                        "insufficient_evidence",
+                        "Corpus hiện có chỉ hỗ trợ các quy định UIT đã kiểm chứng; "
+                        "chưa có bằng chứng để trả lời đầy đủ yêu cầu này.",
+                        [],
+                        set(),
+                        failure_reason=question_reason,
+                    )
+                elif plan and plan.clarification:
                     result = replace(
                         self._result(
                             "needs_clarification",
@@ -244,6 +259,18 @@ class AnswerService:
                 ),
                 retrieval_ms=round(retrieval_ms, 3),
                 version_notes=version_notes(context),
+            )
+        if reason := evidence_failure(context):
+            return replace(
+                self._result(
+                    "insufficient_evidence",
+                    "Context không đạt kiểm tra tính toàn vẹn hoặc có chỉ dẫn điều khiển trợ lý; "
+                    "chưa sử dụng các đoạn này làm bằng chứng trả lời.",
+                    context,
+                    set(),
+                    failure_reason=reason,
+                ),
+                retrieval_ms=round(retrieval_ms, 3),
             )
         if plan:
             reason = applicability_failure(plan, context)

@@ -1,0 +1,11 @@
+question_id,http_status,answer_status,failure_reason,generation_called,latency_ms,source_count
+I01,200,answered,,True,10460,1
+I02,200,answered,,True,5787,1
+I03,200,answered,,True,5650,1
+I04,200,answered,,True,5776,1
+I05,200,answered,,True,5724,1
+I06,200,answered,,True,5662,1
+I07,200,answered,,True,7266,2
+I08,200,answered,,True,6221,1
+I09,200,insufficient_evidence,passage_binding_mismatch,False,4,1
+I10,200,answered,,True,6228,1

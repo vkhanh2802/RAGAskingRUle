@@ -8,7 +8,7 @@ from regularag.generation.local import (
     parse_quote_selection,
     prompt_passage_ids,
 )
-from regularag.generation.prompt import system_prompt
+from regularag.generation.prompt import escape_prompt_data, system_prompt
 from regularag.retrieval.config import GenerationConfig
 
 
@@ -83,7 +83,7 @@ class LlamaCppGenerator:
     def _prompt_tokens(self, prompt: str) -> list[int]:
         self._load()
         # Keep data from introducing ChatML role delimiters.
-        prompt = prompt.replace("<|", "< |")
+        prompt = escape_prompt_data(prompt)
         rendered = (
             f"<|im_start|>system\n{system_prompt(self.config.response_policy)}<|im_end|>\n"
             f"<|im_start|>user\n{prompt}<|im_end|>\n"

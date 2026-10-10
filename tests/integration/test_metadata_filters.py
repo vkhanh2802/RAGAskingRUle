@@ -1,5 +1,6 @@
 import os
 from datetime import date
+from hashlib import sha256
 
 import numpy as np
 import psycopg
@@ -64,7 +65,8 @@ def scoped(database_settings, artifacts):
                 (Jsonb(metadata), document_id),
             )
             connection.execute(
-                "UPDATE chunks SET text='SharedQuery' WHERE document_id=%s", (document_id,)
+                "UPDATE chunks SET text=%s,content_sha256=%s WHERE document_id=%s",
+                ("SharedQuery", sha256(b"SharedQuery").hexdigest(), document_id),
             )
     return config, ids
 

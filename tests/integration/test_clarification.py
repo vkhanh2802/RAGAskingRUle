@@ -96,4 +96,4 @@ def test_missing_scope_response_is_structured_and_has_no_citations(database_sett
         "programmes",
     }
     assert not payload["sources"] and not payload["evidence_passages"]
-    assert payload["behaviour_policy"] == "clarify-scope-v1"
+    assert payload["behaviour_policy"] == config.behaviour.policy_version

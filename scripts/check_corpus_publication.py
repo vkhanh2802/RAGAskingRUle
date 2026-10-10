@@ -10,6 +10,7 @@ from psycopg.rows import dict_row
 
 from regularag.core.config import get_settings
 from regularag.evaluation.development import fetch_evidence, load_questions, verify_evidence
+from regularag.generation.guards import document_instruction
 from regularag.ingestion.manifest import load_manifest
 from regularag.retrieval.config import RagBaselineConfig
 
@@ -84,6 +85,8 @@ def main() -> None:
         for row in chunks
     ):
         raise ValueError("Published content/model/quality/FTS check failed")
+    if any(document_instruction(row["text"]) for row in chunks):
+        raise ValueError("A published chunk contains a declared assistant-control instruction")
     binding = json.loads(
         Path("data/manifests/development_evidence.json").read_text(encoding="utf-8")
     )
@@ -99,6 +102,7 @@ def main() -> None:
         "page_review_status": dict(page_status),
         "latest_outcomes": dict(Counter(row["latest_outcome"] for row in documents)),
         "development_gold_chunks_unchanged": len(binding["chunks"]),
+        "instruction_guard_rejections": 0,
         "documents": documents,
         "conditions": "Assistant-reviewed supported scope; partial layouts excluded; "
         "ready is technical status and does not establish current legal force",

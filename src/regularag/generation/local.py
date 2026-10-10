@@ -5,7 +5,7 @@ from typing import Literal, Protocol
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 
-from regularag.generation.prompt import system_prompt
+from regularag.generation.prompt import escape_prompt_data, system_prompt
 from regularag.retrieval.config import GenerationConfig
 
 AnswerStatus = Literal["answered", "insufficient_evidence", "needs_clarification"]
@@ -184,7 +184,7 @@ class TransformersGenerator:
         return self._tokenizer.apply_chat_template(
             [
                 {"role": "system", "content": system_prompt(self.config.response_policy)},
-                {"role": "user", "content": prompt},
+                {"role": "user", "content": escape_prompt_data(prompt)},
             ],
             tokenize=False,
             add_generation_prompt=True,
