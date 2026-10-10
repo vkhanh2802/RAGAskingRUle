@@ -85,6 +85,7 @@ function sourceEntry(source, payload, index) {
     ['Ngày kiểm nguồn', source.source_checked_at], ['Freshness', source.freshness_status],
     ['Chunk ID', source.chunk_id], ['Cohort', source.cohort_scope], ['Ghi chú', source.metadata_note],
     ['Score kind', source.score_kind], ['Raw score', source.score], ['Rerank logit', source.rerank_score],
+    ['Phạm vi bằng chứng không bị sửa đổi', source.evidence_char_ranges?.length ? source.evidence_char_ranges.map(([start, end]) => `${start}–${end}`).join(', ') : 'Toàn chunk theo guards'],
     ...passages.map(p => [`${p.passage_id} · offsets ${p.char_start}–${p.char_end}`, p.text_sha256]),
   ]));
   entry.append(technical);

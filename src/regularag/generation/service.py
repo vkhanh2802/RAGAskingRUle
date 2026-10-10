@@ -85,6 +85,7 @@ class AnswerSource:
     latest_document_number: str | None = None
     latest_issued_date: str | None = None
     required_update_chunk_ids: tuple[str, ...] = ()
+    evidence_char_ranges: tuple[tuple[int, int], ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -600,6 +601,7 @@ class AnswerService:
                 latest_document_number=chunk.latest_document_number,
                 latest_issued_date=chunk.latest_issued_date,
                 required_update_chunk_ids=chunk.required_update_chunk_ids,
+                evidence_char_ranges=chunk.evidence_char_ranges,
             )
             for index, chunk in enumerate(context, start=1)
         )
@@ -626,7 +628,9 @@ class AnswerService:
                         f"{chunk.document_number}: văn bản liên quan chưa đạt full/ready "
                         f"{chunk.related_document_number}."
                         for chunk in context
-                        if chunk.related_document_number and not chunk.related_document_ready
+                        if chunk.amendment_required
+                        and chunk.related_document_number
+                        and not chunk.related_document_ready
                     ]
                     + [
                         f"{chunk.document_number}: chưa xác minh trạng thái hiệu lực."

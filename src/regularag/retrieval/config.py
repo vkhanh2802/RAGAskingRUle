@@ -72,7 +72,7 @@ class RerankerConfig(BaseModel):
 
 class FreshnessConfig(BaseModel):
     enabled: bool = False
-    policy_version: Literal["verified-relations-v1"] = "verified-relations-v1"
+    policy_version: Literal["verified-relations-v1", "clause-scoped-v2"] = "verified-relations-v1"
 
 
 class BehaviourConfig(BaseModel):

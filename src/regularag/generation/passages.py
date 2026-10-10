@@ -11,6 +11,7 @@ from itertools import combinations
 from regularag.generation.clarification import QuestionScope, needs_programme
 from regularag.generation.guards import evidence_failure
 from regularag.retrieval.keyword import normalize_vietnamese
+from regularag.retrieval.registration import registration_focus
 from regularag.retrieval.repository import RetrievedChunk
 
 _BOUNDARY = re.compile(r"(?m)^(?:Điều\s+\d+[a-z]?\.|\d+(?:\.\d+)*[.)]\s)")
@@ -173,6 +174,14 @@ def support_facets(question: str) -> dict[str, str]:
         )
     if numeric and re.search(r"do an.{0,40}tin chi", q) and not re.search(r"no tin chi|dang ky", q):
         facets["module_credit_count"] = r"so luong tin chi|khoi luong.{0,50}tin chi"
+    focus = registration_focus(question)
+    if focus == "regular":
+        facets["regular_period"] = r"hoc ky chinh"
+        facets["registration_grade_condition"] = (
+            r"dtbc\s*(?:≥|>=|tu).{0,100}dang k[yi].{0,80}tin chi"
+        )
+    elif focus == "summer":
+        facets["summer_period"] = r"hoc ky he"
     return facets
 
 
@@ -203,6 +212,8 @@ def _ranges(
     question: str, chunk: RetrievedChunk, scope: QuestionScope | None = None
 ) -> list[tuple[int, int]]:
     text = chunk.text
+    if chunk.evidence_char_ranges:
+        return list(chunk.evidence_char_ranges)
     q = normalize_vietnamese(question)
     if "dieu kien" in q and re.match(r"Điều\s+\d+\.\s*Điều kiện", text):
         return [(0, len(text))]  # Preserve all requirements, including grading and age limits.
@@ -295,6 +306,12 @@ def prepare_passages(
 ) -> PreparedPassages:
     if reason := evidence_failure(chunks):
         return PreparedPassages("", tuple(chunks), (), 0, reason)
+    if any(
+        not 0 <= start < end <= len(chunk.text)
+        for chunk in chunks
+        for start, end in chunk.evidence_char_ranges
+    ):
+        return PreparedPassages("", tuple(chunks), (), 0, "passage_view_mismatch")
     candidates = []
     for chunk_index, chunk in enumerate(chunks):
         digest = sha256(chunk.text.encode("utf-8")).hexdigest()
@@ -480,6 +497,13 @@ def resolve_passages(
             or prepared.chunks[int(passage.source_id[1:]) - 1].chunk_id != passage.chunk_id
             or chunk.text[passage.char_start : passage.char_end] != passage.text
             or sha256(passage.text.encode("utf-8")).hexdigest() != passage.text_sha256
+            or (
+                chunk.evidence_char_ranges
+                and not any(
+                    start <= passage.char_start < passage.char_end <= end
+                    for start, end in chunk.evidence_char_ranges
+                )
+            )
         ):
             return [], "passage_binding_mismatch"
     if missing_support(question, selected, scope):

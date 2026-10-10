@@ -81,6 +81,9 @@ def main() -> None:
                     chunk_id=source["chunk_id"],
                     text=row["text"],
                     content_sha256=row["content_sha256"],
+                    evidence_char_ranges=tuple(
+                        tuple(pair) for pair in source.get("evidence_char_ranges", [])
+                    ),
                 )
             )
         passages = tuple(

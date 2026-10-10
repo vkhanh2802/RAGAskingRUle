@@ -11,6 +11,7 @@ from regularag.retrieval.freshness import (
 )
 from regularag.retrieval.fusion import reciprocal_rank_fusion
 from regularag.retrieval.keyword import build_keyword_query
+from regularag.retrieval.registration import has_regular_credit_rule, registration_focus
 from regularag.retrieval.repository import RetrievedChunk
 from regularag.retrieval.reranker import CrossEncoderReranker, Reranker
 
@@ -49,7 +50,10 @@ class RetrievalPipeline:
             settings = getattr(dense_repository, "settings", None)
             if settings is None:
                 raise ValueError("freshness-enabled retrieval requires a document catalog")
-            self.freshness = FreshnessPolicy(PgFreshnessRepository(settings, config))
+            self.freshness = FreshnessPolicy(
+                PgFreshnessRepository(settings, config),
+                clause_scoped=config.freshness.policy_version == "clause-scoped-v2",
+            )
 
     def release_models(self) -> None:
         import gc
@@ -73,6 +77,17 @@ class RetrievalPipeline:
         pool = self.candidates(question, mode, filters)
         if self.reranker is not None and any(not hit.freshness_failure for hit in pool):
             pool = self.reranker.rerank(question, pool)
+        if (
+            self.freshness is not None
+            and self.config.freshness.policy_version == "clause-scoped-v2"
+            and pool
+            and not pool[0].freshness_failure
+            and pool[0].freshness_status == "unchanged_verified_clause"
+        ):
+            # Only a verified unchanged primary rule can discard lower-ranked blocked
+            # candidates. Other primaries retain the context-wide freshness gate;
+            # required companions still pass the selection/service budget guards.
+            pool = [hit for hit in pool if not hit.freshness_failure]
         return select_with_updates(pool, limit) if self.freshness is not None else pool[:limit]
 
     def candidates(
@@ -127,6 +142,14 @@ class RetrievalPipeline:
                 self.config.retrieval.keyword_weight,
             )
         pool = [replace(hit, first_stage_rank=rank) for rank, hit in enumerate(pool, 1)]
+        if (
+            self.freshness is not None
+            and self.config.freshness.policy_version == "clause-scoped-v2"
+            and registration_focus(question) == "regular"
+        ):
+            scoped = [hit for hit in pool if has_regular_credit_rule(hit.text)]
+            if scoped:
+                pool = scoped
         if self.freshness is not None:
-            pool = select_with_updates(self.freshness.apply(pool, filters), pool_limit)
+            pool = select_with_updates(self.freshness.apply(pool, filters, question), pool_limit)
         return pool

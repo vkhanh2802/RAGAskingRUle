@@ -1,0 +1,16 @@
+{
+  "audited_at": "2026-10-10T12:37:17.139780+00:00",
+  "requests": 8,
+  "answered": 6,
+  "needs_clarification": 0,
+  "insufficient_evidence": 2,
+  "p50_ms": 9753.0,
+  "p95_ms": 17914.749999999996,
+  "span_binding_errors": 0,
+  "citation_errors": 0,
+  "support_errors": 0,
+  "expected_behaviour_errors": 0,
+  "filter_preservation_errors": 0,
+  "failed_cases": [],
+  "conditions": "Recorded real API against current bound database text; automatic identity/support-facet audit, manual relevance review still required"
+}

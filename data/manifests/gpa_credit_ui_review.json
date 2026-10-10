@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "mode": "real-backend-gpa-regression",
+  "base_url": "http://127.0.0.1:8000",
+  "real_requests": 5,
+  "assertion_count": 22,
+  "assertions": [
+    "Vietnamese document language",
+    "four development-only presets",
+    "catalog15",
+    "initial WCAG A/AA automated scan",
+    "native catalog dialog opens",
+    "Escape closes dialog",
+    "live clause-scoped policy loaded",
+    "real GPA cap30 in main semester from790",
+    "actual cited spans stay inside unchanged source view",
+    "GPA citation opens source790",
+    "unchanged range provenance rendered",
+    "GPA result WCAG A/AA automated scan",
+    "GPA old-only caller filter retained",
+    "unchanged GPA rule answers even with790-only",
+    "amended summer still blocks old-only filter",
+    "explicit personal training scope still asks for audience",
+    "explicit audience reply preserves query and answers unchanged cap30",
+    "no horizontal page overflow 375x812",
+    "no horizontal page overflow 812x375",
+    "no horizontal page overflow 768x1024",
+    "reduced motion disables smooth scrolling",
+    "no uncaught browser errors"
+  ],
+  "pageErrors": [],
+  "held_out_inference_requests": 0
+}

@@ -23,6 +23,7 @@ corpus15/307 và source review. Offline flags ở trên sử dụng cache đã c
 phải làm setup/tải model/index theo `docs/development.md` trước.
 `Ctrl+C` trong terminal để dừng server. Không dùng thêm `--workers` trên máy RAM nhỏ;
 model requests được serialize trong service.
+Sau khi đổi code hoặc config, dừng/khởi động lại Uvicorn rồi refresh trang demo.
 
 Badge góc trên kiểm API/database, **không chứng minh model đã được tải**. Bấm badge
 để kiểm lại. Model local CPU được tải khi có request; lần đầu có thể30–90giây tuỳ máy.
@@ -49,6 +50,26 @@ không tự gửi. Có thể gửi bằng `Ctrl+Enter` trong ô câu hỏi.
 
 Mỗi request độc lập; UI không tự thêm nội dung câu hỏi trước hoặc rewrite query.
 
+### Thử GPA và nguồn cũ không bị sửa đổi
+
+Điền câu:
+
+> Nếu điểm trung bình đến hiện tại của tôi >=8.0, tôi sẽ được phép đăng kí bao nhiêu tín chỉ?
+
+1. Để chủ đề **Tất cả** và chưa chọn giới hạn document nếu muốn thử default query;
+   kiểm lại các bộ lọc còn giữ từ mẫu vừa chọn.
+2. Mong đợi `answered`: **học kỳ chính**, ĐTBC≥8,0 đến thời điểm đăng ký được phép
+   tối đa **30tín chỉ**, từ790 Điều14 khoản1(a), PDF12–13. Normal rule14–24 và các
+   điều kiện/ngoại lệ vẫn có trong đoạn trích.
+3. Chọn chỉ790 và gửi cùng câu: khoản1(a) không bị1393 sửa nên vẫn có bằng chứng30.
+4. Đổi sang **học kỳ hè**, giữ790-only: phải thiếu bằng chứng cập nhật1393. Bỏ giới
+   hạn790-only thì trả quy định hè12tín chỉ cùng điều kiện mới từ1393.
+
+ĐTBC dùng đăng ký tín chỉ khác ĐTBCTL; xem790 Điều24 khi cần đối chiếu định nghĩa.
+Nếu đã chọn chủ đề Đào tạo tín chỉ cho câu cá nhân, backend có thể hỏi **hệ đào tạo**;
+bổ sung hệ đúng của bạn qua phần scope và giữ câu hỏi gốc. Browser QA đã kiểm cả flow
+hỏi lại rồi trả lời với explicit Đại học chính quy.
+
 ## 3. Kiểm tra citation và nguồn
 
 - Bấm **[S1]** trong đáp án: mở đúng source card và chuyển focus đến nguồn.
@@ -58,11 +79,15 @@ Mỗi request độc lập; UI không tự thêm nội dung câu hỏi trước 
   phạm vi chunk, không nhất thiết là trang chính xác của từng dòng.
 - **Phiên bản & provenance** có ngày ban hành, latest family, ngày kiểm source,
   chunkID, offsets/hash và rawscore. Những scores này không phải confidence phần trăm.
+- Với view khoản không bị sửa đổi, **Phạm vi bằng chứng không bị sửa đổi** ghi Unicode
+  offsets trên chunk gốc; actual cited passages nằm trong phạm vi đó.
 - Nguồn không cited được ghi “Nguồn trong context”, không trình bày như bằng chứng
   đã dùng để kết luận. Warnings/partial coverage và legal-status-unknown đọc ở ghi chú.
 
 “Mới nhất” là verified chain/corpus/request scope; không tự xác nhận pháp lý hiện hành.
 Không suy khóa hoặc ngày áp dụng chỉ từ năm ban hành.
+Văn bản ban hành lâu vẫn được dùng cho điều/khoản đã kiểm chứng không bị sửa đổi;
+latest family1393 không có nghĩa mọi nội dung790 đều phải thay bằng1393.
 
 ## 4. Thử phạm vi và bộ lọc
 

@@ -1,0 +1,13 @@
+question_id,http_status,answer_status,failure_reason,latency_ms,input_tokens,source_count,top_source_document,top_source_pdf_pages,document_hit_in_context,generation_called,passage_count,retrieval_ms,generation_ms,selection_attempts
+F01,200,answered,,19912,355,1,1393/QĐ-ĐHCNTT,1-2,True,True,1,15005.05,4556.231,1
+F02,200,answered,,10220,340,1,1393/QĐ-ĐHCNTT,1-2,True,True,1,5502.17,4377.401,1
+F03,200,answered,,10903,413,1,1393/QĐ-ĐHCNTT,1-2,True,True,1,5490.15,5077.047,1
+F04,200,answered,,11263,714,1,513/QĐ-ĐHCNTT,1-2,True,True,1,3595.64,7328.762,1
+F05,200,insufficient_evidence,latest_excluded_by_filters,5781,0,6,790/QĐ-ĐHCNTT,12-12,True,False,0,5646.052,0.0,0
+F06,200,answered,,12089,738,1,412/QĐ-ĐHCNTT,4-4,True,True,1,4135.846,7611.87,1
+M201,200,answered,,10867,713,1,513/QĐ-ĐHCNTT,1-2,True,True,1,2918.052,7606.803,1
+M204,200,answered,,7853,354,1,43/TB-ĐHCNTT,2-2,True,True,1,3068.803,4447.098,1
+M211,200,answered,,10483,401,2,851/QĐ-ĐHCNTT,1-1,True,True,2,4951.855,5190.71,1
+M212,200,answered,,10698,380,1,894/QĐ-ĐHCNTT,8-8,True,True,2,5651.75,4708.822,1
+D15,200,answered,,8966,323,1,159/QĐ-ĐHCNTT,4-4,True,True,1,4243.529,4371.861,1
+D30,200,answered,,9918,437,1,956/QĐ-ĐHCNTT,7-8,True,True,1,4147.09,5381.564,1

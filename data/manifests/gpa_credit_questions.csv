@@ -1,0 +1,9 @@
+question_id,question,candidate_document_numbers,filters_json,scope_json,expected_status,verification_note
+G01,"Nếu điểm trung bình đến hiện tại của tôi >=8.0, tôi sẽ được phép đăng kí bao nhiêu tín chỉ?",790/QĐ-ĐHCNTT,,,answered,Userrepro;790article14clause1a mainsemesterDTBC8allows30 notsummer12
+G02,"Nếu điểm trung bình đến hiện tại của tôi >=8.0, tôi sẽ được phép đăng kí bao nhiêu tín chỉ?",790/QĐ-ĐHCNTT,"{""document_ids"":[""uit_790_2022""]}",,answered,Explicit790only mayuseverifiedunchanged14.1a;1393onlyamends14.1b
+G03,"Theo Quyết định790 ĐTBC từ8,0 trong học kỳ chính được đăng ký tối đa bao nhiêu tín chỉ?",790/QĐ-ĐHCNTT,"{""document_ids"":[""uit_790_2022""]}",,answered,ClearregularsemesterandDTBC condition notsummer branch
+G04,"Trong học kỳ chính nếu ĐTBC là7,5 thì giới hạn tín chỉ đăng ký thông thường là gì?",790/QĐ-ĐHCNTT,,,answered,Normal14to24 rule;30onlyconditionalDTBCatleast8 notassert30for7point5
+G05,"ĐTBC>=8,0 thì học kỳ hè được đăng ký tối đa bao nhiêu tín chỉ?",1393/QĐ-ĐHCNTT,,,answered,Explicitsummer overridesGPA;updatedsummer12 notregular30
+G06,"Theo790 ĐTBC>=8,0 thì học kỳ hè đăng ký tối đa bao nhiêu tín chỉ?",790/QĐ-ĐHCNTT,"{""document_ids"":[""uit_790_2022""]}",,insufficient_evidence,Relevantsummeramendmentexcludedmuststillabstain
+G07,"Theo790 lớp đại cương và cơ sở ngành học chung tối thiểu bao nhiêu sinh viên?",790/QĐ-ĐHCNTT,"{""document_ids"":[""uit_790_2022""]}",,insufficient_evidence,Affected12.1 stillrequires1393;do notfall back50
+G08,"Theo790 điểm trung bình chung ĐTBC và điểm trung bình chung tích lũy ĐTBCTL khác nhau thế nào?",790/QĐ-ĐHCNTT,"{""document_ids"":[""uit_790_2022""]}",,answered,Unchangedarticle24 usablewithoutunrelated1393companion

@@ -1,0 +1,31 @@
+{
+  "question_id": "G01",
+  "target_chunk_id": "uit_790_2022:chunk:0020",
+  "minimum_cosine": 0.55,
+  "target_dense_score": 0.8888168003802542,
+  "pilot": [
+    {
+      "document_ids": [],
+      "target_retained_after_freshness": false,
+      "api_result": "Wrong summer cap12 from1393"
+    },
+    {
+      "document_ids": ["uit_790_2022"],
+      "target_retained_after_freshness": true,
+      "api_failure_reason": "latest_excluded_by_filters"
+    }
+  ],
+  "verified": [
+    {
+      "document_ids": [],
+      "target_retained_after_freshness": true,
+      "freshness_failures": []
+    },
+    {
+      "document_ids": ["uit_790_2022"],
+      "target_retained_after_freshness": true,
+      "freshness_failures": []
+    }
+  ],
+  "conditions": "Raw dense score and hybrid post-freshness candidate inspection against the same source corpus; no LLM, no calibrated confidence, no held-out inference. Full retrieval traces remain ignored."
+}

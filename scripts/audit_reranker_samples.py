@@ -14,7 +14,29 @@ from psycopg.rows import dict_row
 from regularag.core.config import get_settings
 from regularag.ingestion.manifest import load_manifest
 from regularag.retrieval.filters import RetrievalFilters
-from regularag.retrieval.freshness import metadata_json
+from regularag.retrieval.freshness import _unmodified_regular_subitem, metadata_json
+
+
+def verified_unmodified_view(record, source, stored, relation):
+    original = SimpleNamespace(
+        document_number=source["document_number"],
+        article=stored["article"],
+        clauses=tuple(stored["clauses"]),
+        text=stored["text"],
+    )
+    view = _unmodified_regular_subitem(original, relation, record["question"]["question"])
+    declared = tuple(tuple(pair) for pair in source.get("evidence_char_ranges", []))
+    cited = [
+        p
+        for p in record["response"].get("evidence_passages", [])
+        if p["cited"] and p["source_id"] == source["source_id"]
+    ]
+    return bool(
+        view
+        and declared == (view,)
+        and cited
+        and all(view[0] <= p["char_start"] < p["char_end"] <= view[1] for p in cited)
+    )
 
 
 def main() -> None:
@@ -46,7 +68,7 @@ def main() -> None:
         chunks = {
             row["chunk_id"]: row
             for row in connection.execute(
-                "SELECT chunk_id,document_id,text,content_sha256 "
+                "SELECT chunk_id,document_id,text,content_sha256,article,clauses "
                 "FROM chunks WHERE chunk_id=ANY(%s)",
                 (sorted(chunk_ids),),
             ).fetchall()
@@ -78,6 +100,8 @@ def main() -> None:
                 or source["issued_date"] != document["issued_date"]
                 or source["source_checked_at"] != document.get("source_checked_at")
                 or stored["document_id"] != document["document_id"]
+                or source["article"] != stored["article"]
+                or tuple(source["clauses"]) != tuple(stored["clauses"])
                 or sha256(stored["text"].encode()).hexdigest() != stored["content_sha256"]
             ):
                 checks["provenance_mismatches"] += 1
@@ -119,13 +143,14 @@ def main() -> None:
                         clauses = affected.get(source["article"])
                         if (
                             relation["kind"] == "replaces"
+                            or source["article"] is None
                             or clauses is not None
                             and (
                                 not clauses
                                 or not source["clauses"]
                                 or set(clauses).intersection(source["clauses"])
                             )
-                        ):
+                        ) and not verified_unmodified_view(record, source, stored, relation):
                             checks["answered_old_affected_clauses"] += 1
         if payload["status"] == "answered":
             lookup = {source["source_id"]: source for source in sources}
@@ -158,11 +183,11 @@ def main() -> None:
         "mixed cold/warm requests; no held-out answer-accuracy estimate; "
         "latest anchors verified against source-bound corpus metadata at recorded filters",
     }
-    if any(checks.values()):
-        raise ValueError("Recorded API provenance/freshness/citation audit failed")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(payload, ensure_ascii=False, indent=2))
+    if any(checks.values()):
+        raise ValueError("Recorded API provenance/freshness/citation audit failed")
 
 
 if __name__ == "__main__":

@@ -3,13 +3,14 @@
 ## Hiện trạng
 
 - Milestone: M2/M3/T4.1/T5.1earlyUI completed; M4 runner/benchmark/erroranalysis còn pending.
-- Task vừa hoàn thành: webdemo/UI/UXProMax vàmanualtestguide theo yêu cầu user trướcT4.2.
-- Task tiếp theo: usertestdemo, rồiT4.2 — metrics runner từfrozen data(defaultdevelopment).
-- Git: T3.3 `3407c07`,T3.4 `040dd30`,T4.1 `e8cc367`; commitUI xem `git log -1`.
+- Task vừa hoàn thành: sửa feedback GPA/unchanged-clause freshness và kiểm trên liveUI.
+- Task tiếp theo: usertestbản sửa, rồiT4.2 — metrics runner từfrozen data(defaultdevelopment).
+- Git: T3.3 `3407c07`,T3.4 `040dd30`,T4.1 `e8cc367`,UI `61f437f`; commitGPA xem `git log -1`.
   Theo yêu cầu người dùng, mỗi bước hoàn tất kiểm chứng phải commit rồi báo mã/kết quả;
   quy tắc lưu trong `AGENTS.md`.
 - Runtime: Docker/db healthy; persistentlocalUI/API http://127.0.0.1:8000/ đãstarted,
-  Conda wrapperPID21564 khi chốtstep. QAHTTP8767 tựstop; restart từ `docs/demo-guide.md`.
+  Conda wrapperPID38292/Python listener16956 khi chốt hotfix. QAHTTP8767 tựstop;
+  restart từ `docs/demo-guide.md`. Server đã load `rag-clause-scoped-v2`.
 
 ## Đã thực hiện
 
@@ -20,7 +21,7 @@
 - Tạo FastAPI app, structured JSON logging và `/health` kiểm tra cả PostgreSQL lẫn
   extension pgvector.
 - Tạo `compose.yaml` và `scripts/db/init.sql`.
-- Hiện có303 tests (191 unit/112 PostgreSQL integration với schema riêng),12NodeUIcontracttests.
+- Hiện có322 tests (208 unit/114 PostgreSQL integration với schema riêng),12NodeUIcontracttests.
 - Tạo `docs/development.md` với hướng dẫn tạo environment và chạy local.
 - Mở rộng `.gitignore` cho secrets, Python artifacts và PDF raw không được cấp phép
   tái phân phối.
@@ -199,6 +200,29 @@
 
 ## Kiểm chứng
 
+### GPA / clause-scoped hotfix hiện tại
+
+- Rootcause:1393 chỉ sửa79014.1(b)hè, oldwholeclause14:[1] đã mất1(a)main/GPA.
+  Densequerytarget0.8888168>0.55; threshold/modelpins không đổi, khôngagefilter nguồn.
+- `retrieval/registration.py` phân biệtmain/summer/languageprogress và explicit hierarchy;
+  Freshnessv2 tạo unchanged view từ bound item witness, chỉ relevantupdate cầncompanion.
+  `evidence_char_ranges` bindfulltext/hash gốc; passage resolver reject ngoài view.
+  Source/fullreplacement/unknownmetadata/filters/required-update guards giữ strict.
+- Querygốc/all/790-only trả30mainsemester; ĐTBC7,5 giữ14–24 vàconditional30cho≥8;
+  explicit hè dùng1393cap12;790-only hè/classsize abstain;790Điều24 vẫn usable.
+- Finalverified8:6supported/2correctabstain,p508761ms/p9517572.35ms;
+  fixed12:11supported/1correctabstain,p5010590.5ms/p9515609.35ms. Allspan/freshness audits0.
+  `gpa_credit_verified*`, manualCSV và `docs/gpa-credit-freshness-review.md` làfinalevidence.
+-322pytest/75.66s, Ruffcheck/format153files,12Node,lock70/pipcheck sạch.
+  Frozen100/legacy30/19/source/corpus15/307 unchanged,0heldoutRAGinference.
+- Live8000:22browserassertions/5requests;3answers/1abstain/1clarification; sourceview/
+  citations/provenance/mobile/Axe checks pass. FirstbrowserQA wrongly inheritedpresetdomain
+  thiếuaudience; API hỏi lại đúng. Failedpilot giữ riêng; final còn kiểmexplicitreply.
+- Python16956/Condawrapper38292; logs ở Temp/opencode `regularag-gpa-demo-20261010-201303-*.log`.
+  Launchtool báo lỗi harness nhưng probes xác nhận server started/healthy; không spawn bản trùng.
+
+### Các mốc kiểm chứng trước hotfix
+
 - `conda run -n ragschool python --version`: Python 3.12.15.
 - `python -m ruff check .`: pass.
 - `python -m ruff format --check .`: pass.
@@ -258,7 +282,8 @@
 - API vẫn khởi động khi database lỗi nhưng `/health` trả 503 `degraded`; Compose và
   deploy có thể dùng trạng thái này để quyết định readiness.
 - Config cuối: `configs/rag/baseline.json`, prompt `bound-passage-selection-v3`,
-  pipeline `rag-guarded-passages-v1`; reranker/freshness/behaviour enabled, low-memory generation.
+  pipeline `rag-clause-scoped-v2`, freshness `clause-scoped-v2`; reranker/behaviour enabled,
+  low-memory generation. Behaviour vẫn `guarded-behaviour-v1`.
 - RAM trống thấp khi Docker bật nên E5-small thay BGE-M3 ở embedding; tokenizer chunk
   vẫn BGE-M3. E5 prefix query/passage, window 512/32 và pooling được fingerprint.
 - Qwen GGUF chọn quote; backend bỏ diễn giải tự do, kiểm quote có thật và dựng citation.
@@ -294,11 +319,12 @@
 
 - Latest nghĩa verified family/source dates trongcorpus/snapshot, không globalnewest
   haylegalactive. Mã790 trongquery có thể thêm1393 qua verifiedrelation; explicit790-only
-  filter khôngđược nới và sẽabstain nếu thiếu1393. as_of không suy từcohort/issuedyear.
+  filter khôngđược nới và sẽabstain nếu relevantamendment cần1393. Unchanged1(a)/Điều24
+  có thể dùng790. as_of không suy từcohort/issuedyear; oldsource khôngagefilter.
 - Reranklogits khôngconfidence; giữ raw scores/modelrevision riêng. Candidate20 chọn
   sau lượt30 chậm; sharedrefs cũng đổi, không attribution toàn bộ cho candidatecount.
-- Whole-clause exclusion bảo thủ cho14.1.b/unknownboundaries có thể mấtunchangedparts;
-  finer-grained views cần source-bound review.
+- Explicit bound1(b) witness +clearhierarchy đã cho phép view1(a); unknownboundaries
+  vẫnwhole-clause conservative, generalfiner-grainedviews cần source-bound review.
 
 ## Blocker
 

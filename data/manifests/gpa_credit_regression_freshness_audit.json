@@ -1,0 +1,20 @@
+{
+  "audited_at": "2026-10-10T12:59:11.668770+00:00",
+  "requests": 12,
+  "http_200": 12,
+  "generation_calls": 11,
+  "answered": 11,
+  "manual_supported_answers": 11,
+  "expected_stale_filter_abstentions": 1,
+  "manual_abstentions": 1,
+  "end_to_end_p50_ms": 10482.0,
+  "end_to_end_p95_ms": 15261.449999999995,
+  "provenance_mismatches": 0,
+  "excerpt_mismatches": 0,
+  "scope_violations": 0,
+  "latest_anchor_mismatches": 0,
+  "answered_missing_update_context": 0,
+  "answered_quote_mismatches": 0,
+  "answered_old_affected_clauses": 0,
+  "conditions": "Real ASGI API with local models; assistant manual source review; mixed cold/warm requests; no held-out answer-accuracy estimate; latest anchors verified against source-bound corpus metadata at recorded filters"
+}

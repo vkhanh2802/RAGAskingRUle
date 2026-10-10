@@ -84,6 +84,9 @@ class PreparedContext:
 
 def focus_evidence(question: str, chunk: RetrievedChunk) -> RetrievedChunk:
     """Expose a contiguous, query-focused paragraph window with its neighboring conditions."""
+    if chunk.evidence_char_ranges:
+        start, end = chunk.evidence_char_ranges[0]
+        return replace(chunk, text=chunk.text[start:end].strip())
     # Reviewed tables repeat complete row/column labels. An explicit cohort/duration
     # can select an exact row without inventing cell associations or stripping its conditions.
     normalized = normalize_vietnamese(question)

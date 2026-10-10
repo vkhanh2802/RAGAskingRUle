@@ -495,7 +495,7 @@ Quy tắc commit sau mỗi bước hoàn tất kiểm chứng lưu ở `AGENTS.m
 
 ## Adversarial behaviour — T3.4 / M3
 
-Default pipeline `rag-guarded-passages-v1`, policy `guarded-behaviour-v1`. Explicit
+Policy `guarded-behaviour-v1` hiện dùng cùng pipeline `rag-clause-scoped-v2`. Explicit
 outside-scope tasks/another-institution requests trả insufficient trước retrieval.
 Context hash mismatch hoặc declared assistant-control instructions trả
 `passage_binding_mismatch`/`untrusted_document_instruction` trước budgeting/model.
@@ -561,6 +561,28 @@ node --test tests/ui/contract.test.mjs
 
 Node chỉ cần choUIcontractQA, không cần đểserver/chạyUI. OptionalbrowserQA helper dùng
 Playwright/axe tooling cài riêng; PythonQA cần Conda ragschool. Existinglock70unchanged.
+
+## GPA và clause-scoped freshness — demo feedback
+
+Config hiện `rag-clause-scoped-v2` / `clause-scoped-v2`. Old source được dùng khi
+điều/khoản không bị amendment tác động; không tự giới hạn năm ban hành gần đây.
+Required updates vẫn reserve/block theo applicable clause và caller filters.
+
+790 Điều14 khoản1(a) là học kỳ chính/ĐTBC≥8/cap30,1393 chỉ sửa1(b)hè. View được tạo
+từ hash-bound item-level witness và hierarchy rõ; `sources.evidence_char_ranges`
+là Unicode ranges trên text/hash gốc. `sources.excerpt` vẫn full chunk để đối chiếu.
+Prepare/resolve chỉ cho cited spans trong view; unknown/replacement/source drift
+vẫn conservative. Threshold cosine giữ0.55; raw targetscore của query GPA là0.8888.
+
+```powershell
+python scripts/run_baseline_samples.py --questions data/manifests/gpa_credit_questions.csv --output-dir data/processed/gpa-credit-reproduce/api --summary data/manifests/gpa_credit_reproduce.csv --limit 8
+python scripts/audit_passage_samples.py --input-dir data/processed/gpa-credit-reproduce/api --summary data/manifests/gpa_credit_reproduce_span_audit.json
+python scripts/audit_reranker_samples.py --results data/processed/gpa-credit-reproduce/api/results.jsonl --manual data/manifests/gpa_credit_manual_review.csv --output data/manifests/gpa_credit_reproduce_freshness_audit.json
+```
+
+8cases6supported/2correctabstain, regression12 giữ11supported/1abstain;322pytest/12Node
+và22livebrowserassertions đạt. Pilot failures/manualreview/limits/reproduce:
+`docs/gpa-credit-freshness-review.md`. Restart API để build service theo config mới.
 
 ## Dừng dịch vụ
 

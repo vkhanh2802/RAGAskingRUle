@@ -1,0 +1,17 @@
+{
+  "passed": false,
+  "completed_assertions": [
+    "Vietnamese document language",
+    "four development-only presets",
+    "catalog15",
+    "initial WCAG A/AA automated scan",
+    "native catalog dialog opens",
+    "Escape closes dialog",
+    "live clause-scoped policy loaded"
+  ],
+  "error": "real GPA cap30 in main semester from790",
+  "pageErrors": [],
+  "consoleErrors": [],
+  "review_note": "QA inherited the summer preset academic_training domain for a personal question without audience. API correctly logged needs_clarification. Final QA starts with the blank form and separately verifies this audience clarification and explicit scope reply.",
+  "held_out_inference_requests": 0
+}

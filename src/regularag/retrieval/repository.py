@@ -72,6 +72,7 @@ class RetrievedChunk:
     required_update_chunk_ids: tuple[str, ...] = ()
     freshness_failure: str | None = None
     amendment_required: bool = True
+    evidence_char_ranges: tuple[tuple[int, int], ...] = ()
 
 
 class PgVectorRepository:

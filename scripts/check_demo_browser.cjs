@@ -7,6 +7,7 @@ const path = require('node:path');
 const baseUrl = process.env.DEMO_BASE_URL;
 const outputDir = process.env.DEMO_OUTPUT_DIR;
 const real = process.env.DEMO_REAL === '1';
+const gpa = process.env.DEMO_GPA === '1';
 const checks = [], records = [], pageErrors = [], consoleErrors = [];
 const check = (name, condition) => { assert.ok(condition, name); checks.push(name); };
 const synthetic = () => ({
@@ -24,6 +25,8 @@ async function submit(page) {
   return { status: response.status(), body, request: response.request().postDataJSON() };
 }
 async function main() {
+  fs.mkdirSync(outputDir, { recursive: true });
+  if (gpa && !real) throw new Error('GPA QA requires the real backend');
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
   try {
     const context = await browser.newContext({ viewport: { width: 1440, height: 1100 } });
@@ -42,7 +45,39 @@ async function main() {
     check('native catalog dialog opens', await page.locator('#catalog-dialog').evaluate(el => el.open));
     await page.keyboard.press('Escape');
     check('Escape closes dialog', !(await page.locator('#catalog-dialog').evaluate(el => el.open)));
-    if (real) {
+    if (real && gpa) {
+      const question = 'Nếu điểm trung bình đến hiện tại của tôi >=8.0, tôi sẽ được phép đăng kí bao nhiêu tín chỉ?';
+      await page.locator('#question').fill(question);
+      let result = await submit(page); records.push({ case: 'gpa-all-sources', ...result });
+      const catalog = await (await page.request.get(`${baseUrl}/api/v1/demo/catalog`)).json();
+      check('live clause-scoped policy loaded', catalog.pipeline_version === 'rag-clause-scoped-v2' && result.body.freshness_policy === 'clause-scoped-v2');
+      check('real GPA cap30 in main semester from790', result.body.status === 'answered' && /30\s*tín chỉ/.test(result.body.answer) && /học kỳ chính/.test(result.body.answer) && !/học kỳ hè/.test(result.body.answer) && result.body.sources.some(s => s.document_id === 'uit_790_2022' && s.cited));
+      const source = result.body.sources.find(s => s.cited);
+      const [start, end] = source.evidence_char_ranges[0];
+      check('actual cited spans stay inside unchanged source view', result.body.evidence_passages.filter(p => p.cited).every(p => p.chunk_id === source.chunk_id && start <= p.char_start && p.char_end <= end && source.excerpt.slice(p.char_start, p.char_end) === p.text));
+      await page.locator('.citation-button').first().click();
+      check('GPA citation opens source790', await page.locator('#source-S1').evaluate(el => el.open));
+      check('unchanged range provenance rendered', (await page.locator('#source-S1').textContent()).includes('Phạm vi bằng chứng không bị sửa đổi'));
+      const resultAxe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+      check('GPA result WCAG A/AA automated scan', resultAxe.violations.length === 0);
+      await page.screenshot({ path: path.join(outputDir, 'desktop-answered.png'), fullPage: true });
+      await page.locator('#filter-panel > summary').click();
+      await page.locator('[name=document-id][value=uit_790_2022]').check();
+      result = await submit(page); records.push({ case: 'gpa-790-only', ...result });
+      check('GPA old-only caller filter retained', result.request.filters.document_ids.length === 1 && result.body.applied_filters.document_ids.length === 1 && result.body.applied_filters.document_ids[0] === 'uit_790_2022');
+      check('unchanged GPA rule answers even with790-only', result.body.status === 'answered' && /30\s*tín chỉ/.test(result.body.answer) && result.body.sources.every(s => s.document_id === 'uit_790_2022'));
+      await page.locator('#question').fill('Theo790 ĐTBC>=8,0 thì học kỳ hè đăng ký tối đa bao nhiêu tín chỉ?');
+      result = await submit(page); records.push({ case: 'summer-790-only', ...result });
+      check('amended summer still blocks old-only filter', result.body.status === 'insufficient_evidence' && result.body.failure_reason === 'latest_excluded_by_filters' && await page.locator('.citation-button').count() === 0);
+      await page.locator('#domain').selectOption('academic_training');
+      await page.locator('#question').fill(question);
+      result = await submit(page); records.push({ case: 'personal-domain-needs-audience', ...result });
+      check('explicit personal training scope still asks for audience', result.body.status === 'needs_clarification' && result.body.clarification.required_fields.includes('applies_to') && await page.locator('#clarification-actions').isVisible());
+      await page.locator('#fill-scope').click();
+      await page.locator('#audience').selectOption('undergraduate_regular');
+      result = await submit(page); records.push({ case: 'personal-domain-scope-reply', ...result });
+      check('explicit audience reply preserves query and answers unchanged cap30', result.request.question === question && result.request.scope.applies_to[0] === 'undergraduate_regular' && result.body.status === 'answered' && /30\s*tín chỉ/.test(result.body.answer) && result.body.applied_filters.document_ids[0] === 'uit_790_2022');
+    } else if (real) {
       await page.locator('[data-preset=summer]').click();
       let result = await submit(page); records.push({ case: 'summer', ...result });
       check('real cap12 from1393', result.body.status === 'answered' && /12\s*tín chỉ/.test(result.body.answer) && result.body.sources.some(s => s.document_number.startsWith('1393') && s.cited));
@@ -137,11 +172,12 @@ async function main() {
     check('reduced motion disables smooth scrolling', await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior === 'auto'));
     check('no uncaught browser errors', pageErrors.length === 0);
     fs.writeFileSync(path.join(outputDir, 'records.json'), JSON.stringify(records, null, 2));
-    fs.writeFileSync(path.join(outputDir, 'browser-report.json'), JSON.stringify({ passed: true, mode: real ? 'real-backend-development-presets' : 'isolated-browser-fixtures', assertions: checks, pageErrors }, null, 2));
+    fs.writeFileSync(path.join(outputDir, 'browser-report.json'), JSON.stringify({ passed: true, mode: gpa ? 'real-backend-gpa-regression' : real ? 'real-backend-development-presets' : 'isolated-browser-fixtures', assertions: checks, pageErrors, held_out_inference_requests: 0 }, null, 2));
     console.log(JSON.stringify({ passed: true, mode: real ? 'real' : 'fixture', assertion_count: checks.length, real_requests: records.length }));
   } finally { await browser.close(); }
 }
 main().catch(error => {
+  fs.writeFileSync(path.join(outputDir, 'records.json'), JSON.stringify(records, null, 2));
   fs.writeFileSync(path.join(outputDir, 'browser-report.json'), JSON.stringify({ passed: false, completed_assertions: checks, error: error.message, pageErrors, consoleErrors }, null, 2));
   console.error(error); process.exitCode = 1;
 });

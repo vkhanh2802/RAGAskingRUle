@@ -74,6 +74,7 @@ class SourceResponse(BaseModel):
     latest_document_number: str | None
     latest_issued_date: str | None
     required_update_chunk_ids: list[str]
+    evidence_char_ranges: list[tuple[int, int]] = Field(default_factory=list)
 
 
 class AskResponse(BaseModel):

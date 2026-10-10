@@ -1,5 +1,5 @@
 {
-  "pipeline_version": "rag-guarded-passages-v1",
+  "pipeline_version": "rag-clause-scoped-v2",
   "embedding": {
     "model_name": "intfloat/multilingual-e5-small",
     "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
@@ -57,7 +57,7 @@
   },
   "freshness": {
     "enabled": true,
-    "policy_version": "verified-relations-v1"
+    "policy_version": "clause-scoped-v2"
   },
   "behaviour": {
     "enabled": true,

@@ -20,6 +20,7 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 | T3.4 / M3 | completed | 24 API cases +10 injected-context cases:34/34 final pass; source-instruction/hash/scope guards; positive12:11 supported/1 correct abstention;276 tests; `docs/adversarial-behaviour-review.md` | Declared heuristics chưa general scope/entailment/injection defense; extra quotes, CPU latency và excluded layouts; chưa held-out | T4.1 dataset100, required facts/evidence/filter/split và held-out freeze; commit sau bước hoàn tất |
 | T4.1 | completed | Dataset100 đúng6category quotas;60development/40test;72curatedspans/49chunks;source/offset/hash/filter/split validators;freeze trước finaltuning;300tests; `docs/evaluation-dataset-review.md` | Assistant source review chưaindependent; commoncorpus/question-familyholdout; chưa accuracybenchmark100 | T4.2 runner/metrics trênfrozen data, defaultdevelopment; test sauconfigchốt; commitstep |
 | T5.1 early demo | completed | UI/UXProMax/nativeweb trênFastAPI;scope/filter/devpresets/citation/excerpts/feedbackexport;303pytest+12Node;27fixture/18realbrowserassertions; `docs/demo-guide.md`, `docs/demo-ui-review.md` | Currentbaseline/localdemo; M4benchmarks còn pending; sessionfeedback chưaDBpersist | Người dùngmanualtestUI, sauđóT4.2; giữtest40freeze |
+| Demo feedback — GPA/freshness | completed | Clause-scopedv2/unchangedsourceviews;8cases6supported/2correctabstain;regression12 giữ11supported/1abstain;322pytest+12Node/22livebrowserassertions; `docs/gpa-credit-freshness-review.md` | Finer hierarchy/facets còn hẹp; M4benchmark pending | Người dùng thử bản sửa ở8000, rồiT4.2; giữfreeze40 |
 
 ## Nhật ký kiểm chứng
 
@@ -315,3 +316,23 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
  303pytest191unit/112DB+12Nodepass,Ruff/pipcheck/lock70clean. Datasetfreeze d577... giữ nguyên/0testinference.
 - UI/serverlocal127.0.0.1:8000 đãstarted/HTTP200/healthok/catalog15,Conda wrapperPID21564 tạihandoff.
  `docs/demo-guide.md` córestartcommands và5manualflows. NextT4.2 sauuserreview, chưaM4/M5complete.
+
+### Demo feedback — GPA / điều khoản không bị sửa đổi
+
+- Ngày2026-10-10. Pilotquery GPA trả hè12 hoặc790-only bịlatestexcluded; rawtarget
+  cosine0.8888168 vượt0.55.1393 chỉ sửa14.1(b), không phải1(a)mainsemestercap30.
+- Source/hash-bound item witness +parent1→a→b tạo Unicode view trên chunk/hash gốc;
+  unaffectedarticle24 không cần unrelatedcompanion. Applicable amendments/replacement/
+  unknownhierarchy/source drift/filters/requiredcompanions vẫn được kiểm.
+- Pipeline `rag-clause-scoped-v2`, freshness `clause-scoped-v2`; threshold0.55/modelpins/
+  corpus/metadata/relationmanifest/frozenQA giữ nguyên. Olddocument không bịagefilter.
+- Finalverified8:6primarysupported/2correctabstain, p508.761s/p9517.572s;
+  fixed12:11supported/1correctabstain, p5010.591s/p9515.609s. Bothaudits0source/span/
+  citation/support/filter/latestviolations. Pilotreaudit rejectG01/G02 vàgiữfailure.
+-322tests208unit/114schema-isolatedDB/75.66s, Ruff153files/12Node/lock70/pipcheck pass.
+  Frozen100 datasetd577.../legacy30/19gold/corpus15/307/0heldoutinference giữ nguyên.
+- Live8000 đãrestart:Python16956/Condawrapper38292;22Edgebrowserassertions/5requests
+  đạtcap30/all/790-only,summerabstain vàpersonal-domainclarification/explicitaudiencereply.
+  Browserpilot inheriteddomainmissingaudience giữfailure; QA sửa setup, không bỏscopeguard.
+- `docs/gpa-credit-freshness-review.md`, `gpa_credit_*`aggregates/manualreview; fullsource/
+  modeloutputs/screenshots ignored. Chốt hotfix, T4.2 vẫn pending sauuserreviewdemo.

@@ -1,4 +1,5 @@
 import json
+import re
 from dataclasses import dataclass, replace
 from datetime import date
 from typing import Protocol
@@ -9,6 +10,7 @@ from psycopg.rows import dict_row
 from regularag.core.config import Settings
 from regularag.retrieval.config import RagBaselineConfig
 from regularag.retrieval.filters import METADATA_FILTER, RetrievalFilters, filter_parameters
+from regularag.retrieval.registration import registration_focus, regular_subitem_range
 from regularag.retrieval.repository import RetrievedChunk
 from regularag.retrieval.sql import CHUNK_COLUMNS, READY_FILTER, retrieval_parameters
 
@@ -164,6 +166,30 @@ def _affected(chunk: RetrievedChunk, relation: dict) -> bool:
     return not clauses or not chunk.clauses or bool(set(clauses).intersection(chunk.clauses))
 
 
+def _unmodified_regular_subitem(chunk, relation, question):
+    if (
+        registration_focus(question or "") != "regular"
+        or relation["kind"] != "amends"
+        or chunk.article is None
+        or "1" not in chunk.clauses
+        or relation["target_document_number"] != chunk.document_number
+    ):
+        return None
+    # The source/hash-bound review witness explicitly records an item-level target.
+    # The frozen affected_clauses envelope stays unchanged; unknown/whole-clause
+    # witnesses cannot certify that 1(a) is untouched.
+    witness = relation["relation_evidence"]
+    targets = re.findall(r"article\s*(\d+)\s*clause\s*(\d+)\s*item\s*([a-z])", witness, re.I)
+    items = {
+        item.casefold()
+        for article, clause, item in targets
+        if article == chunk.article and clause == "1"
+    }
+    if items != {"b"} or relation["affected_clauses"].get(chunk.article) != ["1"]:
+        return None
+    return regular_subitem_range(chunk.text)
+
+
 def select_with_updates(chunks: list[RetrievedChunk], limit: int) -> list[RetrievedChunk]:
     """Reserve companion slots before unrelated lower-ranked chunks; never expand user limits."""
     lookup = {chunk.chunk_id: chunk for chunk in chunks}
@@ -193,11 +219,15 @@ def select_with_updates(chunks: list[RetrievedChunk], limit: int) -> list[Retrie
 class FreshnessPolicy:
     """Prefer verified successors within a document family, never global newest-date sorting."""
 
-    def __init__(self, repository: FreshnessRepository) -> None:
+    def __init__(self, repository: FreshnessRepository, *, clause_scoped: bool = False) -> None:
         self.repository = repository
+        self.clause_scoped = clause_scoped
 
     def apply(
-        self, chunks: list[RetrievedChunk], filters: RetrievalFilters | None
+        self,
+        chunks: list[RetrievedChunk],
+        filters: RetrievalFilters | None,
+        question: str | None = None,
     ) -> list[RetrievedChunk]:
         versions = self.repository.catalog(filters)
         numbers = {version.document_number: version for version in versions}
@@ -253,8 +283,27 @@ class FreshnessPolicy:
                 known = numbers.get(chunk.related_document_number)
                 if not related and (known is None or _in_period(known, filters, cutoff)):
                     failure = "unverified_update_relation"
+            relevant = related
+            scoped_range = None
+            if self.clause_scoped:
+                relevant = []
+                for update, relation in related:
+                    if update.metadata.get("source_check_status") in (
+                        "source_changed",
+                        "not_listed",
+                    ):
+                        failure = "portal_source_drift"
+                    if update.issued_date is None:
+                        failure = failure or "unverified_update_date"
+                    view = _unmodified_regular_subitem(chunk, relation, question)
+                    if view:
+                        scoped_range = view
+                    elif relation["target_document_number"] != chunk.document_number or _affected(
+                        chunk, relation
+                    ):
+                        relevant.append((update, relation))
             required = []
-            for update, relation in related:
+            for update, relation in relevant:
                 if update.metadata.get("source_check_status") in ("source_changed", "not_listed"):
                     failure = "portal_source_drift"
                 elif update.issued_date is None:
@@ -286,7 +335,13 @@ class FreshnessPolicy:
                         ),
                     )
             direct = updates.get(chunk.document_number, [])
-            if not failure and any(_affected(chunk, relation) for _, relation in direct):
+            if not failure and any(
+                _affected(chunk, relation)
+                and not (
+                    self.clause_scoped and _unmodified_regular_subitem(chunk, relation, question)
+                )
+                for _, relation in direct
+            ):
                 continue  # The old amended clause is never offered to the generator.
             candidates[chunk.chunk_id] = replace(
                 chunk,
@@ -295,14 +350,17 @@ class FreshnessPolicy:
                     if failure
                     else "historical"
                     if filters and filters.as_of
+                    else "unchanged_verified_clause"
+                    if self.clause_scoped and related and not relevant
                     else "base_with_amendment"
-                    if related
+                    if relevant
                     else "latest_verified_corpus"
                 ),
                 latest_document_number=latest.document_number,
                 latest_issued_date=latest.issued_date.isoformat() if latest.issued_date else None,
                 required_update_chunk_ids=tuple(dict.fromkeys(required)),
                 freshness_failure=failure,
-                amendment_required=bool(related) if chunk.document_role == "base" else True,
+                amendment_required=bool(relevant) if chunk.document_role == "base" else True,
+                evidence_char_ranges=(scoped_range,) if scoped_range else (),
             )
         return list(candidates.values())

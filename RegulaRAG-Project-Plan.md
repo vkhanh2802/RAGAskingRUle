@@ -605,6 +605,12 @@ actualcitations/sourcepages/excerpts,clarification/loading/errors,sessionfeedbac
 `docs/demo-guide.md`, `docs/demo-ui-review.md`; M4benchmark/configfinal vẫn pending,
 UI đọc backenddefaultconfig khi có. Held-out40 giữfreeze/0inference trongstepdemo.
 
+**Feedback demo hoàn tất 2026-10-10:** sửa GPA/mainsemester và clause-scoped freshness;
+79014.1(a) không bị1393 sửa nên ĐTBC≥8/cap30 vẫn dùng được kể cả790-only. Hè/affected
+clauses vẫn cần applicableupdate.322pytest/12Node/22livebrowserassertions đạt;
+8GPAcases6supported/2correctabstain vàfixed12 giữ11supported/1abstain. Nguồn/hash/
+filters/gold/freeze giữ nguyên; `docs/gpa-credit-freshness-review.md`. T4.2 vẫn pending.
+
 ### T5.2 — Observability
 
 **Ước lượng:** 3–4 giờ. **Phụ thuộc:** pipeline hoạt động.

@@ -118,7 +118,7 @@ def test_latest_evidence_is_fetched_with_publication_and_hash_gates_when_dense_m
     payload = TestClient(app).post("/api/v1/ask", json={"question": "Class size"}).json()
     assert payload["status"] == "answered" and "50" not in payload["answer"]
     assert payload["sources"][0]["latest_document_number"] == "test-1"
-    assert payload["freshness_policy"] == "verified-relations-v1"
+    assert payload["freshness_policy"] == config.freshness.policy_version
 
 
 @pytest.mark.parametrize(
