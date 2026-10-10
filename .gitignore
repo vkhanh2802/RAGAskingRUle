@@ -1,6 +1,7 @@
 # Official source documents are downloaded locally; redistribution is not licensed.
 data/raw/
 data/processed/
+evals/results/
 
 # Local configuration and Python artifacts.
 .env

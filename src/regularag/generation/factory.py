@@ -9,8 +9,10 @@ from regularag.retrieval.pipeline import RetrievalPipeline
 from regularag.retrieval.repository import PgVectorRepository
 
 
-def build_answer_service(settings: Settings) -> AnswerService:
-    config = RagBaselineConfig.from_path(settings.rag_config_path)
+def build_answer_service(
+    settings: Settings, config: RagBaselineConfig | None = None
+) -> AnswerService:
+    config = config or RagBaselineConfig.from_path(settings.rag_config_path)
     embedder = SentenceTransformerEmbedder(config.embedding)
     repository = RetrievalPipeline(
         config, embedder, PgVectorRepository(settings, config), KeywordRepository(settings, config)

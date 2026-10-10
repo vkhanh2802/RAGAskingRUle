@@ -1,6 +1,6 @@
 import json
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import Literal, Protocol
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
@@ -29,6 +29,8 @@ class GeneratedAnswer:
     passage_ids: tuple[str, ...] = ()
     attempts: int = 1
     raw_attempts: tuple[str, ...] = ()
+    usage_input_tokens: int | None = None
+    usage_output_tokens: int | None = None
 
 
 class Generator(Protocol):
@@ -231,10 +233,16 @@ class TransformersGenerator:
         generated_ids = output_ids[0, model_inputs["input_ids"].shape[1] :]
         raw_output = self._tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
         if self.config.response_policy == "verified_passages":
-            return parse_passage_selection(raw_output, prompt_passage_ids(prompt))
-        if self.config.response_policy == "verified_quotes":
-            return parse_quote_selection(raw_output)
-        return parse_generated_answer(raw_output)
+            result = parse_passage_selection(raw_output, prompt_passage_ids(prompt))
+        elif self.config.response_policy == "verified_quotes":
+            result = parse_quote_selection(raw_output)
+        else:
+            result = parse_generated_answer(raw_output)
+        return replace(
+            result,
+            usage_input_tokens=int(model_inputs["input_ids"].shape[1]),
+            usage_output_tokens=len(generated_ids),
+        )
 
     def release(self) -> None:
         self._model = None

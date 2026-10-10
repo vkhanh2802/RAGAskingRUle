@@ -1,0 +1,3058 @@
+{
+  "run_id": "t4-2-development-clause-v2",
+  "evaluator_version": "source-bound-evaluation-v1",
+  "split": "development",
+  "question_ids": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D11",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16",
+    "D17",
+    "D18",
+    "D19",
+    "D20",
+    "D21",
+    "D22",
+    "D23",
+    "D24",
+    "D25",
+    "D26",
+    "D27",
+    "D28",
+    "D29",
+    "D30",
+    "D31",
+    "D32",
+    "D33",
+    "D34",
+    "D35",
+    "D36",
+    "D37",
+    "D38",
+    "D39",
+    "D40",
+    "D41",
+    "D42",
+    "D43",
+    "D44",
+    "D45",
+    "D46",
+    "D47",
+    "D48",
+    "D49",
+    "D50",
+    "D51",
+    "D52",
+    "D53",
+    "D54",
+    "D55",
+    "D56",
+    "D57",
+    "D58",
+    "D59",
+    "D60"
+  ],
+  "dataset_sha256": "d577dcde2469cdb1650b4e7b1164e520afc5037d6668fe1b5eb06c7f98946f0c",
+  "corpus_sha256": "b213a260c7b8be3bed5e534575002263d9d878b4c09e67c670c3246f6b5f9776",
+  "config_sha256": "f6e9a4aebb98a9a28ff25bbc2f646a52bcafe858c08fc90ada67fa688364efeb",
+  "config": {
+    "pipeline_version": "rag-clause-scoped-v2",
+    "embedding": {
+      "model_name": "intfloat/multilingual-e5-small",
+      "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "dimension": 384,
+      "device": "cpu",
+      "batch_size": 1,
+      "cpu_threads": 2,
+      "pooling_version": "window-mean-v1",
+      "max_sequence_tokens": 512,
+      "window_overlap_tokens": 32,
+      "query_prefix": "query: ",
+      "document_prefix": "passage: "
+    },
+    "retrieval": {
+      "mode": "hybrid",
+      "top_k": 8,
+      "candidate_k": 20,
+      "minimum_score": 0.55,
+      "minimum_keyword_score": 0.0,
+      "rrf_k": 60,
+      "dense_weight": 1.0,
+      "keyword_weight": 1.0,
+      "keyword_query_version": "vi-simple-v1",
+      "metadata_filter_version": "evidence-metadata-v1",
+      "document_reference_policy": "shared-query-refs-v1",
+      "eligible_document_ids": [
+        "uit_159_2024",
+        "uit_1393_2023",
+        "uit_790_2022",
+        "uit_956_2026",
+        "uit_112_2024",
+        "uit_277_2025",
+        "uit_308_2025",
+        "uit_412_2025",
+        "uit_43_2020",
+        "uit_513_2026",
+        "uit_697_2024",
+        "uit_803_2025",
+        "uit_832_2024",
+        "uit_851_2024",
+        "uit_894_2026"
+      ]
+    },
+    "reranker": {
+      "enabled": true,
+      "model_name": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+      "model_revision": "1427fd652930e4ba29e8149678df786c240d8825",
+      "device": "cpu",
+      "batch_size": 1,
+      "cpu_threads": 2,
+      "candidate_k": 20,
+      "max_sequence_tokens": 512,
+      "window_overlap_tokens": 32,
+      "pooling_version": "window-max-v1"
+    },
+    "freshness": {
+      "enabled": true,
+      "policy_version": "clause-scoped-v2"
+    },
+    "behaviour": {
+      "enabled": true,
+      "policy_version": "guarded-behaviour-v1",
+      "minimize_selected_passages": true
+    },
+    "generation": {
+      "backend": "llama_cpp",
+      "response_policy": "verified_passages",
+      "model_name": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "model_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "device": "cpu",
+      "dtype": "float32",
+      "gguf_filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "max_new_tokens": 64,
+      "max_input_tokens": 2304,
+      "cpu_threads": 4,
+      "context_chunks": 6,
+      "prompt_version": "bound-passage-selection-v3",
+      "max_passages": 8,
+      "max_selected_passages": 4,
+      "structured_retries": 1,
+      "low_memory_mode": true
+    }
+  },
+  "git_commit": "01ecdbecfeeb3ee53612ed3bb771218bcb161e22",
+  "runtime_source_sha256": "559fde0a5e30e231ff40e7b8913a9d52c4bfd2db44a75369a7bd652e95d5020f",
+  "predictions_sha256": "907d62d9c8d60bc8898eb126448849b3507df62d9bbc9f6d28e159c96b6577a6",
+  "hardware": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "logical_cpu_count": 12,
+    "ram_total_bytes": null,
+    "python": "3.12.15"
+  },
+  "concurrency": 1,
+  "warm_cold": "No warmup; first process request cold, subsequent OS/HF cache warm; low-memory per-request model release/reload enabled according to config",
+  "started_at": "2026-10-10T14:26:49.576722+00:00",
+  "finished_at": "2026-10-10T14:38:30.629490+00:00",
+  "postflight_integrity": true,
+  "held_out_inference_requests": 0,
+  "runtime_worktree_dirty": true,
+  "review_sha256": "576be39ced18c675d3617606e34f27ba63d8905c44c4e6ca97085d60079bdfa6",
+  "retrieval": {
+    "evaluator_version": "source-bound-evaluation-v1",
+    "overall": {
+      "eligible_questions": 47,
+      "recall_at_5": 0.9893617021276596,
+      "recall_at_10": 1.0,
+      "mrr_at_10": 0.9645390070921986,
+      "micro_recall_at_5": {
+        "numerator": 52,
+        "denominator": 53,
+        "unknown": 0,
+        "value": 0.9811320754716981
+      },
+      "micro_recall_at_10": {
+        "numerator": 53,
+        "denominator": 53,
+        "unknown": 0,
+        "value": 1.0
+      },
+      "complete_at_5": {
+        "numerator": 46,
+        "denominator": 47,
+        "unknown": 0,
+        "value": 0.9787234042553191
+      },
+      "complete_at_10": {
+        "numerator": 47,
+        "denominator": 47,
+        "unknown": 0,
+        "value": 1.0
+      },
+      "ndcg_at_10": null,
+      "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+    },
+    "by_category": {
+      "adversarial": {
+        "eligible_questions": 5,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr_at_10": 0.8666666666666666,
+        "micro_recall_at_5": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "micro_recall_at_10": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "complete_at_5": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "complete_at_10": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "ndcg_at_10": null,
+        "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+      },
+      "clarification": {
+        "eligible_questions": 0,
+        "recall_at_5": null,
+        "recall_at_10": null,
+        "mrr_at_10": null,
+        "micro_recall_at_5": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "micro_recall_at_10": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "complete_at_5": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "complete_at_10": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "ndcg_at_10": null,
+        "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+      },
+      "multi_clause": {
+        "eligible_questions": 12,
+        "recall_at_5": 0.9583333333333334,
+        "recall_at_10": 1.0,
+        "mrr_at_10": 0.9583333333333334,
+        "micro_recall_at_5": {
+          "numerator": 17,
+          "denominator": 18,
+          "unknown": 0,
+          "value": 0.9444444444444444
+        },
+        "micro_recall_at_10": {
+          "numerator": 18,
+          "denominator": 18,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "complete_at_5": {
+          "numerator": 11,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 0.9166666666666666
+        },
+        "complete_at_10": {
+          "numerator": 12,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "ndcg_at_10": null,
+        "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+      },
+      "no_answer": {
+        "eligible_questions": 0,
+        "recall_at_5": null,
+        "recall_at_10": null,
+        "mrr_at_10": null,
+        "micro_recall_at_5": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "micro_recall_at_10": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "complete_at_5": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "complete_at_10": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "ndcg_at_10": null,
+        "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+      },
+      "single_clause": {
+        "eligible_questions": 21,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr_at_10": 1.0,
+        "micro_recall_at_5": {
+          "numerator": 21,
+          "denominator": 21,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "micro_recall_at_10": {
+          "numerator": 21,
+          "denominator": 21,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "complete_at_5": {
+          "numerator": 21,
+          "denominator": 21,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "complete_at_10": {
+          "numerator": 21,
+          "denominator": 21,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "ndcg_at_10": null,
+        "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+      },
+      "temporal_scope": {
+        "eligible_questions": 9,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr_at_10": 0.9444444444444444,
+        "micro_recall_at_5": {
+          "numerator": 9,
+          "denominator": 9,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "micro_recall_at_10": {
+          "numerator": 9,
+          "denominator": 9,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "complete_at_5": {
+          "numerator": 9,
+          "denominator": 9,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "complete_at_10": {
+          "numerator": 9,
+          "denominator": 9,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "ndcg_at_10": null,
+        "ndcg_note": "Not applicable: dataset has binary support, no graded relevance labels"
+      }
+    },
+    "definition": "Macro support-chunk recall/MRR for expected answered cases only; deduplicate IDs; blocked evidence is not usable gold; contrasts/context excluded"
+  },
+  "answers": {
+    "overall": {
+      "questions": 60,
+      "reviewed": 60,
+      "status_accuracy": {
+        "numerator": 59,
+        "denominator": 60,
+        "unknown": 0,
+        "value": 0.9833333333333333
+      },
+      "correctness": {
+        "numerator": 41,
+        "denominator": 47,
+        "unknown": 0,
+        "value": 0.8723404255319149
+      },
+      "required_fact_recall": {
+        "numerator": 57,
+        "denominator": 65,
+        "unknown": 0,
+        "value": 0.8769230769230769
+      },
+      "faithfulness": {
+        "numerator": 71,
+        "denominator": 71,
+        "unknown": 0,
+        "value": 1.0
+      },
+      "citation_support_precision": {
+        "numerator": 52,
+        "denominator": 71,
+        "unknown": 0,
+        "value": 0.7323943661971831
+      },
+      "citation_coverage": {
+        "numerator": 52,
+        "denominator": 71,
+        "unknown": 0,
+        "value": 0.7323943661971831
+      },
+      "citation_fidelity": {
+        "numerator": 60,
+        "denominator": 60,
+        "unknown": 0,
+        "value": 1.0
+      },
+      "filter_preservation": {
+        "numerator": 60,
+        "denominator": 60,
+        "unknown": 0,
+        "value": 1.0
+      },
+      "correct_rejection": {
+        "numerator": 8,
+        "denominator": 8,
+        "unknown": 0,
+        "value": 1.0
+      },
+      "false_rejection": {
+        "numerator": 1,
+        "denominator": 47,
+        "unknown": 0,
+        "value": 0.02127659574468085
+      },
+      "false_clarification": {
+        "numerator": 0,
+        "denominator": 47,
+        "unknown": 0,
+        "value": 0.0
+      },
+      "clarification_status": {
+        "numerator": 5,
+        "denominator": 5,
+        "unknown": 0,
+        "value": 1.0
+      },
+      "clarification_field_recall": {
+        "numerator": 11,
+        "denominator": 12,
+        "unknown": 0,
+        "value": 0.9166666666666666
+      },
+      "status_confusion": {
+        "answered->answered": 46,
+        "answered->insufficient_evidence": 1,
+        "insufficient_evidence->insufficient_evidence": 8,
+        "needs_clarification->needs_clarification": 5
+      },
+      "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+      "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+    },
+    "by_category": {
+      "adversarial": {
+        "questions": 5,
+        "reviewed": 5,
+        "status_accuracy": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correctness": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "required_fact_recall": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "faithfulness": {
+          "numerator": 8,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "citation_support_precision": {
+          "numerator": 5,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 0.625
+        },
+        "citation_coverage": {
+          "numerator": 5,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 0.625
+        },
+        "citation_fidelity": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "filter_preservation": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correct_rejection": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "false_rejection": {
+          "numerator": 0,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "false_clarification": {
+          "numerator": 0,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "clarification_status": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "clarification_field_recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "status_confusion": {
+          "answered->answered": 5
+        },
+        "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+        "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+      },
+      "clarification": {
+        "questions": 5,
+        "reviewed": 5,
+        "status_accuracy": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correctness": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "required_fact_recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "faithfulness": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "citation_support_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "citation_coverage": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "citation_fidelity": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "filter_preservation": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correct_rejection": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "false_rejection": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "false_clarification": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "clarification_status": {
+          "numerator": 5,
+          "denominator": 5,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "clarification_field_recall": {
+          "numerator": 11,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 0.9166666666666666
+        },
+        "status_confusion": {
+          "needs_clarification->needs_clarification": 5
+        },
+        "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+        "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+      },
+      "multi_clause": {
+        "questions": 12,
+        "reviewed": 12,
+        "status_accuracy": {
+          "numerator": 12,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correctness": {
+          "numerator": 7,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 0.5833333333333334
+        },
+        "required_fact_recall": {
+          "numerator": 18,
+          "denominator": 24,
+          "unknown": 0,
+          "value": 0.75
+        },
+        "faithfulness": {
+          "numerator": 23,
+          "denominator": 23,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "citation_support_precision": {
+          "numerator": 18,
+          "denominator": 23,
+          "unknown": 0,
+          "value": 0.782608695652174
+        },
+        "citation_coverage": {
+          "numerator": 18,
+          "denominator": 23,
+          "unknown": 0,
+          "value": 0.782608695652174
+        },
+        "citation_fidelity": {
+          "numerator": 12,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "filter_preservation": {
+          "numerator": 12,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correct_rejection": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "false_rejection": {
+          "numerator": 0,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "false_clarification": {
+          "numerator": 0,
+          "denominator": 12,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "clarification_status": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "clarification_field_recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "status_confusion": {
+          "answered->answered": 12
+        },
+        "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+        "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+      },
+      "no_answer": {
+        "questions": 8,
+        "reviewed": 8,
+        "status_accuracy": {
+          "numerator": 8,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correctness": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "required_fact_recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "faithfulness": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "citation_support_precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "citation_coverage": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "citation_fidelity": {
+          "numerator": 8,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "filter_preservation": {
+          "numerator": 8,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correct_rejection": {
+          "numerator": 8,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "false_rejection": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "false_clarification": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "clarification_status": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "clarification_field_recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "status_confusion": {
+          "insufficient_evidence->insufficient_evidence": 8
+        },
+        "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+        "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+      },
+      "single_clause": {
+        "questions": 21,
+        "reviewed": 21,
+        "status_accuracy": {
+          "numerator": 21,
+          "denominator": 21,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correctness": {
+          "numerator": 21,
+          "denominator": 21,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "required_fact_recall": {
+          "numerator": 26,
+          "denominator": 26,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "faithfulness": {
+          "numerator": 32,
+          "denominator": 32,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "citation_support_precision": {
+          "numerator": 21,
+          "denominator": 32,
+          "unknown": 0,
+          "value": 0.65625
+        },
+        "citation_coverage": {
+          "numerator": 21,
+          "denominator": 32,
+          "unknown": 0,
+          "value": 0.65625
+        },
+        "citation_fidelity": {
+          "numerator": 21,
+          "denominator": 21,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "filter_preservation": {
+          "numerator": 21,
+          "denominator": 21,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correct_rejection": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "false_rejection": {
+          "numerator": 0,
+          "denominator": 21,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "false_clarification": {
+          "numerator": 0,
+          "denominator": 21,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "clarification_status": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "clarification_field_recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "status_confusion": {
+          "answered->answered": 21
+        },
+        "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+        "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+      },
+      "temporal_scope": {
+        "questions": 9,
+        "reviewed": 9,
+        "status_accuracy": {
+          "numerator": 8,
+          "denominator": 9,
+          "unknown": 0,
+          "value": 0.8888888888888888
+        },
+        "correctness": {
+          "numerator": 8,
+          "denominator": 9,
+          "unknown": 0,
+          "value": 0.8888888888888888
+        },
+        "required_fact_recall": {
+          "numerator": 8,
+          "denominator": 10,
+          "unknown": 0,
+          "value": 0.8
+        },
+        "faithfulness": {
+          "numerator": 8,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "citation_support_precision": {
+          "numerator": 8,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "citation_coverage": {
+          "numerator": 8,
+          "denominator": 8,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "citation_fidelity": {
+          "numerator": 9,
+          "denominator": 9,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "filter_preservation": {
+          "numerator": 9,
+          "denominator": 9,
+          "unknown": 0,
+          "value": 1.0
+        },
+        "correct_rejection": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "false_rejection": {
+          "numerator": 1,
+          "denominator": 9,
+          "unknown": 0,
+          "value": 0.1111111111111111
+        },
+        "false_clarification": {
+          "numerator": 0,
+          "denominator": 9,
+          "unknown": 0,
+          "value": 0.0
+        },
+        "clarification_status": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "clarification_field_recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "unknown": 0,
+          "value": null
+        },
+        "status_confusion": {
+          "answered->answered": 8,
+          "answered->insufficient_evidence": 1
+        },
+        "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+        "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+      }
+    },
+    "per_case": [
+      {
+        "question_id": "D01",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 2,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1",
+          "F2"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D02",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D03",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 2,
+        "citation_units": 2,
+        "faithful_claims": 2,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D04",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D05",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 3,
+        "covered_facts": 3,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D06",
+        "category": "multi_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 2,
+        "citation_units": 2,
+        "faithful_claims": 2,
+        "supported_citations": 2,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 2,
+          "found_at_5": 2,
+          "found_at_10": 2,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D07",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D08",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 4,
+        "citation_units": 4,
+        "faithful_claims": 4,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D09",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D10",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 2,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1",
+          "F2"
+        ],
+        "claim_units": 4,
+        "citation_units": 4,
+        "faithful_claims": 4,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D11",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D12",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D13",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D14",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D15",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D16",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 2,
+        "citation_units": 2,
+        "faithful_claims": 2,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D17",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D18",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 2,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1",
+          "F2"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D19",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D20",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 4,
+        "citation_units": 4,
+        "faithful_claims": 4,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D21",
+        "category": "temporal_scope",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D22",
+        "category": "temporal_scope",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D23",
+        "category": "temporal_scope",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 0.5,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D24",
+        "category": "temporal_scope",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D25",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D26",
+        "category": "single_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D27",
+        "category": "multi_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 2,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1",
+          "F2"
+        ],
+        "claim_units": 3,
+        "citation_units": 3,
+        "faithful_claims": 3,
+        "supported_citations": 2,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D28",
+        "category": "temporal_scope",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D29",
+        "category": "temporal_scope",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D30",
+        "category": "temporal_scope",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D31",
+        "category": "multi_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 2,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1",
+          "F2"
+        ],
+        "claim_units": 2,
+        "citation_units": 2,
+        "faithful_claims": 2,
+        "supported_citations": 2,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D32",
+        "category": "multi_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 3,
+        "covered_facts": 3,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "claim_units": 2,
+        "citation_units": 2,
+        "faithful_claims": 2,
+        "supported_citations": 2,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 2,
+          "found_at_5": 2,
+          "found_at_10": 2,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D33",
+        "category": "multi_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": false,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 2,
+          "found_at_5": 2,
+          "found_at_10": 2,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D34",
+        "category": "multi_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": false,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F2"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D35",
+        "category": "multi_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 2,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1",
+          "F2"
+        ],
+        "claim_units": 2,
+        "citation_units": 2,
+        "faithful_claims": 2,
+        "supported_citations": 2,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 2,
+          "found_at_5": 2,
+          "found_at_10": 2,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D36",
+        "category": "multi_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": false,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F2"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 2,
+          "found_at_5": 2,
+          "found_at_10": 2,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D37",
+        "category": "multi_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": false,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F2"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D38",
+        "category": "multi_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": false,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 4,
+        "citation_units": 4,
+        "faithful_claims": 4,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 2,
+          "found_at_5": 1,
+          "found_at_10": 2,
+          "recall_at_5": 0.5,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 0.5,
+          "complete_at_5": false,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D39",
+        "category": "multi_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 2,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1",
+          "F2"
+        ],
+        "claim_units": 2,
+        "citation_units": 2,
+        "faithful_claims": 2,
+        "supported_citations": 2,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D40",
+        "category": "multi_clause",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 2,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1",
+          "F2"
+        ],
+        "claim_units": 2,
+        "citation_units": 2,
+        "faithful_claims": 2,
+        "supported_citations": 2,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D41",
+        "category": "temporal_scope",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D42",
+        "category": "temporal_scope",
+        "expected_status": "answered",
+        "actual_status": "insufficient_evidence",
+        "status_match": false,
+        "correct": false,
+        "reviewed": true,
+        "required_facts": 2,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": "missing_support_candidates"
+      },
+      {
+        "question_id": "D43",
+        "category": "no_answer",
+        "expected_status": "insufficient_evidence",
+        "actual_status": "insufficient_evidence",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": null,
+        "failure_reason": "latest_excluded_by_filters"
+      },
+      {
+        "question_id": "D44",
+        "category": "no_answer",
+        "expected_status": "insufficient_evidence",
+        "actual_status": "insufficient_evidence",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": null,
+        "failure_reason": "current_fee_not_verified"
+      },
+      {
+        "question_id": "D45",
+        "category": "no_answer",
+        "expected_status": "insufficient_evidence",
+        "actual_status": "insufficient_evidence",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": null,
+        "failure_reason": "no_matching_evidence"
+      },
+      {
+        "question_id": "D46",
+        "category": "no_answer",
+        "expected_status": "insufficient_evidence",
+        "actual_status": "insufficient_evidence",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": null,
+        "failure_reason": "no_matching_evidence"
+      },
+      {
+        "question_id": "D47",
+        "category": "no_answer",
+        "expected_status": "insufficient_evidence",
+        "actual_status": "insufficient_evidence",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": null,
+        "failure_reason": "outside_institution_scope"
+      },
+      {
+        "question_id": "D48",
+        "category": "no_answer",
+        "expected_status": "insufficient_evidence",
+        "actual_status": "insufficient_evidence",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": null,
+        "failure_reason": "legal_status_not_verified"
+      },
+      {
+        "question_id": "D49",
+        "category": "no_answer",
+        "expected_status": "insufficient_evidence",
+        "actual_status": "insufficient_evidence",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": null,
+        "failure_reason": "outside_supported_scope"
+      },
+      {
+        "question_id": "D50",
+        "category": "no_answer",
+        "expected_status": "insufficient_evidence",
+        "actual_status": "insufficient_evidence",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": null,
+        "failure_reason": "outside_supported_scope"
+      },
+      {
+        "question_id": "D51",
+        "category": "clarification",
+        "expected_status": "needs_clarification",
+        "actual_status": "needs_clarification",
+        "status_match": true,
+        "correct": false,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 3,
+        "clarification_fields_required": 4,
+        "retrieval": null,
+        "failure_reason": "missing_scope"
+      },
+      {
+        "question_id": "D52",
+        "category": "clarification",
+        "expected_status": "needs_clarification",
+        "actual_status": "needs_clarification",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 3,
+        "clarification_fields_required": 3,
+        "retrieval": null,
+        "failure_reason": "missing_scope"
+      },
+      {
+        "question_id": "D53",
+        "category": "clarification",
+        "expected_status": "needs_clarification",
+        "actual_status": "needs_clarification",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 3,
+        "clarification_fields_required": 3,
+        "retrieval": null,
+        "failure_reason": "missing_scope"
+      },
+      {
+        "question_id": "D54",
+        "category": "clarification",
+        "expected_status": "needs_clarification",
+        "actual_status": "needs_clarification",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 1,
+        "clarification_fields_required": 1,
+        "retrieval": null,
+        "failure_reason": "missing_scope"
+      },
+      {
+        "question_id": "D55",
+        "category": "clarification",
+        "expected_status": "needs_clarification",
+        "actual_status": "needs_clarification",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 0,
+        "covered_facts": 0,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [],
+        "claim_units": 0,
+        "citation_units": 0,
+        "faithful_claims": 0,
+        "supported_citations": 0,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 1,
+        "clarification_fields_required": 1,
+        "retrieval": null,
+        "failure_reason": "conflicting_scope"
+      },
+      {
+        "question_id": "D56",
+        "category": "adversarial",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D57",
+        "category": "adversarial",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 4,
+        "citation_units": 4,
+        "faithful_claims": 4,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D58",
+        "category": "adversarial",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 0.3333333333333333,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D59",
+        "category": "adversarial",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      },
+      {
+        "question_id": "D60",
+        "category": "adversarial",
+        "expected_status": "answered",
+        "actual_status": "answered",
+        "status_match": true,
+        "correct": true,
+        "reviewed": true,
+        "required_facts": 1,
+        "covered_facts": 1,
+        "facts_unknown": 0,
+        "fact_span_coverage_proxy": [
+          "F1"
+        ],
+        "claim_units": 1,
+        "citation_units": 1,
+        "faithful_claims": 1,
+        "supported_citations": 1,
+        "claims_unknown": 0,
+        "citation_fidelity": true,
+        "filter_preserved": true,
+        "clarification_fields_matched": 0,
+        "clarification_fields_required": 0,
+        "retrieval": {
+          "gold_chunks": 1,
+          "found_at_5": 1,
+          "found_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "reciprocal_rank_at_10": 1.0,
+          "complete_at_5": true,
+          "complete_at_10": true
+        },
+        "failure_reason": null
+      }
+    ]
+  },
+  "operations": {
+    "stages": {
+      "retrieval_ms": {
+        "samples": 60,
+        "p50": 961.892,
+        "p95": 1078.01,
+        "active_samples": 52,
+        "active_p50": 971.385,
+        "active_p95": 1083.626
+      },
+      "reranker_ms": {
+        "samples": 60,
+        "p50": 6305.92,
+        "p95": 8946.967749999994,
+        "active_samples": 50,
+        "active_p50": 6616.561,
+        "active_p95": 9853.705249999995
+      },
+      "llm_ms": {
+        "samples": 60,
+        "p50": 3861.8855000000003,
+        "p95": 8374.4778,
+        "active_samples": 46,
+        "active_p50": 4353.681500000001,
+        "active_p95": 8461.765
+      },
+      "generation_stage_ms": {
+        "samples": 60,
+        "p50": 4869.426,
+        "p95": 9452.1684,
+        "active_samples": 47,
+        "active_p50": 5389.425,
+        "active_p95": 9621.4726
+      },
+      "end_to_end_ms": {
+        "samples": 60,
+        "p50": 13269.5255,
+        "p95": 18281.75004999999,
+        "active_samples": 60,
+        "active_p50": 13269.5255,
+        "active_p95": 18281.75004999999
+      }
+    },
+    "tokens": {
+      "input_tokens": {
+        "known_requests": 60,
+        "unknown_requests": 0,
+        "sum_known": 25588,
+        "mean_per_request": 426.46666666666664
+      },
+      "output_tokens": {
+        "known_requests": 60,
+        "unknown_requests": 0,
+        "sum_known": 479,
+        "mean_per_request": 7.983333333333333
+      }
+    },
+    "api_cost": {
+      "currency": "VND",
+      "total": 0,
+      "mean_per_request": 0
+    },
+    "hosting_compute_cost": {
+      "value": null,
+      "note": "Local existing hardware; unpriced"
+    },
+    "generation_requests": 46,
+    "conditions": "Serialized local CPU; no paid API/LLM judge. Retrieval includes query encoding/loading/SQL/freshness, excludes reranker. LLM timer surrounds generate; generation stage also includes budgeting/loading/validation; timings are not additive."
+  },
+  "conditions": "Assistant manual required-fact/atomic-quote-block review, not independent human review. Development results do not estimate held-out accuracy. Full answers, source text and model traces are Git ignored."
+}

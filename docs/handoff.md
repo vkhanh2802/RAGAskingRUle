@@ -2,10 +2,11 @@
 
 ## Hiện trạng
 
-- Milestone: M2/M3/T4.1/T5.1earlyUI completed; M4 runner/benchmark/erroranalysis còn pending.
-- Task vừa hoàn thành: sửa feedback GPA/unchanged-clause freshness và kiểm trên liveUI.
-- Task tiếp theo: usertestbản sửa, rồiT4.2 — metrics runner từfrozen data(defaultdevelopment).
-- Git: T3.3 `3407c07`,T3.4 `040dd30`,T4.1 `e8cc367`,UI `61f437f`; commitGPA xem `git log -1`.
+- Milestone: M2/M3/T4.1/T4.2/T5.1earlyUI completed; M4 in_progress, ablation/erroranalysis pending.
+- Task vừa hoàn thành: frozen evaluationrunner +60development/manualreview/actualmetrics.
+- Task tiếp theo: T4.3 —4retrievalvariants cùngcorpus/LLM/prompt/budget; chốtconfig rồiheldout.
+- Git: T3.3 `3407c07`,T3.4 `040dd30`,T4.1 `e8cc367`,UI `61f437f`,GPA `01ecdbe`;
+  commitT4.2 xem `git log -1`.
   Theo yêu cầu người dùng, mỗi bước hoàn tất kiểm chứng phải commit rồi báo mã/kết quả;
   quy tắc lưu trong `AGENTS.md`.
 - Runtime: Docker/db healthy; persistentlocalUI/API http://127.0.0.1:8000/ đãstarted,
@@ -21,7 +22,7 @@
 - Tạo FastAPI app, structured JSON logging và `/health` kiểm tra cả PostgreSQL lẫn
   extension pgvector.
 - Tạo `compose.yaml` và `scripts/db/init.sql`.
-- Hiện có322 tests (208 unit/114 PostgreSQL integration với schema riêng),12NodeUIcontracttests.
+- Hiện có339 tests (223 unit/116 PostgreSQL integration với schema riêng),12NodeUIcontracttests.
 - Tạo `docs/development.md` với hướng dẫn tạo environment và chạy local.
 - Mở rộng `.gitignore` cho secrets, Python artifacts và PDF raw không được cấp phép
   tái phân phối.
@@ -200,6 +201,29 @@
 
 ## Kiểm chứng
 
+### T4.2 hiện tại
+
+- Onecommand `scripts/run_evaluation.py`, default60development; verify frozen100/source/
+  corpus/quality/embedding pre/post-flight. Gold không vàoModel; rawoutputs/quotes ignored
+  `evals/results/`. `--score-only`/manualdecisionsSHA dùngnomodel, không đổi predictions.
+- Observerranked10samepool, originalanswer8/context6/budget2304; actualstage timers và
+  usage_input/output_tokens sumgrammarretries. API/schema nội dungask giữ nguyên.
+- Fullrun `t4-2-development-clause-v2`:60HTTP200/46answered/9insuf/5clarify;60manualreviews.
+  Recall5=.98936/10=1/MRR10=.96454;41/47correct/57of65facts;citationtask-support52/71,
+  sourcefaithful71/71;filter/citationfidelity60/60;correctreject8/8,false1/47.
+- Multi7/12complete. MissingF2D33/F1D34,F1D36,F1D37,bothD38;D42missingsupportfalseabstain;
+  D51needsstudyprogressquestion. Extrapassage issuesD03/08/10/16/20/27/38/57. 14issuecases
+  preserved, not fixed inT4.2; nDCG N/A binarygold. Status59/60 không làfullcorrectness.
+- E2eall60p50/p9513269.526/18281.750ms; CEactive50,LLMactive46,per-stageall/activequantiles.
+  Input25588/output479actualtokens;API0VND,localcomputeunpriced. Windows12logicalCPU/
+  CPUthreads2/4/cacheoffline/serial1/mixedcoldwarm; optionalRAMreading unavailable.
+- Inferencebasecommit01ecdbe+T4.2dirtytree,exactruntimeSourceSHA559fde0a...;configSHAf6e9a4ae...
+  andpredictionsSHA907d62d9... saved. Baseline.json/modelpins/fingerprint/gold/corpus unchanged.
+-339pytest97.63s+targeted20,Ruff163files/12Node/lock70/pipcheck pass. Sourcefreeze100/72spans/
+  49chunks/legacy30/19/corpus15ready307FTS unchanged,0heldoutRAGrequests.
+- `docs/evaluation-runner-review.md`, `evals/README.md`, `t4_2_development_metrics.json`,
+  `t4_2_development_decisions.json`, integrity/publicationsnapshots làfinalevidence.
+
 ### GPA / clause-scoped hotfix hiện tại
 
 - Rootcause:1393 chỉ sửa79014.1(b)hè, oldwholeclause14:[1] đã mất1(a)main/GPA.
@@ -347,11 +371,11 @@
 
 ## Phiên tiếp theo
 
-1. T4.2: runner đọc `load_evaluation_cases()` (defaultdev60), verify freeze/currentcorpus
-   trướcmetrics. Retrievalrecall/MRR chỉanswered support/contextgold, khôngcontrastevidence
-   củaabstentions. Answercorrectness/faithfulness/citationprecision/coverage/statuserrors táchriêng.
-2. Ghi config/commit/hardware/warmcold/concurrency/tokens/cost vàrawpredictions ignored.
-   Khôngrun/tuneheldout đểchọnheuristics. ChốtconfigởT4.3rồiđotestexplicit, giữnguyênfailures.
+1. T4.3: dùngrunner `--retrieval-mode vector|keyword|hybrid`/`--no-reranker` so4variants;
+   cùngcorpus/gold/LLM/prompt/contextbudget, record config/commit/hardware/coldwarm vàcost.
+   Defaultdev60; manualreviewbindnewresponses, không re-use previousprediction reviewSHA.
+2. T4.4 review completeness/precision/falseabstention/studyprogress issues; giữbaseline
+   vàfailedcases. Chốtconfig rồitestexplicit, không tuneheldout hoặc đổigold đểđạtmetric.
 3. Giữlegacy30/19,acceptance12 vàT3.3/3.4traces; freeze mismatch phải review/newversion,
    khôngauto-rebind/nớivalidator/filter. Scope/facets còn hẹp; datasetreview chưaindependent.
 4. Chốtstep với docs/kiểmchứng/committheoAGENTS. Sourcecheckpoint09October2026,

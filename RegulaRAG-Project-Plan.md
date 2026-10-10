@@ -502,26 +502,26 @@ Freeze `d577dcde2469cdb1650b4e7b1164e520afc5037d6668fe1b5eb06c7f98946f0c`,
 
 #### Retrieval
 
-- [ ] Recall@5, Recall@10.
-- [ ] MRR@10.
+- [x] Recall@5, Recall@10.
+- [x] MRR@10.
 - [ ] nDCG@10 nếu có nhãn mức độ liên quan.
-- [ ] Báo cáo theo nhóm câu hỏi; chỉ tính retrieval recall với câu có evidence phù hợp.
+- [x] Báo cáo theo nhóm câu hỏi; chỉ tính retrieval recall với câu có evidence phù hợp.
 
 #### Answer quality
 
-- [ ] Correctness theo required facts.
-- [ ] Faithfulness: phát biểu có được context hỗ trợ.
-- [ ] Citation support precision.
-- [ ] Citation coverage: phát biểu cần nguồn đã có nguồn hỗ trợ.
-- [ ] Từ chối đúng trên câu không có đáp án.
-- [ ] Từ chối nhầm trên câu có đáp án.
+- [x] Correctness theo required facts.
+- [x] Faithfulness: phát biểu có được context hỗ trợ.
+- [x] Citation support precision.
+- [x] Citation coverage: phát biểu cần nguồn đã có nguồn hỗ trợ.
+- [x] Từ chối đúng trên câu không có đáp án.
+- [x] Từ chối nhầm trên câu có đáp án.
 
 #### Vận hành
 
-- [ ] Latency retrieval, reranker, LLM và end-to-end.
-- [ ] p50/p95 với số mẫu và điều kiện đo rõ ràng.
-- [ ] Input/output tokens và chi phí API trung bình.
-- [ ] Ghi riêng chi phí API và chi phí hosting/compute nếu có.
+- [x] Latency retrieval, reranker, LLM và end-to-end.
+- [x] p50/p95 với số mẫu và điều kiện đo rõ ràng.
+- [x] Input/output tokens và chi phí API trung bình.
+- [x] Ghi riêng chi phí API và chi phí hosting/compute nếu có.
 
 **Đầu ra mỗi run:**
 
@@ -535,6 +535,14 @@ evals/results/<run_id>/
 ```
 
 **Nghiệm thu:** một lệnh tạo được báo cáo. Nếu dùng LLM-as-judge, lưu model/prompt và đối chiếu một phần với chấm thủ công.
+
+**Hoàn tất T4.2 2026-10-10:** `python scripts/run_evaluation.py` tạo config/predictions/
+retrieval/answer/operationalmetrics/summary, defaultfrozen development60. 60actualmanualreviews
+bindresponse/predictionsSHA, nomodeljudge. Rank10samepool/answerbudgetunchanged; nDCG N/A vì
+không gradedlabels. Recall5=.98936/10=1/MRR10=.96454;41/47completeanswers,52/71task-support
+citations;8/8correctreject,1/47false; p50/p95e2e13.270/18.282s,API0VND/computeunpriced.
+339tests/12Node/Ruff đạt; giữ14issuecases vàfreeze/corpus/gold,0heldoutinference.
+`docs/evaluation-runner-review.md`;T4.3 ablation/config vàT4.4 còn pending, chưaM4complete.
 
 ### T4.3 — Benchmark và ablation
 

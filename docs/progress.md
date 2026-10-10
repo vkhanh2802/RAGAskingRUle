@@ -21,6 +21,7 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 | T4.1 | completed | Dataset100 đúng6category quotas;60development/40test;72curatedspans/49chunks;source/offset/hash/filter/split validators;freeze trước finaltuning;300tests; `docs/evaluation-dataset-review.md` | Assistant source review chưaindependent; commoncorpus/question-familyholdout; chưa accuracybenchmark100 | T4.2 runner/metrics trênfrozen data, defaultdevelopment; test sauconfigchốt; commitstep |
 | T5.1 early demo | completed | UI/UXProMax/nativeweb trênFastAPI;scope/filter/devpresets/citation/excerpts/feedbackexport;303pytest+12Node;27fixture/18realbrowserassertions; `docs/demo-guide.md`, `docs/demo-ui-review.md` | Currentbaseline/localdemo; M4benchmarks còn pending; sessionfeedback chưaDBpersist | Người dùngmanualtestUI, sauđóT4.2; giữtest40freeze |
 | Demo feedback — GPA/freshness | completed | Clause-scopedv2/unchangedsourceviews;8cases6supported/2correctabstain;regression12 giữ11supported/1abstain;322pytest+12Node/22livebrowserassertions; `docs/gpa-credit-freshness-review.md` | Finer hierarchy/facets còn hẹp; M4benchmark pending | Người dùng thử bản sửa ở8000, rồiT4.2; giữfreeze40 |
+| T4.2 | completed | One-command frozen evaluator/realASGI/rank10/stageusage/manualhash-boundreview;60dev47answerable;Recall5=.98936/MRR10=.96454;41/47correct/52/71taskcitation;339tests; `docs/evaluation-runner-review.md` | Multi-clause7/12;extraquotes/D42falseabstain/D51missingprogress;heldout chưa chạy | T4.3 fixed-corpus/LLM/budget ablation4variants; giữfailures/gold vàcommitstep |
 
 ## Nhật ký kiểm chứng
 
@@ -336,3 +337,24 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
   Browserpilot inheriteddomainmissingaudience giữfailure; QA sửa setup, không bỏscopeguard.
 - `docs/gpa-credit-freshness-review.md`, `gpa_credit_*`aggregates/manualreview; fullsource/
   modeloutputs/screenshots ignored. Chốt hotfix, T4.2 vẫn pending sauuserreviewdemo.
+
+### T4.2 — Evaluation runner
+
+- Ngày2026-10-10. `python scripts/run_evaluation.py` tạo requiredreports mộtlệnh,
+  defaultdev60;read-only source/freeze pre/post-flight,rawpredictions flush/ignored.
+  Actualrank10samepool,answerdefault8/context6/budget2304; no gold vàoLLM/noextraModelcall.
+- Semanticmanualreview60 requiredfacts/actors/conditions vàactualcitedblocks bind
+  prediction/responseSHA. Proxyspancoverage không thaycorrectness; nDCG N/A binarylabels.
+  Input/outputprovider tokens sum retries; timingretrieval/CE/generate/e2e vàsamples rõ.
+- Full60:46answered/9insufficient/5clarify,60HTTP200; status59/60, facts57/65,
+  completecorrect41/47 (87.23%), citationtask-support52/71 (73.24%), faithful71/71.
+  Recall5=.98936/10=1,MRR10=.96454;complete@10=47/47;noanswer8/8correctreject.
+- Multi7/12đủý;D33/D34/D36/D37partial,D38wrongtopic,D42falseabstention,D51missingprogress.
+ 19extrablocks/14distinctissuecases giữtraces/reviews; khôngsửaModel/gold trongmeasurement.
+- p50/p95e2e13.270/18.282s,all60mixedstatus/coldwarm;activeLLM46 p504.354/p958.462s.
+  Input25588/output479 actualselectionJSONtokens,API0VND/localcomputeunpriced.
+-339tests223unit/116DB,97.63s;targeted20/re-score noModel/hash/overwrite guards;
+  Ruff163files/12Node/lock70/pipcheck pass. Frozen100/legacy30/19 vàcorpus15/307giữ nguyên,
+  0heldoutinference. Publict4_2metrics/decisions/integrity/snapshot; rawevals/results ignored.
+- T4.2technicalacceptance đạt, M4 in_progress; nextT4.3 fourretrievalvariants rồiT4.4,
+  citation90%/p95target10s chưađạt. `docs/evaluation-runner-review.md`.

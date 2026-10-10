@@ -74,6 +74,16 @@ class RetrievalPipeline:
         mode = mode or self.config.retrieval.mode
         if mode not in ("vector", "keyword", "hybrid") or not 1 <= limit <= 20:
             raise ValueError("Invalid retrieval mode or top-k")
+        pool = self.ranked_candidates(question, mode, filters)
+        return select_with_updates(pool, limit) if self.freshness is not None else pool[:limit]
+
+    def ranked_candidates(
+        self,
+        question: str,
+        mode: RetrievalMode | None = None,
+        filters: RetrievalFilters | None = None,
+    ) -> list[RetrievedChunk]:
+        """Expose the actual ordered pool before top-k without another retrieval/model call."""
         pool = self.candidates(question, mode, filters)
         if self.reranker is not None and any(not hit.freshness_failure for hit in pool):
             pool = self.reranker.rerank(question, pool)
@@ -88,7 +98,7 @@ class RetrievalPipeline:
             # candidates. Other primaries retain the context-wide freshness gate;
             # required companions still pass the selection/service budget guards.
             pool = [hit for hit in pool if not hit.freshness_failure]
-        return select_with_updates(pool, limit) if self.freshness is not None else pool[:limit]
+        return pool
 
     def candidates(
         self,

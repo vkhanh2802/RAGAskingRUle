@@ -107,7 +107,11 @@ class LlamaCppGenerator:
             grammar=self._grammar,
             stop=["<|im_end|>"],
         )
-        return parse_quote_selection(response["choices"][0]["text"].strip())
+        return replace(
+            parse_quote_selection(response["choices"][0]["text"].strip()),
+            usage_input_tokens=len(prompt_tokens),
+            usage_output_tokens=response.get("usage", {}).get("completion_tokens"),
+        )
 
     def _select_passages(self, prompt: str) -> GeneratedAnswer:
         ids = prompt_passage_ids(prompt)
@@ -115,6 +119,8 @@ class LlamaCppGenerator:
             return parse_passage_selection('{"passage_ids":[]}', ())
         grammar = build_answer_grammar(ids)
         outputs = []
+        input_tokens = 0
+        output_tokens = []
         current_prompt = prompt
         for _ in range(self.config.structured_retries + 1):
             tokens = self._prompt_tokens(current_prompt)
@@ -131,14 +137,24 @@ class LlamaCppGenerator:
             )
             raw = response["choices"][0]["text"].strip()
             outputs.append(raw)
+            input_tokens += len(tokens)
+            output_tokens.append(response.get("usage", {}).get("completion_tokens"))
             result = parse_passage_selection(raw, ids)
             if result.failure_reason is None:
-                return replace(result, attempts=len(outputs), raw_attempts=tuple(outputs))
+                break
             # Retry only structurally invalid output. Empty/unsupported selections are not coerced.
             payload = json.loads(prompt)
             payload["format_reminder"] = "Chỉ trả JSON passage_ids; dùng ID trong passages hoặc []."
             current_prompt = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
-        return replace(result, attempts=len(outputs), raw_attempts=tuple(outputs))
+        return replace(
+            result,
+            attempts=len(outputs),
+            raw_attempts=tuple(outputs),
+            usage_input_tokens=input_tokens,
+            usage_output_tokens=sum(output_tokens)
+            if all(value is not None for value in output_tokens)
+            else None,
+        )
 
     def release(self) -> None:
         if self._model is not None:

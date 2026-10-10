@@ -36,3 +36,25 @@ def test_structural_retry_is_bounded_and_keeps_diagnostics():
     assert result.status == "answered" and result.passage_ids == ("P2",)
     assert result.attempts == 2 and len(result.raw_attempts) == 2
     assert generator._model.calls == 2
+    assert result.usage_input_tokens == 40
+    assert result.usage_output_tokens is None  # Missing provider usage is not invented zero.
+
+
+def test_token_usage_sums_every_structural_attempt():
+    class Model:
+        def __init__(self):
+            self.outputs = iter(['{"passage_ids":["P1","P1"]}', '{"passage_ids":["P2"]}'])
+
+        def create_completion(self, **kwargs):
+            return {"choices": [{"text": next(self.outputs)}], "usage": {"completion_tokens": 9}}
+
+    config = _config().generation
+    config.response_policy = "verified_passages"
+    generator = LlamaCppGenerator(config)
+    generator._model = Model()
+    generator._prompt_tokens = lambda prompt: [1] * 20
+    result = generator.generate(
+        json.dumps({"passages": [{"passage_id": "P1"}, {"passage_id": "P2"}]})
+    )
+    assert result.attempts == 2 and result.usage_input_tokens == 40
+    assert result.usage_output_tokens == 18

@@ -584,6 +584,34 @@ python scripts/audit_reranker_samples.py --results data/processed/gpa-credit-rep
 và22livebrowserassertions đạt. Pilot failures/manualreview/limits/reproduce:
 `docs/gpa-credit-freshness-review.md`. Restart API để build service theo config mới.
 
+## Evaluation runner — T4.2
+
+Trong Conda `ragschool`, Docker/source artifacts/model cache sẵn có:
+
+```powershell
+python scripts/run_evaluation.py
+```
+
+Default60development, frozen source/corpus pre/post-flight, output
+`evals/results/<UTC-run-id>/` ignored. Lệnh tạo config/predictions/retrieval/answer/
+operationalmetrics/summary/reviewpacket. Requiredfacts/reference không gửi model;
+pending semanticmetrics lànull cho đến manualreview. Actual ranked10 cùngpipeline
+giữ answerdefaulttop8/context6/budget2304; không bổ sung inference đểlấyRecall@10.
+
+Re-score/publish run đã review mà không gọi model:
+
+```powershell
+python scripts/run_evaluation.py --score-only --run-dir evals/results/t4-2-development-clause-v2 --review-decisions data/manifests/t4_2_development_decisions.json
+python scripts/publish_evaluation_summary.py --run-dir evals/results/t4-2-development-clause-v2 --output data/manifests/t4_2_development_metrics.json
+```
+
+Review bind response/predictionsSHA; changeddata/config/gold phải tạo/review run phù hợp,
+không auto-rebind. `--retrieval-mode`/`--no-reranker` choT4.3 cùngLLM/corpus/budget;
+`--split test` explicit chỉ sauconfigchốt. Chưa chạyheldout trongT4.2.
+Rubric/rates/active-vs-alltiming/cost/14issuecases: `docs/evaluation-runner-review.md`;
+details `evals/README.md`. Baseline41/47đủfacts và52/71task-supportcitations,
+không coi59/60status hoặc47/47goldtop10 làansweraccuracy.
+
 ## Dừng dịch vụ
 
 ```powershell
