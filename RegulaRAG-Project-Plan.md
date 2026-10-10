@@ -588,14 +588,22 @@ Các số sau là mục tiêu, không phải kết quả thực nghiệm hoặc 
 
 **Ước lượng:** 4–5 giờ. **Phụ thuộc:** M3; dùng cấu hình cuối từ M4 khi sẵn sàng.
 
-- [ ] Ô nhập câu hỏi, filters và câu hỏi mẫu.
-- [ ] Trạng thái loading/error.
-- [ ] Câu trả lời kèm citation.
-- [ ] Link nguồn, trang và excerpt.
-- [ ] Hiển thị clarification/insufficient evidence rõ ràng.
-- [ ] Feedback đơn giản đúng/sai hoặc hữu ích/không hữu ích.
+- [x] Ô nhập câu hỏi, filters và câu hỏi mẫu.
+- [x] Trạng thái loading/error.
+- [x] Câu trả lời kèm citation.
+- [x] Link nguồn, trang và excerpt.
+- [x] Hiển thị clarification/insufficient evidence rõ ràng.
+- [x] Feedback đơn giản đúng/sai hoặc hữu ích/không hữu ích.
 
 **Nghiệm thu:** người mới đặt câu hỏi và kiểm tra bằng chứng trong khoảng một phút.
+
+**Hoàn tất earlyT5.1 2026-10-10 theo yêu cầu user trướcT4.2:** UI/UXProMax design,
+same-originFastAPI webdemo `/`, nativeHTML/CSS/ESmodules,scope/filters/4developmentpresets,
+actualcitations/sourcepages/excerpts,clarification/loading/errors,sessionfeedback/JSONexport.
+303pytest/12Node tests,27browserfixture assertions/18real-browser assertions(5knownrequests)
+đạt;0axeA/AAviolations trongautomatedscans. Firstrealask~24.4s vàmởđúngcitation.
+`docs/demo-guide.md`, `docs/demo-ui-review.md`; M4benchmark/configfinal vẫn pending,
+UI đọc backenddefaultconfig khi có. Held-out40 giữfreeze/0inference trongstepdemo.
 
 ### T5.2 — Observability
 

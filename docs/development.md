@@ -543,6 +543,25 @@ Review doassistant đọc approved sources/inheritedM2quality evidence, chưaind
 Prospectiveheldout dùngcommoncorpus, không document-disjoint. Chi tiết review/exposure/
 freezehashes/tests: `docs/evaluation-dataset-review.md`. T4.2 runner tiếp theo.
 
+## Web demo hỏi đáp — earlyT5.1
+
+FastAPI serve UI ở `/` vàassetsở `/assets`, cùngAPIport; không frontendbuild/server/CDN.
+StartUvicorn theo lệnh ởphầnlocalAPI vàmở http://127.0.0.1:8000/.
+Scope/filter/devpresets/citation/source/excerpt/JSONexport và3statuses đều dùng API thật.
+Feedback hiện session-only. Staticcatalog chỉ publicmanifest/allowlist/configdefaults,
+không xác nhận mọi nguồnready hoặc pháp lýactive; healthbadge kiểmDB,khôngmodel-loaded.
+
+Hướng dẫn từng bước/restart/troubleshooting: **`docs/demo-guide.md`**.
+Design/QA/browserresults/limits: `docs/demo-ui-review.md`.
+`source_manifest_path` có thểđổi quaREGULARAG_SOURCE_MANIFEST_PATH khi cầnmanifestcustom.
+
+```powershell
+node --test tests/ui/contract.test.mjs
+```
+
+Node chỉ cần choUIcontractQA, không cần đểserver/chạyUI. OptionalbrowserQA helper dùng
+Playwright/axe tooling cài riêng; PythonQA cần Conda ragschool. Existinglock70unchanged.
+
 ## Dừng dịch vụ
 
 ```powershell

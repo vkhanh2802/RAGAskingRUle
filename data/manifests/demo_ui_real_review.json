@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "mode": "real-backend-development-presets",
+  "assertions": [
+    "Vietnamese document language",
+    "four development-only presets",
+    "catalog15",
+    "initial WCAG A/AA automated scan",
+    "native catalog dialog opens",
+    "Escape closes dialog",
+    "real cap12 from1393",
+    "citation opens matching source",
+    "real clarification visible",
+    "explicit scope reply uses same question andCTA",
+    "caller old-only filter retained",
+    "real latest guard abstains",
+    "real01September effective date",
+    "no horizontal page overflow 375x812",
+    "no horizontal page overflow 812x375",
+    "no horizontal page overflow 768x1024",
+    "reduced motion disables smooth scrolling",
+    "no uncaught browser errors"
+  ],
+  "pageErrors": [],
+  "held_out_inference_requests": 0
+}

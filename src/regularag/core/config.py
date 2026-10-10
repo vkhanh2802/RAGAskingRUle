@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     )
     database_connect_timeout_seconds: int = 3
     rag_config_path: Path = Path("configs/rag/baseline.json")
+    source_manifest_path: Path = Path("data/manifests/documents.csv")
 
     model_config = SettingsConfigDict(
         env_file=".env",

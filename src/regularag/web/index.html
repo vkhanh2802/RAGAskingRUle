@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Tra cứu quy định UIT và đối chiếu bằng chứng với RegulaRAG.">
+  <title>RegulaRAG — Tra cứu có căn cứ</title>
+  <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/app.css">
+  <script type="module" src="/assets/app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#question">Đến ô nhập câu hỏi</a>
+  <aside class="rail" aria-label="Điều hướng chính">
+    <a class="brand" href="/" aria-label="RegulaRAG trang chủ"><img src="/assets/mark.svg" alt="" width="38" height="38"><span>Regula<span class="brand-light">RAG</span></span></a>
+    <span class="rail-caption">UIT KNOWLEDGE WORKSPACE</span>
+    <nav><a class="nav-item active" href="#workspace"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Tra cứu quy định</a><button class="nav-item" id="open-catalog" type="button"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h6M9 17h4"/></svg>Thư viện nguồn<span class="nav-count" id="catalog-count">—</span></button><a class="nav-item" href="#guide"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9.5 8.5a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4M12 16v1"/></svg>Hướng dẫn thử</a></nav>
+    <div class="rail-bottom"><span class="eyebrow">LOCAL · EVIDENCE FIRST</span><p>Mỗi câu trả lời đều có một nơi để bạn đối chiếu.</p><a href="/docs" target="_blank" rel="noopener noreferrer" class="text-link">Mở API explorer <span aria-hidden="true">↗</span></a></div>
+  </aside>
+  <main id="workspace">
+    <header class="topbar"><div class="breadcrumb">Không gian tra cứu <span>/</span> <strong>Quy định UIT</strong></div><button id="health-button" type="button" class="health-chip"><span class="health-dot" aria-hidden="true"></span><span id="health-label">Đang kiểm tra kết nối</span></button></header>
+    <section class="hero" aria-labelledby="hero-title">
+      <div><div class="eyebrow hero-eyebrow"><span aria-hidden="true"></span>TỪ CÂU HỎI ĐẾN BẰNG CHỨNG</div><h1 id="hero-title">Hỏi quy định.<br><span>Hiểu từ nguồn.</span></h1><p>Tra cứu quy định UIT bằng tiếng Việt, làm rõ phạm vi áp dụng và mở ngay đoạn trích để kiểm chứng.</p></div>
+      <div class="hero-note"><div class="note-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h6a3 3 0 0 1 3 3v13a4 4 0 0 0-4-3H4zM13 7a3 3 0 0 1 3-3h4v13h-3a4 4 0 0 0-4 3"/></svg></div><strong>Đọc cả điều kiện.<br>Không chỉ con số.</strong><span>Nguồn được kiểm chứng theo corpus và phạm vi bạn yêu cầu.</span></div>
+    </section>
+    <div class="workspace-grid">
+      <div class="conversation-column">
+        <section class="card composer" aria-labelledby="composer-title">
+          <div class="section-head"><h2 id="composer-title">Bạn muốn tìm hiểu điều gì?</h2><span class="small-label">CÂU HỎI ĐỘC LẬP</span></div>
+          <form id="ask-form" novalidate>
+            <label for="question" class="sr-only">Câu hỏi về quy định UIT</label>
+            <textarea id="question" name="question" rows="4" maxlength="1000" placeholder="Ví dụ: Trong học kỳ hè, sinh viên được đăng ký tối đa bao nhiêu tín chỉ?" aria-describedby="question-help form-error"></textarea>
+            <div class="question-meta"><span id="question-help">Nêu khóa, chương trình hoặc thời điểm nếu cần áp dụng cho bạn.</span><span id="char-count">0 / 1.000</span></div>
+            <div id="form-error" class="error-box" role="alert" hidden></div>
+            <details id="scope-panel" class="form-details"><summary><span>Thông tin áp dụng <small>Tùy chọn</small></span><span class="summary-plus" aria-hidden="true">+</span></summary><div class="field-grid">
+              <label>Khóa tuyển sinh<input id="cohort" type="number" min="1980" max="2100" step="1" placeholder="Ví dụ: 2026" inputmode="numeric"></label>
+              <label>Hệ đào tạo<select id="audience"><option value="">Chưa chỉ định</option><option value="undergraduate_regular">Đại học chính quy</option><option value="undergraduate_distance">Đào tạo từ xa</option><option value="joint_program">Chương trình liên kết</option></select></label>
+              <label>Chương trình<select id="programme"><option value="">Chưa chỉ định</option><option value="ctc">CTC — Chương trình chuẩn</option><option value="cttn">CTTN — Tài năng</option><option value="cta">CTA — Dạy &amp; học bằng tiếng Anh</option><option value="cttt">CTTT — Tiên tiến</option><option value="viet_japan">CNTT Việt–Nhật</option></select></label>
+              <label>Ngày cần đối chiếu<input id="as-of" type="date"><span class="field-hint">Để trống để theo chuỗi cập nhật đã kiểm.</span></label>
+              <label>Thời gian thiết kế (năm)<input id="design-years" type="number" min="0.5" max="10" step="0.5" placeholder="Ví dụ: 4"></label>
+              <label>Loại đồ án<select id="project-type"><option value="">Chưa chỉ định</option><option value="regular">Đồ án thông thường</option><option value="enterprise">Đồ án tại doanh nghiệp</option></select></label>
+            </div></details>
+            <details id="filter-panel" class="form-details"><summary><span>Giới hạn nguồn &amp; truy xuất <small>Nâng cao</small></span><span class="summary-plus" aria-hidden="true">+</span></summary><div class="field-grid">
+              <label>Chủ đề nguồn<select id="domain"><option value="">Tất cả chủ đề</option></select></label>
+              <label>Chế độ truy xuất<select id="retrieval-mode"><option value="hybrid">Hybrid — kết hợp</option><option value="vector">Vector — ngữ nghĩa</option><option value="keyword">Keyword — từ khóa</option></select></label>
+              <label>Số kết quả top-k<input id="top-k" type="number" min="1" max="20" step="1" value="8"></label>
+              <div class="field-hint advanced-note">Reranker vẫn theo cấu hình backend. Bộ lọc tường minh được giữ nguyên khi hỏi.</div>
+            </div><fieldset class="document-fieldset"><legend>Chỉ dùng văn bản đã chọn <span>Không chọn = toàn bộ danh mục</span></legend><div id="document-options" class="document-options"><p class="field-hint">Đang tải danh mục nguồn…</p></div></fieldset></details>
+            <div class="submit-row"><span class="keyboard-hint"><kbd>Ctrl</kbd> + <kbd>Enter</kbd> để gửi</span><button type="submit" class="button primary" id="submit-button"><span>Tra cứu bằng chứng</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div>
+          </form>
+        </section>
+        <section class="samples" aria-labelledby="samples-title"><div class="section-head"><h2 id="samples-title">Thử một tình huống</h2><span class="small-label">DEVELOPMENT DEMO</span></div><div id="sample-buttons" class="sample-grid"></div><p class="sample-note">Chọn mẫu để điền câu hỏi và phạm vi. Bấm “Tra cứu bằng chứng” để gửi.</p></section>
+        <section id="result-panel" class="card result-panel" aria-labelledby="result-title" aria-busy="false">
+          <div class="result-topline"><span id="result-status" class="status-badge neutral">Sẵn sàng tra cứu</span><span id="result-time" class="small-label"></span></div>
+          <div id="empty-state" class="empty-state"><div class="empty-lines" aria-hidden="true"><span></span><span></span><span></span></div><h2 id="result-title" tabindex="-1">Một câu hỏi rõ.<br>Một câu trả lời có căn cứ.</h2><p>Kết quả sẽ xuất hiện ở đây. Đoạn trích và nguồn được đặt bên cạnh để bạn đọc cùng câu trả lời.</p><div class="empty-steps"><span>01 · Đặt câu hỏi</span><span>02 · Đọc kết quả</span><span>03 · Mở nguồn</span></div></div>
+          <div id="loading-state" class="loading-state" hidden><div class="spinner" aria-hidden="true"></div><h2>Đang xử lý câu hỏi của bạn</h2><p>Model chạy local trên CPU. Lần tải đầu có thể mất 30–90 giây; các request được xử lý tuần tự.</p><div class="loading-bottom"><span id="elapsed-time" aria-hidden="true">Đã chờ 0 giây</span><button id="stop-waiting" class="button quiet" type="button">Dừng chờ</button></div></div>
+          <div id="answer-state" hidden><h2 id="answer-heading" tabindex="-1"></h2><div id="answer-text" class="answer-text"></div><div id="clarification-actions" hidden><button id="fill-scope" class="button secondary" type="button">Bổ sung thông tin áp dụng</button><p class="field-hint">Giữ câu hỏi gốc, bổ sung thông tin rồi gửi lại. Mỗi lần hỏi là độc lập.</p></div><div id="request-metrics" class="metrics"></div><details class="notes-details" id="notes-panel" hidden><summary>Phạm vi nguồn &amp; ghi chú</summary><ul id="warnings-list"></ul></details><div class="result-actions"><div class="feedback"><span>Kết quả này có hữu ích?</span><button class="feedback-button" data-feedback="useful" type="button" aria-pressed="false">Hữu ích</button><button class="feedback-button" data-feedback="needs_review" type="button" aria-pressed="false">Cần xem lại</button></div><button id="download-result" class="button quiet" type="button">Tải JSON</button></div><p id="feedback-note" class="field-hint">Góp ý chỉ được giữ trong phiên trình duyệt này.</p><details class="notes-details technical-details"><summary>Chi tiết request &amp; response</summary><pre id="technical-json"></pre></details></div>
+        </section>
+        <div id="live-status" class="sr-only" role="status" aria-live="polite"></div>
+      </div>
+      <aside class="evidence-column" aria-labelledby="evidence-title"><section class="card evidence-card"><div class="section-head"><h2 id="evidence-title">Bằng chứng tham chiếu</h2><span class="evidence-count" id="source-count">0</span></div><p class="section-description" id="source-description">Nguồn và trang sẽ hiển thị sau khi có kết quả.</p><div id="source-list" class="source-list"><div class="source-placeholder"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 3h7l4 4v14H7zM14 3v5h4M10 12h5m-5 4h5"/></svg><strong>Kiểm chứng ngay từ nguồn</strong><p>Click citation trong câu trả lời để mở đúng đoạn nguồn ở đây.</p></div></div></section><div class="evidence-caption"><span class="caption-line" aria-hidden="true"></span><p>“Mới nhất” là phiên bản trong chuỗi sửa đổi đã kiểm chứng. Trạng thái pháp lý chưa xác minh sẽ được ghi rõ.</p></div></aside>
+    </div>
+    <section id="guide" class="guide" aria-labelledby="guide-title"><div><span class="eyebrow">BẮT ĐẦU TRONG MỘT PHÚT</span><h2 id="guide-title">Thử, đọc, rồi đối chiếu.</h2></div><ol><li><strong>Chọn một tình huống</strong><span>Mẫu “Tín chỉ học kỳ hè” có câu trả lời trực tiếp.</span></li><li><strong>Kiểm tra trạng thái</strong><span>Hỏi lại khi thiếu phạm vi; từ chối khi bằng chứng chưa đủ.</span></li><li><strong>Mở citation và PDF</strong><span>Đọc đoạn đã dùng, số trang và mở URL nguồn chính thức.</span></li></ol></section>
+    <footer><span>RegulaRAG · Local research demo</span><span>Nguồn công khai UIT · Backend-derived citations</span></footer>
+  </main>
+  <dialog id="catalog-dialog" aria-labelledby="catalog-title"><div class="dialog-head"><div><span class="eyebrow">DANH MỤC CORPUS</span><h2 id="catalog-title">Thư viện nguồn</h2></div><form method="dialog"><button class="button quiet" aria-label="Đóng thư viện">Đóng</button></form></div><p id="catalog-note" class="section-description"></p><div id="catalog-list" class="catalog-list"></div></dialog>
+  <noscript><p class="error-box">Bật JavaScript để dùng giao diện hỏi đáp. Bạn cũng có thể test API tại <a href="/docs">/docs</a>.</p></noscript>
+</body>
+</html>

@@ -19,6 +19,7 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 | T3.3 | completed | `clarify-scope-v1`; structured scope/clarification/version notes; 20 cases: 8 clarify / 7 abstain / 5 supported answers; positive12; development30 và targeted fixes; 247 tests; `docs/clarification-abstention-review.md` | Lexical scope/facets chưa general entailment; extra material và variable CPU latency; chưa held-out | T3.4 adversarial/ngoài phạm vi/giả định sai, ít nhất20 cases trước M3; commit sau mỗi bước hoàn tất |
 | T3.4 / M3 | completed | 24 API cases +10 injected-context cases:34/34 final pass; source-instruction/hash/scope guards; positive12:11 supported/1 correct abstention;276 tests; `docs/adversarial-behaviour-review.md` | Declared heuristics chưa general scope/entailment/injection defense; extra quotes, CPU latency và excluded layouts; chưa held-out | T4.1 dataset100, required facts/evidence/filter/split và held-out freeze; commit sau bước hoàn tất |
 | T4.1 | completed | Dataset100 đúng6category quotas;60development/40test;72curatedspans/49chunks;source/offset/hash/filter/split validators;freeze trước finaltuning;300tests; `docs/evaluation-dataset-review.md` | Assistant source review chưaindependent; commoncorpus/question-familyholdout; chưa accuracybenchmark100 | T4.2 runner/metrics trênfrozen data, defaultdevelopment; test sauconfigchốt; commitstep |
+| T5.1 early demo | completed | UI/UXProMax/nativeweb trênFastAPI;scope/filter/devpresets/citation/excerpts/feedbackexport;303pytest+12Node;27fixture/18realbrowserassertions; `docs/demo-guide.md`, `docs/demo-ui-review.md` | Currentbaseline/localdemo; M4benchmarks còn pending; sessionfeedback chưaDBpersist | Người dùngmanualtestUI, sauđóT4.2; giữtest40freeze |
 
 ## Nhật ký kiểm chứng
 
@@ -298,3 +299,19 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
   baseline runtime040dd30. Refreeze attempt rejectexpectedexit1, resultlưu riêng; lockunchanged.
 - Full300tests188unit/112schema-isolatedDB,109.19s,Ruff/pipcheck/lock70 đạt; Corpus15/307/
   19gold/0unfinished giữ nguyên. `docs/evaluation-dataset-review.md`,nextT4.2 chưaM4complete.
+
+### T5.1 early — UI/manual test trướcT4.2
+
+- Ngày2026-10-10,user yêu cầuUI demo trước evaluationrunner. UI/UXProMax verified
+  knowledge-docs/Swissdesign,slateblue/light,tokens/focus/reducedmotion/nativeSVG; master/pageoverridepersisted.
+- FastAPI `/`/webassets vàcatalog publicmanifestdefaults,sameoriginask; noNodebuild/UIruntimepackage.
+  Explicit scope/filter/4devpresets,backendanswer/citation/source/excerpt/versionnotes,3statuses,
+  loading/elapsed/error/stopwaiting,session-onlyfeedback vàexportactualJSON.
+-27browserfixturechecks/18realbrowserchecks5requests đạt. Cap12/1393,clarify rồiscopeCTA
+  cap16/IEL05,old790onlyfilterabstention,851effect01Sept2024. Firstask~24.4s; khôngheldoutbenchmark.
+- Axeinitial/result0A/AAviolations; responsive375/812landscape/768tablet/nohorizontaloverflow;
+  textnodes+safeURLs/XSS/citationfocus/dialogEscape/network503/abort tested. Screenshots/records ignored.
+- MIMEWindowsmjs banđầutext/plain gâypilotfail; app-localJScontenttype fix vàQAfullrerun pass.
+ 303pytest191unit/112DB+12Nodepass,Ruff/pipcheck/lock70clean. Datasetfreeze d577... giữ nguyên/0testinference.
+- UI/serverlocal127.0.0.1:8000 đãstarted/HTTP200/healthok/catalog15,Conda wrapperPID21564 tạihandoff.
+ `docs/demo-guide.md` córestartcommands và5manualflows. NextT4.2 sauuserreview, chưaM4/M5complete.

@@ -2,14 +2,14 @@
 
 ## Hiện trạng
 
-- Milestone: M2/M3/T4.1 completed; M4 runner/benchmark/erroranalysis còn pending.
-- Task vừa hoàn thành: T4.1 — dataset100, curatedgold/source/split validation vàheld-outfreeze.
-- Task tiếp theo: T4.2 — evaluationrunner vớiretrieval/answer/runtime metrics từfrozen data.
-- Git: T3.3 `3407c07`, T3.4 `040dd30`; commit T4.1 xem `git log -1`.
+- Milestone: M2/M3/T4.1/T5.1earlyUI completed; M4 runner/benchmark/erroranalysis còn pending.
+- Task vừa hoàn thành: webdemo/UI/UXProMax vàmanualtestguide theo yêu cầu user trướcT4.2.
+- Task tiếp theo: usertestdemo, rồiT4.2 — metrics runner từfrozen data(defaultdevelopment).
+- Git: T3.3 `3407c07`,T3.4 `040dd30`,T4.1 `e8cc367`; commitUI xem `git log -1`.
   Theo yêu cầu người dùng, mỗi bước hoàn tất kiểm chứng phải commit rồi báo mã/kết quả;
   quy tắc lưu trong `AGENTS.md`.
-- Runtime: Docker Desktop đang chạy, `regularag-db-1` healthy. Server HTTP smoke đã
-  tự dừng; dùng Uvicorn theo `docs/development.md` để chạy API lâu dài.
+- Runtime: Docker/db healthy; persistentlocalUI/API http://127.0.0.1:8000/ đãstarted,
+  Conda wrapperPID21564 khi chốtstep. QAHTTP8767 tựstop; restart từ `docs/demo-guide.md`.
 
 ## Đã thực hiện
 
@@ -20,7 +20,7 @@
 - Tạo FastAPI app, structured JSON logging và `/health` kiểm tra cả PostgreSQL lẫn
   extension pgvector.
 - Tạo `compose.yaml` và `scripts/db/init.sql`.
-- Hiện có300 tests (188 unit/112 PostgreSQL integration với schema riêng).
+- Hiện có303 tests (191 unit/112 PostgreSQL integration với schema riêng),12NodeUIcontracttests.
 - Tạo `docs/development.md` với hướng dẫn tạo environment và chạy local.
 - Mở rộng `.gitignore` cho secrets, Python artifacts và PDF raw không được cấp phép
   tái phân phối.
@@ -180,12 +180,29 @@
 - NextT4.2:runmetrics trêndevelopment trước; T4.3 chọnconfigcuối rồi heldout/T4.4reportfailures.
   Frozen labels làexpectedbehaviour, chưa modelaccuracy75/100 hoặcanswerbenchmark.
 
+## EarlyT5.1 — UI demo hiện tại
+
+- NativeHTML/CSS/ESmodules trong `src/regularag/web/`, sameFastAPI `/assets` và `/`;
+  catalogpublicmanifest/configdefaults,no rawpaths/models/heldoutqueries. BackendRAGunchanged.
+- UI/UXProMax master`design-system/regularag/MASTER.md`/pages/demo override,readability/
+  highcontrast/slateblue/focus/reducedmotion,localfontfallback,noCDN. Desktop/mobileverified.
+-4presetsdevelopment,typedexplicit scope/filter,actual3statuses/citation/excerpts/latest/
+  sourcewarnings. Scope reply giữoriginalquestion; presetsnạp filtertươngứng/xoáscopecũ.
+- Loading/elapsed/stopwaitinghonestclientabort, khôngcancelPythonclaim; textnodes/safeHTTPURLs
+  vàonlyreturnedSIDbuttons, no fakeprogress/confidencemeters. Sessionfeedback/exportnoDBpersist.
+-303pytest+12Nodepass;27browserfixturechecks+18actualbrowserchecks/5requests,3supported
+  answers/1clarify/1correctabstention. AxeautomatedA/AA0violations,notfulla11ycertification.
+- WindowsmjsMIMEfixapp-local; failedpilot/successreports`demo_ui_*`manifests, fullscreenshots/
+  responses/exportignoredprocessed. OptionalPlaywright/axeQAtooling ởTemp, khôngUIdependency.
+- Dataset100/legacy30/19/source/corpusguards giữ nguyên,0heldoutRAGinference. `docs/demo-guide.md`
+  hướng dẫn chạy/test; root8000 HTTP200/healthok/catalog15. T4.2 vẫnnext, M4 chưabenchmark.
+
 ## Kiểm chứng
 
 - `conda run -n ragschool python --version`: Python 3.12.15.
 - `python -m ruff check .`: pass.
 - `python -m ruff format --check .`: pass.
-- `REGULARAG_RUN_DB_TESTS=1` và `python -m pytest`:300 passed.
+- `REGULARAG_RUN_DB_TESTS=1` và `python -m pytest`:303 passed; Nodecontract12pass.
 - Lock integrity: 70 dependency, không có version mismatch; `pip check` pass.
 - `docker compose config --quiet`: pass.
 - Runtime hiện tại: Docker đã recovery sau lúc bị dừng; `docker compose ps` healthy.

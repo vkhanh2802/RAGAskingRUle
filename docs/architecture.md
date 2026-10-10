@@ -161,6 +161,12 @@ literalcontiguousrow vàbỏwrongrows; citation IDs gán lại theocontext thự
 
 ### 6. API và UI
 
+EarlyT5.1 theouserrequest thêm same-origin webworkspace quaFastAPI `/`/staticassets;
+nativeJStyped payload/explicit scopes+filters,backend3statuses/actualcitations/source
+views/metadata/warnings. Cataloguepublicmanifest vàdefaults khôngloadmodel. UI không
+rewritequery/relaxcallerfilters hoặc đọcheldout. Rendertextnodes/safeURLs; feedback chỉ
+session vàJSONexport. UI/UXProMax design/token/focus/responsive guidelines persisted.
+
 T3.2 pipeline dùngatomic source-bound passages saufreshness/re-ranking. LLM chỉchọn
 request-scopedPIDsenum/strictJSON; backend validatesrange/textSHA, deriveSourceIDs,
 quotes vàcitationmetadata. Minimalfacetcover/date-signature dependencies/completeconditions
