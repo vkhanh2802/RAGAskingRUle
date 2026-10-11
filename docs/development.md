@@ -640,6 +640,43 @@ manifests; full/modeloutputs ignored. 360predictions,41/47correct choCE, primary
 tươngđươngnhưngextraD43falseanswer;RRF36/47. Latencytie-break khôngcausalclaim.
 T4.4 xửlýfailures/traces rồifreezefinalconfig trước40testexplicit.
 
+## Final release và held-out protocol — T4.4
+
+`configs/rag/final.json`: hybrid+CE/top4/guardedobligationsv2/promptv4/freshnessv2.
+Đểdemo dùngbảnđãđo:
+
+```powershell
+$env:REGULARAG_RAG_CONFIG_PATH = "configs/rag/final.json"
+```
+
+APIsettingsdefault vẫnbaselineJSON; config alone không tái tạo sourceversion củameasurement
+cũ. HistoricalT4.2/T4.3 cần đúngsourcefingerprint/commit vàrecordedconfig.
+Lượtdevelopment mới được tạo/review/re-score nhưsau:
+
+```powershell
+python scripts/run_evaluation.py --config configs/rag/final.json --run-dir evals/results/<new-development-run>
+python scripts/bind_evaluation_review.py --run-dir evals/results/<run> --review-csv <actual-review.csv> --output evals/results/<run>/csv_reviews.json
+python scripts/run_evaluation.py --config configs/rag/final.json --run-dir evals/results/<run> --score-only --review evals/results/<run>/csv_reviews.json
+python scripts/check_release.py --config configs/rag/final.json --freeze data/manifests/t4_4_release_freeze.json
+```
+
+ReviewerCSV explicitfactIDs/faithful/relevantPIDs/forbiddenclaims/behaviour/note; binder
+kiểm fullorderedroster/predictionshash vàbindactualresponses, không suyfacts từgold.
+`--question-id`repeat hoặc`--limit` chỉcho developmentpilot; testrejectsubsets.
+`export_run_cases.py` tạo ignoredcase diagnostics cho rawselection/registry/facets, noModels.
+
+Releasefreezev1 cần complete60development củaexactcurrentinferencecode/config,fullmanualreview;
+sourcehash gồm srcPython +run_evaluation.pyexactbytes, dataset/corpus/heldout locks.
+`freeze_release.py --config ... --development-run ... --output ...` tạoonce;
+`run_evaluation.py --split test --release-freeze ...` claimledger trước40inference,
+verifyreleasepre/post, preservefailures vàrefusereplay. Recorded40đãchạy; ledgerclaimed.
+Sau test chỉre-score/read-only/report, không sửa/tunecode/config/gold theo test.
+
+T4.4finaldev47/47correct nhưngtest19/28,taskcitation29/108,reject0/7,p9532.707s.
+Methodology/M4artifacts đạt; qualitytargets chưađạt, giữlocaldemo/evidence snapshot.
+`docs/error-analysis-review.md` cócompletecounts/failures/artifacts/reproconditions.
+T01–T40đãexposed; prospectiveevaluation mới cần testversion độc lập mới.
+
 ## Dừng dịch vụ
 
 ```powershell

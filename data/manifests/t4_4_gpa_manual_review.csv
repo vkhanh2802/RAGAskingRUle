@@ -1,0 +1,9 @@
+question_id,answer_status,manual_answer_supported,verdict,verification_note
+G01,answered,True,pass_answer,Đọc actualblock: học kỳ chính14–24; ĐTBC≥8tại đăng ký→max30; đủ ngoại lệ và unchangedview.
+G02,answered,True,pass_answer,790-only không bị nới; cùng unchanged14.1a max30.
+G03,answered,True,pass_answer,Explicitmainsemester và ĐTBC≥8; đủ30/normal14–24/ngoại lệ.
+G04,answered,True,pass_answer,Normal14–24; cap30 còn conditionalĐTBC≥8 nên không khẳng định cho7.5.
+G05,answered,True,pass_answer,Hè12từ1393 đúng amendment và các điều kiện.
+G06,insufficient_evidence,False,pass_abstention,Hè bị1393sửa và caller790-only loạiupdate; không generation.
+G07,insufficient_evidence,False,pass_abstention,12.1bị1393sửa và790-only; không dùng50cũ.
+G08,answered,True,pass_answer,ĐủĐTBCfailedcourses vsĐTBCTLpassing/accumulated; có thêm blockĐTBHK ngoài hai định nghĩa yêu cầu.

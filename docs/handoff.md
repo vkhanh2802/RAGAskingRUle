@@ -2,16 +2,19 @@
 
 ## Hiện trạng
 
-- Milestone: M2/M3/T4.1/T4.2/T4.3/T5.1earlyUI completed; M4 in_progress, erroranalysis pending.
-- Task vừa hoàn thành: 4retrievalvariant ablation/top-k4/8/12 và360predictions/reviews/selection.
-- Task tiếp theo: T4.4 — erroranalysis/fixes/rerundev/finalconfigfreeze/heldouttest.
+- Milestone: M2/M3/T4.1–T4.4/M4/T5.1earlyUI completed về measurement/artifacts;
+  held-outquality targets chưađạt, M5 cònT5.2–T5.4.
+- Task vừa hoàn thành: T4.4—20errorcases/3fixgroups/devreruns/exactfreeze/oneheldout40/report;
+  dev47/47correct nhưngtest19/28correct/taskcitation29/108/reject0/7.
+- Task tiếp theo: T5.2observability; qualitybacklog cần version/evidence/testset mới.
 - Git: T3.3 `3407c07`,T3.4 `040dd30`,T4.1 `e8cc367`,UI `61f437f`,GPA `01ecdbe`;
-  T4.2 `9987bca`;commitT4.3 xem `git log -1`.
+  T4.2 `9987bca`;T4.3 `d18cbe4`;commitT4.4 khi chốtstep, mãcuối xem `git log -1`.
   Theo yêu cầu người dùng, mỗi bước hoàn tất kiểm chứng phải commit rồi báo mã/kết quả;
   quy tắc lưu trong `AGENTS.md`.
-- Runtime: Docker/db healthy; persistentlocalUI/API http://127.0.0.1:8000/ đãstarted,
-  Conda wrapperPID38292/Python listener16956 khi chốt hotfix. QAHTTP8767 tựstop;
-  restart từ `docs/demo-guide.md`. Server đã load `rag-clause-scoped-v2`.
+- Runtime: Docker/db healthy; persistentlocalUI/API http://127.0.0.1:8000/ đãstarted
+  bằng Condaragschool, Python listener38296 tại chốtT4.4; parentcmd2928. Xác minhownership
+  trướcstop, PIDs cũhotfix16956/38292không còn dùng. Serverload `rag-obligation-support-v3`
+  từ `REGULARAG_RAG_CONFIG_PATH=configs/rag/final.json`; restart từ `docs/demo-guide.md`.
 
 ## Đã thực hiện
 
@@ -22,7 +25,7 @@
 - Tạo FastAPI app, structured JSON logging và `/health` kiểm tra cả PostgreSQL lẫn
   extension pgvector.
 - Tạo `compose.yaml` và `scripts/db/init.sql`.
-- Hiện có354 tests (237 unit/117 PostgreSQL integration với schema riêng),12NodeUIcontracttests.
+- Hiện có370 tests (253 unit/117 PostgreSQL integration với schema riêng),13NodeUIcontracttests.
 - Tạo `docs/development.md` với hướng dẫn tạo environment và chạy local.
 - Mở rộng `.gitignore` cho secrets, Python artifacts và PDF raw không được cấp phép
   tái phân phối.
@@ -347,7 +350,8 @@
   `data/processed/ocr-corrections`; clone thiếu correction cần review lại, không bypass gate.
 - Companion phải full/ready VÀ có trong context; source chỉ index chưa đủ. 159/790/956
   partial có warnings; hierarchy không suy qua excluded page/appendix.
-- Retrieval hiện hybrid: top8/candidate20, rrf_k60, weights1:1. Cosine>=0.55 áp trước
+- Finalretrieval hybrid: top4/candidate20/CEon +guardedobligationproviderreservation,
+  rrf_k60/weights1:1; baselinev2JSONtop8 vẫnarchivedreference. Cosine>=0.55 áp trước
   fusion; keyword>0 và RRF>0 dùng ngưỡng riêng, không so với cosine.
 - Mã văn bản trong query hiện constrain cảdense/keyword; request filters chung hai nhánh.
   Article phrase có thể khớp reference trong body, không chỉ điều sở hữu của chunk.
@@ -373,6 +377,11 @@
 
 ## Blocker
 
+- Latestheld-out40:19/28completecorrect/32of43facts/29of108taskcites/reject0of7;
+  clarificationaxes0of20,p9532.707s. Binding/faithfulquotes đạt nhưng relevance/answerability/
+  generalpersonal-eligibility còn hạn chế rõ; xem `docs/error-analysis-review.md`.
+  Giữfrozenresults/code/config, không tune từT01–T40 rồi gọi lại làheldout.
+
 - Không còn document/page publication pending. Supported scope có45 excluded pages,
   gồm TOC/blanktemplates/diagram và chưa durable row-column tables;832 bỏ regions3/5.
 -43 đã OCR/table serialization/full publication, còn legal_status unknown và phạm vi
@@ -382,22 +391,46 @@
   evidence hỗ trợ. Không coi15ready là toàntext hoặc hiện hành pháp lý đã chứng minh.
 - Model nhỏ còn lỗi output/selection; retrieval có thể đúng tài liệu nhưng sai đoạn.
   Scope/facets hiện lexical, chưa general entailment. Câu hỏi chung còn extra material.
-- Hybrid cũng có regression C03; cần gold theo clause và review thủ công. OCR01 qua quote
-  validation nhưng không trả lời câu hỏi, không được tính answer success.
+- Lịch sửhybridC03/OCR01wrongtopic giữ trongreports; hiện fixed12 có11primarysupported/1abstain.
+  Gold theo clause vàmanualreview vẫn làbắtbuộc; status/quotevalidation không thayaccuracy.
 - Một deprecation warning trong FastAPI/Starlette TestClient còn tồn tại; không ảnh
    hưởng runtime và chưa cần đổi sang thư viện `httpx2` chưa ổn định trong baseline.
-- T3.1 ranking cải thiện nhưng11generationcalls chỉ1supportedanswer; medianwalltime104s.
-  Wrong sourceIDs, metadataquotes, paraphrase/noncontiguousquotes/truncatedJSON được chặn.
-  Không nới validator hoặc đếm statusanswered/documenthit làm answeraccuracy.
+- Lịch sửT3.1 1of11generationcalls supported/median104s được giữ đểso sánh; currenttest
+  p9532.707s vẫn chưađạttrial10s. WrongIDs/metadataquotes/paraphrase/truncation vẫnchặn,
+  không nới validator hoặc đếm statusanswered/documenthit làm answeraccuracy.
 
 ## Phiên tiếp theo
 
-1. T4.4: dùngselectedreference configs/rag/t4_3_selected.json, review khoảng20failurecases
-   từvariant/case differences vàprecisionextras. Ưu tiênmulti-fact coverage/prerequisite-vs-
-   progress, date-unit supportfalseabstentionD42, missingstudy_progressD51;giữfailuretraces.
-2. Sửa2–3nhóm lớn/rerundevelopment vớisamegold/scope/sourceguards. Ghi tácđộng rồifreeze
-   finalcode/config trướctestexplicit; không tuneheldout hoặc đổigold đểđạtmetric.
-3. Giữlegacy30/19,acceptance12 vàT3.3/3.4traces; freeze mismatch phải review/newversion,
-   khôngauto-rebind/nớivalidator/filter. Scope/facets còn hẹp; datasetreview chưaindependent.
-4. Chốtstep với docs/kiểmchứng/committheoAGENTS. Sourcecheckpoint09October2026,
-   45excludedpages khôngđược dùng làmgold; M4accuracy/latencybenchmark100 chưa có.
+1. T5.2: requestID/trace retrieve→rerank→context/selection→generation, model/prompt/chunkIDs,
+   latency/usage/cost và secret-safe logging; dùngfinalconfig vàexistingfailedtraces.
+2. Nếu user ưu tiênquality: dùng posttestbacklog làm analysis, phát triển evidence/devversion
+   và testset độc lập mới. T01–T40 đãexposed, không replay/improve rồi claimprospectiveheldout.
+3. Giữimmutable100/legacy30/19/corpus15/307/source/hash/filter/latest vàfailures. Releasefreeze
+   verify exactsource/config; khôngauto-rebind, không overwrite testledger/predictions.
+4. T4.4reports `docs/error-analysis-review.md`; `t4_4_*`manualCSVs/IDmetrics/21failures/
+   freeze/ledger/integrity. Raw `evals/results/t4-4-*`, `data/processed/t4-4-*` ignored.
+5. Chốt mỗi bước bằngdocs/kiểmchứng/commit. Sourcecheckpoint09October2026;
+   45excludedpages/legal_statusunknown không được thổi thành verifiedfull/currentlegal.
+
+## T4.4 — Final release/evidence handoff
+
+- `configs/rag/final.json` / `rag-obligation-support-v3`, behaviourv2/promptv4,
+  freshnessclause-scopedv2; samepins/top4/context6/input2304/output64/retry1/lowmemory.
+- Threefixgroups obligations/providerselection,calendarunits,study_progressstrict0–40;
+  absentNoneexcluded khôngđổi frozen100serialization. User phảiexplicitsemester, khôngsuycohort.
+- Pilot14 all13answerscorrect; iteration1full60D06falseabstention retained. Signaturedependency
+  promptfix rồi exactfinal60:47/47/65of65/60of60,8/8reject,fields12/12,p9515.824s.
+- Freeze07:10:12.468742UTC, claim07:11:38.800029UTC; full40onepass finished07:26:28UTC,
+  source/config pre/postchecks pass. Confige1933332.../sourceca2b3803.../datasetd577... unchanged.
+  `t4_4_release_freeze.json` binddevpredictions533155f2.../review92a76a83...;
+  testpredictions1e604487.../finalreview713090c7..., completeassistantmanualreview40.
+  T07P4partialprioritysupport đượccredit ởfinalrubriccheck; originalreview3a5cbc90... vàcorrectionlog giữ.
+- Test:19/28answerscorrect/32of43facts/29of108cites/reject0of7/fields0of20.21qualityfailures
+  retained, noheldout-basedinferencechanges. Testaccuracy không lấy47/47tuneddevthaythế.
+-370pytest/13Node/Ruff180/lock70/pipcheck; regressionGPA8/fixed12/adversarial24,
+ 65browserassertions pass; allautomaticspan/source/filter/latest audits0.
+- Dataset100/72spans/49chunks/legacy30/19/corpus15/307/0unfinished nguyênvẹn.
+  **Globalheldoutinference40**, read-onlyvalidatorreports0 chỉ làoperation-local count.
+- `python scripts/check_release.py --config configs/rag/final.json --freeze data/manifests/t4_4_release_freeze.json`
+  verifyexactfrozenbytes/corpus khônggọiModels. Frozenrawdata cầnlocalcache đểre-score;
+  historicalrunreproduce cần đúng sourceversion cùngconfig, không chỉ configJSON.

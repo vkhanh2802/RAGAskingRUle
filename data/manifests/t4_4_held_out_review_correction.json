@@ -1,0 +1,10 @@
+{
+  "question_id": "T07",
+  "response_sha256": "5c280b3348e715602a843f701e496fdbd85ad76b77dac9ece790059e2574d08e",
+  "predictions_sha256": "1e6044871107ba0a2fc56d8561808bd288934379ac0071b07a09eedfcac8b0ac",
+  "initial_review_sha256": "3a5cbc90f9e94f5be84505633640f0cd20212c4fd584ab77a47b0b17b9b70545",
+  "initial_relevant_passage_ids": ["P1"],
+  "corrected_relevant_passage_ids": ["P1", "P4"],
+  "reason": "Final rubric consistency check: P4 explicitly describes preference priority with1highest, contributing to the priority part ofF1. Redundancy is not automatically irrelevance; partial requested-fact support counts for citation precision. Correctness/facts/status unchanged.",
+  "conditions": "Manual review correction only; original bound csv_reviews.json retained locally. No inference/code/config/gold change or extra model call. Citation support29/108 instead of initial28/108; all21quality failures retained."
+}

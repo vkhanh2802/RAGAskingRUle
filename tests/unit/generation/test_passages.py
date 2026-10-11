@@ -83,6 +83,12 @@ def test_effective_date_from_signature_requires_same_document_literal_date_evide
     question = "Quyết định có hiệu lực từ ngày nào?"
     prepared = prepare(question, [effective, header])
     effect = next(p for p in prepared.passages if "hiệu lực" in p.text)
+    payload = json.loads(prepared.prompt)
+    assert payload["required_support"] == ["effective_date", "signature_date"]
+    signature_id = effect.required_passage_ids[0]
+    signature = next(p for p in payload["passages"] if p["passage_id"] == signature_id)
+    assert signature["supports"] == ["signature_date"]
+    assert resolve_passages(question, (signature_id,), prepared)[1] == "incomplete_passage_support"
     selected, reason = resolve_passages(question, (effect.passage_id,), prepared)
     assert reason is None and any("29 tháng 12" in p.text for p in selected)
     missing = prepare(question, [effective])

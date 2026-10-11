@@ -87,7 +87,13 @@ def support_facets(question: str) -> dict[str, str]:
     """Declared lexical support checks, not an entailment/confidence estimator."""
     q = _fold(question)
     facets = {}
-    numeric = bool(re.search(r"bao\s*nhieu|may|toi\s*da|toi\s*thieu", q))
+    units_q = re.sub(r"ngay\s*\d{1,4}[-/]\d{1,2}[-/]\d{1,4}", " ", q)
+    numeric = bool(
+        re.search(
+            r"bao\s*nhieu|may|toi\s*da|toi\s*thieu|\d+\s*(?:sv\b|sinh vien|tin chi|de tai)",
+            units_q,
+        )
+    )
     amount = r"(?:\d+(?:[,.]\d+)?|mot|hai|ba|bon|nam|sau|bay|tam|chin|muoi)\s*"
     if numeric:
         for name, unit in (
@@ -101,7 +107,7 @@ def support_facets(question: str) -> dict[str, str]:
             ("topics", r"de\s*tai"),
             ("sessions", r"dot"),
         ):
-            asks_unit = bool(re.search(unit, q))
+            asks_unit = bool(re.search(unit, units_q))
             if name in ("weeks", "minutes", "years", "topics", "sessions"):
                 asks_unit = bool(
                     re.search(r"(?:bao\s*nhieu|may|toi\s*da|toi\s*thieu)\s*" + unit, q)
@@ -109,8 +115,9 @@ def support_facets(question: str) -> dict[str, str]:
             if name == "students":
                 asks_unit = bool(
                     re.search(
-                        r"(?:bao\s*nhieu|may|toi\s*thieu|toi\s*da|so\s*luong|it\s*nhat).{0,30}sinh\s*vien",
-                        q,
+                        r"(?:bao\s*nhieu|may|toi\s*thieu|toi\s*da|so\s*luong|it\s*nhat|chi can)"
+                        r".{0,30}(?:sinh\s*vien|sv\b)|\d+\s*sv\b",
+                        units_q,
                     )
                 )
             if asks_unit:
@@ -130,13 +137,15 @@ def support_facets(question: str) -> dict[str, str]:
         facets["summer_period"] = r"hoc ky he"
     if "dai cuong" in q and "co so nganh" in q:
         facets["course_group"] = r"dai cuong.*co so nganh"
+    elif "dai cuong" in q and "students" in facets:
+        facets["course_group"] = r"dai cuong"
     if re.search(r"nhom.{0,40}(?:nao|gi)|chi ap dung.{0,30}nhom", q):
         facets["group"] = r"nhom\s+(?:hoc\s*phan|mon|sinh)"
     if "van bang giay" in q:
         facets["paper_degree"] = r"van bang giay.{0,100}\d+\s*ngay"
     if "van bang so" in q or "vbcc so" in q:
         facets["digital_degree"] = r"(?:vbcc|van bang) so.{0,100}\d+\s*ngay"
-    if "cbhd" in q and "cbpb" in q and re.search(r"dong thoi|khac|la cbhd", q):
+    if "cbhd" in q and "cbpb" in q and re.search(r"dong thoi|khac|la cbhd|kiem", q):
         facets["distinct_reviewer"] = r"cbpb.{0,80}(?:khac|khong).{0,40}cbhd"
     if "ruot thit" in q:
         facets["family_condition"] = r"ruot thit"
@@ -160,8 +169,12 @@ def support_facets(question: str) -> dict[str, str]:
         facets["weighting"] = r"he so"
     if "lam tron" in q:
         facets["rounding"] = r"lam tron"
-    course = re.search(r"\b(?:pet|iel|jan)\d{2}\b", q)
-    if course and ("tien quyet" in q or "dang ky" in q and re.search(r"can dat|phai dat", q)):
+    course = re.search(r"(?:pet|iel|jan)\d{2}\b", q)
+    if course and (
+        "tien quyet" in q
+        or "dang ky" in q
+        and re.search(r"can dat|phai dat|can.{0,25}mon.{0,30}truoc", q)
+    ):
         # A progress deadline mentioning the same course is not a prerequisite edge.
         facets["prerequisite"] = (
             r"tien quyet cua.{0,50}\b" + re.escape(course[0]) + r"\b|"
@@ -182,6 +195,39 @@ def support_facets(question: str) -> dict[str, str]:
         )
     elif focus == "summer":
         facets["summer_period"] = r"hoc ky he"
+    if "cbhd" in q and re.search(r"hoc vi|trinh do", q):
+        facets["supervisor_qualification"] = r"cbhd.{0,100}(?:thac si|tien si)"
+        if re.search(r"ngoai.{0,15}truong|ben ngoai", q):
+            facets["external_cosupervisor"] = (
+                r"(?:moi|ben).{0,30}ngoai.{0,100}cbhd.{0,40}(?:can bo|noi bo).{0,30}truong"
+            )
+    if "cbhd" in q and "hoi dong" in q and re.search(r"thuoc|thanh phan|tham gia", q):
+        facets["committee_membership"] = r"cbhd.{0,30}khong thuoc.{0,30}hoi dong"
+    if re.search(r"luu.{0,35}(?:ho so|bien ban)|giu.{0,20}ho so", q):
+        facets["archive_retention"] = r"luu tru.{0,100}" + amount + r"nam"
+    if "bang diem" in q and re.search(r"gui|nhap|nop", q):
+        facets["grade_submission"] = r"(?:gui|nop).{0,80}bang diem.{0,160}" + amount + r"ngay"
+    if re.search(r"chung chi|chung nhan", q) and re.search(r"han|tinh tu|ngay thi", q):
+        facets["certificate_validity"] = (
+            r"chung.{0,80}(?:thoi han|con han).{0,120}ngay thi.{0,120}(?:dang ky|dang ki)"
+        )
+    if re.search(r"diem\s*m\b|diem mien", q) and re.search(r"dtb|diem trung binh|mien", q):
+        facets["exempt_grade_average"] = (
+            r"diem mien.{0,120}(?:ky hieu la\s*m\b|\bm\b).{0,120}khong tinh"
+            r".{0,100}(?:diem trung binh|dtb)"
+        )
+    if "mien" in q and "tin chi" in q and re.search(r"xu ly|tinh|cong", q):
+        facets["exempt_credit_accumulation"] = (
+            r"tin chi.{0,100}mien.{0,100}cong don.{0,100}tin chi tich luy"
+        )
+    if re.search(r"diem.{0,20}(?:nao|toi thieu)|toi thieu diem", q) and "cong nhan" in q:
+        facets["recognition_grade"] = r"diem.{0,160}(?:\b[a-df]\b|\d)"
+    if re.search(r"gia han.{0,60}(?:kltn|khoa luan)|(?:kltn|khoa luan).{0,60}gia han", q):
+        facets["extension_approval"] = r"gia han.{0,100}dong y.{0,30}cbhd.{0,30}khoa"
+        if "truong hop dac biet" in q:
+            facets["special_extension"] = r"truong hop dac biet"
+    if re.search(r"hptchm\s*hkhe|chenh lech.{0,30}hoc phi", q):
+        facets["summer_fee_formula"] = r"hptchm hkhe.{0,80}chenh lech"
     return facets
 
 
@@ -194,6 +240,12 @@ def scoped_facets(question: str, scope: QuestionScope | None = None) -> dict[str
             )
         if re.search(r"chua dat|gioi han", _fold(question)):
             facets["unmet_limit"] = r"(?:chua dat|toi da).{0,300}\d+\s*tin chi"
+        if scope.study_progress is not None:
+            words = {0: "khong", 1: "mot", 2: "hai", 3: "ba", 4: "bon", 5: "nam", 6: "sau"}
+            number = str(scope.study_progress)
+            if scope.study_progress in words:
+                number += "|" + words[scope.study_progress]
+            facets["study_progress"] = rf"sau\s*(?:{number})\s*hoc ky"
     return facets
 
 
@@ -277,6 +329,8 @@ def _prompt(
     scope: QuestionScope | None = None,
 ) -> str:
     lookup = {f"S{i}": chunk for i, chunk in enumerate(chunks, 1)}
+    facets = scoped_facets(question, scope)
+    signature_ids = {pid for p in passages for pid in p.required_passage_ids}
     return json.dumps(
         {
             "question": question,
@@ -287,9 +341,21 @@ def _prompt(
                     "document": lookup[p.source_id].document_number,
                     "article": lookup[p.source_id].article,
                     "text": p.text,
+                    "supports": [
+                        name
+                        for name, pattern in facets.items()
+                        if re.search(pattern, _fold(p.text), re.S)
+                    ]
+                    + (["signature_date"] if p.passage_id in signature_ids else []),
+                    **(
+                        {"required_passage_ids": list(p.required_passage_ids)}
+                        if p.required_passage_ids
+                        else {}
+                    ),
                 }
                 for p in passages
             ],
+            "required_support": list(facets) + (["signature_date"] if signature_ids else []),
         },
         ensure_ascii=False,
         separators=(",", ":"),
@@ -535,3 +601,37 @@ def resolve_passages(
                 selected = reduced
                 break
     return selected, None
+
+
+def prioritize_support_sources(question: str, chunks: list[RetrievedChunk]) -> list[RetrievedChunk]:
+    """Reserve query-obligation providers from the same ranked, guarded pool; no gold lookup."""
+    if not chunks or chunks[0].freshness_failure:
+        return chunks
+    facets = support_facets(question)
+    if not facets:
+        return chunks
+    coverage = []
+    for chunk in chunks:
+        text = (
+            " ".join(chunk.text[a:b] for a, b in chunk.evidence_char_ranges)
+            if chunk.evidence_char_ranges
+            else chunk.text
+        )
+        coverage.append(
+            {
+                name
+                for name, pattern in facets.items()
+                if not chunk.freshness_failure and re.search(pattern, _fold(text), re.S)
+            }
+        )
+    remaining = set(facets)
+    chosen = []
+    while remaining:
+        best = max(range(len(chunks)), key=lambda i: (len(coverage[i] & remaining), -i))
+        if not coverage[best] & remaining:
+            return chunks  # Missing/blocked providers retain the original fail-closed selection.
+        chosen.append(best)
+        remaining -= coverage[best]
+    return [chunks[i] for i in chosen] + [
+        chunk for i, chunk in enumerate(chunks) if i not in chosen
+    ]

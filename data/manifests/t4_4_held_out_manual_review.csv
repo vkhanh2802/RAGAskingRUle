@@ -1,0 +1,41 @@
+question_id,covered_fact_ids,faithful_passage_ids,relevant_passage_ids,forbidden_claims_present,behaviour_correct,note
+T01,F1,P1;P2;P3;P4,P2,false,true,P2chỉ thêm01ngành đúng; ba block điều kiện/thủ tục khác là extra ngoài fact đếm ngành.
+T02,F1,P1;P4,P1,false,true,01học kỳ đúng nguồn; headerban hànhP4không trả lời thời lượng.
+T03,F1,P1;P2;P3;P4,P3,false,true,P3báo cáo20–30trang đúng; header và các quy trình khác là extra.
+T04,F1,P2;P4,P2,false,true,P2cấp một lần và ngoại lệ lỗi bên cấp; P4quản lý hồ sơ không đóng góp fact.
+T05,F1,P1;P2;P3;P4,P1,false,true,P1đủ tiếng Việt/ngoại ngữ chính xác/phù hợp/cỡ chữ; các block sổ gốc không liên quan.
+T06,F1,P1,P1,false,true,Bí mật danh tính và kèm bằng chứng; không suy thành báo cáo vô danh miễn bằng chứng.
+T07,F1;F2,P1;P4,P1;P4,false,true,P1đủ không giới hạn/ưu tiên/nguyện vọng cao nhất; P4nêu thứ tự ưu tiên và số1cao nhất nên cũng hỗ trợ phần priority củaF1 dù trùng ý.
+T08,F1,P1;P4,P1,false,true,P1lưu suốt khóa theo luật; P4tổ hợp tuyển sinh không liên quan lưu trữ.
+T09,F1,P1;P2;P4,P1,false,true,P1ít nhất05và số lẻ; chức năng hội đồng và người thân không trả lời quy mô.
+T10,F2,P1,P1,false,false,Đủ tiên quyết tốt nghiệp ngành1 nhưng thiếu rule thời gian tối đa căn cứ ngành1; crossreference không thay đoạn đích.
+T11,F1;F2,P1;P2;P3;P4,P1;P2,false,true,Đủ diện phí sau tốt nghiệp và không học bổng/miễn giảm; appendix/flow blocks là extra.
+T12,F1;F2,P1;P2;P3;P4,P1;P2,false,true,Đủ03vị trí và tối thiểu15trang chỉ nội dung; quy trình/sai biệt điểm ngoài hai facts.
+T13,F1,P1,P1,false,false,Đủ40/10/50và0.1 nhưng thiếu20–30trang; không đánh đồng grading facet với đủ hai ý.
+T14,F1,P1,P1,false,false,Có thời hạn cấp lại và trả lời từ chối; thiếu thời hạn chỉnh sửa riêng.
+T15,F1,P1;P2;P3;P4,P1,false,false,Có kết nối BộGD&ĐT; thiếu cổng dịch vụ công và quy trình như giấy; các trách nhiệm đơn vị không thay Điều18.
+T16,,,,false,false,False abstention missing_support_candidates dù goldcouncil/quorum có trong ranked5; không có fact được trả lời.
+T17,F1;F2;F3,P1;P2;P3;P4,P1;P2;P3,false,true,Đủ xác nhận online/quá hạn/đã xác nhận cùng ngoại lệ; giấy báo trúng tuyểnP4là extra.
+T18,F1,P1,P1,false,true,Mẫu ban hành/phê duyệt trước hiệu lực dùng đến hết31/8/2026 đúng literal và điều kiện.
+T19,F1;F2,P1;P2;P3;P4,P1,false,true,P1đủ3môn/Toán hoặcNgữvăn25%/từ2026môn chung50%; các quy định khác không đóng góp.
+T20,,,,false,false,False abstention missing_support_candidates; không trả eligibility năm đầu/trước kỳ cuối01kỳ dù goldranked5.
+T21,F1;F2,P1;P2;P3;P4,P1,false,true,P1đủ HĐKLTN quyết định/ghi biên bản và hướng dẫn liên đới; learnergeneral/faculty/administrative extras.
+T22,F1,P2;P3,P2,false,false,P2có hộ tịch nhưng thiếu quyết định chỉnh sửa/không sửa trực tiếp; P3thủ tục cấp lại khác task.
+T23,F1;F2,P1;P2;P3;P4,P1,false,true,P1đủ gia hạn01kỳ/approvals/Hiệu trưởng/điểm0; postdefenseflow và thời lượng chung không thay rule.
+T24,,P1,,false,false,Đòi đơn giá2027–2028 nhưng trả cap hè12; nguồn nguyên văn không hỗ trợ sốtiền/năm/ngành yêu cầu.
+T25,,P1;P2;P3;P4,,false,false,Đòi mức học bổng kỳ cụ thể nhưng trả định nghĩa ĐTB; không có sốtiền hoặc thông báo đúng kỳ.
+T26,,P1;P2;P3;P4,,false,false,Đòi phí/tài khoản KTX nhưng trả ĐATNDN/công nhận tín chỉ/học phí gia hạn; không chứng minh task.
+T27,,P1;P2;P3,,false,false,Đòi phòng/ca thi SS006đúng kỳ nhưng trả ưu tiên tuyển sinh và quy trình cảnh báo.
+T28,,P1;P2;P3;P4,,false,false,Đòi hồ sơ cá nhân mã thử nghiệm nhưng trả quy định chung; không có bằng chứng sốđiệnthoại/địa chỉ.
+T29,,P1;P2;P3;P4,,false,false,Đòi vẽ chính xác diagram đã omitted nhưng trả text và các nguồn khác; thiếu hình/nhánh không được đáp ứng.
+T30,,P1;P2;P3;P4,,false,false,Đòi điểm chuẩn2027 nhưng trả phương thức/định nghĩa tuyển sinh; không có công bố điểm yêu cầu.
+T31,,P1,,false,false,Thiếu sáu axes eligibility song ngành; quote học phần790không kết luận hồ sơ hoặc hỏi thông tin.
+T32,,P1;P2;P3;P4,,false,false,Trả quy định894chung nhưng không hỏi lý do/lỗi/hồ sơ pháp lý để quyết định trường hợp cá nhân.
+T33,,P1,,false,false,Trả chuyển ngành790thay dự tuyển308và không hỏi năm axes hồ sơ.
+T34,,P1;P2;P3;P4,,false,false,Không hỏi context/mức độ/quyết định thẩm quyền; quy định kỷ luật chung không quyết định trường hợp cá nhân.
+T35,,,,false,false,Đúng statusclarification nhưng chỉ hỏi applies_to; thiếu lý do/chứng từ/ngày giấy báo trúng tuyển.
+T36,,P1;P2;P3;P4,,false,false,Không trả rule thêm01ngành để bác02; appendix/header/quy trình không chứng minh giới hạn.
+T37,F1,P1;P2;P4,P1,false,true,P1đủ15trang không mục lục và không xác nhận10; hội đồng/quy trình khác là extra.
+T38,,P1;P2;P3;P4,,false,false,Trả phục hồi CSDL/sổ gốc thay rule cấp một lần/lỗi bên cấp; không bác giả định mấtbằng.
+T39,F1,P1;P2;P3;P4,P3,false,true,P3đủ40/10/50và0.1; các quy trình khác không đóng góp đáp án tỷ trọng.
+T40,F1,P1,P1,false,true,Đủ ưu tiên cao nhất; không xác nhận gọi nhập học tất cả nguyện vọng đồng thời.

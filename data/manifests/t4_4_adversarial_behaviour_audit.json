@@ -1,0 +1,12 @@
+{
+  "audited_at": "2026-10-11T06:49:55.403104+00:00",
+  "requests": 24,
+  "passed": 24,
+  "failed": 0,
+  "status_counts": {
+    "answered": 11,
+    "insufficient_evidence": 13
+  },
+  "failed_cases": [],
+  "conditions": "Predeclared status/fact/citation/filter contracts; requires complementary source-binding audit and manual semantic review"
+}

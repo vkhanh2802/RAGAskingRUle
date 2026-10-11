@@ -98,6 +98,13 @@ class RetrievalPipeline:
             # candidates. Other primaries retain the context-wide freshness gate;
             # required companions still pass the selection/service budget guards.
             pool = [hit for hit in pool if not hit.freshness_failure]
+        if (
+            self.config.behaviour.enabled
+            and self.config.behaviour.policy_version == "guarded-obligations-v2"
+        ):
+            from regularag.generation.passages import prioritize_support_sources
+
+            pool = prioritize_support_sources(question, pool)
         return pool
 
     def candidates(

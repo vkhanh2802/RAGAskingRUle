@@ -1,0 +1,188 @@
+{
+  "version": "release-freeze-v1",
+  "frozen_at": "2026-10-11T07:10:12.468742+00:00",
+  "config": {
+    "pipeline_version": "rag-obligation-support-v3",
+    "embedding": {
+      "model_name": "intfloat/multilingual-e5-small",
+      "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "dimension": 384,
+      "device": "cpu",
+      "batch_size": 1,
+      "cpu_threads": 2,
+      "pooling_version": "window-mean-v1",
+      "max_sequence_tokens": 512,
+      "window_overlap_tokens": 32,
+      "query_prefix": "query: ",
+      "document_prefix": "passage: "
+    },
+    "retrieval": {
+      "mode": "hybrid",
+      "top_k": 4,
+      "candidate_k": 20,
+      "minimum_score": 0.55,
+      "minimum_keyword_score": 0.0,
+      "rrf_k": 60,
+      "dense_weight": 1.0,
+      "keyword_weight": 1.0,
+      "keyword_query_version": "vi-simple-v1",
+      "metadata_filter_version": "evidence-metadata-v1",
+      "document_reference_policy": "shared-query-refs-v1",
+      "eligible_document_ids": [
+        "uit_159_2024",
+        "uit_1393_2023",
+        "uit_790_2022",
+        "uit_956_2026",
+        "uit_112_2024",
+        "uit_277_2025",
+        "uit_308_2025",
+        "uit_412_2025",
+        "uit_43_2020",
+        "uit_513_2026",
+        "uit_697_2024",
+        "uit_803_2025",
+        "uit_832_2024",
+        "uit_851_2024",
+        "uit_894_2026"
+      ]
+    },
+    "reranker": {
+      "enabled": true,
+      "model_name": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+      "model_revision": "1427fd652930e4ba29e8149678df786c240d8825",
+      "device": "cpu",
+      "batch_size": 1,
+      "cpu_threads": 2,
+      "candidate_k": 20,
+      "max_sequence_tokens": 512,
+      "window_overlap_tokens": 32,
+      "pooling_version": "window-max-v1"
+    },
+    "freshness": {
+      "enabled": true,
+      "policy_version": "clause-scoped-v2"
+    },
+    "behaviour": {
+      "enabled": true,
+      "policy_version": "guarded-obligations-v2",
+      "minimize_selected_passages": true
+    },
+    "generation": {
+      "backend": "llama_cpp",
+      "response_policy": "verified_passages",
+      "model_name": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "model_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "device": "cpu",
+      "dtype": "float32",
+      "gguf_filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "max_new_tokens": 64,
+      "max_input_tokens": 2304,
+      "cpu_threads": 4,
+      "context_chunks": 6,
+      "prompt_version": "bound-obligation-selection-v4",
+      "max_passages": 8,
+      "max_selected_passages": 4,
+      "structured_retries": 1,
+      "low_memory_mode": true
+    }
+  },
+  "config_sha256": "e19333322b1b25e824bf57c779fbedd6a6136dcc83315f913486df4476261463",
+  "runtime_source_sha256": "ca2b38034cc2c2860f0723a6b873d34a8015e8c7a3b7a22162bd3814128e3f74",
+  "dataset_sha256": "d577dcde2469cdb1650b4e7b1164e520afc5037d6668fe1b5eb06c7f98946f0c",
+  "held_out_sha256": "d6a9f0c97925c5db41f0257ce83f5237f1a32d20569d043888a9fca5803fb457",
+  "corpus_sha256": "b213a260c7b8be3bed5e534575002263d9d878b4c09e67c670c3246f6b5f9776",
+  "development_run": "evals/results/t4-4-development-final",
+  "development_predictions_sha256": "533155f24afa61c2b5527fca4a8c3156deac7bfb0d840853d8773ae0f7cab4c3",
+  "development_review_sha256": "92a76a839cf63cafd0956ccd8b05aeedb73ebecb7eb16c09b554df2e3cecc862",
+  "development_quality": {
+    "questions": 60,
+    "reviewed": 60,
+    "status_accuracy": {
+      "numerator": 60,
+      "denominator": 60,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "correctness": {
+      "numerator": 47,
+      "denominator": 47,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "required_fact_recall": {
+      "numerator": 65,
+      "denominator": 65,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "faithfulness": {
+      "numerator": 60,
+      "denominator": 60,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "citation_support_precision": {
+      "numerator": 60,
+      "denominator": 60,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "citation_coverage": {
+      "numerator": 60,
+      "denominator": 60,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "citation_fidelity": {
+      "numerator": 60,
+      "denominator": 60,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "filter_preservation": {
+      "numerator": 60,
+      "denominator": 60,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "correct_rejection": {
+      "numerator": 8,
+      "denominator": 8,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "false_rejection": {
+      "numerator": 0,
+      "denominator": 47,
+      "unknown": 0,
+      "value": 0.0
+    },
+    "false_clarification": {
+      "numerator": 0,
+      "denominator": 47,
+      "unknown": 0,
+      "value": 0.0
+    },
+    "clarification_status": {
+      "numerator": 5,
+      "denominator": 5,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "clarification_field_recall": {
+      "numerator": 12,
+      "denominator": 12,
+      "unknown": 0,
+      "value": 1.0
+    },
+    "status_confusion": {
+      "answered->answered": 47,
+      "insufficient_evidence->insufficient_evidence": 8,
+      "needs_clarification->needs_clarification": 5
+    },
+    "claim_unit": "Each actual cited, atomic quote block; not arbitrary sentences",
+    "coverage_note": "Verified-passages emits only cited quote blocks; coverage requires source binding and manual relevance/support, not just an inline citation ID"
+  },
+  "held_out_requests_before_freeze": 0,
+  "conditions": "Development-selected code/config fixed before held-out inference; all quality failures retained; no tuning from held-out questions or predictions"
+}

@@ -1,0 +1,13 @@
+question_id,answer_status,manual_answer_supported,verdict,verification_note
+F01,answered,True,pass_answer,Hè12từ1393không dùng note790cap10 làmgold.
+F02,answered,True,pass_answer,1393tối thiểu70đúng nhóm học chung toàn Trường.
+F03,answered,True,pass_answer,1393một tháng sau đầu học kỳ/P.ĐTĐH/điểmM.
+F04,answered,True,pass_answer,513tự chọn tự do/3tín chỉ/15giờ và toàn điều kiện giữ nguyên.
+F05,insufficient_evidence,False,pass_abstention,Caller790-only và thiếu1393; từ chối trước generation.
+F06,answered,True,pass_answer,412historical trước513 đủ gradeC/5và≤5năm/điều kiện.
+M201,answered,True,pass_answer,513tự chọn tự do và cap3với toàn điều kiện.
+M204,answered,True,pass_answer,Row2018thiết kế4năm HK1NH2022–2023; không currentfeeclaim.
+M211,answered,True,pass_answer,851literal01/9/2024; không ngày ký14/8/2024.
+M212,answered,True,pass_answer,894giấy30ngày/số5ngày đúng mốc; không15ngày chứng chỉ giấy.
+D15,answered,True,pass_answer,159CBPBkhácCBHD và không quan hệ ruột thịt vớiSV.
+D30,answered,True,pass_answer,Việt–Nhật sau4kỳ JAN02/JLPTN5/NATN5 và cap16/đủ điều kiện.

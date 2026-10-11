@@ -1,0 +1,2 @@
+question_id,covered_fact_ids,faithful_passage_ids,relevant_passage_ids,forbidden_claims_present,behaviour_correct,note
+D06,F1,P1;P2,P1;P2,false,true,Đủ điều khoản hiệu lực từ ngày ký và ngày29tháng12năm2023 literal cùng1393; không trả normalizedmetadata.

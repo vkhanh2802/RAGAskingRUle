@@ -10,11 +10,12 @@ const node = (tag, text, className) => {
 };
 const announce = text => { $('live-status').textContent = text; };
 const pretty = value => JSON.stringify(value, null, 2);
-const fields = ['cohort', 'audience', 'programme', 'as-of', 'design-years', 'project-type'];
+const fields = ['cohort', 'audience', 'programme', 'study-progress', 'as-of', 'design-years', 'project-type'];
 function values() {
   return {
     question: $('question').value, topK: $('top-k').value, mode: $('retrieval-mode').value,
     cohort: $('cohort').value, audience: $('audience').value, programme: $('programme').value,
+    studyProgress: $('study-progress').value,
     asOf: $('as-of').value, designYears: $('design-years').value, projectType: $('project-type').value,
     domain: $('domain').value,
     documentIds: [...document.querySelectorAll('[name=document-id]:checked')].map(input => input.value),

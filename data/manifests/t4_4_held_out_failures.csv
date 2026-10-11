@@ -1,0 +1,22 @@
+question_id,primary_stage,observation,disposition
+T10,generation,Missing maxstudytime based onfirstdegree; crossreference alone not literal supportingclause,Retained posttest analysis only
+T13,generation,Grading returned but reportpages obligation missing,Retained posttest analysis only
+T14,generation,Reissue deadline returned but correction deadline missing,Retained posttest analysis only
+T15,context_selection,Database connection returned without onlineprocedure/equivalence evidence,Retained posttest analysis only
+T16,abstention,Literal conditionsfacet requires dieu kien despite council/quorum gold inranked5,Retained posttest analysis only
+T20,metadata,Document reference112 next toSV misread as countedstudents intent; no generation,Retained posttest analysis only
+T22,generation,Civilstatus reason returned but correctiondecision/no directedit missing,Retained posttest analysis only
+T24,abstention,Futurefee amount unsupported but summercredits quote returned,Retained posttest analysis only
+T25,abstention,Scholarship amount unsupported but grade definitions returned,Retained posttest analysis only
+T26,abstention,Dormfee/account unsupported but unrelatedregulationblocks returned,Retained posttest analysis only
+T27,abstention,Individual examschedule unsupported but unrelatedregulationblocks returned,Retained posttest analysis only
+T28,abstention,Studentrecord lookup unsupported but genericregulations returned,Retained posttest analysis only
+T29,abstention,Omitteddiagram reconstruction requested but text-only quotes returned,Retained posttest analysis only
+T30,abstention,Futureadmission cutoff unsupported but generaladmission policies returned,Retained posttest analysis only
+T31,clarification,Dualdegree personaleligibility axes not requested; wrongacademicquotetopic,Retained posttest analysis only
+T32,clarification,Personaldegreecorrection needs reason/party/documents; genericrules answered,Retained posttest analysis only
+T33,clarification,Personaladmission application needs inputs; transferpolicies answered,Retained posttest analysis only
+T34,clarification,Personaldiscipline needs context/severity/authority; genericrules answered,Retained posttest analysis only
+T35,clarification,Clarificationstatus but wrongaudience axis instead ofdeferralgrounds/documents/date,Retained posttest analysis only
+T36,context_selection,Dualdegree limitgold inranked5 but appendix/header selected instead,Retained posttest analysis only
+T38,context_selection,One-time/issuererror gold inranked5 but database/book recovery selected instead,Retained posttest analysis only

@@ -11,7 +11,13 @@ from regularag.retrieval.repository import RetrievedChunk
 
 Programme = Literal["ctc", "cttn", "cta", "cttt", "viet_japan"]
 ScopeField = Literal[
-    "cohort_year", "applies_to", "programmes", "as_of", "design_years", "project_type"
+    "cohort_year",
+    "applies_to",
+    "programmes",
+    "as_of",
+    "design_years",
+    "project_type",
+    "study_progress",
 ]
 
 
@@ -25,6 +31,9 @@ class QuestionScope(BaseModel):
     as_of: date | None = None
     design_years: float | None = Field(default=None, gt=0, le=10, strict=True)
     project_type: Literal["regular", "enterprise"] | None = None
+    study_progress: int | None = Field(
+        default=None, strict=True, ge=0, le=40, exclude_if=lambda value: value is None
+    )
 
     @field_validator("as_of", mode="before")
     @classmethod
@@ -145,6 +154,10 @@ def analyse_scope(
         programmes += ("viet_japan",)
     if programmes:
         parsed["programmes"] = programmes
+    progress = re.search(r"\bsau\s*(\d+|mot|hai|ba|bon|nam|sau)\s*hoc ky", q)
+    if progress:
+        words = {"mot": 1, "hai": 2, "ba": 3, "bon": 4, "nam": 5, "sau": 6}
+        parsed["study_progress"] = int(progress[1]) if progress[1].isdigit() else words[progress[1]]
     if topic == "capstone":
         if re.search(r"khong.{0,15}doanh nghiep", q):
             parsed["project_type"] = "regular"
@@ -209,6 +222,13 @@ def analyse_scope(
             missing.append("applies_to")
         if needs_programme(question) and not scope.programmes:
             missing.append("programmes")
+        if (
+            needs_programme(question)
+            and not source_lookup
+            and scope.study_progress is None
+            and re.search(r"chua dat|gioi han|dang ky", q)
+        ):
+            missing.append("study_progress")
     if topic == "extension_tuition" and not (factual_scope and source_lookup):
         if not scope.cohort_year:
             missing.append("cohort_year")
@@ -241,6 +261,10 @@ def analyse_scope(
         "as_of": "Bạn muốn đối chiếu tại ngày nào (YYYY-MM-DD)?",
         "design_years": "Thời gian thiết kế chương trình của bạn là bao nhiêu năm (3,5; 4; 4,5…)?",
         "project_type": "Bạn hỏi đồ án tốt nghiệp thông thường hay đồ án tại doanh nghiệp?",
+        "study_progress": (
+            "Bạn đã hoàn thành bao nhiêu học kỳ chính kể từ nhập học, "
+            "và đang xét chuẩn ở mốc học kỳ nào?"
+        ),
     }
     required = tuple(dict.fromkeys(missing + sorted(conflicts)))
     clarification = None

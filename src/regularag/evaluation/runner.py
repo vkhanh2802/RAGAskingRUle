@@ -227,7 +227,16 @@ def write_reports(directory, cases, predictions, evidence, chunks, review_path=N
     }
 
 
-def run_evaluation(settings, config, dataset_directory, output, split="development", limit=None):
+def run_evaluation(
+    settings,
+    config,
+    dataset_directory,
+    output,
+    split="development",
+    limit=None,
+    question_ids=None,
+    release_freeze=None,
+):
     if output.exists():
         raise ValueError("Run directory exists; choose a new run ID, never overwrite predictions")
     output.mkdir(parents=True)
@@ -236,10 +245,25 @@ def run_evaluation(settings, config, dataset_directory, output, split="developme
         cases = [c for c in all_cases if c.split == split]
         if split not in ("development", "test") or not cases or (limit is not None and limit < 1):
             raise ValueError("Invalid split/limit")
+        if split == "test":
+            from regularag.evaluation.release import claim_held_out_run, verify_release
+
+            if limit is not None or question_ids:
+                raise ValueError(
+                    "Frozen held-out protocol runs the complete40 once, not tuned subsets"
+                )
+            verify_release(release_freeze, config, lock)
+        if question_ids:
+            if not set(question_ids).issubset(case.question_id for case in cases):
+                raise ValueError("Question IDs outside selected development split")
+            cases = [case for case in cases if case.question_id in question_ids]
         cases = cases[:limit] if limit else cases
         if config.generation.response_policy != "verified_passages":
             raise ValueError("Evaluatorv1 uses verified passage claim units")
         metadata = runtime_metadata(config, lock, split, cases)
+        if split == "test":
+            metadata["release_freeze"] = release_freeze.as_posix()
+            metadata["held_out_ledger"] = claim_held_out_run(release_freeze, output).as_posix()
         write_json(output / "config.json", metadata)
         service = build_answer_service(settings, config)
         retriever = RecordingRetriever(service.retriever)
@@ -311,6 +335,8 @@ def run_evaluation(settings, config, dataset_directory, output, split="developme
                     flush=True,
                 )
         verify_live_dataset(dataset_directory, settings, config)
+        if split == "test":
+            verify_release(release_freeze, config, lock)
         result = write_reports(output, cases, predictions, evidence, chunks)
         metadata.update(
             {

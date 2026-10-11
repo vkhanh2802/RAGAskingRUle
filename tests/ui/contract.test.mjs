@@ -6,6 +6,11 @@ const defaults = { question: 'Câu hỏi về UIT', topK: '8', mode: 'hybrid', d
 test('blank fields impose no cohort/date/programme filter', () => {
   assert.deepEqual(buildRequest(defaults), { question: defaults.question, top_k: 8, retrieval_mode: 'hybrid' });
 });
+test('explicit completed semesters including zero are typed without inference', () => {
+  assert.equal(buildRequest({ ...defaults, studyProgress: '0' }).scope.study_progress, 0);
+  assert.equal(buildRequest({ ...defaults, studyProgress: '3' }).scope.study_progress, 3);
+  for (const value of ['true', '-1', '41', '2.5']) assert.throws(() => buildRequest({ ...defaults, studyProgress: value }));
+});
 test('explicit scope is typed, programme preserved and caller IDs not widened', () => {
   const request = buildRequest({ ...defaults, cohort: '2026', programme: 'cta', audience: 'undergraduate_regular', asOf: '2025-12-01', designYears: '4.5', documentIds: ['uit_790_2022'], domain: 'academic_training' });
   assert.deepEqual(request.scope, { cohort_year: 2026, programmes: ['cta'], applies_to: ['undergraduate_regular'], as_of: '2025-12-01', design_years: 4.5 });

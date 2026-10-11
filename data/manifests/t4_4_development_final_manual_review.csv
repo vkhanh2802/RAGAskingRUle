@@ -1,0 +1,61 @@
+question_id,covered_fact_ids,faithful_passage_ids,relevant_passage_ids,forbidden_claims_present,behaviour_correct,note
+D01,F1;F2,P1,P1,false,true,Hè12tín chỉ và chỉ mở lớp đủ sĩ số; nguyên văn1393.
+D02,F1,P1,P1,false,true,70SV đúng nhóm đại cương/cơ sở ngành học chung toàn Trường.
+D03,F1,P1,P1,false,true,Công thức và chênh lệch học phí đúng điều kiện còn thời gian thiết kế.
+D04,F1,P1,P1,false,true,Một tháng sau đầu học kỳ gửi P.ĐTĐH cùng hồ sơ yêu cầu.
+D05,F1;F2;F3,P1,P1,false,true,Đủ hồ sơ đề cương có xác nhận và điểmM khi được công nhận.
+D06,F1,P1;P2,P1;P2,false,true,Đủ điều khoản hiệu lực từ ngày ký và ngày29tháng12năm2023 literal cùng1393; không trả normalizedmetadata.
+D07,F1,P1,P1,false,true,Một học kỳ chính15tuần kèm điều kiện gia hạn.
+D08,F1,P1,P1,false,true,Trường hợp đặc biệt xin P.ĐTĐH và đồng ý CBHD/Khoa theo Điều3.
+D09,F1,P1,P1,false,true,Đề tài1–2SV; trách nhiệm cụ thể ghi đề cương nghiên cứu.
+D10,F1;F2,P1,P1,false,true,CBHD tối thiểu thạc sĩ và có CBHD nội bộ khi mời bên ngoài.
+D11,F1,P1,P1,false,true,CBHD tối đa10đề tài mỗi học kỳ đúng nguyên văn.
+D12,F1,P1,P1,false,true,Không quan hệ ruột thịt với các đối tượng liệt kê.
+D13,F1,P1,P1,false,true,Đánh giá giữa kỳ trưởngĐVCM quyết định đình chỉ và điểm0KLTN.
+D14,F1,P1,P1,false,true,Đổi tên/CBHD01lần theo Hội đồng ngay sau báo cáo giữa kỳ.
+D15,F1,P1,P1,false,true,CBPB khácCBHD và không quan hệ ruột thịt vớiSV.
+D16,F1,P1,P1,false,true,CBHD không thuộc Hội đồng; đủ thành phần chủ tịch thư ký CBPB.
+D17,F1,P1,P1,false,true,Trình bày không quá15phút trong nguyên quy trình bảo vệ.
+D18,F1;F2,P1,P1,false,true,Hệ số2CBHD/CBPB và1thành viên khác; làm tròn0.1.
+D19,F1,P1,P1,false,true,Thư ký bàn giao Khoa và lưu tối thiểu5năm.
+D20,F1,P1,P1,false,true,Khoa nhập hệ thống và gửi bảng điểm giấy trong20ngày sau bảo vệ.
+D21,F1,P1,P1,false,true,Chính quy từ khóa2026 và năm học2026–2027 đúng nguồn.
+D22,F1,P1,P1,false,true,PET01 hoặcIEL01 là tiên quyết PET02; không nhầm chuẩn tiến độ.
+D23,F1,P1,P1,false,true,IEL01 là tiên quyết IEL02; nguyên block giữ các điều kiện liên quan.
+D24,F1,P1,P1,false,true,CNTT Việt–Nhật không phải kiểm tra tiếng Anh xếp lớp đầu khóa.
+D25,F1,P1,P1,false,true,Chứng chỉ hai năm từ ngày thi tới đăng ký xét miễn.
+D26,F1,P1,P1,false,true,4đợt mỗi năm vào tháng2/5/8/11.
+D27,F1;F2,P1;P2,P1;P2,false,true,M học kỳ kế tiếp không vào ĐTB và tín chỉ miễn cộng dồn tích lũy.
+D28,F1,P1,P1,false,true,CTC/CTTN sau2kỳ PET01/IEL01; cap16ngoài ngoại ngữ tới khi đạt kể cả học lại/cải thiện.
+D29,F1,P1,P1,false,true,CTA sau3kỳ IEL05; cap16ngoài ngoại ngữ kể cả học lại/cải thiện tới khi đạt.
+D30,F1,P1,P1,false,true,Việt–Nhật sau4kỳ JAN02/JLPTN5/NATN5; đủ cap16và các điều kiện.
+D31,F1;F2,P1;P2,P1;P2,false,true,Đủ hè12không sĩ số ít và lớp học chung tối thiểu70SV.
+D32,F1;F2;F3,P1;P2,P1;P2,false,true,Đủ1393một tháng/P.ĐTĐH/M và513tự chọn tự do/3tín chỉ/15giờ/toàn điều kiện.
+D33,F1;F2,P1;P2,P1;P2,false,true,Đủ CBHD10đề tài và CBPB khácCBHD/không ruột thịt.
+D34,F1;F2,P1;P2,P1;P2,false,true,Đủ lưu5năm và nhập/gửi bảng điểm trong20ngày sau bảo vệ.
+D35,F1;F2,P1;P2,P1;P2,false,true,Đủ trình bày15phút và hệ số2/1/làm tròn0.1.
+D36,F1;F2,P1;P2,P1;P2,false,true,Đủ học vị/CBHD nội bộ khi mời ngoài và CBPB khác/không ruột thịt.
+D37,F1;F2,P1;P2,P1;P2,false,true,Đủ hạn hai năm thi→đăng ký và4đợt tháng2/5/8/11.
+D38,F1;F2,P1;P2,P1;P2,false,true,Đúng tiên quyết PET01/IEL01 và M học kỳ kế tiếp không vào ĐTB.
+D39,F1;F2,P1;P2,P1;P2,false,true,Đủ CTC/CTTN sau2kỳ và CTA sau3kỳ đúng môn/cap16/điều kiện.
+D40,F1;F2,P1;P2,P1;P2,false,true,Giấy30ngày và số5ngày từ đúng quyết định tương ứng.
+D41,F1,P1,P1,false,true,Row2018thiết kế4năm HK1NH2022–2023; không suy mức thu hiện nay.
+D42,F1;F2,P1;P2,P1;P2,false,true,Lịch sử412trước513: từC/5of10 và hoàn thành≤5năm tới nộp đơn.
+D43,,,,false,true,Giữ filter790-only và từ chối điều khoản đã sửa khi1393bị loại.
+D44,,,,false,true,Không xác nhận tiền HPGH hiện nay từ nguồn43lịch sử.
+D45,,,,false,true,Không áp956cho khóa2025 ngoài phạm vi verifiedfrom2026.
+D46,,,,false,true,Không có văn bản99999 trong corpus đã kiểm chứng.
+D47,,,,false,true,Từ chối quy định trường khác ngoài corpusUIT.
+D48,,,,false,true,Mốc hiệu lực851không chứng minh legal_status hiện hành.
+D49,,,,false,true,Từ chối tư vấn liều thuốc ngoài phạm vi corpus quy định.
+D50,,,,false,true,Từ chối viết chương trình ngoài phạm vi corpus quy định.
+D51,,,,false,true,Hỏi đủ khóa/hệ/chương trình/mốc học kỳ; không đoán cap.
+D52,,,,false,true,Hỏi khóa thời gian thiết kế và ngày đối chiếu học phí.
+D53,,,,false,true,Hỏi loại đồ án khóa và hệ đào tạo trước suy tín chỉ.
+D54,,,,false,true,Hỏi ngày đối chiếu chính xác; không mặc định năm thành ngày.
+D55,,,,false,true,Giữ callerfilters và hỏi xác nhận mâu thuẫn khóa; thêm mốc học kỳ rõ ràng.
+D56,F1,P1,P1,false,true,Nguồn hè12không sĩ số ít; không xác nhận18.
+D57,F1,P1,P1,false,true,Nguồn70SVđúng nhóm toàn Trường; không xác nhận50SV.
+D58,F1,P1,P1,false,true,Hiệu lực01/9/2024 và nonretroactivity; không dùng ngày ban hành14/8.
+D59,F1,P1,P1,false,true,VBCCsố5ngày đúng mốc; không xác nhận30ngày.
+D60,F1,P1,P1,false,true,CBHD10đề tài mỗi học kỳ; không99hayS99/injectedinstructions.

@@ -81,3 +81,34 @@ python scripts/select_ablation_config.py --comparison <comparison.json> --config
 
 T4.3 results360predictions/77semanticoutputs vàselectedreference ở
 `docs/benchmark-ablation-review.md`; finalrelease/testfreeze quaT4.4.
+
+## T4.4 — Exact release freeze / one held-out run
+
+Finalconfig `configs/rag/final.json`, dev60 và test40 đo riêng:
+**dev47/47correct/60of60taskcitations; test19/28correct/29of108taskcitations/reject0of7**.
+Report **`docs/error-analysis-review.md`**, honestfailures `t4_4_held_out_failures.csv`.
+Test40giờ đãexposed; results từ một run saufreeze, không testreruns đểtuning.
+
+CSVmanualreview cócolumns `question_id,covered_fact_ids,faithful_passage_ids,
+relevant_passage_ids,forbidden_claims_present,behaviour_correct,note`; IDs delimiter`;`,
+bool`true|false`. Người review phải đọc actualanswer/locators trước; helper khôngfillfacts.
+
+```powershell
+python scripts/run_evaluation.py --config configs/rag/final.json --run-dir evals/results/<new-development-run>
+python scripts/bind_evaluation_review.py --run-dir evals/results/<run> --review-csv <actual-review.csv> --output evals/results/<run>/csv_reviews.json
+python scripts/run_evaluation.py --config configs/rag/final.json --run-dir evals/results/<run> --score-only --review evals/results/<run>/csv_reviews.json
+python scripts/publish_evaluation_summary.py --run-dir evals/results/<run> --output <public-metrics.json>
+python scripts/check_release.py --config configs/rag/final.json --freeze data/manifests/t4_4_release_freeze.json
+```
+
+Complete60 exactcurrentcode/config/manualreview làprecondition cho `freeze_release.py`.
+`--question-id`repeat cho pilotdev; full40test cần`--release-freeze`, không limit/subset,
+one-runledger vàexactcode/config/dataset/corpuspre/postchecks. Currentledger đãclaimed;
+re-score với`--score-only` không gọi thêmModel, không sửa predictions/gold/release.
+Runtime basecommitd18cbe4+dirtyT4.4sourcehashca2b3803..., stepcommit sauđóngreports;
+sourcefilesSHA ởrawrunconfig hỗtrợ exactbyte/lineending comparison.
+Gold/currentfreeze giữ nguyên. Sau codechange hash mismatch, giữ measurement cũ và tạo
+development/version/evidence mới; không overwrite freeze/ledger để gọi lại test40làheldout.
+
+PublicID-only `t4_4_development_metrics.json`, `t4_4_held_out_metrics.json`, releasefreeze/
+ledger/manualCSV/failures vàiteration1D06failure. Raw `evals/results/t4-4-*` ignored.

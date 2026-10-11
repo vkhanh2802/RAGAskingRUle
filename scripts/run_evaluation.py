@@ -15,6 +15,8 @@ def main():
     parser.add_argument("--split", choices=("development", "test"), default="development")
     parser.add_argument("--run-dir", type=Path)
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--question-id", action="append", default=[])
+    parser.add_argument("--release-freeze", type=Path)
     parser.add_argument("--retrieval-mode", choices=("vector", "keyword", "hybrid"))
     parser.add_argument("--no-reranker", action="store_true")
     parser.add_argument(
@@ -38,7 +40,16 @@ def main():
     if args.score_only:
         result = rescore(settings, config, args.dataset, output, args.review, args.review_decisions)
     else:
-        result = run_evaluation(settings, config, args.dataset, output, args.split, args.limit)
+        result = run_evaluation(
+            settings,
+            config,
+            args.dataset,
+            output,
+            args.split,
+            args.limit,
+            set(args.question_id),
+            args.release_freeze,
+        )
     print(json.dumps({"output": output.as_posix(), **result}, ensure_ascii=False, indent=2))
 
 

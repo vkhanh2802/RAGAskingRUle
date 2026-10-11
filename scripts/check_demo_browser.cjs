@@ -8,6 +8,7 @@ const baseUrl = process.env.DEMO_BASE_URL;
 const outputDir = process.env.DEMO_OUTPUT_DIR;
 const real = process.env.DEMO_REAL === '1';
 const gpa = process.env.DEMO_GPA === '1';
+const expectedPipeline = process.env.DEMO_PIPELINE_VERSION || 'rag-clause-scoped-v2';
 const checks = [], records = [], pageErrors = [], consoleErrors = [];
 const check = (name, condition) => { assert.ok(condition, name); checks.push(name); };
 const synthetic = () => ({
@@ -50,7 +51,7 @@ async function main() {
       await page.locator('#question').fill(question);
       let result = await submit(page); records.push({ case: 'gpa-all-sources', ...result });
       const catalog = await (await page.request.get(`${baseUrl}/api/v1/demo/catalog`)).json();
-      check('live clause-scoped policy loaded', catalog.pipeline_version === 'rag-clause-scoped-v2' && result.body.freshness_policy === 'clause-scoped-v2');
+      check('live expected pipeline and clause-scoped policy loaded', catalog.pipeline_version === expectedPipeline && result.body.freshness_policy === 'clause-scoped-v2');
       check('real GPA cap30 in main semester from790', result.body.status === 'answered' && /30\s*tín chỉ/.test(result.body.answer) && /học kỳ chính/.test(result.body.answer) && !/học kỳ hè/.test(result.body.answer) && result.body.sources.some(s => s.document_id === 'uit_790_2022' && s.cited));
       const source = result.body.sources.find(s => s.cited);
       const [start, end] = source.evidence_char_ranges[0];
@@ -92,8 +93,9 @@ async function main() {
       await page.locator('#cohort').fill('2026');
       await page.locator('#audience').selectOption('undergraduate_regular');
       await page.locator('#programme').selectOption('cta');
+      await page.locator('#study-progress').fill('3');
       result = await submit(page); records.push({ case: 'scope-reply', ...result });
-      check('explicit scope reply uses same question andCTA', result.request.question === original && result.request.scope.programmes[0] === 'cta' && result.body.status === 'answered' && /16\s*tín chỉ/.test(result.body.answer));
+      check('explicit scope reply uses same question andCTA/progress3', result.request.question === original && result.request.scope.programmes[0] === 'cta' && result.request.scope.study_progress === 3 && result.body.status === 'answered' && /16\s*tín chỉ/.test(result.body.answer) && /IEL05/.test(result.body.answer));
       await page.locator('[data-preset=old-filter]').click();
       result = await submit(page); records.push({ case: 'old-filter', ...result });
       check('caller old-only filter retained', result.request.filters.document_ids.length === 1 && result.request.filters.document_ids[0] === 'uit_790_2022' && result.body.applied_filters.document_ids[0] === 'uit_790_2022');
@@ -137,9 +139,9 @@ async function main() {
       mode = 'clarify'; await page.locator('[data-preset=clarify]').click(); await submit(page);
       check('clarification action', await page.locator('#clarification-actions').isVisible());
       const question = await page.locator('#question').inputValue();
-      await page.locator('#fill-scope').click(); await page.locator('#cohort').fill('2026'); await page.locator('#programme').selectOption('cta');
+      await page.locator('#fill-scope').click(); await page.locator('#cohort').fill('2026'); await page.locator('#programme').selectOption('cta'); await page.locator('#study-progress').fill('3');
       mode = 'answered'; await submit(page);
-      check('scope reply preserves query', seenRequest.question === question && seenRequest.scope.cohort_year === 2026 && seenRequest.scope.programmes[0] === 'cta');
+      check('scope reply preserves query and explicit progress', seenRequest.question === question && seenRequest.scope.cohort_year === 2026 && seenRequest.scope.programmes[0] === 'cta' && seenRequest.scope.study_progress === 3);
       mode = 'insufficient'; await page.locator('[data-preset=old-filter]').click(); await submit(page);
       check('preset resets stale scope and binds old filter', !seenRequest.scope && seenRequest.filters.document_ids[0] === 'uit_790_2022');
       check('insufficient has no fake citation', await page.locator('.citation-button').count() === 0);

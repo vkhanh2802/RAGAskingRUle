@@ -49,6 +49,11 @@ def main():
             )
         },
         "runtime_worktree_dirty": bool(config["git_status"]),
+        **(
+            {key: config[key] for key in ("release_freeze", "held_out_ledger")}
+            if config["split"] == "test"
+            else {}
+        ),
         "review_sha256": answers["review_sha256"],
         "retrieval": json.loads((directory / "retrieval_metrics.json").read_text(encoding="utf-8")),
         "answers": {key: answers[key] for key in ("overall", "by_category", "per_case")},
@@ -56,8 +61,13 @@ def main():
             (directory / "operational_metrics.json").read_text(encoding="utf-8")
         ),
         "conditions": "Assistant manual required-fact/atomic-quote-block review, not independent "
-        "human review. Development results do not estimate held-out accuracy. "
-        "Full answers, source text and model traces are Git ignored.",
+        "human review. "
+        + (
+            "Development results do not estimate held-out accuracy. "
+            if config["split"] == "development"
+            else "One complete held-out run after code/config release freeze; no test tuning. "
+        )
+        + "Full answers, source text and model traces are Git ignored.",
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(

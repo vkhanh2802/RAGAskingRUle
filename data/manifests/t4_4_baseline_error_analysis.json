@@ -1,0 +1,663 @@
+{
+  "error_cases": 20,
+  "distinct_development_questions": 19,
+  "dataset_sha256": "d577dcde2469cdb1650b4e7b1164e520afc5037d6668fe1b5eb06c7f98946f0c",
+  "records": [
+    {
+      "error_case_id": "E01",
+      "question_id": "D33",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "generation",
+      "secondary_stage": "citation",
+      "diagnosis": "Topiccountfacet treated as complete while distinctreviewer obligation missing",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_159_2024:chunk:0012": 3,
+        "uit_159_2024:chunk:0008": 1
+      },
+      "gold_in_response_context": [
+        "uit_159_2024:chunk:0008"
+      ],
+      "facts_with_full_span_in_registry": [
+        "F1"
+      ],
+      "facts_with_full_span_cited": [
+        "F1"
+      ],
+      "model_selected_pids": [
+        "P1",
+        "P2"
+      ],
+      "final_cited_pids": [
+        "P1"
+      ],
+      "support_facets_at_analysis": {
+        "topics": "(?:\\d+(?:[,.]\\d+)?|mot|hai|ba|bon|nam|sau|bay|tam|chin|muoi)\\s*de\\s*tai"
+      },
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E02",
+      "question_id": "D34",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "generation",
+      "secondary_stage": "citation",
+      "diagnosis": "Deadlinefacet treated as complete while archive/handover obligation missing",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_159_2024:chunk:0018": 1
+      },
+      "gold_in_response_context": [
+        "uit_159_2024:chunk:0018"
+      ],
+      "facts_with_full_span_in_registry": [
+        "F1",
+        "F2"
+      ],
+      "facts_with_full_span_cited": [
+        "F2"
+      ],
+      "model_selected_pids": [
+        "P1",
+        "P2"
+      ],
+      "final_cited_pids": [
+        "P1"
+      ],
+      "support_facets_at_analysis": {
+        "deadline": "(?:\\d+(?:[,.]\\d+)?|mot|hai|ba|bon|nam|sau|bay|tam|chin|muoi)\\s*(?:ngay|thang|tuan|nam|hoc\\s*ky)"
+      },
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E03",
+      "question_id": "D36",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "generation",
+      "secondary_stage": "citation",
+      "diagnosis": "Reviewerblock alone accepted while supervisorqualification missing",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_159_2024:chunk:0012": 2,
+        "uit_159_2024:chunk:0008": 1
+      },
+      "gold_in_response_context": [
+        "uit_159_2024:chunk:0012"
+      ],
+      "facts_with_full_span_in_registry": [
+        "F2"
+      ],
+      "facts_with_full_span_cited": [
+        "F2"
+      ],
+      "model_selected_pids": [
+        "P1"
+      ],
+      "final_cited_pids": [
+        "P1"
+      ],
+      "support_facets_at_analysis": {
+        "distinct_reviewer": "cbpb.{0,80}(?:khac|khong).{0,40}cbhd"
+      },
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E04",
+      "question_id": "D37",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "generation",
+      "secondary_stage": "citation",
+      "diagnosis": "Scheduleblock alone accepted while certificatevalidity missing",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_956_2026:chunk:0012": 1
+      },
+      "gold_in_response_context": [
+        "uit_956_2026:chunk:0012"
+      ],
+      "facts_with_full_span_in_registry": [
+        "F2"
+      ],
+      "facts_with_full_span_cited": [
+        "F2"
+      ],
+      "model_selected_pids": [
+        "P1"
+      ],
+      "final_cited_pids": [
+        "P1"
+      ],
+      "support_facets_at_analysis": {
+        "schedule_months": "thang\\s*\\d"
+      },
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E05",
+      "question_id": "D38",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "retrieval",
+      "secondary_stage": "generation",
+      "diagnosis": "Requiredprerequisite andMgrade not retained ahead of progressblocks; questionobligations incomplete",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_956_2026:chunk:0007": 2,
+        "uit_956_2026:chunk:0013": 6
+      },
+      "gold_in_response_context": [
+        "uit_956_2026:chunk:0007"
+      ],
+      "facts_with_full_span_in_registry": [],
+      "facts_with_full_span_cited": [],
+      "model_selected_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "final_cited_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "support_facets_at_analysis": {},
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E06",
+      "question_id": "D42",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "abstention",
+      "secondary_stage": "metadata",
+      "diagnosis": "Explicitcalendar date triggers count-of-days facet alongside durationyears",
+      "fix_group": "qualifier_units",
+      "expected_status": "answered",
+      "actual_status": "insufficient_evidence",
+      "failure_reason": "missing_support_candidates",
+      "gold_ranks": {
+        "uit_412_2025:chunk:0007": 1
+      },
+      "gold_in_response_context": [
+        "uit_412_2025:chunk:0007"
+      ],
+      "facts_with_full_span_in_registry": [],
+      "facts_with_full_span_cited": [],
+      "model_selected_pids": [],
+      "final_cited_pids": [],
+      "support_facets_at_analysis": {
+        "days": "(?:\\d+(?:[,.]\\d+)?|mot|hai|ba|bon|nam|sau|bay|tam|chin|muoi)\\s*ngay",
+        "years": "(?:\\d+(?:[,.]\\d+)?|mot|hai|ba|bon|nam|sau|bay|tam|chin|muoi)\\s*nam"
+      },
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E07",
+      "question_id": "D51",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "clarification",
+      "secondary_stage": "metadata",
+      "diagnosis": "Missing elapsedmainsemester/standard information axis",
+      "fix_group": "study_progress",
+      "expected_status": "needs_clarification",
+      "actual_status": "needs_clarification",
+      "failure_reason": "missing_scope",
+      "gold_ranks": {},
+      "gold_in_response_context": [],
+      "facts_with_full_span_in_registry": [],
+      "facts_with_full_span_cited": [],
+      "model_selected_pids": [],
+      "final_cited_pids": [],
+      "support_facets_at_analysis": {
+        "credits": "(?:(?:\\d+(?:[,.]\\d+)?|mot|hai|ba|bon|nam|sau|bay|tam|chin|muoi)\\s*tin\\s*chi|so luong tin chi.{0,50}\\d+(?:[,.]\\d+)?)"
+      },
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E08",
+      "question_id": "D03",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "citation",
+      "secondary_stage": "generation",
+      "diagnosis": "Extra exemptionblock despite completefee answer",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_1393_2023:chunk:0001": 1
+      },
+      "gold_in_response_context": [
+        "uit_1393_2023:chunk:0001"
+      ],
+      "facts_with_full_span_in_registry": [
+        "F1"
+      ],
+      "facts_with_full_span_cited": [
+        "F1"
+      ],
+      "model_selected_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "final_cited_pids": [
+        "P1",
+        "P2"
+      ],
+      "support_facets_at_analysis": {},
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E09",
+      "question_id": "D08",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "citation",
+      "secondary_stage": "generation",
+      "diagnosis": "Extra schedule/reviewer/differentextensioncase blocks",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_159_2024:chunk:0005": 1
+      },
+      "gold_in_response_context": [
+        "uit_159_2024:chunk:0005"
+      ],
+      "facts_with_full_span_in_registry": [
+        "F1"
+      ],
+      "facts_with_full_span_cited": [
+        "F1"
+      ],
+      "model_selected_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "final_cited_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "support_facets_at_analysis": {},
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E10",
+      "question_id": "D10",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "citation",
+      "secondary_stage": "generation",
+      "diagnosis": "Other supervisorrules included despite degree/externalconditions answer",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_159_2024:chunk:0008": 1
+      },
+      "gold_in_response_context": [
+        "uit_159_2024:chunk:0008"
+      ],
+      "facts_with_full_span_in_registry": [
+        "F1",
+        "F2"
+      ],
+      "facts_with_full_span_cited": [
+        "F1",
+        "F2"
+      ],
+      "model_selected_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "final_cited_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "support_facets_at_analysis": {},
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E11",
+      "question_id": "D16",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "citation",
+      "secondary_stage": "generation",
+      "diagnosis": "Appointmentprocedure extra to boardmembership answer",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_159_2024:chunk:0014": 1
+      },
+      "gold_in_response_context": [
+        "uit_159_2024:chunk:0014"
+      ],
+      "facts_with_full_span_in_registry": [
+        "F1"
+      ],
+      "facts_with_full_span_cited": [
+        "F1"
+      ],
+      "model_selected_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "final_cited_pids": [
+        "P1",
+        "P2"
+      ],
+      "support_facets_at_analysis": {},
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E12",
+      "question_id": "D20",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "citation",
+      "secondary_stage": "generation",
+      "diagnosis": "Beforedefense/archive blocks extra to postdefensegradesdeadline",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_159_2024:chunk:0018": 1
+      },
+      "gold_in_response_context": [
+        "uit_159_2024:chunk:0018"
+      ],
+      "facts_with_full_span_in_registry": [
+        "F1"
+      ],
+      "facts_with_full_span_cited": [
+        "F1"
+      ],
+      "model_selected_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "final_cited_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "support_facets_at_analysis": {},
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E13",
+      "question_id": "D27",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "citation",
+      "secondary_stage": "generation",
+      "diagnosis": "Generaltrainingflow extra toMaverage/exemptcredit facts",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_956_2026:chunk:0013": 1
+      },
+      "gold_in_response_context": [
+        "uit_956_2026:chunk:0013"
+      ],
+      "facts_with_full_span_in_registry": [
+        "F1",
+        "F2"
+      ],
+      "facts_with_full_span_cited": [
+        "F1",
+        "F2"
+      ],
+      "model_selected_pids": [
+        "P1",
+        "P2",
+        "P4"
+      ],
+      "final_cited_pids": [
+        "P1",
+        "P2",
+        "P4"
+      ],
+      "support_facets_at_analysis": {},
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E14",
+      "question_id": "D57",
+      "variant": "hybrid_reranked_k4",
+      "primary_stage": "citation",
+      "secondary_stage": "generation",
+      "diagnosis": "FalsepremiseSV abbreviation not recognized as quantitativeclasssize intent",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_1393_2023:chunk:0001": 1
+      },
+      "gold_in_response_context": [
+        "uit_1393_2023:chunk:0001"
+      ],
+      "facts_with_full_span_in_registry": [
+        "F1"
+      ],
+      "facts_with_full_span_cited": [
+        "F1"
+      ],
+      "model_selected_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "final_cited_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "support_facets_at_analysis": {},
+      "baseline_predictions_sha256": "e81467e3646d9103a60c534db51de5015503d5fde8382d332e1ceba16f196ed0"
+    },
+    {
+      "error_case_id": "E15",
+      "question_id": "D15",
+      "variant": "keyword_only",
+      "primary_stage": "retrieval",
+      "secondary_stage": "abstention",
+      "diagnosis": "Revieweridentitygold not retained at effectivecontext despite keyworddocumenthit",
+      "fix_group": "remaining_retrieval",
+      "expected_status": "answered",
+      "actual_status": "insufficient_evidence",
+      "failure_reason": "missing_support_candidates",
+      "gold_ranks": {
+        "uit_159_2024:chunk:0012": 8
+      },
+      "gold_in_response_context": [],
+      "facts_with_full_span_in_registry": [],
+      "facts_with_full_span_cited": [],
+      "model_selected_pids": [],
+      "final_cited_pids": [],
+      "support_facets_at_analysis": {
+        "distinct_reviewer": "cbpb.{0,80}(?:khac|khong).{0,40}cbhd",
+        "family_condition": "ruot thit"
+      },
+      "baseline_predictions_sha256": "29fe69a5a42754a73113c5233f4b0077de13257e31e26ad90e9b3a8140723965"
+    },
+    {
+      "error_case_id": "E16",
+      "question_id": "D16",
+      "variant": "keyword_only",
+      "primary_stage": "retrieval",
+      "secondary_stage": "generation",
+      "diagnosis": "Postdefenseuploadprocedure rather than membershipclause",
+      "fix_group": "remaining_retrieval",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_159_2024:chunk:0014": 4
+      },
+      "gold_in_response_context": [],
+      "facts_with_full_span_in_registry": [],
+      "facts_with_full_span_cited": [],
+      "model_selected_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "final_cited_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "support_facets_at_analysis": {},
+      "baseline_predictions_sha256": "29fe69a5a42754a73113c5233f4b0077de13257e31e26ad90e9b3a8140723965"
+    },
+    {
+      "error_case_id": "E17",
+      "question_id": "D40",
+      "variant": "keyword_only",
+      "primary_stage": "retrieval",
+      "secondary_stage": "abstention",
+      "diagnosis": "Degree/certificatedeadlinegold not retained incontext",
+      "fix_group": "remaining_retrieval",
+      "expected_status": "answered",
+      "actual_status": "insufficient_evidence",
+      "failure_reason": "missing_support_candidates",
+      "gold_ranks": {
+        "uit_894_2026:chunk:0017": null
+      },
+      "gold_in_response_context": [],
+      "facts_with_full_span_in_registry": [],
+      "facts_with_full_span_cited": [],
+      "model_selected_pids": [],
+      "final_cited_pids": [],
+      "support_facets_at_analysis": {
+        "days": "(?:\\d+(?:[,.]\\d+)?|mot|hai|ba|bon|nam|sau|bay|tam|chin|muoi)\\s*ngay",
+        "deadline": "(?:\\d+(?:[,.]\\d+)?|mot|hai|ba|bon|nam|sau|bay|tam|chin|muoi)\\s*(?:ngay|thang|tuan|nam|hoc\\s*ky)",
+        "paper_degree": "van bang giay.{0,100}\\d+\\s*ngay",
+        "digital_degree": "(?:vbcc|van bang) so.{0,100}\\d+\\s*ngay"
+      },
+      "baseline_predictions_sha256": "29fe69a5a42754a73113c5233f4b0077de13257e31e26ad90e9b3a8140723965"
+    },
+    {
+      "error_case_id": "E18",
+      "question_id": "D43",
+      "variant": "vector_only",
+      "primary_stage": "generation",
+      "secondary_stage": "abstention",
+      "diagnosis": "Unchangedcourse/creditsblocks answered classsize question withcompactSV unit",
+      "fix_group": "multi_fact_contract",
+      "expected_status": "insufficient_evidence",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {},
+      "gold_in_response_context": [],
+      "facts_with_full_span_in_registry": [],
+      "facts_with_full_span_cited": [],
+      "model_selected_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "final_cited_pids": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "support_facets_at_analysis": {},
+      "baseline_predictions_sha256": "79209cfcbf629cb447b2a74f945f1fddcc506d59ce73b1a64f77361f5bd27936"
+    },
+    {
+      "error_case_id": "E19",
+      "question_id": "D58",
+      "variant": "keyword_only",
+      "primary_stage": "retrieval",
+      "secondary_stage": "generation",
+      "diagnosis": "Effective-date quote omitted sourceboundnonretroactivity part ofrequiredfact",
+      "fix_group": "remaining_retrieval",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "failure_reason": null,
+      "gold_ranks": {
+        "uit_851_2024:chunk:0025": 8
+      },
+      "gold_in_response_context": [],
+      "facts_with_full_span_in_registry": [],
+      "facts_with_full_span_cited": [],
+      "model_selected_pids": [
+        "P1"
+      ],
+      "final_cited_pids": [
+        "P1"
+      ],
+      "support_facets_at_analysis": {
+        "effective_date": "hieu luc.{0,120}(?:ngay|ky|hoc ky)"
+      },
+      "baseline_predictions_sha256": "29fe69a5a42754a73113c5233f4b0077de13257e31e26ad90e9b3a8140723965"
+    },
+    {
+      "error_case_id": "E20",
+      "question_id": "D59",
+      "variant": "keyword_only",
+      "primary_stage": "retrieval",
+      "secondary_stage": "abstention",
+      "diagnosis": "Digitalthresholdgold not retained incontext",
+      "fix_group": "remaining_retrieval",
+      "expected_status": "answered",
+      "actual_status": "insufficient_evidence",
+      "failure_reason": "missing_support_candidates",
+      "gold_ranks": {
+        "uit_894_2026:chunk:0017": null
+      },
+      "gold_in_response_context": [],
+      "facts_with_full_span_in_registry": [],
+      "facts_with_full_span_cited": [],
+      "model_selected_pids": [],
+      "final_cited_pids": [],
+      "support_facets_at_analysis": {
+        "digital_degree": "(?:vbcc|van bang) so.{0,100}\\d+\\s*ngay"
+      },
+      "baseline_predictions_sha256": "29fe69a5a42754a73113c5233f4b0077de13257e31e26ad90e9b3a8140723965"
+    }
+  ],
+  "conditions": "Spancoverage diagnostics, not semanticcorrectness; no held-out input or model calls; inventory includes precision-only and variant failures"
+}

@@ -1,0 +1,305 @@
+{
+  "verified_at": "2026-10-11T07:37:45.378793+00:00",
+  "documents_ready": 15,
+  "chunks": 307,
+  "unique_chunk_ids": 307,
+  "fts_populated": 307,
+  "unfinished_runs": 0,
+  "page_review_status": {
+    "approved": 103,
+    "excluded": 45,
+    "native": 40
+  },
+  "latest_outcomes": {
+    "unchanged": 15
+  },
+  "development_gold_chunks_unchanged": 19,
+  "instruction_guard_rejections": 0,
+  "documents": [
+    {
+      "document_id": "uit_112_2024",
+      "document_number": "112/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "partial",
+      "excluded_pdf_pages": [
+        2,
+        9
+      ],
+      "indexed_chunk_count": 23,
+      "domain": "dual_degree",
+      "applies_to": "undergraduate_regular",
+      "effective_from_date": "2024-02-01",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_1393_2023",
+      "document_number": "1393/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "full",
+      "excluded_pdf_pages": [],
+      "indexed_chunk_count": 3,
+      "domain": "academic_training",
+      "applies_to": "undergraduate_regular",
+      "effective_from_date": "2023-12-29",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_159_2024",
+      "document_number": "159/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "partial",
+      "excluded_pdf_pages": [
+        9,
+        10,
+        11
+      ],
+      "indexed_chunk_count": 24,
+      "domain": "graduation_thesis",
+      "applies_to": "undergraduate_regular",
+      "effective_from_date": "2024-03-05",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_277_2025",
+      "document_number": "277/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "partial",
+      "excluded_pdf_pages": [
+        2
+      ],
+      "indexed_chunk_count": 16,
+      "domain": "graduation_project",
+      "applies_to": "undergraduate_regular",
+      "effective_from_date": "2025-03-21",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_308_2025",
+      "document_number": "308/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "partial",
+      "excluded_pdf_pages": [
+        2,
+        3
+      ],
+      "indexed_chunk_count": 53,
+      "domain": "admission",
+      "applies_to": "undergraduate_regular",
+      "effective_from_date": "2025-03-21",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_412_2025",
+      "document_number": "412/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "partial",
+      "excluded_pdf_pages": [
+        2,
+        6,
+        8,
+        10
+      ],
+      "indexed_chunk_count": 17,
+      "domain": "credit_recognition",
+      "applies_to": "undergraduate_regular;undergraduate_distance",
+      "effective_from_date": "2025-03-27",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_43_2020",
+      "document_number": "43/TB-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "full",
+      "excluded_pdf_pages": [],
+      "indexed_chunk_count": 3,
+      "domain": "extension_tuition",
+      "applies_to": "undergraduate_regular",
+      "effective_from_date": null,
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_513_2026",
+      "document_number": "513/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "full",
+      "excluded_pdf_pages": [],
+      "indexed_chunk_count": 4,
+      "domain": "credit_recognition",
+      "applies_to": "undergraduate_regular;undergraduate_distance",
+      "effective_from_date": "2026-05-08",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_697_2024",
+      "document_number": "697/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "partial",
+      "excluded_pdf_pages": [
+        2,
+        8,
+        9,
+        11
+      ],
+      "indexed_chunk_count": 18,
+      "domain": "graduation_project_enterprise",
+      "applies_to": "undergraduate_regular",
+      "effective_from_date": "2024-07-12",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_790_2022",
+      "document_number": "790/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "partial",
+      "excluded_pdf_pages": [
+        1,
+        2,
+        18
+      ],
+      "indexed_chunk_count": 45,
+      "domain": "academic_training",
+      "applies_to": "undergraduate_regular",
+      "effective_from_date": null,
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_803_2025",
+      "document_number": "803/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "partial",
+      "excluded_pdf_pages": [
+        5
+      ],
+      "indexed_chunk_count": 5,
+      "domain": "academic_case_handling",
+      "applies_to": "undergraduate_regular",
+      "effective_from_date": "2025-07-11",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_832_2024",
+      "document_number": "832/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "partial",
+      "excluded_pdf_pages": [],
+      "indexed_chunk_count": 5,
+      "domain": "academic_warning",
+      "applies_to": "undergraduate_regular",
+      "effective_from_date": "2024-08-12",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [
+        3,
+        5
+      ],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_851_2024",
+      "document_number": "851/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "partial",
+      "excluded_pdf_pages": [
+        11,
+        13
+      ],
+      "indexed_chunk_count": 28,
+      "domain": "academic_integrity",
+      "applies_to": "all_uit_learners_and_staff;undergraduate_regular;postgraduate;staff",
+      "effective_from_date": "2024-09-01",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_894_2026",
+      "document_number": "894/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "partial",
+      "excluded_pdf_pages": [
+        3,
+        4,
+        18,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "indexed_chunk_count": 38,
+      "domain": "diplomas_certificates",
+      "applies_to": "graduates_and_relevant_units",
+      "effective_from_date": "2026-07-29",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    },
+    {
+      "document_id": "uit_956_2026",
+      "document_number": "956/QĐ-ĐHCNTT",
+      "ingestion_status": "ready",
+      "retrieval_status": "ready",
+      "coverage_status": "partial",
+      "excluded_pdf_pages": [
+        3,
+        6,
+        9,
+        10,
+        13
+      ],
+      "indexed_chunk_count": 25,
+      "domain": "foreign_language",
+      "applies_to": "undergraduate_regular",
+      "effective_from_date": "2026-08-10",
+      "legal_status": "unknown",
+      "omitted_layout_pdf_pages": [],
+      "latest_outcome": "unchanged"
+    }
+  ],
+  "conditions": "Assistant-reviewed supported scope; partial layouts excluded; ready is technical status and does not establish current legal force"
+}

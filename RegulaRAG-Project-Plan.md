@@ -570,14 +570,26 @@ localcomputeunpriced.354tests/12Node/Ruff/frozen guards đạt,0heldoutinference
 
 **Ước lượng:** 5–7 giờ. **Phụ thuộc:** T4.3.
 
-- [ ] Chọn khoảng 20 failure cases trên development set.
-- [ ] Phân loại parsing/OCR, chunking, metadata, retrieval, reranking, generation, citation, abstention.
-- [ ] Sửa 2–3 nhóm lỗi tác động lớn nhất.
-- [ ] Chạy lại development evaluation.
-- [ ] Freeze cấu hình rồi chạy held-out test.
-- [ ] Ghi giới hạn còn tồn tại.
+- [x] Chọn khoảng 20 failure cases trên development set.
+- [x] Phân loại parsing/OCR, chunking, metadata, retrieval, reranking, generation, citation, abstention.
+- [x] Sửa 2–3 nhóm lỗi tác động lớn nhất.
+- [x] Chạy lại development evaluation.
+- [x] Freeze cấu hình rồi chạy held-out test.
+- [x] Ghi giới hạn còn tồn tại.
 
 **Nghiệm thu M4:** dataset/evaluator có version; benchmark tái chạy được; báo cáo lỗi và tác động sửa chữa. Không tuning theo test rồi gọi đó là held-out.
+
+**Hoàn tất T4.4/M4 2026-10-11:**20errorcases/19queries; sửa multi-obligation/source-selection,
+calendar-unit qualifiers và study_progress. Giữ iteration1D06falseabstention; exactfinaldev60
+review:47/47correct/65of65facts/60of60taskcites, từ reference41/47/57of65/52of71.
+Freeze code/config07:10UTC, one-runledger claim07:11UTC, full40test07:11–07:26UTC.
+Held-out **19/28correct/32of43facts/29of108taskcites/0of7correctreject**, clarification
+requiredaxes0/20; source/citation/filterfidelity40/40. p50/p95dev12.351/15.824s,
+test21.552/32.707s;API0VND/localcomputeunpriced.370pytest/13Node/65browserassertions,
+Ruff/lock70/integrity đạt. `configs/rag/final.json`,releasefreeze và
+`docs/error-analysis-review.md`; quality targets chưa đạt, giữlocaldemo/evidence snapshot.
+Không sửa inferencecode/config hoặc gold sau test;21failedcases giữ nguyên. Test40đãexposed,
+futurequalitywork cần development/evidence/testset mới để đo prospectiveheld-out.
 
 ### Chỉ tiêu chất lượng mục tiêu
 

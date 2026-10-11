@@ -23,6 +23,7 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 | Demo feedback — GPA/freshness | completed | Clause-scopedv2/unchangedsourceviews;8cases6supported/2correctabstain;regression12 giữ11supported/1abstain;322pytest+12Node/22livebrowserassertions; `docs/gpa-credit-freshness-review.md` | Finer hierarchy/facets còn hẹp; M4benchmark pending | Người dùng thử bản sửa ở8000, rồiT4.2; giữfreeze40 |
 | T4.2 | completed | One-command frozen evaluator/realASGI/rank10/stageusage/manualhash-boundreview;60dev47answerable;Recall5=.98936/MRR10=.96454;41/47correct/52/71taskcitation;339tests; `docs/evaluation-runner-review.md` | Multi-clause7/12;extraquotes/D42falseabstain/D51missingprogress;heldout chưa chạy | T4.3 fixed-corpus/LLM/budget ablation4variants; giữfailures/gold vàcommitstep |
 | T4.3 | completed | 4variants×60+topk4/12×60=360newpredictions/77reviewgroups;vectors41/KW35/RRF36/CE41of47;selectedCEk4/52of71citations/p9517.820s;354tests; `docs/benchmark-ablation-review.md` | Completeness/precision/D42/D51;one-passlatencyvariation;0heldoutbenchmark | T4.4 erroranalysis/fixes trênselectedreference rồifreezefinal/test;commitstep |
+| T4.4 / M4 | completed |20errorcases/3fixgroups;dev47/47correct/65of65facts/60of60taskcites;exactreleasefreeze→40test19/28correct/29of108taskcites;370tests/13Node/65browserassertions; `docs/error-analysis-review.md` | Held-outquality:reject0/7,clarificationaxes0/20,p9532.707s;chưa đạt chất lượng tổng quát | T5.2observability;qualitybacklog với evidence/dev/testversion mới,giữfailedheldout/freeze;commitstep |
 
 ## Nhật ký kiểm chứng
 
@@ -379,3 +380,43 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
   keepbinding,0heldoutinference. Allfailurecases/protocol/CSV/comparison/reviews retained.
 - T4.3 completed; nextT4.4 completeness/precision/falseabstention/clarificationfixes then
   finalreleaseconfigfreeze andtest40. `docs/benchmark-ablation-review.md`.
+
+### T4.4 — Error analysis / final release / M4
+
+- Ngày2026-10-11. Inventory20cases/19queries: generation5/citation7/retrieval6/
+  abstention1/clarification1; không có evidence parsing/OCR/chunking/reranking là primarycause
+  ởinventory này. Source/hash/quality/filter/latest/corpus/immutablegold/exposureregistries giữ.
+- Ba nhóm: lexicalmulti-obligations +sameguardedpoolproviderreservation +minimumfullcoverage;
+  explicitcalendar khácunitcount; strictstudy_progress0–40 quaAPI/UI/clarification.
+  AbsentNoneexcluded giữdatasetSHA d577..., không infersemester từcohort/issuedyear.
+- Pilot14:13/13answerable/21of21facts/20of20taskcites; fulliteration1:46/47correct
+  (D06model chọnsignatureP2riêng). Giữfailure, exposebounddependency/signature_date trongprompt,
+  targetedD06pass rồi fullfinal60 exactcode:47/47correct/65of65facts/60of60taskcites;
+  Recall5/10=1/MRR=1;reject8/8/false0/47;clarificationfields12/12;status/filter/fidelity60/60.
+- ReferenceT4.3CEk4:41/47/57of65/52of71→final47/47/65of65/60of60; multi7/12→12/12.
+  Finalp50/p9512.351/15.824s,input28862/output443; onepass khôngcausalspeedupclaim.
+- FreezeUTC07:10:12.468742, confige1933332.../sourceca2b3803..., fullreviewed60;
+  testledgerclaim07:11:38.800029, complete40test07:11–07:26UTC, pre/postreleasechecks pass.
+  Runtimebased18cbe4+dirtyT4.4exactbytehash; pipeline `rag-obligation-support-v3`,
+  configs/rag/final.json/top4/CEon/samepins/budgets/freshnessv2.
+- Held-outmanualreview40:19/28correct(67.86%),32/43facts,29/108taskcitations(26.85%);
+  sourcefaithful108/108/filter/citationfidelity40/40,Recall5/10=1/MRR=.9375.
+  Correctreject0/7,false2/28,clarificationstatus1/5/requiredaxes0/20,status27/40.
+  p50/p9521.552/32.707s,input44519/output576,37generation,API0VND/localcomputeunpriced.
+-21qualityfailures giữ: partialT10/13/14/15/22, falseabstainT16/20, wrongtopicT36/38,
+  unsupportedrequestsT24–30 vàmissingclarificationT31–35. T16literalconditionsfacet vàT20
+  doc112nexttoSVcountintentmisparse; chỉpost-testdiagnostics, khôngcode/config/goldtuning.
+-370tests253unit/117schema-isolatedDB,Ruff/format180files/13Node/lock70/pipcheck đạt;
+  GPA8 giữ6primarysupported/2abstain,fixed12 giữ11/1,adversarial24contracts24/24,
+  source/span/filter/latest audits0. GenericprobeG08/B07 cònextraquotedmaterial.
+- EdgeQA27fixture/18realpreset/22realGPA assertions;10developmentrequests,explicitCTA/
+  progress3→cap16/IEL05,presetclear/unchanged790GPA/sourceproof/Axe/responsive đạt.
+  LocalAPI8000Python38296 đãloadfinalv3; DBhealthy,rawlogs/screenshotsignored.
+- Read-only revalidate100/72spans/49chunks/legacy30/19/datasetfreeze unchanged;
+  corpus15ready/307unique/307FTS/15unchanged/0unfinished,103approved/40native/45excluded.
+  Validatoroperation0testinference khác tổng **40testrequests đã chạy**.
+- M4methodology/artifacts nghiệm thu đạt; correctness/supportprecision/rejection/p95targets
+  held-outchưađạt. Giữlocaldemo/evaluation snapshot; nextT5.2 vàqualityevidence mới.
+  `docs/error-analysis-review.md`, `t4_4_*`ID-only metrics/manualreviews/failures/freeze/ledger.
+- Finalrubric check creditT07P4partialprioritysupport(F1) dù trùng ý; score-only29/108
+  thayinitial28/108, noextraModelcall/gold/codechange. Correctionlog vàinitialboundreview giữ.

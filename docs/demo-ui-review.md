@@ -59,3 +59,17 @@ python scripts/check_demo.py --real --output-dir data/processed/demo-ui-real-new
 Tooling resolvequaNODE_PATH nếuinstalled temp. `check_demo.py` sởhữuserverport8767 và
 tựstop sauQA; không ngắtservercủangườidùng. Run UI/teststeps tại `docs/demo-guide.md`.
 T5.1 đạt UItechnical/manualtest flow; M4config/benchmark vàM5packaging cònpending.
+
+## T4.4 — Finalconfig/study-progress regression (2026-10-11)
+
+- Strictinteger `study_progress`0–40 với visiblelabel/numberinput/hint, không infercohort;
+  absentfield khôngserialize. Clearpreset tránh mang mốc học kỳ cũ sang request khác.
+-13Nodecontracts/370pytest đạt. Edgefixture27assertions/realpresets18/GPA22,
+ 10knownrealrequests,allpassed; rawscreenshots/reports `data/processed/t4-4-demo/` ignored.
+- ExplicitCTA/cohort2026/regular/progress3 reply giữsamequestion và cap16/IEL05.
+  GPAcap30/unchanged790-only/summerblocked/personal-domain-audiencereply vẫn đúng.
+- Axeinitial và cácresultscans trongfixture/GPA đạt0A/AAviolations, responsive375/812/768
+  nooverflow vàreducedmotion. Backend đangloadfinalv3/top4 từenvconfigoverride.
+- M4measuredresults xem `docs/error-analysis-review.md`: heldoutqualitytargets chưađạt;
+  browserassertions không thay fullsemanticbenchmark. Test40 hiện đãexposed;
+  UIQA ởstepnày dùngdevelopmentcases vàcó0testinference riêng.

@@ -15,6 +15,7 @@ $env:PYTHONUTF8 = "1"
 $env:PYTHONIOENCODING = "utf-8"
 $env:HF_HUB_OFFLINE = "1"
 $env:TRANSFORMERS_OFFLINE = "1"
+$env:REGULARAG_RAG_CONFIG_PATH = "configs/rag/final.json"
 & "C:\Users\Khanh\miniconda3\Scripts\conda.exe" run --no-capture-output -n ragschool python -m uvicorn regularag.main:app --host 127.0.0.1 --port 8000
 ```
 
@@ -36,14 +37,15 @@ không tự gửi. Có thể gửi bằng `Ctrl+Enter` trong ô câu hỏi.
 | Mẫu | Cách thử | Kết quả mong đợi |
 |---|---|---|
 | **Tín chỉ học kỳ hè** | Chọn mẫu, gửi | `answered`, cap12tín chỉ từ1393, cùng điều kiện học hè |
-| **Chuẩn ngoại ngữ của em** | Chọn mẫu, để scope trống, gửi | `needs_clarification`: hỏi khóa/hệ/chương trình |
+| **Chuẩn ngoại ngữ của em** | Chọn mẫu, để scope trống, gửi | `needs_clarification`: hỏi khóa/hệ/chương trình/mốc học kỳ |
 | **Ngày hiệu lực quy định** | Chọn mẫu, gửi | 851 có mốc nguồn01/9/2024, phân biệt ngày ban hành14/8 |
 | **Bộ lọc chỉ cho văn bản cũ** | Chọn mẫu, giữ lựa chọn790, gửi | `insufficient_evidence`/`latest_excluded_by_filters`, không dùng ngưỡng50cũ |
 
 Để thử trả lời clarification:
 
 1. Sau mẫu ngoại ngữ, bấm **Bổ sung thông tin áp dụng**.
-2. Điền khóa **2026**, hệ **Đại học chính quy**, programme **CTA**.
+2. Điền khóa **2026**, hệ **Đại học chính quy**, programme **CTA**,
+   **Học kỳ chính đã hoàn thành =3**.
 3. Giữ nguyên câu hỏi gốc, gửi lại.
 4. Đối chiếu source956: CTA sau3học kỳ cầnIEL05, chưa đạt cap16tín chỉ ngoài ngoại ngữ,
    kể cả học lại/cải thiện cho đến khi đạt. Block nguồn còn giữ các mốc2/4kỳ cùng programme.
@@ -91,7 +93,8 @@ latest family1393 không có nghĩa mọi nội dung790 đều phải thay bằn
 
 ## 4. Thử phạm vi và bộ lọc
 
-**Thông tin áp dụng**: khóa, hệ, programme, ngàyđối chiếu, thời gianthiết kế và loạiđồán.
+**Thông tin áp dụng**: khóa, hệ, programme, học kỳ chính đã hoàn thành (integer0–40),
+ngàyđối chiếu, thời gianthiết kế và loạiđồán. Không suy mốc học kỳ từ năm nhập học.
 Để trống nếu chưa biết; không tự điền ngày hôm nay để “được dữ liệu mới nhất”.
 
 **Giới hạn nguồn & truy xuất**:
@@ -127,5 +130,8 @@ thiếu điều kiện; việc bạn review semantic support rất hữu ích.
 - Nếu8000 đang được app khác dùng, chọn cổng khác, ví dụ8001, và mở URL tương ứng.
 - Dùng browser desktop DevTools resize để thử375px/landscape; UI có responsive layout.
 
-Các mẫu này là **development**, không dùng40câu held-out để thử/tune trước khi chốt
-cấu hình đánh giá. T4.2 runner vẫn là bước tiếp theo.
+Các mẫu này là **development**. T4.4 đãfreeze `configs/rag/final.json` và chạy một lượt40test;
+source/citationfidelity40/40 nhưng đúng/đủý19/28 vàtaskcitation29/108, đúngtừchối0/7.
+Đây là localdemo/evaluation snapshot, chất lượng tổng quát chưađạt. Đọc đầyđủ kếtquả/lỗi
+tại `docs/error-analysis-review.md`; không dùng tuneddevelopment47/47 làmheldoutaccuracy.
+API không cóenvconfigoverride vẫn đọc baselinev2JSON; lệnh ở trên explicitlyloadfinalv3.

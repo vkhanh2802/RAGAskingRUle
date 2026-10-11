@@ -1,0 +1,15 @@
+{
+  "review_date": "2026-10-11",
+  "backend_pipeline_version": "rag-obligation-support-v3",
+  "backend_url": "http://127.0.0.1:8000",
+  "fixture": {"passed": true, "assertions": 27, "real_requests": 0},
+  "real_development_presets": {"passed": true, "assertions": 18, "real_requests": 5},
+  "real_gpa_regression": {"passed": true, "assertions": 22, "real_requests": 5},
+  "uncaught_browser_errors": 0,
+  "automated_axe_a_aa_violations_in_run_scans": 0,
+  "responsive_viewports": [[375,812],[812,375],[768,1024]],
+  "explicit_scope_reply": "CTA/cohort2026/undergraduate_regular/study_progress3; same question; cap16/IEL05",
+  "held_out_inference_requests_in_browser_qa": 0,
+  "raw_reports_directory": "data/processed/t4-4-demo",
+  "conditions": "MicrosoftEdge headless/Playwright/Axe; development-only UI QA. Automated accessibility subset and browser contracts, not held-out semantic correctness. Raw screenshots/records ignored."
+}

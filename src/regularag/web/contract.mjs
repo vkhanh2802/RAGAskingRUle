@@ -31,6 +31,7 @@ export function buildRequest(values) {
   if (!['hybrid', 'vector', 'keyword'].includes(values.mode)) throw new Error('Chế độ truy xuất không hợp lệ.');
   request.retrieval_mode = values.mode;
   const scope = {};
+  if (values.studyProgress !== undefined && values.studyProgress !== '') scope.study_progress = integer(values.studyProgress, 'Học kỳ chính đã hoàn thành', 0, 40);
   if (values.cohort) scope.cohort_year = integer(values.cohort, 'Khóa tuyển sinh', 1980, 2100);
   if (values.audience) {
     if (!['undergraduate_regular', 'undergraduate_distance', 'joint_program'].includes(values.audience)) throw new Error('Hệ đào tạo không hợp lệ.');

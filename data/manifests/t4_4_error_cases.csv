@@ -1,0 +1,21 @@
+error_case_id,question_id,variant,primary_stage,secondary_stage,diagnosis,fix_group
+E01,D33,hybrid_reranked_k4,generation,citation,Topiccountfacet treated as complete while distinctreviewer obligation missing,multi_fact_contract
+E02,D34,hybrid_reranked_k4,generation,citation,Deadlinefacet treated as complete while archive/handover obligation missing,multi_fact_contract
+E03,D36,hybrid_reranked_k4,generation,citation,Reviewerblock alone accepted while supervisorqualification missing,multi_fact_contract
+E04,D37,hybrid_reranked_k4,generation,citation,Scheduleblock alone accepted while certificatevalidity missing,multi_fact_contract
+E05,D38,hybrid_reranked_k4,retrieval,generation,Requiredprerequisite andMgrade not retained ahead of progressblocks; questionobligations incomplete,multi_fact_contract
+E06,D42,hybrid_reranked_k4,abstention,metadata,Explicitcalendar date triggers count-of-days facet alongside durationyears,qualifier_units
+E07,D51,hybrid_reranked_k4,clarification,metadata,Missing elapsedmainsemester/standard information axis,study_progress
+E08,D03,hybrid_reranked_k4,citation,generation,Extra exemptionblock despite completefee answer,multi_fact_contract
+E09,D08,hybrid_reranked_k4,citation,generation,Extra schedule/reviewer/differentextensioncase blocks,multi_fact_contract
+E10,D10,hybrid_reranked_k4,citation,generation,Other supervisorrules included despite degree/externalconditions answer,multi_fact_contract
+E11,D16,hybrid_reranked_k4,citation,generation,Appointmentprocedure extra to boardmembership answer,multi_fact_contract
+E12,D20,hybrid_reranked_k4,citation,generation,Beforedefense/archive blocks extra to postdefensegradesdeadline,multi_fact_contract
+E13,D27,hybrid_reranked_k4,citation,generation,Generaltrainingflow extra toMaverage/exemptcredit facts,multi_fact_contract
+E14,D57,hybrid_reranked_k4,citation,generation,FalsepremiseSV abbreviation not recognized as quantitativeclasssize intent,multi_fact_contract
+E15,D15,keyword_only,retrieval,abstention,Revieweridentitygold not retained at effectivecontext despite keyworddocumenthit,remaining_retrieval
+E16,D16,keyword_only,retrieval,generation,Postdefenseuploadprocedure rather than membershipclause,remaining_retrieval
+E17,D40,keyword_only,retrieval,abstention,Degree/certificatedeadlinegold not retained incontext,remaining_retrieval
+E18,D43,vector_only,generation,abstention,Unchangedcourse/creditsblocks answered classsize question withcompactSV unit,multi_fact_contract
+E19,D58,keyword_only,retrieval,generation,Effective-date quote omitted sourceboundnonretroactivity part ofrequiredfact,remaining_retrieval
+E20,D59,keyword_only,retrieval,abstention,Digitalthresholdgold not retained incontext,remaining_retrieval
