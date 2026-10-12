@@ -1,6 +1,7 @@
 from dataclasses import replace
 from typing import Literal
 
+from regularag.core.tracing import skipped, stage, trace_stage
 from regularag.retrieval.config import RagBaselineConfig
 from regularag.retrieval.embedding import Embedder
 from regularag.retrieval.filters import RetrievalFilters
@@ -64,6 +65,7 @@ class RetrievalPipeline:
                 release()
         gc.collect()
 
+    @trace_stage("retrieve.search")
     def search(
         self,
         question: str,
@@ -75,8 +77,15 @@ class RetrievalPipeline:
         if mode not in ("vector", "keyword", "hybrid") or not 1 <= limit <= 20:
             raise ValueError("Invalid retrieval mode or top-k")
         pool = self.ranked_candidates(question, mode, filters)
-        return select_with_updates(pool, limit) if self.freshness is not None else pool[:limit]
+        with stage("retrieve.top_k") as span:
+            selected = (
+                select_with_updates(pool, limit) if self.freshness is not None else pool[:limit]
+            )
+            span.fields(top_k=limit, mode=mode)
+            span.chunks("returned_chunks", selected)
+        return selected
 
+    @trace_stage("retrieve.ranked_candidates")
     def ranked_candidates(
         self,
         question: str,
@@ -86,27 +95,40 @@ class RetrievalPipeline:
         """Expose the actual ordered pool before top-k without another retrieval/model call."""
         pool = self.candidates(question, mode, filters)
         if self.reranker is not None and any(not hit.freshness_failure for hit in pool):
-            pool = self.reranker.rerank(question, pool)
-        if (
-            self.freshness is not None
-            and self.config.freshness.policy_version == "clause-scoped-v2"
-            and pool
-            and not pool[0].freshness_failure
-            and pool[0].freshness_status == "unchanged_verified_clause"
-        ):
-            # Only a verified unchanged primary rule can discard lower-ranked blocked
-            # candidates. Other primaries retain the context-wide freshness gate;
-            # required companions still pass the selection/service budget guards.
-            pool = [hit for hit in pool if not hit.freshness_failure]
-        if (
-            self.config.behaviour.enabled
-            and self.config.behaviour.policy_version == "guarded-obligations-v2"
-        ):
-            from regularag.generation.passages import prioritize_support_sources
+            with stage("rerank") as span:
+                span.fields(
+                    configured_model=self.config.reranker.model_name,
+                    model_revision=self.config.reranker.model_revision,
+                )
+                span.chunks("input_chunks", pool)
+                pool = self.reranker.rerank(question, pool)
+                span.chunks("output_chunks", pool)
+        else:
+            skipped("rerank", "disabled" if self.reranker is None else "no_usable_candidates")
+        with stage("retrieve.guard_order") as span:
+            span.chunks("input_chunks", pool)
+            if (
+                self.freshness is not None
+                and self.config.freshness.policy_version == "clause-scoped-v2"
+                and pool
+                and not pool[0].freshness_failure
+                and pool[0].freshness_status == "unchanged_verified_clause"
+            ):
+                # Only a verified unchanged primary rule can discard lower-ranked blocked
+                # candidates. Required companions still pass selection/budget guards.
+                pool = [hit for hit in pool if not hit.freshness_failure]
+            if (
+                self.config.behaviour.enabled
+                and self.config.behaviour.policy_version == "guarded-obligations-v2"
+            ):
+                from regularag.generation.passages import prioritize_support_sources
 
-            pool = prioritize_support_sources(question, pool)
+                pool = prioritize_support_sources(question, pool)
+            span.fields(ordering_policy=self.config.behaviour.policy_version)
+            span.chunks("output_chunks", pool)
         return pool
 
+    @trace_stage("retrieve.candidates")
     def candidates(
         self,
         question: str,
@@ -132,41 +154,66 @@ class RetrievalPipeline:
             if codes:
                 dense_options["document_codes"] = codes
         if mode in ("vector", "hybrid"):
-            dense = [
-                hit
-                for hit in self.dense_repository.search(
-                    self.embedder.embed_query(question), candidates, **dense_options
+            with stage("query.embed") as span:
+                embedding = self.embedder.embed_query(question)
+                span.fields(
+                    configured_dimension=self.config.embedding.dimension,
+                    configured_model=self.config.embedding.model_name,
+                    model_revision=self.config.embedding.model_revision,
                 )
-                if usable_evidence(hit, self.config)
-            ]
-        if mode in ("keyword", "hybrid"):
-            keyword = [
-                hit
-                for hit in self.keyword_repository.search(question, candidates, **options)
-                if usable_evidence(hit, self.config)
-            ]
-        if mode == "vector":
-            pool = dense[:pool_limit]
-        elif mode == "keyword":
-            pool = keyword[:pool_limit]
+            with stage("retrieve.dense") as span:
+                hits = self.dense_repository.search(embedding, candidates, **dense_options)
+                dense = [hit for hit in hits if usable_evidence(hit, self.config)]
+                span.fields(candidate_limit=candidates)
+                span.chunks("returned_chunks", hits)
+                span.chunks("eligible_chunks", dense)
         else:
-            pool = reciprocal_rank_fusion(
-                dense,
-                keyword,
-                pool_limit,
-                self.config.retrieval.rrf_k,
-                self.config.retrieval.dense_weight,
-                self.config.retrieval.keyword_weight,
-            )
-        pool = [replace(hit, first_stage_rank=rank) for rank, hit in enumerate(pool, 1)]
-        if (
-            self.freshness is not None
-            and self.config.freshness.policy_version == "clause-scoped-v2"
-            and registration_focus(question) == "regular"
-        ):
-            scoped = [hit for hit in pool if has_regular_credit_rule(hit.text)]
-            if scoped:
-                pool = scoped
+            skipped("query.embed", "keyword_only")
+            skipped("retrieve.dense", "keyword_only")
+        if mode in ("keyword", "hybrid"):
+            with stage("retrieve.keyword") as span:
+                hits = self.keyword_repository.search(question, candidates, **options)
+                keyword = [hit for hit in hits if usable_evidence(hit, self.config)]
+                span.fields(candidate_limit=candidates)
+                span.chunks("returned_chunks", hits)
+                span.chunks("eligible_chunks", keyword)
+        else:
+            skipped("retrieve.keyword", "vector_only")
+        with stage("retrieve.fusion") as span:
+            if mode == "vector":
+                pool = dense[:pool_limit]
+            elif mode == "keyword":
+                pool = keyword[:pool_limit]
+            else:
+                pool = reciprocal_rank_fusion(
+                    dense,
+                    keyword,
+                    pool_limit,
+                    self.config.retrieval.rrf_k,
+                    self.config.retrieval.dense_weight,
+                    self.config.retrieval.keyword_weight,
+                )
+            pool = [replace(hit, first_stage_rank=rank) for rank, hit in enumerate(pool, 1)]
+            span.fields(mode=mode, dense_count=len(dense), keyword_count=len(keyword))
+            span.chunks("first_stage_chunks", pool)
+        with stage("retrieve.focus") as span:
+            span.chunks("input_chunks", pool)
+            if (
+                self.freshness is not None
+                and self.config.freshness.policy_version == "clause-scoped-v2"
+                and registration_focus(question) == "regular"
+            ):
+                scoped = [hit for hit in pool if has_regular_credit_rule(hit.text)]
+                if scoped:
+                    pool = scoped
+            span.chunks("output_chunks", pool)
         if self.freshness is not None:
-            pool = select_with_updates(self.freshness.apply(pool, filters, question), pool_limit)
+            with stage("retrieve.freshness") as span:
+                span.chunks("input_chunks", pool)
+                pool = select_with_updates(
+                    self.freshness.apply(pool, filters, question), pool_limit
+                )
+                span.chunks("output_chunks", pool)
+        else:
+            skipped("retrieve.freshness", "disabled")
         return pool

@@ -677,6 +677,38 @@ Methodology/M4artifacts đạt; qualitytargets chưađạt, giữlocaldemo/evide
 `docs/error-analysis-review.md` cócompletecounts/failures/artifacts/reproconditions.
 T01–T40đãexposed; prospectiveevaluation mới cần testversion độc lập mới.
 
+## Request ID và local pipeline trace — T5.2
+
+Trong INFOlogs, ask request có `X-Request-ID` (serverUUID), bodyHTTP200`request_id` và
+`regularag.trace`JSONevent `pipeline-trace-v1`. ID đi quaasyncmiddleware→syncservice/model.
+API422/503/500 vẫntrảcorrelationheader; clientprovidedIDkhôngecho. No fullquestion/source/modeltext
+trongtrace, chỉmodels/revisions/configSHA/IDs/ranks/context/offsets/SHA/selected/resolved/usage.
+
+```powershell
+$env:REGULARAG_RAG_CONFIG_PATH = "configs/rag/final.json"
+$env:REGULARAG_LOG_LEVEL = "INFO"
+$env:REGULARAG_PIPELINE_TRACING_ENABLED = "true"
+python -m uvicorn regularag.main:app --host 127.0.0.1 --port 8000 --no-access-log
+python scripts/inspect_trace.py --log <local-json-lines-log> --request-id <returned-UUID> --output <existing-directory/new-diagnostic.json>
+```
+
+Tắttraceflagfalse để khôngcollect/emit, header/bodyIDvẫn có. Logretention/rotation hiện
+dooperator quản lý; tránh captureaccesslogsURL/querystrings,giữrawoutputsngoàiGit.
+Stagehierarchy cóqueue/embed/branchSQL/fusion/freshness/CE/order/topk/contextbudget/generate/
+resolve/release; parentincludeschildren nên khôngsum;largestleaf chỉdiagnostic.
+Actualusage null≠0; budgetinputtokenfield tách providerusage; API0VND/localcomputeunpriced.
+
+Acceptance/reproduce7cases (paths phải mới, modelcache/DB sẵn):
+
+```powershell
+python scripts/check_observability.py --config configs/rag/final.json --output-dir data/processed/<new-observability-run> --summary data/manifests/<new-ID-only-summary.json>
+```
+
+Tool chỉdevelopment/declaredfixtures; noheldout. `docs/observability-review.md` có383tests/
+liveHTTPproof vàbad-answerdiagnosis. Langfuseoptional deferred, noextra dependency.
+Traceinstrumentation tạo sourceversion mới sauM4; originalfreeze/sourcebytehash thuộc221ee6f,
+không updateoriginalM4evidence để gọinewcode làmeasuredrelease. Exactchecker cầnmeasuredversion.
+
 ## Dừng dịch vụ
 
 ```powershell

@@ -7,6 +7,7 @@ import psycopg
 from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, ConfigDict, Field
 
+from regularag.core.tracing import current_trace, request_id, stage
 from regularag.generation.clarification import QuestionScope
 from regularag.generation.factory import build_answer_service
 from regularag.generation.service import AnswerResult, AnswerService
@@ -78,6 +79,7 @@ class SourceResponse(BaseModel):
 
 
 class AskResponse(BaseModel):
+    request_id: str | None = None
     status: Literal["answered", "insufficient_evidence", "needs_clarification"]
     answer: str
     sources: list[SourceResponse]
@@ -145,6 +147,7 @@ def _get_answer_service(request: Request) -> AnswerService:
 
 def _to_response(result: AnswerResult) -> AskResponse:
     return AskResponse(
+        request_id=request_id(),
         status=result.status,
         answer=result.answer,
         sources=[SourceResponse(**asdict(source)) for source in result.sources],
@@ -179,7 +182,9 @@ def _to_response(result: AnswerResult) -> AskResponse:
 def ask(payload: AskRequest, request: Request) -> AskResponse:
     started = perf_counter()
     try:
-        service = _get_answer_service(request)
+        with stage("service.initialize") as span:
+            service = _get_answer_service(request)
+            span.fields(implementation=type(service).__name__)
         options = {"filters": payload.filters} if payload.filters is not None else {}
         if payload.scope is not None:
             options["scope"] = payload.scope
@@ -189,19 +194,26 @@ def ask(payload: AskRequest, request: Request) -> AskResponse:
             else service.ask(payload.question, payload.top_k, **options)
         )
     except ValueError as exc:
+        if trace := current_trace():
+            trace.result = {"status": "error", "http_status": 422, "error_type": type(exc).__name__}
         logger.warning("ask input or configuration error: %s", type(exc).__name__)
         raise HTTPException(
             status_code=422, detail="Câu hỏi hoặc cấu hình vượt giới hạn xử lý."
         ) from exc
     except (OSError, RuntimeError, psycopg.Error) as exc:
+        if trace := current_trace():
+            trace.result = {"status": "error", "http_status": 503, "error_type": type(exc).__name__}
         logger.error("ask backend unavailable: %s", type(exc).__name__)
         raise HTTPException(
             status_code=503, detail="Database hoặc model baseline chưa sẵn sàng."
         ) from exc
+    if trace := current_trace():
+        trace.finish_answer(result)
     logger.info(
         "ask completed status=%s sources=%s latency_ms=%.0f",
         result.status,
         [source.chunk_id for source in result.sources],
         (perf_counter() - started) * 1000,
     )
-    return _to_response(result)
+    with stage("api.response"):
+        return _to_response(result)

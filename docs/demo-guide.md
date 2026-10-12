@@ -16,7 +16,9 @@ $env:PYTHONIOENCODING = "utf-8"
 $env:HF_HUB_OFFLINE = "1"
 $env:TRANSFORMERS_OFFLINE = "1"
 $env:REGULARAG_RAG_CONFIG_PATH = "configs/rag/final.json"
-& "C:\Users\Khanh\miniconda3\Scripts\conda.exe" run --no-capture-output -n ragschool python -m uvicorn regularag.main:app --host 127.0.0.1 --port 8000
+$env:REGULARAG_LOG_LEVEL = "INFO"
+$env:REGULARAG_PIPELINE_TRACING_ENABLED = "true"
+& "C:\Users\Khanh\miniconda3\Scripts\conda.exe" run --no-capture-output -n ragschool python -m uvicorn regularag.main:app --host 127.0.0.1 --port 8000 --no-access-log
 ```
 
 Giữ terminal này mở, truy cập URL demo. Máy hiện tại đã có model cache, migrations,
@@ -119,6 +121,15 @@ giữ local, không thêm raw/model outputs vào Git.
 Nếu muốn báo một ca lỗi, gửi câu hỏi, scope/filter, status/failure_reason và SourceID/
 chunkID kèm đoạn cần đối chiếu. Một câu trích đúng nguyên văn vẫn có thể sai chủ đề hoặc
 thiếu điều kiện; việc bạn review semantic support rất hữu ích.
+ResponseJSON/JSONexport có **`request_id`**; HTTPheaders có **`X-Request-ID`** kể cả422/503/500.
+Gửi ID đó đểoperator tìmmetadata trace/rerankorder/context/selectedPIDs/stagechậm tronglocalJSONlogs:
+
+```powershell
+python scripts/inspect_trace.py --log <operator-json-lines-log> --request-id <UUID>
+```
+
+Không cần logfullquestion/source/modeltext đểcorrelate. Tracekhôngtựxácnhận semanticcorrectness;
+`docs/observability-review.md` cóhướng dẫn vàgiớihạn. Clientdừngchờ thìbackendtrace vẫncóthểhoàn tất.
 
 ## 6. Khi request lâu hoặc có lỗi
 

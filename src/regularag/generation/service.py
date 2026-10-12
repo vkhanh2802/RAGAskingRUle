@@ -4,6 +4,7 @@ from threading import Lock
 from time import perf_counter
 from typing import Protocol
 
+from regularag.core.tracing import current_trace, skipped, stage, trace_stage
 from regularag.generation.clarification import (
     Clarification,
     QuestionScope,
@@ -131,6 +132,7 @@ class AnswerService:
         self.generator = generator
         self._inference_lock = Lock()
 
+    @trace_stage("answer.pipeline")
     def ask(
         self,
         question: str,
@@ -140,18 +142,38 @@ class AnswerService:
         scope: QuestionScope | None = None,
     ) -> AnswerResult:
         # FastAPI executes sync endpoints in threads; serialize model work on this small host.
+        if trace := current_trace():
+            trace.configure(self.config, self.generator)
+        queued = perf_counter()
         with self._inference_lock:
-            question_reason = (
-                unsupported_question(question) if self.config.behaviour.enabled else None
-            )
-            plan = (
-                analyse_scope(question, filters, scope)
-                if self.config.behaviour.enabled and not question_reason
-                else None
-            )
+            with stage("inference.queue", started=queued):
+                pass
+            with stage("scope.analyse") as span:
+                question_reason = (
+                    unsupported_question(question) if self.config.behaviour.enabled else None
+                )
+                plan = (
+                    analyse_scope(question, filters, scope)
+                    if self.config.behaviour.enabled and not question_reason
+                    else None
+                )
+                span.fields(
+                    question_length=len(question),
+                    top_k=top_k or self.config.retrieval.top_k,
+                    mode=retrieval_mode or self.config.retrieval.mode,
+                    filter_fields=list(filters.model_fields_set) if filters else [],
+                    scope_fields=list(scope.model_fields_set) if scope else [],
+                    topic=plan.topic if plan else None,
+                    required_fields=list(plan.clarification.required_fields)
+                    if plan and plan.clarification
+                    else [],
+                    failure_reason=question_reason or (plan.failure_reason if plan else None),
+                )
             effective_filters = plan.filters if plan else filters
             try:
                 if question_reason:
+                    skipped("retrieve", question_reason)
+                    skipped("generate", question_reason)
                     result = self._result(
                         "insufficient_evidence",
                         "Corpus hiện có chỉ hỗ trợ các quy định UIT đã kiểm chứng; "
@@ -161,6 +183,8 @@ class AnswerService:
                         failure_reason=question_reason,
                     )
                 elif plan and plan.clarification:
+                    skipped("retrieve", plan.failure_reason)
+                    skipped("generate", plan.failure_reason)
                     result = replace(
                         self._result(
                             "needs_clarification",
@@ -175,19 +199,20 @@ class AnswerService:
                     result = self._ask(question, top_k, retrieval_mode, effective_filters, plan)
             finally:
                 if self.config.generation.low_memory_mode:
-                    release = getattr(self.generator, "release", None)
-                    if callable(release):
-                        release()
-                    release_retrieval = getattr(self.retriever, "release_models", None)
-                    if callable(release_retrieval):
-                        release_retrieval()
+                    with stage("models.release"):
+                        release = getattr(self.generator, "release", None)
+                        if callable(release):
+                            release()
+                        release_retrieval = getattr(self.retriever, "release_models", None)
+                        if callable(release_retrieval):
+                            release_retrieval()
             warnings = result.warnings
             if effective_filters and effective_filters.as_of:
                 warnings += (
                     "Bộ lọc as_of dùng mốc hiệu lực đã ghi nhận từ nguồn; "
                     "không xác nhận văn bản vẫn hiện hành tại ngày đó.",
                 )
-            return replace(
+            final = replace(
                 result,
                 retrieval_mode=retrieval_mode or self.config.retrieval.mode,
                 applied_filters=effective_filters or RetrievalFilters(),
@@ -203,6 +228,9 @@ class AnswerService:
                     else ()
                 ),
             )
+            if trace := current_trace():
+                trace.finish_answer(final)
+            return final
 
     def _ask(
         self,
@@ -219,19 +247,31 @@ class AnswerService:
         if filters is not None:
             options["filters"] = filters
         started = perf_counter()
-        retrieved = self.retriever.search(question, retrieval_limit, **options)
+        with stage("retrieve") as span:
+            span.fields(
+                top_k=retrieval_limit,
+                mode=mode or self.config.retrieval.mode,
+                implementation=type(self.retriever).__name__,
+            )
+            retrieved = self.retriever.search(question, retrieval_limit, **options)
+            span.chunks("returned_chunks", retrieved)
         if self.config.generation.low_memory_mode:
-            release = getattr(self.retriever, "release_models", None)
-            if callable(release):
-                release()
+            with stage("retrieve.release_models"):
+                release = getattr(self.retriever, "release_models", None)
+                if callable(release):
+                    release()
         retrieval_ms = (perf_counter() - started) * 1000
-        eligible = [chunk for chunk in retrieved if usable_evidence(chunk, self.config)]
-        context = (
-            select_with_updates(eligible, self.config.generation.context_chunks)
-            if self.config.freshness.enabled
-            else eligible[: self.config.generation.context_chunks]
-        )
+        with stage("context.select") as span:
+            eligible = [chunk for chunk in retrieved if usable_evidence(chunk, self.config)]
+            context = (
+                select_with_updates(eligible, self.config.generation.context_chunks)
+                if self.config.freshness.enabled
+                else eligible[: self.config.generation.context_chunks]
+            )
+            span.chunks("eligible_chunks", eligible)
+            span.chunks("context_chunks", context)
         if not context:
+            skipped("generate", "no_matching_evidence")
             result = self._result(
                 status="insufficient_evidence",
                 answer="Không tìm thấy bằng chứng đủ liên quan trong corpus hiện có.",
@@ -249,6 +289,7 @@ class AnswerService:
             return replace(result, retrieval_ms=round(retrieval_ms, 3))
 
         if reason := self._freshness_failure(context):
+            skipped("generate", reason)
             return replace(
                 self._result(
                     status="insufficient_evidence",
@@ -261,7 +302,11 @@ class AnswerService:
                 retrieval_ms=round(retrieval_ms, 3),
                 version_notes=version_notes(context),
             )
-        if reason := evidence_failure(context):
+        with stage("guards.evidence") as span:
+            reason = evidence_failure(context)
+            span.fields(failure_reason=reason)
+        if reason:
+            skipped("generate", reason)
             return replace(
                 self._result(
                     "insufficient_evidence",
@@ -274,8 +319,11 @@ class AnswerService:
                 retrieval_ms=round(retrieval_ms, 3),
             )
         if plan:
-            reason = applicability_failure(plan, context)
+            with stage("guards.applicability") as span:
+                reason = applicability_failure(plan, context)
+                span.fields(failure_reason=reason, topic=plan.topic)
             if reason or plan.compare_versions:
+                skipped("generate", reason or "version_comparison_not_consolidated")
                 notes = version_notes(context)
                 details = "\n".join(
                     f"- {note.document_number}: ban hành {note.issued_date or 'chưa xác minh'}; "
@@ -311,14 +359,18 @@ class AnswerService:
                 )
         if self.config.generation.response_policy == "verified_passages":
             return self._ask_passages(question, context, retrieval_ms, plan)
-        prepared = prepare_context(
-            question,
-            context,
-            self.generator.input_token_limit,
-            self.generator.count_prompt_tokens,
-        )
+        with stage("context.prepare") as span:
+            prepared = prepare_context(
+                question,
+                context,
+                self.generator.input_token_limit,
+                self.generator.count_prompt_tokens,
+            )
+            span.fields(budget_input_tokens=prepared.input_tokens)
+            span.chunks("context_chunks", list(prepared.chunks))
         context = list(prepared.chunks)
         if not context:
+            skipped("generate", "no_scoped_passage")
             return self._result(
                 status="insufficient_evidence",
                 answer="Không có đoạn trích phù hợp với phạm vi cụ thể của câu hỏi.",
@@ -328,6 +380,7 @@ class AnswerService:
                 input_tokens=prepared.input_tokens,
             )
         if reason := self._freshness_failure(context):
+            skipped("generate", reason)
             return self._result(
                 status="insufficient_evidence",
                 answer="Token budget không giữ được đủ bằng chứng của văn bản cập nhật "
@@ -337,7 +390,7 @@ class AnswerService:
                 failure_reason=reason,
                 input_tokens=prepared.input_tokens,
             )
-        generated = self.generator.generate(prepared.prompt)
+        generated = self._generate(prepared.prompt)
         allowed_ids = {f"S{index}" for index in range(1, len(context) + 1)}
         cited_ids = set(generated.source_ids)
         inline_ids = set(re.findall(r"\[(S\d+)\]", generated.answer))
@@ -455,20 +508,35 @@ class AnswerService:
         plan: ScopePlan | None = None,
     ) -> AnswerResult:
         started = perf_counter()
-        prepared = prepare_passages(
-            question,
-            context,
-            self.generator.input_token_limit,
-            self.generator.count_prompt_tokens,
-            self.config.generation.max_passages,
-            scope=plan.scope if plan else None,
-        )
+        with stage("context.prepare") as span:
+            budget_limit = self.generator.input_token_limit
+            prepared = prepare_passages(
+                question,
+                context,
+                budget_limit,
+                self.generator.count_prompt_tokens,
+                self.config.generation.max_passages,
+                scope=plan.scope if plan else None,
+            )
+            span.fields(
+                budget_input_tokens=prepared.input_tokens,
+                budget_limit=budget_limit,
+                max_passages=self.config.generation.max_passages,
+                failure_reason=prepared.failure_reason,
+            )
+            span.chunks("context_chunks", list(prepared.chunks))
+            span.passages(list(prepared.passages))
+            if span.span_id and prepared.prompt:
+                import json
+
+                payload = json.loads(prepared.prompt)
+                span.fields(required_support=payload.get("required_support", []))
         context = list(prepared.chunks)
         reason = prepared.failure_reason or self._freshness_failure(context)
         generated = None
         selected = []
         if not reason:
-            generated = self.generator.generate(prepared.prompt)
+            generated = self._generate(prepared.prompt)
             reason = generated.failure_reason
             if (
                 generated.source_ids
@@ -480,16 +548,22 @@ class AnswerService:
             ):
                 reason = "invalid_passage_output"
             if not reason:
-                selected, reason = resolve_passages(
-                    question,
-                    generated.passage_ids,
-                    prepared,
-                    scope=plan.scope if plan else None,
-                    minimize=self.config.behaviour.enabled
-                    and self.config.behaviour.minimize_selected_passages,
-                )
+                with stage("evidence.resolve") as span:
+                    selected, reason = resolve_passages(
+                        question,
+                        generated.passage_ids,
+                        prepared,
+                        scope=plan.scope if plan else None,
+                        minimize=self.config.behaviour.enabled
+                        and self.config.behaviour.minimize_selected_passages,
+                    )
+                    span.fields(
+                        resolved_passage_ids=[p.passage_id for p in selected], failure_reason=reason
+                    )
                 if not selected and not reason:
                     reason = "no_supported_selection"
+        else:
+            skipped("generate", reason)
         cited_ids = {p.source_id for p in selected} if not reason else set()
         if not reason and selected:
             for index, chunk in enumerate(context, 1):
@@ -532,6 +606,7 @@ class AnswerService:
             version_notes=version_notes(context) if plan else (),
         )
 
+    @trace_stage("guards.freshness")
     def _freshness_failure(self, context: list[RetrievedChunk]) -> str | None:
         if not self.config.freshness.enabled:
             return None
@@ -543,6 +618,33 @@ class AnswerService:
                 return "latest_not_in_context"
         return None
 
+    def _generate(self, prompt):
+        with stage("generate") as span:
+            span.fields(
+                configured_model=self.config.generation.model_name,
+                model_revision=self.config.generation.model_revision,
+                prompt_version=self.config.generation.prompt_version,
+                implementation=type(self.generator).__name__,
+            )
+            if trace := current_trace():
+                trace.generated()
+            generated = self.generator.generate(prompt)
+            if trace := current_trace():
+                trace.generated(generated)
+            span.fields(
+                status=generated.status,
+                attempts=generated.attempts,
+                failure_reason=generated.failure_reason,
+                selected_passage_ids=[
+                    pid for pid in generated.passage_ids if re.fullmatch(r"P[1-9][0-9]*", pid)
+                ],
+                cited_source_ids=[
+                    sid for sid in generated.source_ids if re.fullmatch(r"S[1-9][0-9]*", sid)
+                ],
+            )
+            return generated
+
+    @trace_stage("answer.sources")
     def _result(
         self,
         status: AnswerStatus,

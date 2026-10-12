@@ -1,0 +1,21 @@
+{
+  "review_date": "2026-10-12",
+  "passed": true,
+  "url": "http://127.0.0.1:8000",
+  "listener_pid_at_check": 25460,
+  "http_status": 200,
+  "request_id": "9e9fd74e-d3f1-46c8-aabd-dde7d4cd7d19",
+  "header_body_log_id_equal": true,
+  "trace_version": "pipeline-trace-v1",
+  "pipeline_version": "rag-obligation-support-v3",
+  "config_sha256": "e19333322b1b25e824bf57c779fbedd6a6136dcc83315f913486df4476261463",
+  "cited_chunk_ids": ["uit_1393_2023:chunk:0002", "uit_1393_2023:chunk:0000"],
+  "cited_passage_ids": ["P1", "P2"],
+  "usage": {"generation_called": true, "input_tokens": 592, "output_tokens": 11},
+  "trace_duration_ms": 52526.258,
+  "largest_leaf_stage": {"name": "query.embed", "duration_ms": 30836.302},
+  "inspector_complete_trace_found": true,
+  "omitted_spans": 0,
+  "held_out_inference_requests": 0,
+  "conditions": "Real persistent Uvicorn HTTP/development query, pinned local models and database. Startup diagnostics, not a causal latency/accuracy benchmark. Logs/response/source/model content Git ignored."
+}

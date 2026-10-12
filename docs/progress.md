@@ -24,6 +24,7 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 | T4.2 | completed | One-command frozen evaluator/realASGI/rank10/stageusage/manualhash-boundreview;60dev47answerable;Recall5=.98936/MRR10=.96454;41/47correct/52/71taskcitation;339tests; `docs/evaluation-runner-review.md` | Multi-clause7/12;extraquotes/D42falseabstain/D51missingprogress;heldout chưa chạy | T4.3 fixed-corpus/LLM/budget ablation4variants; giữfailures/gold vàcommitstep |
 | T4.3 | completed | 4variants×60+topk4/12×60=360newpredictions/77reviewgroups;vectors41/KW35/RRF36/CE41of47;selectedCEk4/52of71citations/p9517.820s;354tests; `docs/benchmark-ablation-review.md` | Completeness/precision/D42/D51;one-passlatencyvariation;0heldoutbenchmark | T4.4 erroranalysis/fixes trênselectedreference rồifreezefinal/test;commitstep |
 | T4.4 / M4 | completed |20errorcases/3fixgroups;dev47/47correct/65of65facts/60of60taskcites;exactreleasefreeze→40test19/28correct/29of108taskcites;370tests/13Node/65browserassertions; `docs/error-analysis-review.md` | Held-outquality:reject0/7,clarificationaxes0/20,p9532.707s;chưa đạt chất lượng tổng quát | T5.2observability;qualitybacklog với evidence/dev/testversion mới,giữfailedheldout/freeze;commitstep |
+| T5.2 | completed |ServerUUID/header/bodyID→ContextVar→pipeline; boundedtracev1/CLI/stages/ranks/context/selection/usage;7contracts+liveHTTP đạt;383pytest/13Node/Ruff186; `docs/observability-review.md` | OptionalLangfuse/storage/rotation deferred; M4qualitylimits còn | T5.3Docker/CI/deployment;giữM4evidence vàcommitstep |
 
 ## Nhật ký kiểm chứng
 
@@ -420,3 +421,32 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
   `docs/error-analysis-review.md`, `t4_4_*`ID-only metrics/manualreviews/failures/freeze/ledger.
 - Finalrubric check creditT07P4partialprioritysupport(F1) dù trùng ý; score-only29/108
   thayinitial28/108, noextraModelcall/gold/codechange. Correctionlog vàinitialboundreview giữ.
+
+### T5.2 — Observability
+
+- Ngày2026-10-12. ServerUUID trảX-Request-ID/bodyrequest_id, ASGImiddleware/ContextVars
+  truyền từasync sangsyncworkers/retrieval/generation; boundedJSON `pipeline-trace-v1`.
+  Parent/spanIDs/start/duration/skipped/error_type, queuewait riêng vàresetcontext từngrequest.
+- Snapshot actualbranch/fusion/freshness/CE-before-after/guardedorder/topk/context/registry/
+  chosen/resolved/citedIDs/offsets/SHA/dependencies; samecalls/modelinput/sourceguards.
+  Actualproviderusage sumretries;unknownnull≠nogeneration0;localAPIcost0/computeunpriced.
+- Metadataallowlist64spans/100chunkrows/16passages/160charstrings/omittedcounts, noquery/
+  answer/source/prompt/rawmodel/header/DSN/exceptionmessage intrace; httpxINFOquiet,
+  Uvicornnoaccesslog. RequestID còn có khitraceflagfalse; sinkerrorskhôngđổiinferenceresult.
+-7/7checks:4realdevcontrols,wrongselectorfixturewithrealretrieval,backenderrorfixture,
+  validation. O02actualB07citesP1/P3extrafamilyrule; O05onlyP2→incomplete_passage_support
+  atresolve dùrule/signature trongcontext; diagnosedkhôngfixquality/tuneheldout.
+- O01coldquery.embed30.904s,generationusage592/11; O02generate12.450s; timingsdiagnostic,
+  parentinclusive khôngadditive/causalbenchmark. LiveHTTP ID9e9fd74e...header=body=JSONlog,
+  inspectorcomplete30spans/cited1393effect+signature;52.526s/equivalentcoldembed30.836s.
+-383pytest266unit/117schema-isolatedDB,13Node,Ruff/format186,lock70/pipcheck đạt;
+  13newtrace/privacy/error/queue tests, traceon/offoutputsame,mockdelegates1call,
+  concurrentIDsisolated/queue≥20msfixture,422/503/500/type-only/errorsink/disabledverified.
+- Dockerđầustepdừng, mởlạiDesktop/dbhealthy. FinalAPI8000Python25460/ragschool,
+  finalmodelconfig/tracingtrue/--no-access-log;rawlogs/response/tracefilesignored.
+- Frozen100/72spans/49chunks/legacy30/19/d577... giữ;corpus15/307/307FTS/15unchanged/
+  0unfinished/103approved/40native/45excluded. T5.2operation0testinference,globalvẫn40.
+- OriginalM4freeze/sourcehashca2.../predictions/reviewsđúng221ee6f; telemetrycode làsourceversion
+  mới,nêncurrentcheck_release vớioldfreezephảimismatch, khôngoverwrite/bypass đểgiảreproduction.
+- Langfuseoptional deferred; localJSON/CLI đạtT5.2mandatorycriterion. Noexternalupload/
+  dependencies/traceDB. NextT5.3,logrotation/storage/operatorretention còncôngviệc riêng.

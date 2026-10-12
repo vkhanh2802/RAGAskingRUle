@@ -1,0 +1,238 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case_id": "O01",
+      "kind": "real-positive-signature",
+      "request_id": "1a10ba6a-8ea7-496b-929e-90366e1bfa77",
+      "http_status": 200,
+      "status": "answered",
+      "failure_reason": null,
+      "trace_spans": 30,
+      "usage": {
+        "generation_called": true,
+        "input_tokens": 592,
+        "output_tokens": 11
+      },
+      "largest_leaf_stage": {
+        "name": "query.embed",
+        "duration_ms": 30903.785
+      },
+      "cited_passage_ids": [
+        "P1",
+        "P2"
+      ],
+      "passed": true
+    },
+    {
+      "case_id": "O02",
+      "kind": "real-development-extra-probe",
+      "request_id": "d1c09a92-f4bb-4d37-a577-8335d5e46607",
+      "http_status": 200,
+      "status": "answered",
+      "failure_reason": null,
+      "trace_spans": 30,
+      "usage": {
+        "generation_called": true,
+        "input_tokens": 721,
+        "output_tokens": 17
+      },
+      "largest_leaf_stage": {
+        "name": "generate",
+        "duration_ms": 12450.382
+      },
+      "cited_passage_ids": [
+        "P1",
+        "P3"
+      ],
+      "passed": true
+    },
+    {
+      "case_id": "O03",
+      "kind": "real-clarification",
+      "request_id": "a260931b-04d2-44e6-8c52-e1d697830d26",
+      "http_status": 200,
+      "status": "needs_clarification",
+      "failure_reason": "missing_scope",
+      "trace_spans": 10,
+      "usage": {
+        "generation_called": false,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "largest_leaf_stage": {
+        "name": "models.release",
+        "duration_ms": 237.47
+      },
+      "cited_passage_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "O04",
+      "kind": "real-old-filter-guard",
+      "request_id": "1ef999ee-d3ef-4036-b6dc-1da00b10dc1f",
+      "http_status": 200,
+      "status": "insufficient_evidence",
+      "failure_reason": "latest_excluded_by_filters",
+      "trace_spans": 25,
+      "usage": {
+        "generation_called": false,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "largest_leaf_stage": {
+        "name": "rerank",
+        "duration_ms": 12026.495
+      },
+      "cited_passage_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "O05",
+      "kind": "fixture-wrong-selection-real-retrieval",
+      "request_id": "c05ebcad-9969-4d19-8d05-05c89350cad2",
+      "http_status": 200,
+      "status": "insufficient_evidence",
+      "failure_reason": "incomplete_passage_support",
+      "trace_spans": 30,
+      "usage": {
+        "generation_called": true,
+        "input_tokens": null,
+        "output_tokens": null
+      },
+      "largest_leaf_stage": {
+        "name": "rerank",
+        "duration_ms": 2466.159
+      },
+      "cited_passage_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "O06",
+      "kind": "fixture-retrieval-unavailable",
+      "request_id": "300705ab-fc9e-4fe6-8dcd-67eab3e419e8",
+      "http_status": 503,
+      "status": null,
+      "failure_reason": null,
+      "trace_spans": 7,
+      "usage": {
+        "generation_called": false,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "largest_leaf_stage": {
+        "name": "models.release",
+        "duration_ms": 226.393
+      },
+      "cited_passage_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "O07",
+      "kind": "validation",
+      "request_id": "f59d6d63-e0cf-4a72-940d-93fbf176cc91",
+      "http_status": 422,
+      "status": null,
+      "failure_reason": null,
+      "trace_spans": 1,
+      "usage": {
+        "generation_called": false,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "largest_leaf_stage": {
+        "name": "http.request",
+        "duration_ms": 5.892
+      },
+      "cited_passage_ids": [],
+      "passed": true
+    }
+  ],
+  "config": {
+    "pipeline_version": "rag-obligation-support-v3",
+    "embedding": {
+      "model_name": "intfloat/multilingual-e5-small",
+      "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "dimension": 384,
+      "device": "cpu",
+      "batch_size": 1,
+      "cpu_threads": 2,
+      "pooling_version": "window-mean-v1",
+      "max_sequence_tokens": 512,
+      "window_overlap_tokens": 32,
+      "query_prefix": "query: ",
+      "document_prefix": "passage: "
+    },
+    "retrieval": {
+      "mode": "hybrid",
+      "top_k": 4,
+      "candidate_k": 20,
+      "minimum_score": 0.55,
+      "minimum_keyword_score": 0.0,
+      "rrf_k": 60,
+      "dense_weight": 1.0,
+      "keyword_weight": 1.0,
+      "keyword_query_version": "vi-simple-v1",
+      "metadata_filter_version": "evidence-metadata-v1",
+      "document_reference_policy": "shared-query-refs-v1",
+      "eligible_document_ids": [
+        "uit_159_2024",
+        "uit_1393_2023",
+        "uit_790_2022",
+        "uit_956_2026",
+        "uit_112_2024",
+        "uit_277_2025",
+        "uit_308_2025",
+        "uit_412_2025",
+        "uit_43_2020",
+        "uit_513_2026",
+        "uit_697_2024",
+        "uit_803_2025",
+        "uit_832_2024",
+        "uit_851_2024",
+        "uit_894_2026"
+      ]
+    },
+    "reranker": {
+      "enabled": true,
+      "model_name": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+      "model_revision": "1427fd652930e4ba29e8149678df786c240d8825",
+      "device": "cpu",
+      "batch_size": 1,
+      "cpu_threads": 2,
+      "candidate_k": 20,
+      "max_sequence_tokens": 512,
+      "window_overlap_tokens": 32,
+      "pooling_version": "window-max-v1"
+    },
+    "freshness": {
+      "enabled": true,
+      "policy_version": "clause-scoped-v2"
+    },
+    "behaviour": {
+      "enabled": true,
+      "policy_version": "guarded-obligations-v2",
+      "minimize_selected_passages": true
+    },
+    "generation": {
+      "backend": "llama_cpp",
+      "response_policy": "verified_passages",
+      "model_name": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "model_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "device": "cpu",
+      "dtype": "float32",
+      "gguf_filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "max_new_tokens": 64,
+      "max_input_tokens": 2304,
+      "cpu_threads": 4,
+      "context_chunks": 6,
+      "prompt_version": "bound-obligation-selection-v4",
+      "max_passages": 8,
+      "max_selected_passages": 4,
+      "structured_retries": 1,
+      "low_memory_mode": true
+    }
+  },
+  "held_out_inference_requests": 0,
+  "conditions": "Four real development controls; one declared bad-selector fixture with real retrieval, one backend-error fixture and one validation case. Metadata-only trace privacy canaries. No held-out tuning/accuracy benchmark; raw responses/trace records ignored."
+}

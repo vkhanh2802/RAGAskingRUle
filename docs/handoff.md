@@ -2,19 +2,20 @@
 
 ## Hiện trạng
 
-- Milestone: M2/M3/T4.1–T4.4/M4/T5.1earlyUI completed về measurement/artifacts;
-  held-outquality targets chưađạt, M5 cònT5.2–T5.4.
-- Task vừa hoàn thành: T4.4—20errorcases/3fixgroups/devreruns/exactfreeze/oneheldout40/report;
-  dev47/47correct nhưngtest19/28correct/taskcitation29/108/reject0/7.
-- Task tiếp theo: T5.2observability; qualitybacklog cần version/evidence/testset mới.
+- Milestone: M2/M3/T4.1–T4.4/M4/T5.1earlyUI/T5.2 completed;
+  held-outquality targets chưađạt, M5 cònT5.3–T5.4.
+- Task vừa hoàn thành: T5.2—requestcorrelation/boundedmetadataJSON/pipeline trace/CLI,
+  7checks+liveHTTPcorrelation/383tests. M4test vẫn19/28correct/taskcitation29/108/reject0/7.
+- Task tiếp theo: T5.3Docker/CI/deployment; qualitybacklog cần version/evidence/testset mới.
 - Git: T3.3 `3407c07`,T3.4 `040dd30`,T4.1 `e8cc367`,UI `61f437f`,GPA `01ecdbe`;
-  T4.2 `9987bca`;T4.3 `d18cbe4`;commitT4.4 khi chốtstep, mãcuối xem `git log -1`.
+  T4.2 `9987bca`;T4.3 `d18cbe4`;T4.4 `221ee6f`;commitT5.2 khi chốtstep, mãcuối xem `git log -1`.
   Theo yêu cầu người dùng, mỗi bước hoàn tất kiểm chứng phải commit rồi báo mã/kết quả;
   quy tắc lưu trong `AGENTS.md`.
 - Runtime: Docker/db healthy; persistentlocalUI/API http://127.0.0.1:8000/ đãstarted
-  bằng Condaragschool, Python listener38296 tại chốtT4.4; parentcmd2928. Xác minhownership
-  trướcstop, PIDs cũhotfix16956/38292không còn dùng. Serverload `rag-obligation-support-v3`
-  từ `REGULARAG_RAG_CONFIG_PATH=configs/rag/final.json`; restart từ `docs/demo-guide.md`.
+  bằng Condaragschool, Python listener25460 tại chốtT5.2 (PID38296T4.4cũ). Xác minhownership
+  trướcstop. Serverload `rag-obligation-support-v3` +`pipeline-trace-v1`,
+  `REGULARAG_RAG_CONFIG_PATH=configs/rag/final.json`/traceflagtrue/--no-access-log;
+  stdout/stderr/pidrecord ignored `data/processed/t5-2-live-api/`;restart từ `docs/demo-guide.md`.
 
 ## Đã thực hiện
 
@@ -25,7 +26,7 @@
 - Tạo FastAPI app, structured JSON logging và `/health` kiểm tra cả PostgreSQL lẫn
   extension pgvector.
 - Tạo `compose.yaml` và `scripts/db/init.sql`.
-- Hiện có370 tests (253 unit/117 PostgreSQL integration với schema riêng),13NodeUIcontracttests.
+- Hiện có383 tests (266 unit/117 PostgreSQL integration với schema riêng),13NodeUIcontracttests.
 - Tạo `docs/development.md` với hướng dẫn tạo environment và chạy local.
 - Mở rộng `.gitignore` cho secrets, Python artifacts và PDF raw không được cấp phép
   tái phân phối.
@@ -401,8 +402,8 @@
 
 ## Phiên tiếp theo
 
-1. T5.2: requestID/trace retrieve→rerank→context/selection→generation, model/prompt/chunkIDs,
-   latency/usage/cost và secret-safe logging; dùngfinalconfig vàexistingfailedtraces.
+1. T5.3: Docker hóaAPI/UI,Compose/health/setupmodel/migration/ingestnotes,CIlint/importantmocked
+   tests,deployment trênmôi trườngđãthốngnhất;giữexistingtrace/privacy vàhonestsetupconditions.
 2. Nếu user ưu tiênquality: dùng posttestbacklog làm analysis, phát triển evidence/devversion
    và testset độc lập mới. T01–T40 đãexposed, không replay/improve rồi claimprospectiveheldout.
 3. Giữimmutable100/legacy30/19/corpus15/307/source/hash/filter/latest vàfailures. Releasefreeze
@@ -434,3 +435,29 @@
 - `python scripts/check_release.py --config configs/rag/final.json --freeze data/manifests/t4_4_release_freeze.json`
   verifyexactfrozenbytes/corpus khônggọiModels. Frozenrawdata cầnlocalcache đểre-score;
   historicalrunreproduce cần đúng sourceversion cùngconfig, không chỉ configJSON.
+
+## T5.2 — Observability handoff
+
+- `core/tracing.py`/`api/middleware.py`: UUID/header/bodyrequestID/contextvars,
+  tracev1/64spans/100rows/16passages/strings160/omittedcounts. INFOJSONeventregularag.trace.
+- service/pipeline record scopesfieldnames/queue/retrieve/CEactualbefore-after/order/context/
+  registry/hash/dependency/selected/resolved/citedIDs,actualusage/0APIcost/unknownlocalcompute.
+  Noquestion/source/answer/prompt/vector/rawmodel/headers/DSN/exceptionmessage logged.
+- `REGULARAG_PIPELINE_TRACING_ENABLED=false` tắtcollect/emission nhưngIDvẫntrảheader/body.
+  Async→syncpropagation/concurrentrequest isolation, type-onlyerrors422/503/500 vàsinkfailure
+  khôngđổianswer đãkiểm;traceon/offsameoutputs, noextraretrieval/Modelcalls.
+- `scripts/inspect_trace.py --log <json-lines-log> --request-id <UUID> [--output <new-json>]`
+  tìm đúng1trace/schema, outputmetadata/timeline/chunks/ranks/registry/selectedIDs/largestleaf.
+  Parentdurationsincludechildren khôngadditive;contextprepareincludesmodel/tokenizerload.
+- `check_observability.py`7passedcases tạiignoreddata/processed/t5-2-observability/
+  eventslines/response/percaseinspecteddumps;public`t5_2_observability_checks.json`.
+  O02B07realextraP3familyrule:requiredsupportempty/generatorP1P3/minimizerretains;
+  O05declaredselectorfixtureonlyP2→resolveincomplete dùcorrectsourcecontext, không Qwenfailureclaim.
+- LiveAPI8000newrequestID9e9fd74e...header=body=log;30spans/1393effect+signature/usage592/11;
+  `t5_2_live_trace_check.json`. Coldembed~30.8–30.9s,e2e~52sdiagnostic khôngbenchmarkcausal.
+-383pytest/13Node/Ruff186/lock70/pipcheck,unchangedfrozen100/corpus15/307/sourceguards đạt;
+  0newtestinference/global40. Noadditionaldependencies;Langfuseoptionaldeferred,
+  traceDB/rotation/centralstorage/operatorretention chưaimplemented.
+- M4measurements/freeze giữ original221ee6fsourcehashca2...; newinstrumentedsourcehash khác.
+  Oldreleaseexactchecker đúng khi dùngmeasuredversion, khôngupdatefreeze/ledger/reviews/metrics
+  từnewcode hoặc chạy lạiT40đểtuning. `docs/observability-review.md` cófullacceptance/evidence.

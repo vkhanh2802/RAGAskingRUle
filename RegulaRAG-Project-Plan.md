@@ -644,14 +644,24 @@ filters/gold/freeze giữ nguyên; `docs/gpa-credit-freshness-review.md`. T4.2 v
 
 **Ước lượng:** 3–4 giờ. **Phụ thuộc:** pipeline hoạt động.
 
-- [ ] Request ID xuyên suốt pipeline.
-- [ ] Trace retrieve → rerank → generate.
-- [ ] Model, prompt version, retrieved chunk IDs.
-- [ ] Latency, tokens và API cost.
-- [ ] Langfuse nếu thời gian cho phép.
-- [ ] Không log secrets; giới hạn nội dung log phù hợp.
+- [x] Request ID xuyên suốt pipeline.
+- [x] Trace retrieve → rerank → generate.
+- [x] Model, prompt version, retrieved chunk IDs.
+- [x] Latency, tokens và API cost.
+- [ ] Langfuse nếu thời gian cho phép — optional/deferred; localJSON/CLI tracing đã đạt mandatorygate.
+- [x] Không log secrets; giới hạn nội dung log phù hợp.
 
 **Nghiệm thu:** từ câu trả lời sai truy ra chunk, thứ tự rerank, context và bước gây chậm.
+
+**Hoàn tất T5.2 2026-10-12:** ASGIserverUUID/X-Request-ID/bodyID/contextvars→syncpipeline;
+`pipeline-trace-v1` boundedmetadataJSON, before/afterCE/finalorder/effectivecontext/registry/
+selected/resolved/citedPIDs,queue/stagetiming/actualusage/0VNDAPI/unpricedcompute.
+7/7development/declaredfixturecontracts,liveHTTP/header/body/log/CLI correlation đạt;
+B07extraquote vàsyntheticwrongP2selector đượctrace, coldE5embed30.9s đượcphân biệt.
+383pytest/13Node/Ruff186/lock70/integrity đạt; loggingprivacycanaries/503/422/500/concurrency/
+disabled/sinkfailure tested. `docs/observability-review.md`;Langfuseoptional deferred.
+0newheldoutinference, originalM4sourcefreeze/measurements giữ tại221ee6f; tracecode làsourceversionmới.
+NextT5.3Docker/CI/deployment, chất lượngM4còn hạn chế được giữ nguyên.
 
 ### T5.3 — Docker, CI và deployment
 
