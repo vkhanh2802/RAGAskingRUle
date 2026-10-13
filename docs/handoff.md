@@ -4,9 +4,9 @@
 
 - Milestone: M2/M3/T4.1–T4.4/M4/T5.1earlyUI/T5.2 completed;
   held-outquality targets chưađạt, M5 cònT5.3–T5.4.
-- Task vừa hoàn thành: T5.2—requestcorrelation/boundedmetadataJSON/pipeline trace/CLI,
-  7checks+liveHTTPcorrelation/383tests. M4test vẫn19/28correct/taskcitation29/108/reject0/7.
-- Task tiếp theo: T5.3Docker/CI/deployment; qualitybacklog cần version/evidence/testset mới.
+- Task active: T5.3localDocker/Compose/wheel/setup/CIdefinition/deployment đãverified;
+  hostedGitHubActions pending authorizedpush. M4test vẫn19/28correct/taskcitation29/108/reject0/7.
+- Task tiếp theo: xácnhậnhostedCI/chốtT5.3, rồiT5.4; qualitybacklog cần evidence/testset mới.
 - Git: T3.3 `3407c07`,T3.4 `040dd30`,T4.1 `e8cc367`,UI `61f437f`,GPA `01ecdbe`;
   T4.2 `9987bca`;T4.3 `d18cbe4`;T4.4 `221ee6f`;commitT5.2 khi chốtstep, mãcuối xem `git log -1`.
   Theo yêu cầu người dùng, mỗi bước hoàn tất kiểm chứng phải commit rồi báo mã/kết quả;
@@ -26,7 +26,7 @@
 - Tạo FastAPI app, structured JSON logging và `/health` kiểm tra cả PostgreSQL lẫn
   extension pgvector.
 - Tạo `compose.yaml` và `scripts/db/init.sql`.
-- Hiện có383 tests (266 unit/117 PostgreSQL integration với schema riêng),13NodeUIcontracttests.
+- Hiện có387 tests (270 unit/117 PostgreSQL integration với schema riêng),13NodeUIcontracttests.
 - Tạo `docs/development.md` với hướng dẫn tạo environment và chạy local.
 - Mở rộng `.gitignore` cho secrets, Python artifacts và PDF raw không được cấp phép
   tái phân phối.
@@ -461,3 +461,27 @@
 - M4measurements/freeze giữ original221ee6fsourcehashca2...; newinstrumentedsourcehash khác.
   Oldreleaseexactchecker đúng khi dùngmeasuredversion, khôngupdatefreeze/ledger/reviews/metrics
   từnewcode hoặc chạy lạiT40đểtuning. `docs/observability-review.md` cófullacceptance/evidence.
+
+## T5.3 — Localverified parts / hostedCI pending
+
+- RuntimeDockerAPI/UI ởhttp://127.0.0.1:8001,dbhealthy/pinnedPG17/sameoriginalvolume;
+  namedHFcache đãexplicitbootstrap4pins vàcheckoffline4/4ready.
+- `Dockerfile`Python3.12.15/base+frontenddigests/lock70/builderwheel/libgomp/UID10001;
+  `.dockerignore`exclude.env/raw/OCR/processed/models/traces. Composeprofilesapp/tools,
+  readonlyruntime/tmpfs/singleworker/sourceguard. README cómanualprerequisites/setupsteps rõ.
+- Freshproofprojectregularag-t5-3-setup ports55432/8002:6applied→6skip;operatorapprovedinputs
+  →15/307index→15unchanged/publicationaudits307FTS/19goldunchanged;31HTTPassertions/6knowncases.
+- Defaultdeployment8001 same31checks/source-span-view hashes/correlation andold-onlyguard pass;
+  raw `data/processed/t5-3-*`ignored;native8000 không containerendpoint.
+-387pytestCI-equivalentmocks/downloadguard/emptyHFcache,13Node/Ruff195/lock70/pipcheck đạt;
+ 2jobsGHA definitionquality(fullPGtests) vàcontainer-startup(noModelweights),actionsSHA-pinned.
+- User explicitcho phép **commit/push lênorigin/master saulocalchecks đểchạy/theo dõiCI**.
+  Repooriginvkhanh2802/RAGAskingRUlepublic,8previouslocalcommitsaheadorigin khi bắt đầu.
+  ghportabletooling ởapprovedTemp, dùngexistingcachedGitcredential transient khôngprint/storetoken;
+  GH_ADMINpermission/workflowscope ready. Không updategitconfig/forcepush.
+- Trạng tháihostedCIpending; chưaclaimCIxanh. Sourcefeaturecommit sẽenableworkflow,
+  sauCIverifiedupdateprogress/plan/handoff/reviewevidence vàchốtcommit.
+- `docs/container-deployment-review.md`/t5_3metadatarecords giữfailedMIMEhelperheadercase
+  vàsessionrestartconnectionrefused; newcheckedrunpaths giữfailures, không đổi gold.
+- Originaldataset100/M4freeze/measurements giữ nguyên;0newtestinference. ScopeT5.3deployment
+  localDockerDesktop,publicpaidconditionalrate-limitkhôngapplicable. NextT5.4sauCI/chốtstep.

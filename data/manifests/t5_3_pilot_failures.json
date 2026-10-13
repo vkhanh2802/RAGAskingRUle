@@ -1,0 +1,23 @@
+{
+  "failures_retained": [
+    {
+      "phase": "fresh container startup HTTP smoke",
+      "output_directory": "data/processed/t5-3-fresh-startup",
+      "error_type": "AssertionError",
+      "check": "packaged module MIME",
+      "observed_http_status": 200,
+      "observed_content_type": "text/javascript; charset=utf-8",
+      "root_cause": "Smoke helper converted HTTP headers to a case-sensitive dict and looked up Content-Type/X-Request-ID instead of the lowercase names returned by Uvicorn.",
+      "fix": "Normalize header keys in the smoke helper. Preserve actual MIME and request ID checks; no backend/source/gold change. Use a new verification run directory."
+    },
+    {
+      "phase": "follow-up deployment HTTP check",
+      "output_directory": "data/processed/t5-3-deployed-container",
+      "error_type": "URLError/ConnectionRefusedError",
+      "check": "http://127.0.0.1:8001/health",
+      "observation": "Follow-up session reached Docker while app/database containers were restarting; no running services reported at the initial check.",
+      "recovery": "docker compose --profile app up -d --wait api restored healthy API/database; preserve failed directory and verify with a fresh run path."
+    }
+  ],
+  "conditions": "Packaging/checker failure retained; raw outputs outside Git."
+}

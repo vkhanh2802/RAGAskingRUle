@@ -1,0 +1,19 @@
+# Build allowlist: no credentials, source PDFs/OCR, weights or model traces enter the image.
+**
+!Dockerfile
+!.dockerignore
+!pyproject.toml
+!requirements.lock
+!src/
+!src/**
+!scripts/
+!scripts/**
+!configs/
+!configs/**
+!data/
+!data/manifests/
+!data/manifests/**
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.ruff_cache/

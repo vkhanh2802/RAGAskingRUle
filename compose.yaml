@@ -2,13 +2,13 @@ name: regularag
 
 services:
   db:
-    image: pgvector/pgvector:pg17
+    image: pgvector/pgvector:pg17@sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-regularag}
       POSTGRES_USER: ${POSTGRES_USER:-regularag}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-regularag}
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
     volumes:
       - regularag_postgres_data:/var/lib/postgresql/data
       - ./scripts/db/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
@@ -20,5 +20,56 @@ services:
       start_period: 5s
     restart: unless-stopped
 
+  api:
+    profiles: ["app"]
+    image: regularag:local
+    build:
+      context: .
+      target: runtime
+    environment: &application_environment
+      REGULARAG_DATABASE_URL: ${REGULARAG_CONTAINER_DATABASE_URL:-postgresql://regularag:regularag@db:5432/regularag}
+      REGULARAG_ENVIRONMENT: development
+      REGULARAG_RAG_CONFIG_PATH: configs/rag/final.json
+      REGULARAG_PIPELINE_TRACING_ENABLED: "true"
+      REGULARAG_LOG_LEVEL: INFO
+      HF_HOME: /models/huggingface
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
+    ports:
+      - "127.0.0.1:${REGULARAG_API_PORT:-8001}:8000"
+    volumes:
+      - "${REGULARAG_HF_CACHE:-regularag_huggingface_cache}:/models/huggingface"
+      - ./data/raw:/app/data/raw:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    shm_size: 256m
+    restart: unless-stopped
+
+  tools:
+    profiles: ["tools"]
+    image: regularag:local
+    build:
+      context: .
+      target: runtime
+    environment: *application_environment
+    volumes:
+      - "${REGULARAG_HF_CACHE:-regularag_huggingface_cache}:/models/huggingface"
+      - ./data/raw:/app/data/raw:ro
+      - ./data/processed:/app/data/processed
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["python", "scripts/migrate.py"]
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+
 volumes:
   regularag_postgres_data:
+  regularag_huggingface_cache:

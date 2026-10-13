@@ -25,6 +25,7 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 | T4.3 | completed | 4variants×60+topk4/12×60=360newpredictions/77reviewgroups;vectors41/KW35/RRF36/CE41of47;selectedCEk4/52of71citations/p9517.820s;354tests; `docs/benchmark-ablation-review.md` | Completeness/precision/D42/D51;one-passlatencyvariation;0heldoutbenchmark | T4.4 erroranalysis/fixes trênselectedreference rồifreezefinal/test;commitstep |
 | T4.4 / M4 | completed |20errorcases/3fixgroups;dev47/47correct/65of65facts/60of60taskcites;exactreleasefreeze→40test19/28correct/29of108taskcites;370tests/13Node/65browserassertions; `docs/error-analysis-review.md` | Held-outquality:reject0/7,clarificationaxes0/20,p9532.707s;chưa đạt chất lượng tổng quát | T5.2observability;qualitybacklog với evidence/dev/testversion mới,giữfailedheldout/freeze;commitstep |
 | T5.2 | completed |ServerUUID/header/bodyID→ContextVar→pipeline; boundedtracev1/CLI/stages/ranks/context/selection/usage;7contracts+liveHTTP đạt;383pytest/13Node/Ruff186; `docs/observability-review.md` | OptionalLangfuse/storage/rotation deferred; M4qualitylimits còn | T5.3Docker/CI/deployment;giữM4evidence vàcommitstep |
+| T5.3 | in_progress |PinnedDockerimage/wheel/API+UI/Composeapp-tools;freshDB6migrations→15/307index→unchanged;deploy8001/31HTTPassertions;387pytestCI-mocked/13Node/lock70 đạt; `docs/container-deployment-review.md` | HostedCI chưa chạy trước push; user đãcho phép commit/push localverifiedparts | Pushworkflow vàxácnhậnGitHubActions thật, cậpnhật/chốtstep |
 
 ## Nhật ký kiểm chứng
 

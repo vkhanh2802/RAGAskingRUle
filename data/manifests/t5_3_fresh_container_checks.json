@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "base_url": "http://127.0.0.1:8002",
+  "real_development_rag": true,
+  "assertions": [
+    "health HTTP200",
+    "database/pgvector healthy",
+    "html HTTP200",
+    "packaged Vietnamese UI",
+    "javascript HTTP200",
+    "packaged module MIME",
+    "catalog HTTP200",
+    "final pipeline/catalog15",
+    "D01 request ID",
+    "D01 status",
+    "D01 body/header correlation",
+    "clarification axes",
+    "D02 request ID",
+    "D02 status",
+    "D02 body/header correlation",
+    "D03 request ID",
+    "D03 status",
+    "R01 request ID",
+    "R01 status",
+    "R01 body/header correlation",
+    "real updated summer12",
+    "R01 bound source/span/render fidelity",
+    "R02 request ID",
+    "R02 status",
+    "R02 body/header correlation",
+    "real unchanged GPA30/mainsemester",
+    "R02 bound source/span/render fidelity",
+    "R03 request ID",
+    "R03 status",
+    "R03 body/header correlation",
+    "caller old-only filter/latest gate"
+  ],
+  "cases": [
+    {
+      "case_id": "D01",
+      "http_status": 200,
+      "status": "needs_clarification",
+      "request_id": "1541c612-4853-451c-ba13-e3015d86086d",
+      "failure_reason": "missing_scope"
+    },
+    {
+      "case_id": "D02",
+      "http_status": 200,
+      "status": "insufficient_evidence",
+      "request_id": "934665b4-1a6d-4887-8abe-4a7c293d2d77",
+      "failure_reason": "outside_supported_scope"
+    },
+    {
+      "case_id": "D03",
+      "http_status": 422,
+      "status": null,
+      "request_id": "5e787551-d3b0-46b1-a543-8722b0ab51c7",
+      "failure_reason": null
+    },
+    {
+      "case_id": "R01",
+      "http_status": 200,
+      "status": "answered",
+      "request_id": "7391da83-ebee-4d03-9814-d1a6d0f19935",
+      "failure_reason": null
+    },
+    {
+      "case_id": "R02",
+      "http_status": 200,
+      "status": "answered",
+      "request_id": "77705332-3794-4930-8036-489b26625356",
+      "failure_reason": null
+    },
+    {
+      "case_id": "R03",
+      "http_status": 200,
+      "status": "insufficient_evidence",
+      "request_id": "3615cffd-8458-4fda-9aaf-7faad507b984",
+      "failure_reason": "latest_excluded_by_filters"
+    }
+  ],
+  "held_out_inference_requests": 0,
+  "conditions": "Packaged startup/UI/trace/guard checks and optional development-only RAG. No held-out inference or claim of general accuracy; raw responses ignored."
+}
