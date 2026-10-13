@@ -1,5 +1,7 @@
 # RegulaRAG — tra cứu quy định UIT bằng nguồn có citation
 
+[![CI](https://github.com/vkhanh2802/RAGAskingRUle/actions/workflows/ci.yml/badge.svg)](https://github.com/vkhanh2802/RAGAskingRUle/actions/workflows/ci.yml)
+
 FastAPI phục vụ **API và native web UI chung một server**. Retrieval E5-small +PostgreSQL
 FTS/RRF +CPUcross-encoder; QwenGGUF chọn passage IDs, backend dựng quotedanswer với
 source/Unicodeoffset/SHA. Có clarification, explicitfilters vàsource/latest guards.
@@ -119,4 +121,5 @@ với explicitmigrations, không tảimodelweights hoặcgọiheldout. Setup th�
 validation không bịgiấu dưới tuyênbố“một lệnh”.
 
 Chi tiếtdata/setup/guards: [docs/development.md](docs/development.md).
+T5.3packaging/freshsetup/hostedCIproof: [docs/container-deployment-review.md](docs/container-deployment-review.md).
 Tiến độ vàbàn giao: [docs/progress.md](docs/progress.md), [docs/handoff.md](docs/handoff.md).

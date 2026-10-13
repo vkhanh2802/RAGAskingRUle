@@ -4,6 +4,10 @@ Giao diện đã có tại **http://127.0.0.1:8000/** khi Uvicorn đang chạy.
 UI và API dùng cùng server; không cần chạy npm/build/frontend server.
 API explorer vẫn ở **http://127.0.0.1:8000/docs**.
 
+**Containerdemo T5.3:** hiện healthy tại **http://127.0.0.1:8001/**, APIexplorer
+**http://127.0.0.1:8001/docs**. Native8000bên dưới làtuỳchọn chạyConda; fullcontainer/setup theo
+README và`docs/container-deployment-review.md`, không cầnstartupnpm hoặc frontendcontainer riêng.
+
 ## 1. Khởi động local trên máy hiện tại
 
 Mở Docker Desktop, chờ engine chạy. Mở PowerShell tại thư mục
@@ -146,3 +150,6 @@ source/citationfidelity40/40 nhưng đúng/đủý19/28 vàtaskcitation29/108, �
 Đây là localdemo/evaluation snapshot, chất lượng tổng quát chưađạt. Đọc đầyđủ kếtquả/lỗi
 tại `docs/error-analysis-review.md`; không dùng tuneddevelopment47/47 làmheldoutaccuracy.
 API không cóenvconfigoverride vẫn đọc baselinev2JSON; lệnh ở trên explicitlyloadfinalv3.
+DockerAPI dùngfinalconfig/tracev1/read-onlyruntime vànamedHFCacherevisionsđãbootstrap.
+CI GitHubActions2jobsgreen gồmfull387pytest+13UI vàpackagedstartup/model-freeHTTPsmoke;
+deploymentchecks vẫndevelopment-only, khôngthaysemanticbenchmark hoặcsourcelegalstatus.

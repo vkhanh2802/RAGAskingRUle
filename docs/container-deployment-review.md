@@ -1,7 +1,7 @@
 # T5.3 — Docker, CI và local deployment
 
-Ngày kiểm chứng local: **2026-10-13**. Local packaging/setup/deployment gates đạt;
-hosted GitHub Actions đang chờ commit/push được người dùng cho phép.
+Ngày hoàn tất: **2026-10-13**. Local packaging/setup/deployment vàhostedGitHubActions
+đều đạt; T5.3completed. Featurecommit **`da840c7`**, stepclosuredocscommit sauverifiedCI.
 
 ## Đóng gói
 
@@ -76,7 +76,14 @@ No publiccloud/APIpaid deployment; conditionalpaidpublicrate-limit item chưaapp
 LocalConda`ragschool`CI-equivalenttests vớiemptycache/downloadguard **387passed**
 (270unit/117DB),13Nodecontracts,Ruffcheck/format195files,pipcheck/lock70 đạt.
 Runtime bareimage/Composeconfig/realcache/freshsetup/deploymentchecks đạt.
-HostedCI status chưa được gọi“xanh”trước khiworkflowđượcpush/chạy; sẽ ghi runURL/kếtquả thật.
+HostedCI **success cả2jobs** trênUbuntu24.04/Python3.12.15:
+[CI run38347533640](https://github.com/vkhanh2802/RAGAskingRUle/actions/runs/38347533640),
+testedcommit`da840c721c4ea5ab1ec29428bf09a4393318d0fa`,04:39:55–04:42:02UTC.
+Qualitylogs:387passed/1existingwarning/37.30s,13UItests,70lockmismatches0,6freshmigrations;
+downloadguard/emptycache/offline bật. Containerjobbuild→migrate→healthy→model-freeUI/API
+smoke→cleanupsuccess. Evidence `t5_3_hosted_ci_validation.json` bind actualtestedcommit/run,
+không đổi nhãnrun cũthànhdocscommit mới. Actionsrunner cóNode20-forced24deprecationwarnings,
+không chặnjobs; không dùngCIpass làmModelaccuracy claim.
 
 ## Failures retained
 
@@ -92,7 +99,7 @@ HostedCI status chưa được gọi“xanh”trước khiworkflowđượcpush/c
 
 PublicID-onlyevidence: `t5_3_local_packaging_validation.json`,
 `t5_3_fresh_container_checks.json`, `t5_3_deployed_container_checks.json`,
-`t5_3_pilot_failures.json`, `t5_3_dataset_integrity.json`.
+`t5_3_pilot_failures.json`, `t5_3_dataset_integrity.json`, `t5_3_hosted_ci_validation.json`.
 Rawresponses/approvedtext/logs ởignored`data/processed/t5-3-*`;
 `t5-3-fresh-publication.json` chứaoperatorpublicationdetails.
 
@@ -102,4 +109,15 @@ CrossOSmodelruntime checks không được dùng đểclaim Windowsbenchmark acc
 APIhealth làDB/pgvector health, không model/corpusreadiness. NativeOCR/review vẫn cầnsetup riêng,
 được mô tả ởdevelopmentguide. Loggerrotation/retention dooperator quản lý.
 
-Tiếp theo sauhostedCI/chốtT5.3: **T5.4—READMEportfolio/video/phỏng vấn**.
+Ownedfreshproofcontainers/DBvolume đãcleanup sauevidence; originaldatabase/cache vàdeploy8001 giữ.
+
+| Nghiệm thuT5.3 | Bằng chứng |
+|---|---|
+| Dockerbackend/UI vàCompose |Wheelassets/health/MIME/livechecks;sharedFastAPIUI/API |
+| Explicitmodels/migrate/indexfirstsetup |Namedcachebootstrap4pins;fresh6migrations→6skip;approved15/307→unchanged |
+| CIgreen/mockLLM |GitHubActions2jobssuccess;387tests/13UI/offline/downloadguard |
+| Deploymenttruycậpđược |LocalDockerDesktop127.0.0.1:8001/31realHTTPassertions |
+| Honestfreshsetup/limits |READMEmanualpublicationinputs/missingassets guards/M4qualitylimits |
+
+Tiếp theo **T5.4—READMEportfolio/video/phỏng vấn**. READMEhiện làoperationalrunbook;
+portfolioarchitecture/demo/video/CV chưa hoàn thiện, M5chưa nghiệm thu.

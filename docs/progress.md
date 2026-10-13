@@ -25,7 +25,7 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 | T4.3 | completed | 4variants×60+topk4/12×60=360newpredictions/77reviewgroups;vectors41/KW35/RRF36/CE41of47;selectedCEk4/52of71citations/p9517.820s;354tests; `docs/benchmark-ablation-review.md` | Completeness/precision/D42/D51;one-passlatencyvariation;0heldoutbenchmark | T4.4 erroranalysis/fixes trênselectedreference rồifreezefinal/test;commitstep |
 | T4.4 / M4 | completed |20errorcases/3fixgroups;dev47/47correct/65of65facts/60of60taskcites;exactreleasefreeze→40test19/28correct/29of108taskcites;370tests/13Node/65browserassertions; `docs/error-analysis-review.md` | Held-outquality:reject0/7,clarificationaxes0/20,p9532.707s;chưa đạt chất lượng tổng quát | T5.2observability;qualitybacklog với evidence/dev/testversion mới,giữfailedheldout/freeze;commitstep |
 | T5.2 | completed |ServerUUID/header/bodyID→ContextVar→pipeline; boundedtracev1/CLI/stages/ranks/context/selection/usage;7contracts+liveHTTP đạt;383pytest/13Node/Ruff186; `docs/observability-review.md` | OptionalLangfuse/storage/rotation deferred; M4qualitylimits còn | T5.3Docker/CI/deployment;giữM4evidence vàcommitstep |
-| T5.3 | in_progress |PinnedDockerimage/wheel/API+UI/Composeapp-tools;freshDB6migrations→15/307index→unchanged;deploy8001/31HTTPassertions;387pytestCI-mocked/13Node/lock70 đạt; `docs/container-deployment-review.md` | HostedCI chưa chạy trước push; user đãcho phép commit/push localverifiedparts | Pushworkflow vàxácnhậnGitHubActions thật, cậpnhật/chốtstep |
+| T5.3 | completed |PinnedDocker/wheel/API+UI/Composeapp-tools;fresh6migrations→15/307index→unchanged;deploy8001/31HTTPchecks;GitHubActions2jobsgreen/run38347533640/387pytest/13UI; `docs/container-deployment-review.md` | FullpublicationinputsngoàiGit/mannualreview;M4qualitylimitscòn;paidpublicN/A | T5.4READMEportfolio/architecture/demo/video/CV;commitstep |
 
 ## Nhật ký kiểm chứng
 
@@ -451,3 +451,30 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
   mới,nêncurrentcheck_release vớioldfreezephảimismatch, khôngoverwrite/bypass đểgiảreproduction.
 - Langfuseoptional deferred; localJSON/CLI đạtT5.2mandatorycriterion. Noexternalupload/
   dependencies/traceDB. NextT5.3,logrotation/storage/operatorretention còncôngviệc riêng.
+
+### T5.3 — Containers / CI / deployment
+
+- Ngày2026-10-13. Python3.12.15/base/frontend/PG17digests, same70CPUpinsLinuxvalidated,
+  multistageVENV/wheel+nativeUIassets,UID10001/readonlyruntime/tmpfs,sharedAPI/UI8001.
+  Dockerignoreallowlist giữ.env/PDFs/fullOCR/models/tracesngoàiimage/Git.
+- Composeprofilesapp/tools/defaultdb-only; explicitcachebootstrapfourrevisionpins,
+  BGEtokenizer-only, offlinecheck4/4; migration/index khôngchạyẩn tạiAPIstartup.
+- Freshproof project/volume/network riêng:6migrationsapply→6skip;15PDFsha/307approvedinputs
+  →index15/307→15unchanged,307FTS/0unfinished/19goldunchanged,103approved/40native/45excluded.
+  Suppliedreviewedinputs ngoàigitđượcREADMEdeclared, không fakeclone→fullRAGoneliner.
+- FreshHTTP31assertions/6controls vàdefaultdeploy8001same31pass:summer12/GPA30/viewproof,
+  old-onlyguard/clarification/422/correlation/MIME/sourceoffsetSHA/render. No heldoutrequests.
+-387pytest270unit/117schema-isolatedDB vớiCIoffline/emptyHFcache/downloadguard,
+ 13Node/Ruff195local/lock70/pipcheck;newbootstrap4tests verifypins/check-only/componentfilter.
+- User explicitcho phépcommit/pushđểkiểmCIhosted; featureda840c7và8historicalcommits pushed,
+  allsource/modelraw/.env ngoàiGit. GitHubActionsrun38347533640bothjobssuccess,
+ 04:39:55–04:42:02UTC quality387passed/13UI/Ruff196/lock70/migrations6;
+ containerjobbuild/freshmigrate/UIAPIhealth/metadata-onlyguards/cleanup đạt, khôngtảimodelweights.
+- RetainMIMEcheckerheadercasefailure (actualbackendMIMEđúng) vàfollow-upsessionconnectionrefused;
+  normalizecheckerheaders/waitDockerhealth/newrunpaths; khôngwaivecheck/gold/sourcechanges.
+- Bareimage506300553Docker-reportedbytes/UID10001/Torch2.14.1CPU/Llama0.3.36/packageUI/no
+  sourcePDF/processedtraces,70mismatch0. Localdeployregularagapi/dbhealthy8001;
+  ownedproofproject cleanedup sauevidence,originalDB/HFcache/immutable100 preserved.
+- `t5_3_hosted_ci_validation.json`/localvalidation/HTTPchecks/pilotfailures/datasetintegrity
+  publicIDmetadata,fullresponses/operatorartifactsignored. FeatureCIbindcommitda840c7;
+  closuredocscommitafterverification. M4qualitylimitsgiữ; T5.3completed,nextT5.4/M5pending.

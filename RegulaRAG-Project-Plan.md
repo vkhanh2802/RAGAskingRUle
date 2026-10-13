@@ -670,7 +670,7 @@ NextT5.3Docker/CI/deployment, chất lượngM4còn hạn chế được giữ n
 - [x] Docker hóa backend/UI.
 - [x] Compose cho database, backend và frontend.
 - [x] Ghi riêng bước tải model, migration và ingest lần đầu.
-- [ ] CI chạy lint và test quan trọng.
+- [x] CI chạy lint và test quan trọng.
 - [x] Mock LLM trong CI.
 - [x] Deploy demo trên môi trường đã thống nhất.
 - [ ] Nếu public dùng API trả phí: giới hạn request/input — khôngapplicable cho localCPUdemo hiện tại.
@@ -678,13 +678,17 @@ NextT5.3Docker/CI/deployment, chất lượngM4còn hạn chế được giữ n
 
 **Nghiệm thu:** fresh setup chạy theo README; CI xanh; demo truy cập được; không che giấu bước setup thủ công dưới tuyên bố “một lệnh”.
 
-**T5.3 localgatesverified 2026-10-13, hostedCI pendingpush:** pinnedDocker/Python3.12.15/
+**Hoàn tấtT5.3 2026-10-13:** pinnedDocker/Python3.12.15/
 lock70/wheel/nativeUI,Composeapp-tools,UID10001/readonlyruntime,explicitcachebootstrap4pins;
 freshDB6migrations→6skip/15docs307chunks→15unchanged,31HTTPassertions6controls.
 Deploymenthttp://127.0.0.1:8001healthy vàsame31realchecks/sourceguards đạt.
 387pytest270unit/117DB/CIoffline/downloadguard,13Node/Ruff195/lock70/integrity đạt;
-READMEmanualinput/setupprerequisites rõ. `.github/workflows/ci.yml`2jobspendingactualhostedrun.
-Người dùng explicitcho phépcommit/pushlocalverifiedparts đểkiểmchứngGHActions;chốtstep sauCI.
+READMEmanualinput/setupprerequisites rõ. `.github/workflows/ci.yml`2jobshostedsuccess tại
+[run38347533640](https://github.com/vkhanh2802/RAGAskingRUle/actions/runs/38347533640),
+featurecommitda840c7;387pytest/13UI/migrations/build/model-freeUIAPIstartupactualCI đạt.
+Người dùng explicitcho phépcommit/pushlocalverifiedparts đểkiểmchứngGHActions;
+CIevidence bind featurecommit, closuredocs sauverifiedCI.0newheldoutinference,
+M4frozenmeasurements/guards giữ,conditionalpaidpublicratelimitkhôngapplicable.
 `docs/container-deployment-review.md`,ID-only t5_3evidence,failedMIMEchecker/runtimecheck giữ.
 
 ### T5.4 — README, video và phỏng vấn

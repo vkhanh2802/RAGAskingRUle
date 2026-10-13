@@ -2,20 +2,20 @@
 
 ## Hiện trạng
 
-- Milestone: M2/M3/T4.1–T4.4/M4/T5.1earlyUI/T5.2 completed;
-  held-outquality targets chưađạt, M5 cònT5.3–T5.4.
-- Task active: T5.3localDocker/Compose/wheel/setup/CIdefinition/deployment đãverified;
-  hostedGitHubActions pending authorizedpush. M4test vẫn19/28correct/taskcitation29/108/reject0/7.
-- Task tiếp theo: xácnhậnhostedCI/chốtT5.3, rồiT5.4; qualitybacklog cần evidence/testset mới.
+- Milestone: M2/M3/T4.1–T4.4/M4/T5.1earlyUI/T5.2/T5.3 completed;
+  held-outquality targets chưađạt, M5 cònT5.4portfolio/video/interview.
+- Task vừa hoàn thành: T5.3Docker/Compose/wheel/setup/localdeployment8001vàGitHubActions2jobsgreen;
+ 387tests/13UI. M4test vẫn19/28correct/taskcitation29/108/reject0/7.
+- Task tiếp theo: T5.4; qualitybacklog cần evidence/testset mới.
 - Git: T3.3 `3407c07`,T3.4 `040dd30`,T4.1 `e8cc367`,UI `61f437f`,GPA `01ecdbe`;
-  T4.2 `9987bca`;T4.3 `d18cbe4`;T4.4 `221ee6f`;commitT5.2 khi chốtstep, mãcuối xem `git log -1`.
+  T4.2 `9987bca`;T4.3 `d18cbe4`;T4.4 `221ee6f`;T5.2`d5ddd5a`;T5.3feature`da840c7`,
+  closuredocscommit sauhostedCI, mãcuối xem `git log -1`.
   Theo yêu cầu người dùng, mỗi bước hoàn tất kiểm chứng phải commit rồi báo mã/kết quả;
   quy tắc lưu trong `AGENTS.md`.
-- Runtime: Docker/db healthy; persistentlocalUI/API http://127.0.0.1:8000/ đãstarted
-  bằng Condaragschool, Python listener25460 tại chốtT5.2 (PID38296T4.4cũ). Xác minhownership
-  trướcstop. Serverload `rag-obligation-support-v3` +`pipeline-trace-v1`,
-  `REGULARAG_RAG_CONFIG_PATH=configs/rag/final.json`/traceflagtrue/--no-access-log;
-  stdout/stderr/pidrecord ignored `data/processed/t5-2-live-api/`;restart từ `docs/demo-guide.md`.
+- Runtime: DockerDesktoplocaldeployment **http://127.0.0.1:8001/**,servicesregularag-api-1/
+  regularag-db-1healthy,pinnedPG17/originalDBvolume/namedHFCacheroot,finalmodelconfig/tracev1.
+  Composeprofileapp runbookREADME; native8000/Python25460 làT5.2historicalentrypoint cầnverifyPID
+  trướcstop/restart. Ownedfreshproofprojectports55432/8002/DBvolume đãcleanup,suppliedhostassets giữ.
 
 ## Đã thực hiện
 
@@ -402,8 +402,8 @@
 
 ## Phiên tiếp theo
 
-1. T5.3: Docker hóaAPI/UI,Compose/health/setupmodel/migration/ingestnotes,CIlint/importantmocked
-   tests,deployment trênmôi trườngđãthốngnhất;giữexistingtrace/privacy vàhonestsetupconditions.
+1. T5.4: hoàn thiệnREADMEportfolio/architecturediagram/screenshots/GIFdemo/reproducebenchmarks/
+   failuretrade-offs/video3–5phút/interviewdecisions,CVbulletchỉsốthật; M5chưa nghiệmthu.
 2. Nếu user ưu tiênquality: dùng posttestbacklog làm analysis, phát triển evidence/devversion
    và testset độc lập mới. T01–T40 đãexposed, không replay/improve rồi claimprospectiveheldout.
 3. Giữimmutable100/legacy30/19/corpus15/307/source/hash/filter/latest vàfailures. Releasefreeze
@@ -462,7 +462,7 @@
   Oldreleaseexactchecker đúng khi dùngmeasuredversion, khôngupdatefreeze/ledger/reviews/metrics
   từnewcode hoặc chạy lạiT40đểtuning. `docs/observability-review.md` cófullacceptance/evidence.
 
-## T5.3 — Localverified parts / hostedCI pending
+## T5.3 — Containers / CI / deployment completed
 
 - RuntimeDockerAPI/UI ởhttp://127.0.0.1:8001,dbhealthy/pinnedPG17/sameoriginalvolume;
   namedHFcache đãexplicitbootstrap4pins vàcheckoffline4/4ready.
@@ -479,9 +479,15 @@
   Repooriginvkhanh2802/RAGAskingRUlepublic,8previouslocalcommitsaheadorigin khi bắt đầu.
   ghportabletooling ởapprovedTemp, dùngexistingcachedGitcredential transient khôngprint/storetoken;
   GH_ADMINpermission/workflowscope ready. Không updategitconfig/forcepush.
-- Trạng tháihostedCIpending; chưaclaimCIxanh. Sourcefeaturecommit sẽenableworkflow,
-  sauCIverifiedupdateprogress/plan/handoff/reviewevidence vàchốtcommit.
+- HostedCI **success2/2jobs** run38347533640testedda840c721...,
+  https://github.com/vkhanh2802/RAGAskingRUle/actions/runs/38347533640,
+ 13October04:39:55–04:42:02UTC; quality387passed/37.30s/13UI/Ruff/lock70/migrations6,
+  containerbuild/migrate/APIUIhealth/model-freeguards/cleanup pass. RawGitHublogs via gh.
+  `t5_3_hosted_ci_validation.json` bindactualfeaturecommit,closuredocsnewcommit riêng.
 - `docs/container-deployment-review.md`/t5_3metadatarecords giữfailedMIMEhelperheadercase
   vàsessionrestartconnectionrefused; newcheckedrunpaths giữfailures, không đổi gold.
 - Originaldataset100/M4freeze/measurements giữ nguyên;0newtestinference. ScopeT5.3deployment
-  localDockerDesktop,publicpaidconditionalrate-limitkhôngapplicable. NextT5.4sauCI/chốtstep.
+  localDockerDesktop,publicpaidconditionalrate-limitkhôngapplicable. NextT5.4/M5pending.
+- Ownedfreshproofcontainers/network/DBvolume cleanedup;originaldatabase/cache anddeploy8001 giữ.
+  NativeT5.2PIDmetadata làhistory khônggiếtblindly. CIprivatecredentials dùngtransienthelper
+  ởTemp, khôngstoreGHtokentrongrepo/logs; ghportablekhông làappdependency.

@@ -1,7 +1,8 @@
 {
   "validated_date": "2026-10-13",
   "local_gates_passed": true,
-  "hosted_ci_status": "pending_first_push",
+  "hosted_ci_status": "success",
+  "hosted_ci_evidence": "data/manifests/t5_3_hosted_ci_validation.json",
   "runtime_image": "regularag:local",
   "tested_image_id": "sha256:5dde080c5e08ef2d1c7bb4d28ea1af5d2ad2e4c55ceb527f60529eb848d37afd",
   "image_size_bytes": 506300553,

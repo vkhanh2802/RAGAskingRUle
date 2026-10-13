@@ -709,6 +709,49 @@ liveHTTPproof vàbad-answerdiagnosis. Langfuseoptional deferred, noextra depende
 Traceinstrumentation tạo sourceversion mới sauM4; originalfreeze/sourcebytehash thuộc221ee6f,
 không updateoriginalM4evidence để gọinewcode làmeasuredrelease. Exactchecker cầnmeasuredversion.
 
+## Container deployment và hosted CI — T5.3
+
+Operationalfreshsetup theo **README.md**, packaging/verification details tại
+`docs/container-deployment-review.md`. ContainerAPI/nativeUI chungserver,localhost8001,
+singleworker/CPU/pinnedPython3.12.15/same70wheels;nativeWindows8000làentrypointkhác.
+
+```powershell
+docker compose --profile app build api
+docker compose up -d --wait db
+docker compose --profile tools run --rm tools python scripts/migrate.py
+docker compose --profile tools run --rm -e HF_HUB_OFFLINE=0 -e TRANSFORMERS_OFFLINE=0 tools python scripts/download_models.py
+docker compose --profile tools run --rm tools python scripts/download_models.py --check-only
+docker compose --profile tools run --rm tools python scripts/check_setup_inputs.py
+docker compose --profile tools run --rm tools python scripts/index_baseline.py
+docker compose --profile app up -d --wait api
+```
+
+Inputs raw15PDFs vàapprovedmetadata/chunks/pages M2publication phải được supplied đúngpaths/
+SHA/quality bên ngoàiGit trướccheck/index. Imagebuild cóPythondependencies,wheel/webassets/
+metadata;khôngweights/PDFs/fullOCR/.env/modeltraces. APIstartupkhông tựbootstrap/migrate/index.
+HealthDBokkhông chứngminhmodel/corpusreadiness. Migrations/data/models setup được mô tảriêng,
+không dùngbarecloneclaimfullRAG“một lệnh”.
+
+Composeprofilesapp/tools đểdefaultdb-only commands cũgiữ workflow;HFcachedefaultnamedvolume
+hoặc`REGULARAG_HF_CACHE`hostcache,rawPDFmountreadonly/runtimeUID10001/readonlyroot/tmpfs.
+CustomPGsettings phải cómatching `REGULARAG_CONTAINER_DATABASE_URL` chohostdb; exampleDSN
+localdefaults không làsecretproduction. Không chạyindex/rebindoriginalmeasurement đểsửametric.
+
+HostedCI đãverifiedgreen2jobs tại
+https://github.com/vkhanh2802/RAGAskingRUle/actions/runs/38347533640 (featureda840c7).
+Quality387tests270unit/117DB/13UI/lint/lock70,emptycache/HFoffline/downloadguard;
+containerjobfreshDB/migrate/build/UIAPIstartup vớimodel-freeguards. CI không download/gọiLLMweights;
+modeladaptergrammar/tensor unitchecks córealnativeengine nhưnggeneratedoutputs làmocks.
+Current`REGULARAG_CI_NO_MODELS=1` làtest-onlyguard, khôngsettingđểbật/tắtmodel trongproduction.
+
+```powershell
+python scripts/check_container.py --base-url http://127.0.0.1:8001 --real --output-dir data/processed/<new-deploy-check> --summary data/manifests/<new-ID-only-check.json>
+```
+
+Smoke dùng knownsummer12/GPA30/old-onlyfilter/clarification/validation controls, khôngheldout.
+Raw responses/tracefoldersignored,publishsummaryIDs/hashchecks only. T5.3observedpackaging/
+Linux/localCI không đổi originalM4Windowsmeasurement/sourcefreeze; sourceversions phải khớp khi tái lập.
+
 ## Dừng dịch vụ
 
 ```powershell
