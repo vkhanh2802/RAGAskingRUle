@@ -1,0 +1,39 @@
+{
+  "schema_version": "portfolio-browser-v1",
+  "passed": true,
+  "checked_at": "2026-10-13T11:07:59.359Z",
+  "browser_channel": "msedge",
+  "browser_version": "155.0.4283.45",
+  "assertions": [
+    "initial intro/counter",
+    "previous disabled on first slide",
+    "keyboard ArrowRight changes slide",
+    "keyboard ArrowLeft changes slide",
+    "intro only one visible slide",
+    "intro automated WCAG A/AA scan",
+    "contract only one visible slide",
+    "contract automated WCAG A/AA scan",
+    "architecture only one visible slide",
+    "architecture automated WCAG A/AA scan",
+    "benchmark only one visible slide",
+    "benchmark automated WCAG A/AA scan",
+    "limits only one visible slide",
+    "limits automated WCAG A/AA scan",
+    "next disabled on last slide",
+    "intro mobile no horizontal overflow",
+    "architecture mobile no horizontal overflow",
+    "benchmark mobile no horizontal overflow",
+    "actual HTML5 MP4 playback/duration/dimensions/no error",
+    "offline deck/media no HTTP/model calls",
+    "no uncaught page errors"
+  ],
+  "video": {
+    "duration": 240.6,
+    "width": 1440,
+    "height": 900,
+    "error": null
+  },
+  "new_model_inference_requests": 0,
+  "new_held_out_inference_requests": 0,
+  "conditions": "Offline desktop/mobile/keyboard/automated accessibility and real HTML5 media playback; not human usability/presentation assessment."
+}

@@ -1,263 +1,136 @@
-# Kiến trúc ban đầu của RegulaRAG
+# Kiến trúc hiện tại của RegulaRAG
 
-## Mục tiêu thiết kế
+Snapshot T5.4; measured quality M4 giữ theo đúng source fingerprint đã freeze.
+API/UI hiện dùng FastAPI + native HTML/CSS/ES modules; model inference CPU,
+không frontend server riêng. Source provenance giữ từ PDF tới citation.
 
-Kiến trúc phải giữ được provenance từ tài liệu gốc đến citation, cho phép kiểm thử
-ingestion/retrieval/generation độc lập và tái lập một evaluation run bằng cấu hình
-đã lưu. Baseline được ưu tiên hơn tối ưu sớm để phù hợp máy 12 GB RAM, RTX 3050
-6 GB và ngân sách API 0 VND.
+![Source-bound ingestion, retrieval, generation và delivery](assets/architecture.svg)
 
-## Sơ đồ luồng chính
+## 1. Offline publication và storage
 
-```text
-Nguồn chính thức UIT + source manifest
-                 |
-                 v
-        Tải/kiểm tra content hash
-                 |
-                 v
-       PyMuPDF parsing --(thiếu text)--> OCR có điều kiện
-                 |
-                 v
-       Cleaning + chunking + metadata
-                 |
-                 v
- PostgreSQL: documents / chunks / ingestion_runs
-         |                              |
-         v                              v
- PostgreSQL FTS                  pgvector embeddings
-         |                              |
-         +------------> RRF <-----------+
-                          |
-              verified freshness + companions
-                          |
-                     reranker (tùy chọn)
-                         |
-                         v
-              context + token budget
-                         |
-                         v
-                LLM local/free tier
-                         |
-                         v
-      schema validation + citation validation
-                         |
-                         v
-              FastAPI -> Streamlit (dự kiến)
+1. Manifest URL/content SHA-256 của nguồn UIT; dates/cohort/relations chỉ lấy từ
+   evidence đã review, stale hash không được nhận overlay.
+2. PyMuPDF đọc native text; Tesseract OCR có điều kiện cho trang thiếu text/encoding
+   lỗi. Page/layout/post-edit review bind source/cleaned-text hashes; confidence
+   không tự approve. Hierarchy không nối qua trang excluded.
+3. Structured chunking: BGE-M3 **tokenizer**, target700/hard800/overlap100; giữ
+   chapter/article/clause/source spans, Unicode text/hash và PDF page mapping.
+4. Atomic ingestion theo document, advisory lock và transaction publication;
+   `pending/processing/ready/failed` khác publication status. Failed update giữ
+   old chunks để audit nhưng chặn search; retry/config/hash changes có run riêng.
+5. PostgreSQL `documents`, `chunks`, `ingestion_runs`, vector384/GIN FTS. Search
+   yêu cầu publication/ingestion ready, đúng model fingerprint/quality/scope.
 
-Evaluation và structured logs quan sát xuyên suốt pipeline.
-```
+Corpus M2 **15 ready / 307 unique chunks / 307 FTS**; 188 pages gồm 103 approved,
+40 native, 45 excluded, còn omitted regions trên mixed pages. Raw PDF/full OCR/
+approved fulltext/model weights không nằm trong Git/image. Review evidence và
+coverage: [data sources](data-sources.md), [M2 report](m2-corpus-review.md).
 
-## Thành phần
+`ready` là technical publication. `legal_status=unknown` khi chưa xác minh; checkpoint
+Portal/PDF 2026-10-09 không đồng nghĩa live/current verification mỗi request.
 
-### 1. Source manifest
+## 2. Một request thực thi thế nào
 
-`data/manifests/documents.csv` là danh mục kiểm kê nguồn, không phải bằng chứng tự
-động về hiệu lực. Mỗi tài liệu dự kiến có URL chính thức, thời điểm tải, tiêu đề,
-mã văn bản, ngày ban hành, ngày hiệu lực nếu được nêu rõ, đối tượng áp dụng, kiểu
-PDF và quan hệ sửa đổi/thay thế có bằng chứng.
+### A. Transport và phạm vi
 
-### 2. Ingestion
+- ASGI middleware sinh server UUID, `X-Request-ID` và body `request_id`; ContextVar
+  truyền sang sync workers, isolate concurrent requests; inference queue serialized.
+- `POST /api/v1/ask` nhận question/top_k/retrieval_mode/typed filters/optional scope.
+  Backend hỏi lại nếu declared scope thiếu/mâu thuẫn; task/institution/instruction
+  guards có thể abstain trước model. Không rewrite query hoặc conversation memory.
+- Caller filters AND giữa fields/OR trong lists; dates/cohort phải có evidence.
+  `study_progress` là explicit elapsed mainsemesters, strict int0–40, không suy từ
+  cohort/issued year. None vắng mặt khỏi serialization của frozen dataset.
 
-- PyMuPDF đọc từng trang và giữ text thô để đối chiếu.
-- OCR chỉ chạy với trang thiếu text sau bước phát hiện; provenance phải ghi rõ text
-  đến từ parser hay OCR.
-- Cleaning không được làm mất số điều, khoản, ngưỡng điểm hoặc mã văn bản.
-- Chunking baseline theo đoạn với giới hạn cấu hình ban đầu 500-800 token và
-  overlap 80-120 token; T2.2 mới bổ sung nhận diện chương/điều/khoản.
-- Content hash, trạng thái ingestion và version pipeline bảo đảm ingest lại không
-  tạo trùng và retrieval chỉ dùng tài liệu `ready`.
-- T2.1 triển khai transaction theo từng tài liệu và advisory lock theo schema/document.
-  Update lỗi giữ chunk cũ để audit nhưng chặn search; retry/hash/config/model đổi được
-  ghi vào run riêng. Delete cascade chunk và giữ snapshot ID trong history.
-- T2.2 triển khai `structured-ocr-v2`: chapter/article/clause, title repeat, source spans,
-  conditional Tesseract OCR và page-level hash-bound review. Confidence không tự approve;
-  hierarchy không được suy qua trang bị loại và phụ lục có boundary riêng.
-- M2 review133 pages của11 nguồn, explicit post-edit và table row-column serialization;
- 307 approved chunks/15 ready documents. Mixed-page omission giữ flag/partial coverage,
- source dates/scope notes bind source hashes;0 pending không có nghĩa mọi layout được hỗ trợ.
+### B. Retrieve, order và context
 
-### 3. Storage và provenance
+1. **Dense:** E5-small query/passage prefixes, 384dims CPU; window512/overlap32/
+   mean pooling cho text dài. Dense cosine ≥0.55.
+2. **Keyword:** PostgreSQL `simple`/`unaccent`, `ts_rank_cd`, GIN; **không BM25**.
+   Shared filters/explicit document references áp trên cả hai nhánh trước LIMIT.
+3. **Fusion:** RRF k60/weights1:1, candidate pool20, dedup chunk ID;
+   branch/raw/rank scores giữ riêng, không coi RRF/logit là confidence.
+4. **Focus/freshness:** verified source-bound family/affected-clause witnesses,
+   update companions; old affected clauses không trở lại khi latest bị callerfilter
+   loại. Unchanged 79014.1(a) có hash-bound view dù 1393 sửa14.1(b).
+5. **Cross-encoder:** pinned mmarco-mMiniLMv2 CPU batch1/threads2,
+   window512/overlap32/max raw logit. Sau đó guarded obligation reservation/order,
+   effective top4; support providers chỉ từ cùng eligible pool/callerfilters.
+6. **Context/guards:** reserve required update evidence và check hash/instruction/
+   applicability; budget/context chọn approved bound passages. Source IDs `S#`
+   gán theo actual context, passage IDs `P#` theo request-local registry.
 
-PostgreSQL + pgvector lưu ba thực thể chính:
+Latest là trong **verified family + corpus + request scope/cutoff**, không phải
+global-newest hoặc chứng nhận còn hiệu lực. `as_of` là historical cutoff explicit.
+Top4 là retrieval selection, context ceiling6; không khẳng định mọi request có6chunks.
+Recall/MRR finalv3 đo **CE + guarded reservation**, không pure-CE-only gain.
 
-- `documents`: nguồn, metadata phạm vi, content hash và trạng thái xử lý.
-- `chunks`: nội dung, thứ tự, document ID, trang PDF bắt đầu/kết thúc, số trang in
-  nếu xác định được, phương thức trích xuất và vector.
-- `ingestion_runs`: thời điểm, cấu hình/version, trạng thái và lỗi theo tài liệu.
-- `ingestion_status` là lifecycle pending/processing/ready/failed; `retrieval_status`
-  là publication gate. Cả document và companion amendment phải ingestion-ready để
-  được dùng trong retrieval/provenance tương ứng.
-- Coverage full/partial/unreviewed cùng excluded PDF pages mô tả phần nguồn dùng làm
-  evidence. Chunk lưu extraction/review và nguồn của cả body lẫn heading context.
+### C. Selector và backend-derived answer
 
-Citation hiển thị cho người dùng được dựng từ dữ liệu đã lưu, không cho LLM tự tạo
-URL, tên tài liệu hoặc số trang.
+- Context input ≤2304 tokens; atomic conditions và date/signature dependencies
+  không cắt giữa block để làm vừa budget; tối đa8 candidate passages.
+- Qwen2.5-1.5B-Instruct GGUF Q4_K_M qua llama.cpp **chỉ chọn `P#`** theo strictJSON/
+  enum, max4selected, output64tokens, bounded retry1. Không nhận reference/gold,
+  không tự sinh final prose/URL/page/source ID.
+- `resolve_passages` kiểm registry membership/duplicates/Unicode range/text SHA/
+  allowed unchanged views/required dependencies/complete lexical supports.
+- Backend dựng `“verbatim passage” [S#]` và metadata từ stored sources. Response
+  `evidence_passages` là actual text/offset/hash/cited/dependencies;
+  `sources.excerpt` vẫn full approved chunk để operator đối chiếu.
+- Trạng thái API: `answered`, `insufficient_evidence`, `needs_clarification`.
+  Low-memory release/reload E5/CE/LLM giữa phases phù hợp RAM, đổi lại cold latency.
 
-### 4. Retrieval
+**Ranh giới:** lexical facets/support contracts chưa general entailment. Range/SHA/
+source validity bảo đảm quote thật, không chứng minh đủ requested facts/relevance.
+Xem [citation](passage-citation-review.md), [scope](clarification-abstention-review.md),
+[GPA fix](gpa-credit-freshness-review.md), [M4 evidence](error-analysis-review.md).
 
-- Baseline M1: dense retrieval bằng BAAI/bge-m3 nếu đo tài nguyên cho phép.
-- Kết quả T1.5: dùng `intfloat/multilingual-e5-small` 384 chiều trên CPU do RAM trống
-  khi chạy Docker không đủ để ưu tiên BGE-M3. Chunk dài được embed qua cửa sổ/pooling,
-  không cắt im lặng ở 512 token. BGE-M3 vẫn là tokenizer chunking.
-- T2.3: weighted PostgreSQL `simple`/`unaccent` FTS và GIN là nhánh keyword riêng.
-  `ts_rank_cd` không phải BM25. Trigger refresh chunk text/structure/document metadata.
-- Query accent-fold hỗ trợ mã văn bản/số điều; terms OR và article phrase là lexical
-  lookup, có thể khớp reference trong body. Mã văn bản constrain keyword branch.
-- RRF k60/weights1:1 hợp nhất candidate20 mỗi nhánh, loại chunk ID trùng và giữ
-  branch/overall rank/raw scores. Dense cosine>=0.55 áp trước fusion; keyword/RRF
-  dùng ngưỡng riêng. Config default hybrid, API override vector/keyword/hybrid.
-- T2.4: publication/model/quality và metadata filter dùng chung trong SQL trước LIMIT/RRF.
-  Filter IDs/domain/type/audience/cohort/as_of, exact tags và AND giữa fields.
-- Migration006 typed dates/cohort từ metadata có evidence; cohort review bind sourceSHA,
-  không suy năm/hiệu lực từ title. as_of không xác nhận current; unknown status hiển thị.
-- T3.1: pinned mmarco-mMiniLMv2 CPU/window-max512/32,20candidates; rawCElogit và
-  branch/rawrank giữriêng. Model không truncate đuôi; configurabletoggle/measuredon-off.
-- Source-bound version/relationship CSV overlays refresh qua metadata/lifecycle;
-  verified successors bỏoldaffectedclauses vàreserveupdatecontext. Catalog nhìn cả
-  blocked/latest outsideallowlist; khôngcoi missingnewversion làđược dùngoldrule.
-- Issued-date latest chỉ trongverified family vàrequestscope/cutoff, khôngglobalnewest
-  haylegalactive. Explicitdocrefs hiệnconstrain cảdense vàkeyword trướcLIMIT;
-  relation evidence có thểbổsung companion, khôngnới callerfilters.
+## 3. UI, tracing và deployment
 
-### 5. Generation và citation
+| Thành phần | Hiện thực / ranh giới |
+|---|---|
+| Native UI | FastAPI `/` + `/assets`, same-origin; safe text nodes/HTTP URLs, actual citations/source pages, scope/filter controls |
+| Session | Feedback/JSON export local browser session; chưa feedback DB persistence, không account |
+| Observability | `pipeline-trace-v1`: UUID/span/stage/ranks/chunk/PID/usage/cost metadata; no query/answer/source/prompt/secrets |
+| Bounds | 64spans/100chunkrows/snapshot/16passages/160char attributes + omitted counts; parent durations inclusive |
+| Inspection | `scripts/inspect_trace.py` exact one UUID; trace flag off vẫn trả request ID; sink failures không đổi answer |
+| Container | Installed wheel + web assets, Python3.12.15/70 pins, UID10001/readonly/tmpfs, one API worker |
+| Bootstrap | Explicit migration/model-cache download/check/operator-approved inputs/index; API startup không tự approve/index |
+| Database | Pinned PostgreSQL17/pgvector0.8.7 image; migrations001–006, persistent volume |
+| CI | Full unit/schema-isolated DB + UI contracts; models mocked/offline/downloadguard; second job build/migrate/model-free packaged startup |
 
-T3.3 bổ sung scope policy **trước retrieval**: thông tin cần thiết còn thiếu/mâu thuẫn
-trả `needs_clarification` từ backend, không chạy model. Explicit cohort/audience/date
-thêm filter còn trống; programme/design duration đi vào passage selection. Caller
-filters giữ nguyên; không có query rewriting hoặc conversation memory. Câu hỏi hiệu
-lực pháp lý chưa verified và comparison chưa consolidated trả insufficient cùng
-source-bound metadata notes, không tự chọn/hợp nhất phiên bản.
+Local API/UI **127.0.0.1:8001**; host Conda alternative8000. Langfuse, central trace
+storage/rotation, multi-turn memory và general entailment chưa triển khai.
+[Runbook](../README.md), [trace report](observability-review.md),
+[container/hosted CI proof](container-deployment-review.md).
 
-T3.4 thêm declared task/institution boundaries và full-context hash/instruction gate
-trước budgeting/model. Context có assistant-control instructions bị abstain nguyên
-context, không strip/rebind text hoặc bỏ required update. Guard có trong prepare/resolve,
-chat-control escaping dùng chung adapters. Những heuristic này không phải general
-entailment/injection classification. 24 API +10 synthetic cases vàpositive12 xác nhận
-M3 technical acceptance; source binding vẫn phải đi cùng semantic support review.
+## 4. Config và evaluation versioning
 
-Context builder gán các ID cục bộ như `[S1]` cho các chunk đã chọn và giới hạn
-context theo token budget. Prompt coi tài liệu truy xuất là dữ liệu, không phải chỉ
-dẫn hệ thống. LLM phải trả response có cấu trúc với một trong ba trạng thái:
-`answered`, `insufficient_evidence`, `needs_clarification`.
+- [final.json](../configs/rag/final.json) là Compose demo config:
+  `rag-obligation-support-v3` / `clause-scoped-v2` / `guarded-obligations-v2` /
+  `bound-obligation-selection-v4`. Host Settings default baseline nếu chưa override.
+- Pins: E5 revision`614241f…`; CE`1427fd6…`; Qwen`91cad51…`;
+  BGE tokenizer`5617a9f…`. Full revisions trong versioned configs/model bootstrap.
+- Dataset frozen100:60development/40test,72spans/49chunks. Evaluator
+  `source-bound-evaluation-v1`: support-chunk recall/MRR, complete answer facts,
+  task-support citation blocks, faithful quote/fidelity, abstention/clarification,
+  actual timing/usage; semantic assistant review response-SHA-bound.
+- M4 freeze trước one-time40 inference; **19/28correct,29/108taskcites,0/7reject**.
+  Source code fingerprint và gold/corpus/config/review hashes không được đổi để
+  đạt score; current instrumentation là source version mới sau measured snapshot.
+- Test40 đã exposed; future prospective claims cần độc lập test/evidence version mới.
 
-Backend xác thực source ID có tồn tại trong context, sau đó lấy metadata citation
-từ database. Bước này ngăn citation ID bịa nhưng không tự chứng minh rằng đoạn
-trích hỗ trợ phát biểu; citation support còn phải được evaluation và kiểm tra thủ
-công.
+Repo source map: `ingestion/`, `db/`, `retrieval/`, `generation/`, `api/`,
+`core/`, `evaluation/`, `web/` dưới `src/regularag/`; scripts vận hành/evaluation
+riêng. Video/portfolio là presentation artifacts, không làm thay đổi inference code.
 
-Baseline T1.5 dùng Qwen2.5-1.5B GGUF Q4_K_M qua llama.cpp CPU để chọn quote theo
-JSON grammar. Context lấy cửa sổ đoạn liên tiếp theo câu hỏi, giữ đoạn lân cận và
-kiểm token budget toàn bộ ChatML. Backend kiểm quote có trong context trước khi dựng
-answer nguyên văn, nhằm chặn diễn giải bịa đã quan sát ở các model nhỏ. Điều này chưa
-tự kiểm relevance/đủ ngoại lệ. Corpus dùng allowlist + `ready`; companion amendment
-chưa ready khiến câu trả lời dựa trên base bị abstain. Xem `docs/rag-baseline-review.md`.
-T2.2 bổ sung cổng amendment phải full/ready và có trong context đối chiếu; dữ liệu đã
-index nhưng không được retrieve chưa đủ để bỏ cổng này. Chi tiết tại
-`docs/structure-ocr-review.md`.
-T3.1 context6/top8/input4096; freshnessgate trướcgeneration vàsau budgeting. Historical
-cutoff khôngbuộc futureamendment. Explicitreviewedtablerow/cohort/duration focus giữ
-literalcontiguousrow vàbỏwrongrows; citation IDs gán lại theocontext thực gửiLLM.
+## 5. Ba quyết định chính
 
-### 6. API và UI
+1. **PostgreSQL + pgvector/FTS:** metadata/filter/transactions nhất quán, dễ audit;
+   không mặc định hybrid tốt hơn từng nhánh, chất lượng phải đo ablation.
+2. **LLM selector + backend-bound citations:** chống invented text/URL/page ở
+   điểm render; trade-off long quotes và remaining task-relevance failures.
+3. **Small pinned CPU models + staged release:** chạy local API spend0 trên máy
+   ~12GB RAM; reranker/reload tăng latency, compute/electricity chưa định giá.
 
-EarlyT5.1 theouserrequest thêm same-origin webworkspace quaFastAPI `/`/staticassets;
-nativeJStyped payload/explicit scopes+filters,backend3statuses/actualcitations/source
-views/metadata/warnings. Cataloguepublicmanifest vàdefaults khôngloadmodel. UI không
-rewritequery/relaxcallerfilters hoặc đọcheldout. Rendertextnodes/safeURLs; feedback chỉ
-session vàJSONexport. UI/UXProMax design/token/focus/responsive guidelines persisted.
-
-T3.2 pipeline dùngatomic source-bound passages saufreshness/re-ranking. LLM chỉchọn
-request-scopedPIDsenum/strictJSON; backend validatesrange/textSHA, deriveSourceIDs,
-quotes vàcitationmetadata. Minimalfacetcover/date-signature dependencies/completeconditions
-đượcbudget tốiđa2304inputtokens, no arbitraryprefixtruncation. Facets cònlexical,
-không phải semanticentailment tổngquát. Low-memory modelrelease giữa cácphase.
-
-API `evidence_passages` chứaactualpromptspans/offsets/hash/cited/dependencies;
-sources.excerpt vẫnapprovedfullchunk. Schema failure retrybounded1 ởllama; actual
-answer body làverbatimbackendtext, khôngmodelcopy/sourceid/pageguess.
-
-- FastAPI cung cấp `/health` và `POST /api/v1/ask`.
-- Ask request nhận optional `retrieval_mode`; source trả `score_kind`, nhánh/rank,
-  dense/keyword raw score và RRF score. Sources là context sau số chunk/token budget.
-- Ask request nhận optional `filters`, response trả `applied_filters` và scope metadata
-  của source. Cohort/date chưa có bằng chứng không khớp filter tương ứng.
-- Source thêm `metadata_note` và `omitted_layout_pdf_pages`; source có nhiều exactaudience
-  tags phân tách`;`. Document-level cohortfilter chưa lọc table rows hay program clauses.
-- T3.1 API/source trả model/revision, firststage/rerank ranks/scores/windows,
-  issued/latestissued dates/sourcechecked timestamp/status vàrequiredcompanionIDs.
-- T3.3 request thêm optional `scope`; response thêm clarification/resolved_scope/
-  requested_filters/behaviour_policy/version_notes. Minimal selected subsets phải giữ
-  đủ support facets/signature dependencies; atomic conditions không bị cắt để làm ngắn.
-  Facets có kiểm prerequisite edge đúng course, không coi progress clause là prerequisite.
-- Streamlit dự kiến cho phép nhập câu hỏi, chọn filter và mở nguồn/đoạn trích.
-- MVP không có tài khoản và không lưu dữ liệu cá nhân.
-
-### 7. Evaluation và observability
-
-T4.1 materialize dataset100 từ reviewer-authored cases vàcurated source markers:
-facts trỏ tới source spans cócharoffset/pages/hash, contrast tách khỏi answergold,
-60development/40prospective test. Split/family/exposure/currentSQLfilter guards và
-one-timefreeze bảo vệlabels/reviews/source bindings. Loader mặc địnhdevelopment,
-validation cảtest chỉđọcsource/metadata, khônginference. Legacy30/19gold giữnguyên;
-review doassistant/commoncorpus, khôngblindindependent hoặcdoc-disjoint evaluation.
-
-- Dataset tách development/held-out test và giữ paraphrase gần nhau cùng split.
-- So sánh vector-only, keyword-only, hybrid RRF và hybrid + reranker trong điều
-  kiện cố định.
-- Lưu version/config cho embedding, reranker, LLM, prompt, chunking và top-k.
-- Structured logs theo request ID ghi latency, model version và chunk ID, không ghi
-  secrets. Langfuse chỉ thêm sau baseline nếu cần.
-- T2.3 lưu23 câu ×3 mode cùng query vectors/corpus/config. Document hit chỉ cần một
-  candidate source, chưa là clause/answer accuracy. Hybrid có regression C03 và
-  quote relevance lỗi ở OCR01; report `docs/hybrid-retrieval-review.md` giữ các lỗi.
-- T2.4 development30 có reference/evidence/hash binding và manual assistant review, chưa
-  independent/held-out. Chạy180 results (3 modes × 2 filter conditions), gold-chunk metrics
-  tách khỏi answer accuracy. Vector+filter goldtop1 tốt hơn hybrid ở run này;
-  `docs/metadata-development-review.md` ghi cả D15/D30 ngoài context2 và M2 corpus backlog.
-- M2 corpus15/307, development30 bindings giữ nguyên;12 new identifierprobes và APItraces.
- 15unchanged/0unfinished và156tests pass; scopedgoldmetrics ổn định, unfiltered khó hơn.
- M204 answered wrongcohort dùquote thật; schema/metadataquote/JSON còn lỗi. Reranker T3.1
- tiếp theo; milestone ởtechnical supported scope, không phải answeraccuracy.
-- T3.1 hai216-rowruns30/20candidates; finalscoped hybrid-off18→on29/30goldtop1,
-  stagep504.65s/12identifierprobes12/12. FullAPI12calls chỉ1supportedanswer,
-  p50~104s; exactquote/source/latest audits pass nhưnggeneration chưa interactive.
- 187tests,15ready/307FTS/19goldbindings unchanged. `docs/reranker-freshness-review.md`.
-
-## Ranh giới module dự kiến
-
-```text
-src/regularag/
-|- api/          # transport, schema và dependency wiring
-|- core/         # settings, logging và versioned config
-|- db/           # session, models và repositories
-|- ingestion/    # parser, cleaner, chunker và pipeline
-|- retrieval/    # vector, keyword, fusion và reranker
-`- generation/   # prompt, citation validation và answer service
-```
-
-Chỉ tạo module khi task cần, không dựng toàn bộ file rỗng từ đầu.
-
-## Quyết định và trade-off ban đầu
-
-| Quyết định | Lý do | Đánh đổi/cách kiểm chứng |
-|---|---|---|
-| PostgreSQL + pgvector | Metadata, FTS và vector trong một nơi, dễ giữ tính nhất quán | Chất lượng FTS tiếng Việt phải đo với câu có dấu/không dấu |
-| BAAI/bge-m3 làm ứng viên embedding | Đa ngôn ngữ và phù hợp tiếng Việt về mặt thiết kế | Chưa kết luận chất lượng; đo RAM/VRAM, latency và retrieval trước khi giữ |
-| OCR có điều kiện | Giảm chi phí và lỗi trên PDF vốn đã có text | Trang scan/bảng có thể vẫn cần rà soát thủ công |
-| Citation do backend dựng | Loại URL/trang do LLM phỏng đoán | Vẫn cần kiểm tra citation support, không chỉ ID hợp lệ |
-| Cấu hình model thay được | Phù hợp ngân sách 0 VND và phần cứng giới hạn | Thêm kỷ luật lưu version/config cho mỗi run |
-| Câu hỏi độc lập trước | Giảm lỗi query rewriting và phạm vi MVP | Hội thoại nhiều lượt được dời sang phiên bản sau |
-
-## Rủi ro cần xác minh sớm
-
-1. Nguồn chính thức UIT có đủ 10-20 tài liệu truy cập và được phép chia sẻ ở mức
-   nào; T1.2 sẽ lưu manifest và chỉ dẫn nguồn.
-2. Metadata về hiệu lực/đối tượng có thể không đầy đủ; giá trị chưa có bằng chứng
-   phải để trống, không suy từ năm ban hành.
-3. Python 3.14 có thể chưa tương thích PyTorch/PaddleOCR hoặc model stack; T1.3 sẽ
-   khóa phiên bản Python tương thích sau kiểm tra.
-4. RTX 3050 6 GB và RAM 12 GB có thể không chạy đồng thời embedding, reranker và
-   LLM lớn; baseline phải đo từng thành phần, hỗ trợ CPU hoặc dịch vụ free tier.
-5. PostgreSQL FTS mặc định có thể xử lý tiếng Việt chưa tốt; phải đánh giá bằng
-   truy vấn thực thay vì giả định hybrid luôn tốt hơn.
+Chi tiết quyết định/ba lỗi thật/failure còn lại: [interview](interview.md).

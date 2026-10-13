@@ -1,0 +1,242 @@
+{
+  "schema_version": "portfolio-media-v1",
+  "recorded_at": "2026-10-13T10:46:54.612Z",
+  "browser_channel": "msedge",
+  "browser_version": "155.0.4283.45",
+  "recording_sha256": "55f1b870f822b9e7d949da2c1f3e1a6227235a586b6b56b3ac4af0e3697f5903",
+  "recording_assertions": [
+    "intro automated WCAG A/AA scan",
+    "live final pipeline/catalog15",
+    "UI backend-default top4",
+    "DEV-SUMMER live HTTP200/expected status",
+    "DEV-SUMMER header/body request ID",
+    "DEV-SUMMER final hybrid/top4 requested",
+    "DEV-SUMMER cited passages present",
+    "DEV-SUMMER P1 original Unicode range/SHA",
+    "DEV-SUMMER P1 bounded already-public excerpt",
+    "DEV-SUMMER backend exact quoted rendering",
+    "DEV-SUMMER full chunk/provenance details remain closed",
+    "simple summer12/no small classes",
+    "citation opens matching source",
+    "official source URL present",
+    "D31 live HTTP200/expected status",
+    "D31 header/body request ID",
+    "D31 final hybrid/top4 requested",
+    "D31 cited passages present",
+    "D31 P1 original Unicode range/SHA",
+    "D31 P1 bounded already-public excerpt",
+    "D31 P2 original Unicode range/SHA",
+    "D31 P2 bounded already-public excerpt",
+    "D31 backend exact quoted rendering",
+    "D31 full chunk/provenance details remain closed",
+    "D31 both facts and conditions",
+    "D31 explicit caller source retained",
+    "multi automated WCAG A/AA scan",
+    "D46 live HTTP200/expected status",
+    "D46 header/body request ID",
+    "D46 final hybrid/top4 requested",
+    "D46 no invented citation",
+    "D46 full chunk/provenance details remain closed",
+    "no-answer automated WCAG A/AA scan",
+    "architecture automated WCAG A/AA scan",
+    "benchmark automated WCAG A/AA scan",
+    "limits automated WCAG A/AA scan",
+    "recorded duration 3–5min",
+    "no uncaught page errors",
+    "unchanged data/evaluation/v1/questions.json",
+    "unchanged data/evaluation/v1/evidence.json",
+    "unchanged data/evaluation/v1/freeze.json",
+    "unchanged configs/rag/final.json",
+    "unchanged data/manifests/t4_4_release_freeze.json",
+    "unchanged data/manifests/t4_4_release_freeze-held-out-run.json",
+    "unchanged data/manifests/t4_4_development_metrics.json",
+    "unchanged data/manifests/t4_4_held_out_metrics.json"
+  ],
+  "input_file_sha256": {
+    "data/evaluation/v1/questions.json": "4d0e89f448d3a3a31550272e99e057751ff21d29b45901b0d44f188f1cdac0f8",
+    "data/evaluation/v1/evidence.json": "d95ad8f9c79696dd2bef2f022c77c56f1b01a73fc0afbaff46869fa1edc5ce86",
+    "data/evaluation/v1/freeze.json": "3e73226256d886552eae14bc91a53a3dc32ec20a7dc6d724ef9b2f329609dac1",
+    "configs/rag/final.json": "58ac3865243c883fe4e72a894a1d8ca507850f93dfce594a704e15c298e886b6",
+    "data/manifests/t4_4_release_freeze.json": "1ef635939f310d2b16095335e5a399bbd927534bd0306f1612cf1b499325bd11",
+    "data/manifests/t4_4_release_freeze-held-out-run.json": "c87952c4836b866a0d1ec188d214df1fe30ab7349c2811e4ffcf2163c93d6dad",
+    "data/manifests/t4_4_development_metrics.json": "ce2212ba7910fa01d523ae93a55f3e27d8785336a5fafdaf9c86f3b0c0b4e451",
+    "data/manifests/t4_4_held_out_metrics.json": "aadcb286fe284b19d9a14f15bee206d108f01f9cf3066615f651f21af424a559"
+  },
+  "cases": [
+    {
+      "case_id": "DEV-SUMMER",
+      "http_status": 200,
+      "status": "answered",
+      "request_id": "ea6445c1-3870-45a5-b50f-a700f4fcca3d",
+      "failure_reason": null,
+      "elapsed_ms": 28016,
+      "response_sha256": "fac38f3ce79edb871aa79ccda16b6a3ff220792e3718d0dfa96e70305df9f3f2",
+      "source_spans": [
+        {
+          "passage_id": "P1",
+          "source_id": "S1",
+          "chunk_id": "uit_1393_2023:chunk:0001",
+          "char_start": 849,
+          "char_end": 1099,
+          "text_sha256": "acc452c7838bb56825caea062c8a39e2c91d4ed51b570a71933bda75db75e28a"
+        }
+      ]
+    },
+    {
+      "case_id": "D31",
+      "http_status": 200,
+      "status": "answered",
+      "request_id": "543d55d1-1a37-45bc-8ae3-4c7d653c88ad",
+      "failure_reason": null,
+      "elapsed_ms": 15050,
+      "response_sha256": "ee9dbc60c60b35ca5103fc7e247d41f2839437961ff284f9ab3c0e98b93cdaea",
+      "source_spans": [
+        {
+          "passage_id": "P1",
+          "source_id": "S1",
+          "chunk_id": "uit_1393_2023:chunk:0001",
+          "char_start": 671,
+          "char_end": 848,
+          "text_sha256": "977e2f44a256049f1cc9677bdf81e8aa0e7c63633e43d8f1f35c8e9aee8bfb40"
+        },
+        {
+          "passage_id": "P2",
+          "source_id": "S1",
+          "chunk_id": "uit_1393_2023:chunk:0001",
+          "char_start": 849,
+          "char_end": 1099,
+          "text_sha256": "acc452c7838bb56825caea062c8a39e2c91d4ed51b570a71933bda75db75e28a"
+        }
+      ]
+    },
+    {
+      "case_id": "D46",
+      "http_status": 200,
+      "status": "insufficient_evidence",
+      "request_id": "4a609e53-d0e5-4a48-b770-566b715b08a5",
+      "failure_reason": "no_matching_evidence",
+      "elapsed_ms": 1818,
+      "response_sha256": "575eb5d724000e5438b2bc206ab70b30abcb0cd3a7641303332e4bbd087d9989",
+      "source_spans": []
+    }
+  ],
+  "scenes": [
+    {
+      "id": "intro",
+      "title": "Bài toán và phạm vi",
+      "start_seconds": 0
+    },
+    {
+      "id": "workspace",
+      "title": "UI thực tế / local development",
+      "start_seconds": 18.93
+    },
+    {
+      "id": "simple",
+      "title": "Câu đơn giản: học kỳ hè",
+      "start_seconds": 34.01
+    },
+    {
+      "id": "source",
+      "title": "Mở citation tới nguồn và trang",
+      "start_seconds": 74.1
+    },
+    {
+      "id": "multi",
+      "title": "D31: hai nghĩa vụ / hai điều khoản",
+      "start_seconds": 92.17
+    },
+    {
+      "id": "no-answer",
+      "title": "D46: văn bản không có bằng chứng",
+      "start_seconds": 131.28
+    },
+    {
+      "id": "architecture",
+      "title": "Kiến trúc thực tế",
+      "start_seconds": 153.88
+    },
+    {
+      "id": "benchmark",
+      "title": "M4: kết quả thật và mẫu số",
+      "start_seconds": 182.5
+    },
+    {
+      "id": "limits",
+      "title": "Trade-offs và remaining failures",
+      "start_seconds": 214
+    }
+  ],
+  "assets": {
+    "docs/assets/demo-answer.png": {
+      "sha256": "7e99358d5f69917303ddab826caa1fe4f9661a7fe506bd3bfce33c999c87d4f2",
+      "size_bytes": 388445,
+      "width": 1440,
+      "height": 900,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "duration_seconds": 0.0,
+      "frame_rate": "25/1",
+      "audio_streams": 0
+    },
+    "docs/assets/demo-source.png": {
+      "sha256": "549702f8d0a01688416fa30cd877a37b4b0024afa5508b091839d880127ebf2e",
+      "size_bytes": 113263,
+      "width": 1440,
+      "height": 900,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "duration_seconds": 0.0,
+      "frame_rate": "25/1",
+      "audio_streams": 0
+    },
+    "docs/assets/demo-workspace.png": {
+      "sha256": "071d843be36bb1fc15c513fe4eacbc071c12c415f1e5a9dcca828ca29eb449f1",
+      "size_bytes": 87072,
+      "width": 1440,
+      "height": 900,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "duration_seconds": 0.0,
+      "frame_rate": "25/1",
+      "audio_streams": 0
+    },
+    "docs/assets/demo-no-answer.png": {
+      "sha256": "9602c100b7ccac15b3ceeb2d2164ed7baf3870ecc79dafa73f112aa5856cde0d",
+      "size_bytes": 68402,
+      "width": 1440,
+      "height": 900,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "duration_seconds": 0.0,
+      "frame_rate": "25/1",
+      "audio_streams": 0
+    },
+    "docs/assets/regularag-demo.mp4": {
+      "sha256": "de4240a200bc18faf1e67bfb62311567cb76cd66321883f9cec00316221d67a5",
+      "size_bytes": 1801612,
+      "width": 1440,
+      "height": 900,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "duration_seconds": 240.6,
+      "frame_rate": "15/1",
+      "audio_streams": 0
+    },
+    "docs/assets/architecture.svg": {
+      "sha256": "ce26d47c2cbb64440c1ee45ba9e4d7ec7c7d80fa97a0e3713551578af9135b0f",
+      "size_bytes": 5560
+    }
+  },
+  "live_development_requests": 3,
+  "new_held_out_inference_requests": 0,
+  "response_interception": false,
+  "voice_over": false,
+  "public_excerpt_ids": [
+    "class_size",
+    "summer"
+  ],
+  "answer_image_origin": "Actual continuous footage at 114s",
+  "conditions": "Live development browser capture; unchanged inference/config/gold. M4 metrics are historical Windows source-bound measurements, not Linux video timings.",
+  "publication_scope": "Only cited short spans contained in existing class_size/summer curated excerpts; full chunk/provenance/PDF panels remain closed."
+}

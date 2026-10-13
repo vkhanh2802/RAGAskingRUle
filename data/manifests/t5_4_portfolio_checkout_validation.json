@@ -1,0 +1,34 @@
+{
+  "schema_version": "portfolio-validation-v1",
+  "checked_at": "2026-10-13T12:57:50.765248+00:00",
+  "passed": true,
+  "assertions": [
+    "public media SHA/dimensions/codec/duration verified",
+    "entire MP4 decodes without error / faststart / duration3–5min",
+    "bound dataset/config/M4 metrics/freeze/ledger content unchanged; only Git CRLF/LF equivalence",
+    "portfolio benchmark numerators/denominators/p95 match frozen authoritative metrics",
+    "89 local document/media links and HTML anchors resolve"
+  ],
+  "media_manifest_sha256": "088ed3757cff20e49f082cefd9a244235d429eb6165716ab948b9d4cc24a275e",
+  "video_sha256": "de4240a200bc18faf1e67bfb62311567cb76cd66321883f9cec00316221d67a5",
+  "video_duration_seconds": 240.6,
+  "local_links_checked": 89,
+  "new_held_out_inference_requests": 0,
+  "text_checkout_line_endings_only": [
+    "data/evaluation/v1/questions.json",
+    "data/evaluation/v1/evidence.json",
+    "data/evaluation/v1/freeze.json",
+    "data/manifests/t4_4_release_freeze.json",
+    "data/manifests/t4_4_development_metrics.json",
+    "data/manifests/t4_4_held_out_metrics.json"
+  ],
+  "conditions": "Git staged index exported with process-local core.autocrlf=false into approved Temp; static portfolio/media/fact checks without .env, raw PDF/OCR/cache or models. Original M4 exact source/hash guards are not normalized or bypassed.",
+  "negative_control": {
+    "scope": "Only the isolated Temp export, after its positive LF check",
+    "changed_field": "t4_4_held_out_metrics.json run_id",
+    "observed": "AssertionError: bound evaluation input drift: data/manifests/t4_4_held_out_metrics.json",
+    "expected_rejection_passed": true,
+    "original_workspace_inputs_changed": false,
+    "new_model_inference_requests": 0
+  }
+}

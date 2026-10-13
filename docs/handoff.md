@@ -2,20 +2,25 @@
 
 ## Hiện trạng
 
-- Milestone: M2/M3/T4.1–T4.4/M4/T5.1earlyUI/T5.2/T5.3 completed;
-  held-outquality targets chưađạt, M5 cònT5.4portfolio/video/interview.
-- Task vừa hoàn thành: T5.3Docker/Compose/wheel/setup/localdeployment8001vàGitHubActions2jobsgreen;
- 387tests/13UI. M4test vẫn19/28correct/taskcitation29/108/reject0/7.
-- Task tiếp theo: T5.4; qualitybacklog cần evidence/testset mới.
+- Milestone: M2/M3/T4.1–T4.4/M4/T5.1earlyUI/T5.2/T5.3/T5.4/M5 completed;
+  portfolio delivery có đủ artifact/checks, held-outquality targets chưa đạt.
+- Task vừa hoàn thành: T5.4README/architecture/images/240.6srealcaptionedvideo/offlineslides/
+  interview/CV;46recording/21browser/92final links/387pytest/13UI. M4test vẫn19/28correct/
+  taskcitation29/108/reject0/7; `docs/portfolio-review.md`.
+- Tiếp theo: người dùng rehearsal/CV theo đóng góp thực tế; qualitybacklog cần
+  development/evidence version và independent testset mới, không tune exposedT01–T40.
 - Git: T3.3 `3407c07`,T3.4 `040dd30`,T4.1 `e8cc367`,UI `61f437f`,GPA `01ecdbe`;
   T4.2 `9987bca`;T4.3 `d18cbe4`;T4.4 `221ee6f`;T5.2`d5ddd5a`;T5.3feature`da840c7`,
-  closuredocscommit sauhostedCI, mãcuối xem `git log -1`.
+  closure`33653a3`;T5.4commit sau finalgates, mãchốt xem `git log -1`.
   Theo yêu cầu người dùng, mỗi bước hoàn tất kiểm chứng phải commit rồi báo mã/kết quả;
   quy tắc lưu trong `AGENTS.md`.
 - Runtime: DockerDesktoplocaldeployment **http://127.0.0.1:8001/**,servicesregularag-api-1/
   regularag-db-1healthy,pinnedPG17/originalDBvolume/namedHFCacheroot,finalmodelconfig/tracev1.
   Composeprofileapp runbookREADME; native8000/Python25460 làT5.2historicalentrypoint cầnverifyPID
-  trướcstop/restart. Ownedfreshproofprojectports55432/8002/DBvolume đãcleanup,suppliedhostassets giữ.
+   trướcstop/restart. Ownedfreshproofprojectports55432/8002/DBvolume đãcleanup,suppliedhostassets giữ.
+- Windows host nativeDBchecks: temporary process **PGHOSTADDR=127.0.0.1** và
+  **PGCONNECT_TIMEOUT=5** tránh localhostconnectionwait quan sátT5.4; không đổi.env/DSN.
+  Chạy Pythonchecks tuần tự; full387 vàvalidators đạt, API đãrestorehealthy/17startupchecks.
 
 ## Đã thực hiện
 
@@ -490,4 +495,44 @@
   localDockerDesktop,publicpaidconditionalrate-limitkhôngapplicable. NextT5.4/M5pending.
 - Ownedfreshproofcontainers/network/DBvolume cleanedup;originaldatabase/cache anddeploy8001 giữ.
   NativeT5.2PIDmetadata làhistory khônggiếtblindly. CIprivatecredentials dùngtransienthelper
-  ởTemp, khôngstoreGHtokentrongrepo/logs; ghportablekhông làappdependency.
+   ởTemp, khôngstoreGHtokentrongrepo/logs; ghportablekhông làappdependency.
+
+## T5.4 / M5 — Portfolio completed
+
+- README problem/scope/coverage/currentarchitecture/metrics/setup/failures/trade-offs;
+  `docs/assets/architecture.svg`, actualnativeUIimages và`regularag-demo.mp4`.
+- Video **4:00.6/1440×900/15fps/H.264/yuv420p/faststart**, captionsvi/noaudio,
+  continuousliveMSedge155.0.4283.45/Playwright;3known developmentrequests,0testinference.
+  DEV-SUMMER→summer12/nosmallclasses;D31→min70+summer12;D46→insufficient/no_matching_evidence.
+  Citation opensmatching1393source/PDF1–2/URL; fullPDF/chunk/exportJSONpanels không mở.
+- Publicshortspans177+250chars từexistingclass_size/summercuratedevidence; no rawPDF/OCR/
+  weights/modeltraces/secrets. Answerimageactualframe114s, originals/rawfootageignored.
+  `t5_4_portfolio_media.json` assetsSHA/browser/scenes/requestIDs/spanhashes/inputfilehashes.
+- 46recordingchecks,21offlinebrowserchecks/keyboard/mobile/A/AAscans/HTML5playback,
+  wholeMP4decode/frozenfacts pass; baseline88links/final92links córeports riêng.
+- `docs/portfolio.html` offline5slides;`docs/portfolio-demo.md` chapters/mediareproduction;
+  `docs/interview.md` 5minoverview/18minagenda/3decisions/3realfixes/1remainingfailure/CV.
+  Presentationbudgets/artifacts verified, không independentlyassessedhumanpresentation.
+- `scripts/record_portfolio.cjs` optionalPlaywright/axe+MSedge, localhostonly/newignoredpath,
+  noresponseinterception/sourcefulltextpublication;`scripts/check_portfolio.py` static/media/
+  links/frozenfacts andexplicitfirstexport;`check_portfolio_browser.cjs` offlineonly/noModelcalls.
+  OptionalFFmpeg/FFprobe/NodeQA alreadyavailable, apprequirements.lock không thêmdependency.
+- Python/localgate failures giữ: initialmemoryhypothesis khôngproof; faulthandler tại
+  psycopg.connect DBfixture/localhost. TemporaryIPv4/timeout fixedoperationalpath;
+  targeted1passed11.73s→full387passed73.74s/13UI/Ruff200. No.env/credentials/datachanges.
+  APItemporarystop→up--waithealthy,`t5_4_restored_container_checks.json`17model-freechecks.
+  Browserhelper hashchange/ownedcontext errors retained ở`t5_4_pilot_failures.json`.
+- `t5_4_dataset_integrity.json`: original100/72spans/49chunks/legacy30/19/d577SHA;
+  `t5_4_publication_snapshot.json`:15/307/307FTS/15unchanged/0unfinished/103approved/
+  40native/45excluded, content/model/quality/instructionguards pass.
+- M4historicalWindowsmeasurements vẫn47/47dev/19of28test/29of108taskcites/reject0of7/
+  axes0of20/p9532.707s. Allsource/config/gold/reviews/freeze/ledger/failedtestcases preserved;
+  no exposedtesttuning,0newtest/global40. T5.4footageLinuxlatency khôngrelabelsM4metrics.
+- T5.4commit local theoAGENTS; T5.3explicitpushauthorization/hostedCIproof giữởpriorcommits.
+  T5.4 không tựpush/externalhosting. `docs/portfolio-review.md` acceptance; M5deliverycomplete,
+  qualitytargets chưađạt vàqualityiteration cầnindependenttest/evidenceversionmới.
+- Portability: `t5_4_portfolio_text_bindings.json` sealexactrecordedbytes→CRLF/LF-only
+  presentationreader. Gitindex LF export không.env/raw/cache/models đạt89links/decode,
+  intentionalmetadatachange ởTemp rejected; `t5_4_portfolio_checkout_validation.json`.
+  Original8rawinputSHA/M4code/source/goldfreeze/runnerguards không đổi. `check_portfolio.py`
+  static mới dùngsealedtextregistry; đây khônglàhistoricalinferencebyte-normalization.

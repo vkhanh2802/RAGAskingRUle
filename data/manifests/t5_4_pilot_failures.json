@@ -1,0 +1,39 @@
+{
+  "schema_version": "portfolio-pilot-failures-v1",
+  "failures": [
+    {
+      "stage": "offline browser checker",
+      "failed_check": "keyboard ArrowRight changes slide",
+      "observed": "URL hash changed; immediate isVisible assertion ran before hashchange DOM transition completed.",
+      "fix": "Await exact target slide visibility after URL transition; preserve expected counter/keyboard/navigation checks.",
+      "original_evidence": "Ignored data/processed/t5-4-portfolio-browser-v1/failed-check.json and original terminal result retained.",
+      "new_model_inference_requests": 0
+    },
+    {
+      "stage": "offline browser accessibility checker",
+      "failed_check": "AxeBuilder requires explicit browser context",
+      "observed": "Please use browser.newContext(); browser.newPage creates an owned context that prevents axe's additional page operation.",
+      "fix": "Create an explicit browser.newContext and then context.newPage; keep all A/AA checks enabled.",
+      "original_evidence": "Ignored data/processed/t5-4-portfolio-browser-v2/failed-check.json and screenshot retained.",
+      "new_model_inference_requests": 0
+    },
+    {
+      "stage": "parallel local Python verification",
+      "failed_check": "pytest and read-only corpus/dataset validators exceeded tool timeouts",
+      "observed": "No completion/stdout: pytest180s, dataset validator120s, publication validator120s. No test success was inferred from these attempts. Host free physical memory was about1.4GiB afterwards; API/DB were still healthy.",
+      "recovery": "Run Python checks sequentially with a longer timeout; temporarily stop the owned API container to reduce memory pressure, then restore healthy deployment. Keep original DB/cache and all gold/evidence bindings.",
+      "conditions": "Initial resource-pressure hypothesis was not treated as proof. A sequential600s attempt and two focused90s attempts also stalled; faulthandler showed psycopg.wait_conn in database_settings fixture line19. Native diagnostic with connect_timeout5 returned SELECT1.",
+      "subsequent_diagnosis": "Windows host libpq connection to localhost did not complete; explicit PGHOSTADDR127.0.0.1 plus PGCONNECT_TIMEOUT5 avoids the stalled address path. Exact network root cause beyond the observed connection wait is not claimed.",
+      "verified_recovery": "Previously stalled ablation test passed in11.73s, then full387tests passed in73.74s with temporary process environment only. Frozen100/corpus read-only validators passed; API restarted healthy and17model-free startup checks passed.",
+      "new_model_inference_requests": 0
+    }
+  ],
+  "presentation_refinements": [
+    {
+      "issue": "Source-focused D31 viewport after citation click clips the lower answer in the README screenshot.",
+      "resolution": "Choose unchanged actual video frame at 114s, showing both quote blocks, for answer image; retain the original source-focused image separately.",
+      "conditions": "No reconstructed answer, new model call, data/gold/config/source change or latency edit. Raw footage/screenshots remain ignored."
+    }
+  ],
+  "new_held_out_inference_requests": 0
+}

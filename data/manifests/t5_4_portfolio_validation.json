@@ -1,0 +1,18 @@
+{
+  "schema_version": "portfolio-validation-v1",
+  "checked_at": "2026-10-13T11:49:24.614876+00:00",
+  "passed": true,
+  "assertions": [
+    "public media SHA/dimensions/codec/duration verified",
+    "entire MP4 decodes without error / faststart / duration3–5min",
+    "dataset/config/M4 metrics/freeze/claimed ledger bytes unchanged",
+    "portfolio benchmark numerators/denominators/p95 match frozen authoritative metrics",
+    "88 local document/media links and HTML anchors resolve"
+  ],
+  "media_manifest_sha256": "6c88619cba4926e1ca6df94c20da6ec31a1a9ef4f3982f016b4c6df0640b6593",
+  "video_sha256": "de4240a200bc18faf1e67bfb62311567cb76cd66321883f9cec00316221d67a5",
+  "video_duration_seconds": 240.6,
+  "local_links_checked": 88,
+  "new_held_out_inference_requests": 0,
+  "conditions": "Static portfolio/media/frozen-fact checks; no inference or independent human presentation/quality review."
+}

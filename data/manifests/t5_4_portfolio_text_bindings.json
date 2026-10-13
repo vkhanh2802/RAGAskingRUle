@@ -1,0 +1,16 @@
+{
+  "schema_version": "portfolio-text-checkout-v1",
+  "media_manifest_lf_sha256": "088ed3757cff20e49f082cefd9a244235d429eb6165716ab948b9d4cc24a275e",
+  "lf_sha256": {
+    "data/evaluation/v1/questions.json": "3c8e26ebf640ed1c164e5bf47a9b256fd96a074083c71b9f3b0ffe0fa4efd04f",
+    "data/evaluation/v1/evidence.json": "3504480204b95eb1b5f4c3c4019276e954eda4c144f6c6af23f1a366d6246e1f",
+    "data/evaluation/v1/freeze.json": "7510d9fc91bb9ddef3048c88beecd91e82a51f4237803f7a1d28c1133191f6ee",
+    "configs/rag/final.json": "58ac3865243c883fe4e72a894a1d8ca507850f93dfce594a704e15c298e886b6",
+    "data/manifests/t4_4_release_freeze.json": "7ea7eca58236854521026abc2ef828d3eae744fdbfa96949b98760a96a7be309",
+    "data/manifests/t4_4_release_freeze-held-out-run.json": "c87952c4836b866a0d1ec188d214df1fe30ab7349c2811e4ffcf2163c93d6dad",
+    "data/manifests/t4_4_development_metrics.json": "0ad8195b867a193207440769e397a3ff5ee91039ccf53e1e3e940b55d258fe6c",
+    "data/manifests/t4_4_held_out_metrics.json": "5e7da854b392fe3605dbb8ae08c91c40c4a6cc52244199199a346dd05e59fd21",
+    "docs/assets/architecture.svg": "ce26d47c2cbb64440c1ee45ba9e4d7ec7c7d80fa97a0e3713551578af9135b0f"
+  },
+  "conditions": "Presentation-reader-only Git CRLF/LF equivalence, sealed from exact recording bytes. Original raw hashes/freezes/runner source guards remain unchanged; not historical inference reproduction."
+}

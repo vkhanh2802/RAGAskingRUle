@@ -697,29 +697,44 @@ M4frozenmeasurements/guards giữ,conditionalpaidpublicratelimitkhôngapplicable
 
 #### README
 
-- [ ] Bài toán, phạm vi, ảnh/GIF demo.
-- [ ] Architecture diagram, data sources.
-- [ ] Hướng dẫn chạy, phần cứng, config.
-- [ ] Evaluation methodology và benchmark thật.
-- [ ] Failure cases, limitations.
-- [ ] Trade-off chất lượng, latency, chi phí.
+- [x] Bài toán, phạm vi, ảnh/GIF demo.
+- [x] Architecture diagram, data sources.
+- [x] Hướng dẫn chạy, phần cứng, config.
+- [x] Evaluation methodology và benchmark thật.
+- [x] Failure cases, limitations.
+- [x] Trade-off chất lượng, latency, chi phí.
 
 #### Video 3–5 phút
 
-- [ ] Giới thiệu bài toán.
-- [ ] Câu đơn giản và mở nguồn.
-- [ ] Câu cần nhiều điều khoản.
-- [ ] Câu không có đáp án.
-- [ ] Kiến trúc và kết quả benchmark.
+- [x] Giới thiệu bài toán.
+- [x] Câu đơn giản và mở nguồn.
+- [x] Câu cần nhiều điều khoản.
+- [x] Câu không có đáp án.
+- [x] Kiến trúc và kết quả benchmark.
 
 #### Phỏng vấn/CV
 
-- [ ] Chuẩn bị 3 quyết định thiết kế quan trọng.
-- [ ] Chuẩn bị 3 lỗi thật và cách sửa.
-- [ ] Chuẩn bị 1 ví dụ hệ thống còn thất bại.
-- [ ] Viết CV bullet với kết quả thực đo.
+- [x] Chuẩn bị 3 quyết định thiết kế quan trọng.
+- [x] Chuẩn bị 3 lỗi thật và cách sửa.
+- [x] Chuẩn bị 1 ví dụ hệ thống còn thất bại.
+- [x] Viết CV bullet với kết quả thực đo.
 
 **Nghiệm thu M5:** repository, demo, video, benchmark nhất quán; trình bày overview trong 5 phút và đào sâu trong 15–20 phút.
+
+**Hoàn tất T5.4/M5 2026-10-13:** README portfolio/actual architecture SVG/4demoimages,
+captioned continuous live MP4 **240.6s/1440×900/H.264**, three known development requests:
+summer12/source citation,D31two clauses,D46noanswer.46recordingchecks/21offlinebrowserchecks/
+actualHTML5playback/fullMP4decode/92final local links đạt. `docs/portfolio.html` offline,
+`docs/portfolio-demo.md`, `docs/interview.md`: overview5min/deepdive18min,3decisions/
+3realfixes/remainingunsupportedfailure/measuredCV.387pytest/13UI/Ruff200/frozen100/
+corpus15/307guards đạt; Windowslocalhostlibpqstall recovered bằng temporaryIPv4/timeout,
+API/DBhealthy8001/17model-freeHTTPchecks. Failedchecks/rawfootage retained; noappdeps/
+inference/config/gold changes,0newheldoutinference/global40. OriginalM4heldout19/28,
+29/108taskcites/reject0/7/p9532.707s vàqualitytargets unmet hiểnthị rõ.
+M5làportfolio delivery, không independenthumanpresentationassessment/productionquality.
+Acceptance: `docs/portfolio-review.md` vàID/hash-onlyt5_4manifests.
+Gitindex LF export đạt89links/media checks; sealedCRLF/LF-onlypresentationregistry
+vànegative metadata-driftcontrol verified, không normalize originalM4code/sourceguards.
 
 ---
 

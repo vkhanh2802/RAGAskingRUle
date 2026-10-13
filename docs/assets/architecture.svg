@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 920" role="img" aria-labelledby="title description">
+  <title id="title">RegulaRAG — kiến trúc thực tế</title>
+  <desc id="description">Nguồn UIT kiểm SHA và review trang, approved chunks trong PostgreSQL; scope và filters, E5 và FTS, RRF, freshness, cross-encoder và obligation reservation; Qwen chọn passage IDs và backend dựng citation. Request ID và bounded trace quan sát toàn pipeline. API và native UI chung server.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <style>
+      text{font-family:'Segoe UI',Arial,sans-serif;fill:#1e293b} .title{font-size:30px;font-weight:700}.label{font-size:17px;font-weight:700;fill:#2563eb}.heading{font-size:22px;font-weight:700}.body{font-size:19px}.small{font-size:17px;fill:#475569}.box{fill:#fff;stroke:#cbd5e1;stroke-width:1.5;rx:14}.accent{fill:#eff6ff;stroke:#93c5fd;stroke-width:1.5;rx:14}.edge{fill:none;stroke:#64748b;stroke-width:2;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1440" height="920" fill="#f8fafc" rx="20"/>
+  <text x="48" y="57" class="title">RegulaRAG · source-bound từ PDF đến citation</text>
+  <text x="48" y="88" class="small">Kiến trúc hiện tại · API/UI same-origin · CPU models · không tự xác nhận hiệu lực pháp lý</text>
+  <text x="48" y="133" class="label">01 / OFFLINE PUBLICATION — REVIEW TRƯỚC KHI INDEX</text>
+  <rect x="48" y="154" width="295" height="110" class="box"/>
+  <text x="70" y="187" class="heading">Nguồn chính thức UIT</text>
+  <text x="70" y="218" class="body">Manifest · source SHA-256</text>
+  <text x="70" y="245" class="small">Dates / relations có evidence</text>
+  <rect x="390" y="154" width="460" height="110" class="box"/>
+  <text x="412" y="187" class="heading">Parse / OCR có điều kiện → review</text>
+  <text x="412" y="218" class="body">Trang / layout / post-edit bind hash</text>
+  <text x="412" y="245" class="small">Structured chunks · excluded pages / regions</text>
+  <rect x="900" y="154" width="490" height="110" class="accent"/>
+  <text x="922" y="187" class="heading">PostgreSQL 17 + pgvector</text>
+  <text x="922" y="218" class="body">15 ready documents / 307 chunks + FTS</text>
+  <text x="922" y="245" class="small">Atomic ingestion · quality/model/publication gates</text>
+  <path d="M343 210H386 M850 210H896" class="edge"/>
+  <text x="48" y="316" class="label">02 / REQUEST — FILTERS GIỮ NGUYÊN, MODEL CHỈ CHỌN ID</text>
+  <rect x="48" y="340" width="295" height="110" class="accent"/>
+  <text x="70" y="373" class="heading">Native web UI / FastAPI</text>
+  <text x="70" y="405" class="body">Query + explicit scope / filters</text>
+  <text x="70" y="433" class="small">Clarify / task guards trước retrieval</text>
+  <rect x="390" y="340" width="460" height="110" class="box"/>
+  <text x="412" y="373" class="heading">E5 dense + PostgreSQL FTS</text>
+  <text x="412" y="405" class="body">Shared filters / references trước LIMIT</text>
+  <text x="412" y="433" class="small">RRF k60 · dedup · freshness + updates</text>
+  <rect x="900" y="340" width="490" height="110" class="box"/>
+  <text x="922" y="373" class="heading">CPU cross-encoder → guarded order</text>
+  <text x="922" y="405" class="body">20 candidates · obligation reservation · top4</text>
+  <text x="922" y="433" class="small">Latest / unchanged-clause views · context guards</text>
+  <path d="M343 395H386 M850 395H896 M970 265V290H775V332" class="edge"/>
+  <rect x="900" y="502" width="490" height="120" class="box"/>
+  <text x="922" y="537" class="heading">Budgeted context / passage registry</text>
+  <text x="922" y="568" class="body">P# · Unicode offsets / SHA / dependencies</text>
+  <text x="922" y="598" class="small">Input ≤2304 tokens · atomic conditions giữ đủ</text>
+  <rect x="390" y="502" width="460" height="120" class="box"/>
+  <text x="412" y="537" class="heading">Qwen2.5-1.5B GGUF / llama.cpp</text>
+  <text x="412" y="568" class="body">Strict JSON: chọn tối đa 4 passage IDs</text>
+  <text x="412" y="598" class="small">CPU · output64 · bounded retry1 · không gold</text>
+  <rect x="48" y="502" width="295" height="120" class="accent"/>
+  <text x="70" y="537" class="heading">Backend resolve / render</text>
+  <text x="70" y="568" class="body">Kiểm ID / range / hash</text>
+  <text x="70" y="598" class="small">Nguyên văn [S#] + nguồn / trang</text>
+  <path d="M1145 451V495 M900 561H858 M390 561H351 M195 501V456" class="edge"/>
+  <rect x="48" y="667" width="1342" height="82" class="accent"/>
+  <text x="70" y="700" class="heading">Request UUID → X-Request-ID / body → bounded JSON trace → inspect_trace.py</text>
+  <text x="70" y="730" class="body">Stages / actual ranks / PIDs / usage · không query / answer / source text / prompt / secrets trong trace</text>
+  <rect x="48" y="776" width="655" height="100" class="box"/>
+  <text x="70" y="810" class="heading">Delivery: installed wheel + native web assets</text>
+  <text x="70" y="843" class="body">Docker non-root / readonly · explicit migrate / cache / index</text>
+  <rect x="731" y="776" width="659" height="100" class="box"/>
+  <text x="753" y="810" class="heading">Evaluation: frozen60dev / 40test, một lượt test</text>
+  <text x="753" y="843" class="body">CI mocks models ≠ real answer quality · faithful ≠ relevant</text>
+</svg>

@@ -26,6 +26,7 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 | T4.4 / M4 | completed |20errorcases/3fixgroups;dev47/47correct/65of65facts/60of60taskcites;exactreleasefreeze→40test19/28correct/29of108taskcites;370tests/13Node/65browserassertions; `docs/error-analysis-review.md` | Held-outquality:reject0/7,clarificationaxes0/20,p9532.707s;chưa đạt chất lượng tổng quát | T5.2observability;qualitybacklog với evidence/dev/testversion mới,giữfailedheldout/freeze;commitstep |
 | T5.2 | completed |ServerUUID/header/bodyID→ContextVar→pipeline; boundedtracev1/CLI/stages/ranks/context/selection/usage;7contracts+liveHTTP đạt;383pytest/13Node/Ruff186; `docs/observability-review.md` | OptionalLangfuse/storage/rotation deferred; M4qualitylimits còn | T5.3Docker/CI/deployment;giữM4evidence vàcommitstep |
 | T5.3 | completed |PinnedDocker/wheel/API+UI/Composeapp-tools;fresh6migrations→15/307index→unchanged;deploy8001/31HTTPchecks;GitHubActions2jobsgreen/run38347533640/387pytest/13UI; `docs/container-deployment-review.md` | FullpublicationinputsngoàiGit/mannualreview;M4qualitylimitscòn;paidpublicN/A | T5.4READMEportfolio/architecture/demo/video/CV;commitstep |
+| T5.4 / M5 | completed |README/actualarchitecture/4images/240.6scontinuouslivevideo;46recording/21browser/playback/92final links;3design/3fixes/failure/CV/5minoverview18mindeepdive;387pytest/13UI/Ruff200; `docs/portfolio-review.md` | Không cho portfolio delivery; M4quality targets chưa đạt | Rehearsal/CV theo đóng góp thực tế; quality iteration cần evidence/development và independent test mới |
 
 ## Nhật ký kiểm chứng
 
@@ -478,3 +479,42 @@ Trạng thái hợp lệ: `pending`, `in_progress`, `blocked`, `completed`.
 - `t5_3_hosted_ci_validation.json`/localvalidation/HTTPchecks/pilotfailures/datasetintegrity
   publicIDmetadata,fullresponses/operatorartifactsignored. FeatureCIbindcommitda840c7;
   closuredocscommitafterverification. M4qualitylimitsgiữ; T5.3completed,nextT5.4/M5pending.
+
+### T5.4 / M5 — Portfolio / video / interview
+
+- Ngày2026-10-13. README portfolio: bài toán/scope, actual UI images, current architecture/
+  data coverage, setup/config/hardware, frozen methodology/benchmark và quality-latency-cost
+  trade-offs. `docs/architecture.md` bỏ stale Streamlit proposal; native FastAPI UI,
+  source-bound ingestion/FTS+E5/RRF/freshness/CE/obligation order/PID selector/backend citations.
+- MP4 **240.6s/1440×900/15fps/H.264/yuv420p/faststart**,1801612bytes, captions tiếng Việt,
+  không audio. Continuous live browser capture, không cắt loading; ba development requests:
+  summer12/no smallclasses, mở citation1393/PDF1–2, D31hai nghĩa vụ/min70+summer12,
+  D46missing99999→insufficient/no matching evidence. Không replay/mock model response.
+- 46recording checks/sixautomatedA/AAscans/request ID/source Unicode offsets/SHA/render/
+  caller filter/closedfulltextpanels/unchanged8bindings. Public4images chỉ short excerpts
+  `class_size`177chars/`summer`250chars already curated; answerimage actualframe114s,
+  source-focused image riêng; raw response/footage/browser screenshots ignored.
+- 21offlinebrowser checks/fiveslideA/AAscans/keyboard/navigation/mobile375nooverflow/
+  actualHTML5MP4playback; fullFFmpegdecode/baseline88links vàfinal92links đạt.
+  Versioned media metadata/SHA/cases/chapters vàstatic validation trong t5_4manifests.
+- `docs/portfolio.html` offline deck và `docs/portfolio-demo.md`; `docs/interview.md`
+  overview5min/deepdive18min/3design decisions/3realfixes(GPA/D42/D06)/remainingT24–30
+  unsupportedfailure/measuredCVbullets. Không independenthumanpresentationassessment.
+- 387pytest270unit/117DB pass **73.74s**,13Node/Ruffcheck-format200files;CI-styleoffline/
+  modeldownloadguard; knownStarlettewarning giữ. Frozen100/72spans/49chunks/legacy30/19
+  canonicalSHA d577... giữ; corpus15ready/307unique/307FTS/15unchanged/0unfinished,
+  103approved/40native/45excluded/source/model/quality/instruction checks đạt.
+- Retain checker hashchange/ownedcontext errors vàsource-focusedviewport refinement.
+  Python checks timeout parallel/serial; faulthandler xác định psycopg connectionwait
+  tạiDBfixture. Temporary **PGHOSTADDR127.0.0.1/PGCONNECT_TIMEOUT5** giúp targeted test
+  11.73s rồi fullsuite/validators đạt; không đổi.env/credentials/code/gold. API tạmstop
+  chẩn đoán, đãup--waithealthy8001;17model-freeHTTPstartupchecks đạt. Pilotfailures giữ.
+- M4still19/28correct/29of108taskcites/108of108faithful/reject0of7/axes0of20/p9532.707s.
+  No tuning từtest40exposed;T5.4newheldoutinference0/global40. Source/config/gold/freeze/
+  claimedledger/failedtestcases giữ, newpresentationtooling không là inference change.
+- T5.4/M5 completed về consistent portfolio delivery; qualitytargets chưa đạt vẫn rõ.
+  Gitcommit sau verified closure theoAGENTS; không automaticT5.4remote push/hosting.
+- Finalportablecheck: Gitindex LF export ởapprovedTemp→89links/video/frozenfactchecks
+  pass/no.env/rawcache/models; expected metadata-driftcontrol bị reject. Newpresentation-only
+  textbindingregistry seal từexactrecordedbytes, chỉCRLF/LFequivalence; originalrawSHA/
+  source/gold/freeze/runner guards giữ, khôngnormalizeinferencecode đểgiảM4reproduction.

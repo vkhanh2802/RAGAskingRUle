@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "base_url": "http://127.0.0.1:8001",
+  "real_development_rag": false,
+  "assertions": [
+    "health HTTP200",
+    "database/pgvector healthy",
+    "html HTTP200",
+    "packaged Vietnamese UI",
+    "javascript HTTP200",
+    "packaged module MIME",
+    "catalog HTTP200",
+    "final pipeline/catalog15",
+    "D01 request ID",
+    "D01 status",
+    "D01 body/header correlation",
+    "clarification axes",
+    "D02 request ID",
+    "D02 status",
+    "D02 body/header correlation",
+    "D03 request ID",
+    "D03 status"
+  ],
+  "cases": [
+    {
+      "case_id": "D01",
+      "http_status": 200,
+      "status": "needs_clarification",
+      "request_id": "26329846-5878-445e-83c4-ff8b17de84c5",
+      "failure_reason": "missing_scope"
+    },
+    {
+      "case_id": "D02",
+      "http_status": 200,
+      "status": "insufficient_evidence",
+      "request_id": "85ad9e55-f695-4cc5-ade6-46d6b72384e0",
+      "failure_reason": "outside_supported_scope"
+    },
+    {
+      "case_id": "D03",
+      "http_status": 422,
+      "status": null,
+      "request_id": "9f4b9e35-7c5d-40e5-8def-cfbd3cf41a45",
+      "failure_reason": null
+    }
+  ],
+  "held_out_inference_requests": 0,
+  "conditions": "Packaged startup/UI/trace/guard checks and optional development-only RAG. No held-out inference or claim of general accuracy; raw responses ignored."
+}
